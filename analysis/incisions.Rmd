@@ -1,0 +1,144 @@
+---
+title: "Supplementary materials for paper: Does similar ceramic incision morphology provide inference to a common toolkit?"
+author: "Robert Z. Selden, Jr."
+date: "19 May 2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Incision morphology
+
+```{r image, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# location of landmarks
+knitr::include_graphics('images/FigLM.jpg')
+fig.cap="Location of landmarks (blue) and equidistant semilandmarks (white)."
+```
+
+```{r loadsetwd, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# library(devtools)
+# devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
+library(geomorph)
+setwd(getwd())
+source('readmulti.csv.r')
+
+# Read .csv files
+setwd("./data")
+filelist <- list.files(pattern = ".csv")
+coords<-readmulti.csv(filelist)
+setwd("../")
+
+# read qualitative data
+qdata<-read.csv("qdata.csv",header=TRUE,row.names=1)
+qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
+```
+
+### Generalised Procrustes Analysis
+
+```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+Y.gpa<-gpagen(coords, PrinAxes = TRUE, print.progress = FALSE)
+
+# 3D GPA plot
+knitr::include_graphics('images/gpa3d.png')
+fig.cap="Results of generalized Procrustes analysis."
+
+# geomorph data frame
+gdf<-geomorph.data.frame(shape=Y.gpa$coords, size=Y.gpa$Csize, site=qdata$site, unit=qdata$unit, county=qdata$county) 
+csz<-Y.gpa$Csize # attribute for boxplot
+unt<-qdata$unit # attribute for boxplot
+# boxplot of incision (centroid) size by nfgt unit
+boxplot(csz~unt, 
+        main = "Centroid size of Caddo incisions by NFGT Unit",
+        names = c("AngelinaNF", "DavyCrockettNF", "SabineNF"),
+        xlab = "Unit",
+        ylab = "Centroid Size",
+        col = c("dodgerblue4","indianred4","tan3")
+        )
+```
+
+### Principal Components Analysis
+
+```{r pca, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# principal components analysis
+pca<-gm.prcomp(Y.gpa$coords)
+summary(pca)
+# set plot parameters
+site <- qdata$site
+pch.gps.site <- c(1,2,3,4,5,6,7)[as.factor(site)]
+unit <- qdata$unit
+pch.gps <- c(15,17,19)[as.factor(unit)]
+col.gps <- c("dodgerblue4","indianred4","tan3")[as.factor(unit)]
+
+# plotPCAbySite
+pca.plot1<-plot(pca,
+                pch = pch.gps.site)
+# plotPCAbyUnit
+pca.plot2<-plot(pca,
+               pch = pch.gps,
+               col = col.gps)
+```
+
+### Define models
+
+```{r define-models, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+fit.size<-procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizesite<-procD.lm(size ~ site, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizeunit<-procD.lm(size ~ unit, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizecounty<-procD.lm(size ~ county, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapesite<-procD.lm(shape ~ site, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapeunit<-procD.lm(shape ~ unit, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapecounty<-procD.lm(shape ~ county, data = gdf, print.progress = FALSE, iter = 9999)
+
+```
+
+### Size/Shape ~ Site/Unit/County?
+
+```{r unit, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# ANOVA: do incision sizes differ by site?
+anova(fit.sizesite)
+# ANOVA: do incision shapes differ by site?
+anova(fit.shapesite)
+# ANOVA: do incision sizes differ by unit?
+anova(fit.sizeunit)
+# ANOVA: do incision shapes differ by unit?
+anova(fit.shapeunit)
+# ANOVA: do incision sizes differ by county?
+anova(fit.sizecounty)
+# ANOVA: do incision shapes differ by county?
+anova(fit.shapecounty)
+```
+
+### Morphological disparity
+
+```{r m-disparity}
+# morphological disparity: does incision morphology display greater shape variation among individuals relative to site, unit, or county?
+# site
+morphol.disparity(fit.shapesite, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
+# unit
+morphol.disparity(fit.shapeunit, groups = qdata$unit, data = gdf, print.progress = FALSE, iter = 9999)
+# county
+morphol.disparity(fit.shapecounty, groups = qdata$county, data = gdf, print.progress = FALSE, iter = 9999)
+# morphological disparity: does incision morphology display greater size variation among individuals relative to site, unit, or county?
+# site
+morphol.disparity(fit.sizesite, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
+# unit
+morphol.disparity(fit.sizeunit, groups = qdata$unit, data = gdf, print.progress = FALSE, iter = 9999)
+# county
+morphol.disparity(fit.sizeunit, groups = qdata$unit, data = gdf, print.progress = FALSE, iter = 9999)
+```
+
+### Mean shapes
+
+```{r m-shapes}
+# subset landmark coordinates to produce mean shapes by site
+new.coords<-coords.subset(A = Y.gpa$coords, group = qdata$site)
+names(new.coords)
+# group shape means
+mean<-lapply(new.coords, mshape)
+# plot(mean$tn91)
+knitr::include_graphics('images/site-meanshape.png')
+fig.cap="Mean shapes for Caddo incisions from sites on the National Forests and Grasslands in Texas."
+# end of code
+```
