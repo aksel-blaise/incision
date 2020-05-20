@@ -527,3 +527,21 @@ knitr::include_graphics('images/site-meanshape.png')
 fig.cap="Mean shapes for Caddo incisions from sites on the National Forests and Grasslands in Texas."
 # end of code
 ```
+
+### Acknowledgments
+
+I extend my gratitude to the Caddo Tribe of Oklahoma and the National
+Forests and Grasslands in Texas for the requisite permissions and access
+needed to generate the scans of the Caddo incisions, and to the National
+Center for Preservation Technology and Training for access to the
+optical profilometer.
+
+### Funding
+
+Components of this analytical work flow were developed and funded by a
+Preservation Technology and Training grant (P14AP00138) to the author
+from the National Center for Preservation Technology and Training, and
+funding for this project was provided by a grant to the author from the
+Caddo Tribe of Oklahoma.
+
+### References cited
