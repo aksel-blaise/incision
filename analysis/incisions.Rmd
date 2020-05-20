@@ -25,7 +25,7 @@ setwd(getwd())
 source('readmulti.csv.r')
 
 # Read .csv files
-setwd("./data")
+setwd("./data2")
 filelist <- list.files(pattern = ".csv")
 coords<-readmulti.csv(filelist)
 setwd("../")
@@ -33,13 +33,18 @@ setwd("../")
 # read qualitative data
 qdata<-read.csv("qdata.csv",header=TRUE,row.names=1)
 qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
+
+
+#delete this section
+Y.gpa<-gpagen(coords, PrinAxes = TRUE, print.progress = FALSE)
+plot(Y.gpa)
 ```
 
 ### Generalised Procrustes Analysis
 
 ```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 Y.gpa<-gpagen(coords, PrinAxes = TRUE, print.progress = FALSE)
-
+plot(Y.gpa)
 # 3D GPA plot
 knitr::include_graphics('images/gpa3d.png')
 fig.cap="Results of generalized Procrustes analysis."
@@ -65,19 +70,29 @@ boxplot(csz~unt,
 pca<-gm.prcomp(Y.gpa$coords)
 summary(pca)
 # set plot parameters
+# for site
 site <- qdata$site
-pch.gps.site <- c(1,2,3,4,5,6,7)[as.factor(site)]
+pch.gps.site <- c(1:14)[as.factor(site)]
+# for unit
 unit <- qdata$unit
 pch.gps <- c(15,17,19)[as.factor(unit)]
 col.gps <- c("dodgerblue4","indianred4","tan3")[as.factor(unit)]
+# for county
+county <- qdata$county
+pch.gps.cty <- c(1:5)[as.factor(county)]
 
 # plotPCAbySite
 pca.plot1<-plot(pca,
                 pch = pch.gps.site)
+
 # plotPCAbyUnit
 pca.plot2<-plot(pca,
                pch = pch.gps,
                col = col.gps)
+
+# plotPCAbyCounty
+pca.plot1<-plot(pca,
+                pch = pch.gps.cty)
 ```
 
 ### Define models
@@ -114,15 +129,11 @@ anova(fit.shapecounty)
 
 ```{r m-disparity}
 # morphological disparity: does incision morphology display greater shape variation among individuals relative to site, unit, or county?
-# site
-morphol.disparity(fit.shapesite, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
 # unit
 morphol.disparity(fit.shapeunit, groups = qdata$unit, data = gdf, print.progress = FALSE, iter = 9999)
 # county
 morphol.disparity(fit.shapecounty, groups = qdata$county, data = gdf, print.progress = FALSE, iter = 9999)
 # morphological disparity: does incision morphology display greater size variation among individuals relative to site, unit, or county?
-# site
-morphol.disparity(fit.sizesite, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
 # unit
 morphol.disparity(fit.sizeunit, groups = qdata$unit, data = gdf, print.progress = FALSE, iter = 9999)
 # county

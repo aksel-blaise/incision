@@ -32,7 +32,7 @@ setwd(getwd())
 source('readmulti.csv.r')
 
 # Read .csv files
-setwd("./data")
+setwd("./data2")
 filelist <- list.files(pattern = ".csv")
 coords<-readmulti.csv(filelist)
 setwd("../")
@@ -40,13 +40,18 @@ setwd("../")
 # read qualitative data
 qdata<-read.csv("qdata.csv",header=TRUE,row.names=1)
 qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
+
+
+#delete this section
+Y.gpa<-gpagen(coords, PrinAxes = TRUE, print.progress = FALSE)
+plot(Y.gpa)
 ```
 
 ### Generalised Procrustes Analysis
 
 ``` r
 Y.gpa<-gpagen(coords, PrinAxes = TRUE, print.progress = FALSE)
-
+plot(Y.gpa)
 # 3D GPA plot
 knitr::include_graphics('images/gpa3d.png')
 ```
@@ -81,46 +86,59 @@ summary(pca)
 ```
 
     ## Importance of components: 
-    ##                               PC1        PC2         PC3          PC4
-    ## Tips variance          0.04682011 0.01123775 0.001716247 0.0005946012
-    ## Proportion of variance 0.76242870 0.18299790 0.027947738 0.0096826148
-    ## Cumulative Proportion  0.76242870 0.94542660 0.973374340 0.9830569547
+    ##                               PC1         PC2        PC3          PC4
+    ## Tips variance          0.04003992 0.006476805 0.00152295 0.0004389225
+    ## Proportion of variance 0.81030314 0.131073573 0.03082051 0.0088826429
+    ## Cumulative Proportion  0.81030314 0.941376710 0.97219722 0.9810798675
     ##                                 PC5          PC6          PC7          PC8
-    ## Tips variance          0.0004190271 0.0002460917 9.112202e-05 0.0000588871
-    ## Proportion of variance 0.0068235282 0.0040074103 1.483851e-03 0.0009589303
-    ## Cumulative Proportion  0.9898804829 0.9938878932 9.953717e-01 0.9963306740
+    ## Tips variance          0.0002927559 0.0001960831 0.0001151256 7.075705e-05
+    ## Proportion of variance 0.0059246125 0.0039682086 0.0023298400 1.431937e-03
+    ## Cumulative Proportion  0.9870044800 0.9909726886 0.9933025286 9.947345e-01
     ##                                 PC9         PC10         PC11         PC12
-    ## Tips variance          5.464406e-05 4.362301e-05 3.317206e-05 2.127599e-05
-    ## Proportion of variance 8.898356e-04 7.103665e-04 5.401810e-04 3.464628e-04
-    ## Cumulative Proportion  9.972205e-01 9.979309e-01 9.984711e-01 9.988175e-01
+    ## Tips variance          6.105661e-05 4.797942e-05 3.748915e-05 2.238032e-05
+    ## Proportion of variance 1.235626e-03 9.709778e-04 7.586823e-04 4.529190e-04
+    ## Cumulative Proportion  9.959701e-01 9.969411e-01 9.976998e-01 9.981527e-01
     ##                                PC13         PC14         PC15         PC16
-    ## Tips variance          1.493385e-05 1.299774e-05 7.966257e-06 6.840308e-06
-    ## Proportion of variance 2.431860e-04 2.116580e-04 1.297242e-04 1.113891e-04
-    ## Cumulative Proportion  9.990607e-01 9.992724e-01 9.994021e-01 9.995135e-01
+    ## Tips variance          2.077958e-05 1.422581e-05 1.200411e-05 7.533318e-06
+    ## Proportion of variance 4.205242e-04 2.878932e-04 2.429317e-04 1.524546e-04
+    ## Cumulative Proportion  9.985732e-01 9.988611e-01 9.991040e-01 9.992565e-01
     ##                                PC17         PC18         PC19         PC20
-    ## Tips variance          6.033744e-06 5.269483e-06 4.619322e-06 3.386989e-06
-    ## Proportion of variance 9.825479e-05 8.580941e-05 7.522203e-05 5.515446e-05
-    ## Cumulative Proportion  9.996117e-01 9.996975e-01 9.997728e-01 9.998279e-01
+    ## Tips variance          6.455566e-06 5.125466e-06 4.560384e-06 3.674660e-06
+    ## Proportion of variance 1.306437e-04 1.037260e-04 9.229023e-05 7.436549e-05
+    ## Cumulative Proportion  9.993871e-01 9.994908e-01 9.995831e-01 9.996575e-01
     ##                                PC21         PC22         PC23         PC24
-    ## Tips variance          2.310100e-06 1.687064e-06 1.663348e-06 1.181242e-06
-    ## Proportion of variance 3.761816e-05 2.747251e-05 2.708633e-05 1.923559e-05
-    ## Cumulative Proportion  9.998655e-01 9.998930e-01 9.999201e-01 9.999393e-01
+    ## Tips variance          2.924124e-06 2.881045e-06 1.930763e-06 1.763187e-06
+    ## Proportion of variance 5.917661e-05 5.830480e-05 3.907358e-05 3.568228e-05
+    ## Cumulative Proportion  9.997167e-01 9.997750e-01 9.998141e-01 9.998497e-01
     ##                                PC25         PC26         PC27         PC28
-    ## Tips variance          9.525529e-07 7.510022e-07 6.836982e-07 4.908448e-07
-    ## Proportion of variance 1.551158e-05 1.222948e-05 1.113349e-05 7.993022e-06
-    ## Cumulative Proportion  9.999548e-01 9.999671e-01 9.999782e-01 9.999862e-01
-    ##                                PC29         PC30         PC31
-    ## Tips variance          3.265809e-07 2.923910e-07 2.285941e-07
-    ## Proportion of variance 5.318114e-06 4.761359e-06 3.722475e-06
-    ## Cumulative Proportion  9.999915e-01 9.999963e-01 1.000000e+00
+    ## Tips variance          1.580448e-06 1.416086e-06 9.805964e-07 8.080736e-07
+    ## Proportion of variance 3.198412e-05 2.865787e-05 1.984470e-05 1.635329e-05
+    ## Cumulative Proportion  9.998817e-01 9.999104e-01 9.999302e-01 9.999466e-01
+    ##                                PC29         PC30         PC31         PC32
+    ## Tips variance          7.767897e-07 4.689635e-07 3.302867e-07 2.818528e-07
+    ## Proportion of variance 1.572019e-05 9.490594e-06 6.684139e-06 5.703963e-06
+    ## Cumulative Proportion  9.999623e-01 9.999718e-01 9.999785e-01 9.999842e-01
+    ##                                PC33         PC34         PC35         PC36
+    ## Tips variance          2.400412e-07 2.126402e-07 1.317707e-07 9.755202e-08
+    ## Proportion of variance 4.857804e-06 4.303280e-06 2.666695e-06 1.974198e-06
+    ## Cumulative Proportion  9.999890e-01 9.999933e-01 9.999960e-01 9.999980e-01
+    ##                                PC37         PC38
+    ## Tips variance          7.125228e-08 2.864228e-08
+    ## Proportion of variance 1.441960e-06 5.796447e-07
+    ## Cumulative Proportion  9.999994e-01 1.000000e+00
 
 ``` r
 # set plot parameters
+# for site
 site <- qdata$site
-pch.gps.site <- c(1,2,3,4,5,6,7)[as.factor(site)]
+pch.gps.site <- c(1:14)[as.factor(site)]
+# for unit
 unit <- qdata$unit
 pch.gps <- c(15,17,19)[as.factor(unit)]
 col.gps <- c("dodgerblue4","indianred4","tan3")[as.factor(unit)]
+# for county
+county <- qdata$county
+pch.gps.cty <- c(1:5)[as.factor(county)]
 
 # plotPCAbySite
 pca.plot1<-plot(pca,
@@ -137,6 +155,14 @@ pca.plot2<-plot(pca,
 ```
 
 <img src="incisions_files/figure-gfm/pca-2.png" width="100%" />
+
+``` r
+# plotPCAbyCounty
+pca.plot1<-plot(pca,
+                pch = pch.gps.cty)
+```
+
+<img src="incisions_files/figure-gfm/pca-3.png" width="100%" />
 
 ### Define models
 
@@ -165,12 +191,10 @@ anova(fit.sizesite)
     ## Sums of Squares and Cross-products: Type I 
     ## Effect sizes (Z) based on F distributions
     ## 
-    ##           Df      SS     MS     Rsq      F      Z Pr(>F)  
-    ## site       6  47.307 7.8845 0.37818 2.5341 1.5596  0.055 .
-    ## Residuals 25  77.783 3.1113 0.62182                       
-    ## Total     31 125.091                                      
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ##           Df     SS     MS     Rsq      F      Z Pr(>F)
+    ## site      13 38.739 2.9799 0.40047 1.2845 0.4913 0.2967
+    ## Residuals 25 57.996 2.3198 0.59953                     
+    ## Total     38 96.734                                    
     ## 
     ## Call: procD.lm(f1 = size ~ site, iter = 9999, data = gdf, print.progress = FALSE)
 
@@ -187,10 +211,10 @@ anova(fit.shapesite)
     ## Sums of Squares and Cross-products: Type I 
     ## Effect sizes (Z) based on F distributions
     ## 
-    ##           Df     SS       MS     Rsq      F       Z Pr(>F)
-    ## site       6 0.3828 0.063800 0.20108 1.0487 0.22809 0.3957
-    ## Residuals 25 1.5209 0.060835 0.79892                      
-    ## Total     31 1.9037                                       
+    ##           Df      SS       MS     Rsq      F       Z Pr(>F)
+    ## site      13 0.36506 0.028081 0.19442 0.4641 -1.3985 0.9232
+    ## Residuals 25 1.51265 0.060506 0.80558                      
+    ## Total     38 1.87771                                       
     ## 
     ## Call: procD.lm(f1 = shape ~ site, iter = 9999, data = gdf, print.progress = FALSE)
 
@@ -207,10 +231,10 @@ anova(fit.sizeunit)
     ## Sums of Squares and Cross-products: Type I 
     ## Effect sizes (Z) based on F distributions
     ## 
-    ##           Df      SS     MS     Rsq     F        Z Pr(>F)
-    ## unit       2   3.546 1.7730 0.02835 0.423 -0.24108 0.6617
-    ## Residuals 29 121.545 4.1912 0.97165                      
-    ## Total     31 125.091                                     
+    ##           Df     SS     MS     Rsq      F       Z Pr(>F)
+    ## unit       2  8.127 4.0633 0.08401 1.6509 0.81748 0.1985
+    ## Residuals 36 88.608 2.4613 0.91599                      
+    ## Total     38 96.734                                     
     ## 
     ## Call: procD.lm(f1 = size ~ unit, iter = 9999, data = gdf, print.progress = FALSE)
 
@@ -227,10 +251,10 @@ anova(fit.shapeunit)
     ## Sums of Squares and Cross-products: Type I 
     ## Effect sizes (Z) based on F distributions
     ## 
-    ##           Df      SS       MS    Rsq      F        Z Pr(>F)
-    ## unit       2 0.05616 0.028080 0.0295 0.4408 -0.74549 0.7774
-    ## Residuals 29 1.84752 0.063708 0.9705                       
-    ## Total     31 1.90368                                       
+    ##           Df      SS       MS     Rsq      F      Z Pr(>F)
+    ## unit       2 0.06917 0.034584 0.03684 0.6884 -0.123 0.5611
+    ## Residuals 36 1.80854 0.050237 0.96316                     
+    ## Total     38 1.87771                                      
     ## 
     ## Call: procD.lm(f1 = shape ~ unit, iter = 9999, data = gdf, print.progress = FALSE)
 
@@ -247,10 +271,10 @@ anova(fit.sizecounty)
     ## Sums of Squares and Cross-products: Type I 
     ## Effect sizes (Z) based on F distributions
     ## 
-    ##           Df     SS     MS    Rsq      F       Z Pr(>F)
-    ## county     3   3.69 1.2300 0.0295 0.2837 -0.9535 0.8411
-    ## Residuals 28 121.40 4.3357 0.9705                      
-    ## Total     31 125.09                                    
+    ##           Df     SS    MS     Rsq      F        Z Pr(>F)
+    ## county     4  8.200 2.050 0.08477 0.7873 0.010468 0.5137
+    ## Residuals 34 88.534 2.604 0.91523                       
+    ## Total     38 96.734                                     
     ## 
     ## Call: procD.lm(f1 = size ~ county, iter = 9999, data = gdf, print.progress = FALSE)
 
@@ -267,10 +291,10 @@ anova(fit.shapecounty)
     ## Sums of Squares and Cross-products: Type I 
     ## Effect sizes (Z) based on F distributions
     ## 
-    ##           Df      SS       MS     Rsq      F       Z Pr(>F)
-    ## county     3 0.22396 0.074655 0.11765 1.2445 0.57951 0.2927
-    ## Residuals 28 1.67972 0.059990 0.88235                      
-    ## Total     31 1.90368                                       
+    ##           Df      SS       MS     Rsq      F        Z Pr(>F)
+    ## county     4 0.17104 0.042760 0.09109 0.8519 0.027212 0.4805
+    ## Residuals 34 1.70667 0.050196 0.90891                       
+    ## Total     38 1.87771                                        
     ## 
     ## Call: procD.lm(f1 = shape ~ county, iter = 9999, data = gdf, print.progress = FALSE)
 
@@ -278,57 +302,6 @@ anova(fit.shapecounty)
 
 ``` r
 # morphological disparity: does incision morphology display greater shape variation among individuals relative to site, unit, or county?
-# site
-morphol.disparity(fit.shapesite, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
-```
-
-    ## 
-    ## Call:
-    ## morphol.disparity(f1 = fit.shapesite, groups = qdata$site, iter = 9999,  
-    ##     data = gdf, print.progress = FALSE) 
-    ## 
-    ## 
-    ## 
-    ## Randomized Residual Permutation Procedure Used
-    ## 10000 Permutations
-    ## 
-    ## Procrustes variances for defined groups
-    ##        sa66       sb125       sb189       sb291       sy258        sy43 
-    ## 0.019971135 0.016669738 0.004299137 0.012458020 0.006946067 0.090934479 
-    ##        tn91 
-    ## 0.056009856 
-    ## 
-    ## 
-    ## Pairwise absolute differences between variances
-    ##              sa66       sb125       sb189       sb291       sy258       sy43
-    ## sa66  0.000000000 0.003301397 0.015671998 0.007513115 0.013025069 0.07096334
-    ## sb125 0.003301397 0.000000000 0.012370601 0.004211718 0.009723672 0.07426474
-    ## sb189 0.015671998 0.012370601 0.000000000 0.008158883 0.002646930 0.08663534
-    ## sb291 0.007513115 0.004211718 0.008158883 0.000000000 0.005511954 0.07847646
-    ## sy258 0.013025069 0.009723672 0.002646930 0.005511954 0.000000000 0.08398841
-    ## sy43  0.070963344 0.074264740 0.086635342 0.078476459 0.083988412 0.00000000
-    ## tn91  0.036038721 0.039340117 0.051710719 0.043551835 0.049063789 0.03492462
-    ##             tn91
-    ## sa66  0.03603872
-    ## sb125 0.03934012
-    ## sb189 0.05171072
-    ## sb291 0.04355184
-    ## sy258 0.04906379
-    ## sy43  0.03492462
-    ## tn91  0.00000000
-    ## 
-    ## 
-    ## P-Values
-    ##         sa66  sb125  sb189  sb291  sy258   sy43   tn91
-    ## sa66  1.0000 0.9208 0.6498 0.8267 0.7007 0.0904 0.3970
-    ## sb125 0.9208 1.0000 0.7119 0.8982 0.7691 0.1291 0.3630
-    ## sb189 0.6498 0.7119 1.0000 0.7920 0.9326 0.1233 0.2341
-    ## sb291 0.8267 0.8982 0.7920 1.0000 0.8577 0.1409 0.3107
-    ## sy258 0.7007 0.7691 0.9326 0.8577 1.0000 0.1335 0.2593
-    ## sy43  0.0904 0.1291 0.1233 0.1409 0.1335 1.0000 0.3074
-    ## tn91  0.3970 0.3630 0.2341 0.3107 0.2593 0.3074 1.0000
-
-``` r
 # unit
 morphol.disparity(fit.shapeunit, groups = qdata$unit, data = gdf, print.progress = FALSE, iter = 9999)
 ```
@@ -345,21 +318,21 @@ morphol.disparity(fit.shapeunit, groups = qdata$unit, data = gdf, print.progress
     ## 
     ## Procrustes variances for defined groups
     ## angelinaNF    davycNF   sabineNF 
-    ## 0.01997114 0.05600986 0.06773716 
+    ## 0.03246203 0.05228116 0.04791513 
     ## 
     ## 
     ## Pairwise absolute differences between variances
-    ##            angelinaNF    davycNF   sabineNF
-    ## angelinaNF 0.00000000 0.03603872 0.04776602
-    ## davycNF    0.03603872 0.00000000 0.01172730
-    ## sabineNF   0.04776602 0.01172730 0.00000000
+    ##            angelinaNF     davycNF    sabineNF
+    ## angelinaNF 0.00000000 0.019819130 0.015453102
+    ## davycNF    0.01981913 0.000000000 0.004366028
+    ## sabineNF   0.01545310 0.004366028 0.000000000
     ## 
     ## 
     ## P-Values
     ##            angelinaNF davycNF sabineNF
-    ## angelinaNF     1.0000  0.5311   0.3404
-    ## davycNF        0.5311  1.0000   0.7685
-    ## sabineNF       0.3404  0.7685   1.0000
+    ## angelinaNF     1.0000  0.6606   0.7347
+    ## davycNF        0.6606  1.0000   0.9207
+    ## sabineNF       0.7347  0.9207   1.0000
 
 ``` r
 # county
@@ -377,68 +350,29 @@ morphol.disparity(fit.shapecounty, groups = qdata$county, data = gdf, print.prog
     ## 10000 Permutations
     ## 
     ## Procrustes variances for defined groups
-    ##        sabine san-augustine        shelby       trinity 
-    ##    0.01566873    0.01997114    0.08740459    0.05600986 
+    ##   nacogdoches        sabine san-augustine        shelby       trinity 
+    ##  2.799362e-32  1.468981e-02  3.233917e-02  7.759563e-02  5.228116e-02 
     ## 
     ## 
     ## Pairwise absolute differences between variances
-    ##                    sabine san-augustine     shelby    trinity
-    ## sabine        0.000000000   0.004302405 0.07173586 0.04034113
-    ## san-augustine 0.004302405   0.000000000 0.06743345 0.03603872
-    ## shelby        0.071735858   0.067433453 0.00000000 0.03139473
-    ## trinity       0.040341126   0.036038721 0.03139473 0.00000000
+    ##               nacogdoches     sabine san-augustine     shelby    trinity
+    ## nacogdoches    0.00000000 0.01468981    0.03233917 0.07759563 0.05228116
+    ## sabine         0.01468981 0.00000000    0.01764936 0.06290582 0.03759135
+    ## san-augustine  0.03233917 0.01764936    0.00000000 0.04525646 0.01994199
+    ## shelby         0.07759563 0.06290582    0.04525646 0.00000000 0.02531447
+    ## trinity        0.05228116 0.03759135    0.01994199 0.02531447 0.00000000
     ## 
     ## 
     ## P-Values
-    ##               sabine san-augustine shelby trinity
-    ## sabine        1.0000        0.9141 0.0562  0.2911
-    ## san-augustine 0.9141        1.0000 0.1215  0.4462
-    ## shelby        0.0562        0.1215 1.0000  0.3916
-    ## trinity       0.2911        0.4462 0.3916  1.0000
+    ##               nacogdoches sabine san-augustine shelby trinity
+    ## nacogdoches        1.0000 0.7181        0.4033 0.1084  0.2216
+    ## sabine             0.7181 1.0000        0.6535 0.0562  0.2762
+    ## san-augustine      0.4033 0.6535        1.0000 0.2709  0.6270
+    ## shelby             0.1084 0.0562        0.2709 1.0000  0.4793
+    ## trinity            0.2216 0.2762        0.6270 0.4793  1.0000
 
 ``` r
 # morphological disparity: does incision morphology display greater size variation among individuals relative to site, unit, or county?
-# site
-morphol.disparity(fit.sizesite, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
-```
-
-    ## 
-    ## Call:
-    ## morphol.disparity(f1 = fit.sizesite, groups = qdata$site, iter = 9999,  
-    ##     data = gdf, print.progress = FALSE) 
-    ## 
-    ## 
-    ## 
-    ## Randomized Residual Permutation Procedure Used
-    ## 10000 Permutations
-    ## 
-    ## Procrustes variances for defined groups
-    ##      sa66     sb125     sb189     sb291     sy258      sy43      tn91 
-    ## 2.1746075 0.6155901 1.3865974 0.1269339 9.7527403 1.3306584 3.0964036 
-    ## 
-    ## 
-    ## Pairwise absolute differences between variances
-    ##            sa66     sb125      sb189     sb291    sy258       sy43      tn91
-    ## sa66  0.0000000 1.5590174 0.78801009 2.0476736 7.578133 0.84394908 0.9217961
-    ## sb125 1.5590174 0.0000000 0.77100733 0.4886561 9.137150 0.71506834 2.4808135
-    ## sb189 0.7880101 0.7710073 0.00000000 1.2596635 8.366143 0.05593899 1.7098062
-    ## sb291 2.0476736 0.4886561 1.25966346 0.0000000 9.625806 1.20372447 2.9694697
-    ## sy258 7.5781328 9.1371502 8.36614291 9.6258064 0.000000 8.42208190 6.6563367
-    ## sy43  0.8439491 0.7150683 0.05593899 1.2037245 8.422082 0.00000000 1.7657452
-    ## tn91  0.9217961 2.4808135 1.70980621 2.9694697 6.656337 1.76574520 0.0000000
-    ## 
-    ## 
-    ## P-Values
-    ##         sa66  sb125  sb189  sb291  sy258   sy43   tn91
-    ## sa66  1.0000 0.4905 0.7450 0.4225 0.0045 0.6630 0.6230
-    ## sb125 0.4905 1.0000 0.7462 0.8336 0.0004 0.7541 0.1772
-    ## sb189 0.7450 0.7462 1.0000 0.6138 0.0061 0.9816 0.4758
-    ## sb291 0.4225 0.8336 0.6138 1.0000 0.0003 0.6331 0.1616
-    ## sy258 0.0045 0.0004 0.0061 0.0003 1.0000 0.0010 0.0081
-    ## sy43  0.6630 0.7541 0.9816 0.6331 0.0010 1.0000 0.2068
-    ## tn91  0.6230 0.1772 0.4758 0.1616 0.0081 0.2068 1.0000
-
-``` r
 # unit
 morphol.disparity(fit.sizeunit, groups = qdata$unit, data = gdf, print.progress = FALSE, iter = 9999)
 ```
@@ -455,21 +389,21 @@ morphol.disparity(fit.sizeunit, groups = qdata$unit, data = gdf, print.progress 
     ## 
     ## Procrustes variances for defined groups
     ## angelinaNF    davycNF   sabineNF 
-    ##   2.174607   3.096404   4.634463 
+    ##   1.081951   1.994539   2.814012 
     ## 
     ## 
     ## Pairwise absolute differences between variances
-    ##            angelinaNF   davycNF sabineNF
-    ## angelinaNF  0.0000000 0.9217961 2.459856
-    ## davycNF     0.9217961 0.0000000 1.538060
-    ## sabineNF    2.4598560 1.5380599 0.000000
+    ##            angelinaNF  davycNF sabineNF
+    ## angelinaNF   0.000000 0.912588 1.732061
+    ## davycNF      0.912588 0.000000 0.819473
+    ## sabineNF     1.732061 0.819473 0.000000
     ## 
     ## 
     ## P-Values
     ##            angelinaNF davycNF sabineNF
-    ## angelinaNF     1.0000  0.7564   0.3780
-    ## davycNF        0.7564  1.0000   0.6208
-    ## sabineNF       0.3780  0.6208   1.0000
+    ## angelinaNF     1.0000  0.6068    0.345
+    ## davycNF        0.6068  1.0000    0.718
+    ## sabineNF       0.3450  0.7180    1.000
 
 ``` r
 # county
@@ -488,21 +422,21 @@ morphol.disparity(fit.sizeunit, groups = qdata$unit, data = gdf, print.progress 
     ## 
     ## Procrustes variances for defined groups
     ## angelinaNF    davycNF   sabineNF 
-    ##   2.174607   3.096404   4.634463 
+    ##   1.081951   1.994539   2.814012 
     ## 
     ## 
     ## Pairwise absolute differences between variances
-    ##            angelinaNF   davycNF sabineNF
-    ## angelinaNF  0.0000000 0.9217961 2.459856
-    ## davycNF     0.9217961 0.0000000 1.538060
-    ## sabineNF    2.4598560 1.5380599 0.000000
+    ##            angelinaNF  davycNF sabineNF
+    ## angelinaNF   0.000000 0.912588 1.732061
+    ## davycNF      0.912588 0.000000 0.819473
+    ## sabineNF     1.732061 0.819473 0.000000
     ## 
     ## 
     ## P-Values
     ##            angelinaNF davycNF sabineNF
-    ## angelinaNF     1.0000  0.7564   0.3780
-    ## davycNF        0.7564  1.0000   0.6208
-    ## sabineNF       0.3780  0.6208   1.0000
+    ## angelinaNF     1.0000  0.6068    0.345
+    ## davycNF        0.6068  1.0000    0.718
+    ## sabineNF       0.3450  0.7180    1.000
 
 ### Mean shapes
 
@@ -512,7 +446,8 @@ new.coords<-coords.subset(A = Y.gpa$coords, group = qdata$site)
 names(new.coords)
 ```
 
-    ## [1] "sa66"  "sb125" "sb189" "sb291" "sy258" "sy43"  "tn91"
+    ##  [1] "na132" "sa255" "sa65"  "sa66"  "sb125" "sb164" "sb189" "sb291" "sb308"
+    ## [10] "sy253" "sy255" "sy258" "sy43"  "tn91"
 
 ``` r
 # group shape means
