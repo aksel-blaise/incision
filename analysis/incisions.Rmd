@@ -25,13 +25,13 @@ setwd(getwd())
 source('readmulti.csv.r')
 
 # Read .csv files
-setwd("./data2")
+setwd("./data1")
 filelist <- list.files(pattern = ".csv")
 coords<-readmulti.csv(filelist)
 setwd("../")
 
 # read qualitative data
-qdata<-read.csv("qdata.csv",header=TRUE,row.names=1)
+qdata<-read.csv("qdata1.csv",header=TRUE,row.names=1)
 qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 ```
 
@@ -107,8 +107,18 @@ fit.shapecounty<-procD.lm(shape ~ county, data = gdf, print.progress = FALSE, it
 ```{r shszsite, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA: do incision sizes differ by site?
 anova(fit.sizesite)
+# pairwise comparison of LS means = which differ?
+sz.site<-pairwise(fit.sizesite, groups = qdata$site)
+summary(sz.site, confidence = 0.95, test.type = "dist")
+# pairwise distance between variances = standardization?
+summary(sz.site, confidence = 0.95, test.type = "var")
 # ANOVA: do incision shapes differ by site?
 anova(fit.shapesite)
+# pairwise comparison of LS means = which differ?
+sh.site<-pairwise(fit.shapesite, groups = qdata$site)
+summary(sh.site, confidence = 0.95, test.type = "dist")
+# pairwise distance between variances = standardization?
+summary(sh.site, confidence = 0.95, test.type = "var")
 ```
 
 ### Size/Shape ~ Unit?
@@ -135,8 +145,18 @@ summary(sh.unit, confidence = 0.95, test.type = "var")
 ```{r szshpcounty, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA: do incision sizes differ by county?
 anova(fit.sizecounty)
+# pairwise comparison of LS means = which differ?
+sz.county<-pairwise(fit.sizecounty, groups = qdata$unit)
+summary(sz.county, confidence = 0.95, test.type = "dist")
+# pairwise distance between variances = standardization?
+summary(sz.county, confidence = 0.95, test.type = "var")
 # ANOVA: do incision shapes differ by county?
 anova(fit.shapecounty)
+# pairwise comparison of LS means = which differ?
+sh.county<-pairwise(fit.shapecounty, groups = qdata$unit)
+summary(sh.county, confidence = 0.95, test.type = "dist")
+# pairwise distance between variances = standardization?
+summary(sh.county, confidence = 0.95, test.type = "var")
 ```
 
 ### Morphological disparity
@@ -151,11 +171,11 @@ morphol.disparity(fit.shapeunit, groups = qdata$unit, data = gdf, print.progress
 morphol.disparity(fit.shapecounty, groups = qdata$county, data = gdf, print.progress = FALSE, iter = 9999)
 # morphological disparity: does incision morphology display greater size variation among individuals relative to site, unit, or county?
 # site
-morphol.disparity(fit.sizeunit, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
+morphol.disparity(fit.sizesite, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
 # unit
 morphol.disparity(fit.sizeunit, groups = qdata$unit, data = gdf, print.progress = FALSE, iter = 9999)
 # county
-morphol.disparity(fit.sizeunit, groups = qdata$unit, data = gdf, print.progress = FALSE, iter = 9999)
+morphol.disparity(fit.sizecounty, groups = qdata$county, data = gdf, print.progress = FALSE, iter = 9999)
 ```
 
 ### Mean shapes
