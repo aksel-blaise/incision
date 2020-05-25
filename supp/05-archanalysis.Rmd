@@ -1,15 +1,4 @@
----
-title: "Supplementary materials for paper: Does similar ceramic incision morphology provide inference to a common toolkit?"
-author: "Robert Z. Selden, Jr."
-date: "21 May 2020"
-output: github_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## Incision morphology
+# Archaeological sample - analysis
 
 ```{r image, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # location of landmarks
@@ -35,7 +24,7 @@ qdata<-read.csv("qdata1.csv",header=TRUE,row.names=1)
 qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 ```
 
-### Generalised Procrustes Analysis
+## Generalised Procrustes Analysis
 
 ```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 Y.gpa<-gpagen(coords, PrinAxes = TRUE, print.progress = FALSE)
@@ -58,7 +47,7 @@ boxplot(csz~unt,
         )
 ```
 
-### Principal Components Analysis
+## Principal Components Analysis
 
 ```{r pca, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # principal components analysis
@@ -90,7 +79,7 @@ pca.plot1<-plot(pca,
                 pch = pch.gps.cty)
 ```
 
-### Define models
+## Define models
 
 ```{r define-models, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 fit.size<-procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
@@ -102,7 +91,7 @@ fit.shapeunit<-procD.lm(shape ~ unit, data = gdf, print.progress = FALSE, iter =
 fit.shapecounty<-procD.lm(shape ~ county, data = gdf, print.progress = FALSE, iter = 9999)
 ```
 
-### Size/Shape ~ Site?
+## Size/Shape ~ Site?
 
 ```{r shszsite, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA: do incision sizes differ by site?
@@ -121,7 +110,7 @@ summary(sh.site, confidence = 0.95, test.type = "dist")
 summary(sh.site, confidence = 0.95, test.type = "var")
 ```
 
-### Size/Shape ~ Unit?
+## Size/Shape ~ Unit?
 
 ```{r szshpunit, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA: do incision sizes differ by unit?
@@ -140,7 +129,7 @@ summary(sh.unit, confidence = 0.95, test.type = "dist")
 summary(sh.unit, confidence = 0.95, test.type = "var")
 ```
 
-### Size/Shape ~ Unit?
+## Size/Shape ~ Unit?
 
 ```{r szshpcounty, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA: do incision sizes differ by county?
@@ -159,7 +148,7 @@ summary(sh.county, confidence = 0.95, test.type = "dist")
 summary(sh.county, confidence = 0.95, test.type = "var")
 ```
 
-### Morphological disparity
+## Morphological disparity
 
 ```{r m-disparity}
 # morphological disparity: does incision morphology display greater shape variation among individuals relative to site, unit, or county?
@@ -178,7 +167,7 @@ morphol.disparity(fit.sizeunit, groups = qdata$unit, data = gdf, print.progress 
 morphol.disparity(fit.sizecounty, groups = qdata$county, data = gdf, print.progress = FALSE, iter = 9999)
 ```
 
-### Mean shapes
+## Mean shapes
 
 ```{r m-shapes}
 # subset landmark coordinates to produce mean shapes by site
@@ -192,12 +181,12 @@ fig.cap="Mean shapes for Caddo incisions from sites on the National Forests and 
 # end of code
 ```
 
-### Acknowledgments
+## Acknowledgments
 
 I extend my gratitude to the Caddo Tribe of Oklahoma and the National Forests and Grasslands in Texas for the requisite permissions and access needed to generate the scans of the Caddo incisions, and to the National Center for Preservation Technology and Training for access to the optical profilometer. 
 
-### Funding
+## Funding
 
 Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to the author from the National Center for Preservation Technology and Training, and funding for this project was provided by grants to the author from the Caddo Tribe of Oklahoma and the National Forests and Grasslands in Texas (15-PA-11081300-033 and 20-PA-11081300-074).
 
-### References cited
+## References cited

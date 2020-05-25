@@ -1,0 +1,34 @@
+--- 
+title: "Supplementary materials for paper: Does similar ceramic incision morphology provide inference to a common toolkit?"
+author: "Robert Z. Selden, Jr."
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Morphological analysis of Caddo ceramic incisions"
+---
+
+# Preface {-}
+
+>Reproducibility—the ability to recompute results—and replicability—the chances other experimenters will achieve a consistent result—are two foundational characteristics of successful scientific research [@RN20918].
+
+This volume is written in **Markdown**, and includes all analysis code employed in the study, providing a means for others to reproduce (exactly) those results discussed and expounded upon in the following chapters. The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components of this study [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge. 
+
+## Acknowledgments
+
+I extend my gratitude to the Caddo Tribe of Oklahoma and the National Forests and Grasslands in Texas for the requisite permissions and access needed to generate the scans of the Caddo incisions, and to the National Center for Preservation Technology and Training for access to the optical profilometer. 
+
+This volume enlists a variety of tools from the [Open Review Toolkit](https://www.openreviewtoolkit.org/), as well as the code provided for the `bookdown` package, and follows the excellent example advanced by [Ben Marwick](https://benmarwick.github.io/bookdown-ort/). I extend my gratitude to all who contribute comments and constructive criticisms throughout the development and maturation of this project. This document will remain in open review until the article is published.
+
+## Funding
+
+Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to the author from the National Center for Preservation Technology and Training (NCPTT), and funding for this project was provided by grants to the author as a subaward from the Caddo Tribe of Oklahoma's NCPTT Media Grant and the National Forests and Grasslands in Texas (15-PA-11081300-033 and 20-PA-11081300-074).
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

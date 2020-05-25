@@ -1,0 +1,108 @@
+# Experimental sample - analysis
+
+```{r loadsetwdEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# library(devtools)
+# devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
+library(geomorph)
+setwd(getwd())
+source('readmulti.csv.r')
+
+# Read .csv files
+setwd("./dataEX")
+filelist <- list.files(pattern = ".csv")
+coords<-readmulti.csv(filelist)
+setwd("../")
+
+# read qualitative data
+qdata<-read.csv("qdataEX.csv",header=TRUE,row.names=1)
+qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
+```
+
+## Generalised Procrustes Analysis
+
+```{r gpaEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+Y.gpa<-gpagen(coords, PrinAxes = TRUE, print.progress = FALSE)
+
+# 3D GPA plot
+knitr::include_graphics('images/gpa3dEX.png')
+fig.cap="Results of generalized Procrustes analysis."
+
+# geomorph data frame
+gdf<-geomorph.data.frame(shape=Y.gpa$coords, size=Y.gpa$Csize, inc2=qdata$inc2)
+csz<-Y.gpa$Csize # attribute for boxplot
+inc2<-qdata$inc2 # attribute for boxplot
+# boxplot of incision (centroid) size by nfgt unit
+boxplot(csz~inc2, 
+        main = "Centroid size of experimental incisions by profile type",
+        names = c("U", "V"),
+        xlab = "Incision",
+        ylab = "Centroid Size",
+        col = c("dodgerblue4","indianred4")
+        )
+```
+
+## Principal Components Analysis
+
+```{r pcaEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# principal components analysis
+pca<-gm.prcomp(Y.gpa$coords)
+summary(pca)
+# set plot parameters
+# for profile type
+inc2 <- qdata$incision
+pch.gps <- c(15,17)[as.factor(inc2)]
+col.gps <- c("dodgerblue4","indianred4")[as.factor(inc2)]
+# plotPCAbyProfile
+pca<-plot(pca,
+          pch = pch.gps,
+          col = col.gps)
+```
+
+## Define models
+
+```{r defmodEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+fit.size<-procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizeinc<-procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapeinc<-procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
+```
+
+## Size/Shape ~ Site?
+
+```{r shszsiteEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# ANOVA: allometry?
+anova(fit.size)
+# ANOVA: do incision sizes differ by profile?
+anova(fit.sizeinc)
+# pairwise comparison of LS means = which differ?
+sz.inc<-pairwise(fit.sizeinc, groups = qdata$inc2)
+summary(sz.inc, confidence = 0.95, test.type = "dist")
+# pairwise distance between variances = standardization?
+summary(sz.inc, confidence = 0.95, test.type = "var")
+# ANOVA: do incision shapes differ by profile?
+anova(fit.shapeinc)
+# pairwise comparison of LS means = which differ?
+sh.inc<-pairwise(fit.shapeinc, groups = qdata$inc2)
+summary(sh.inc, confidence = 0.95, test.type = "dist")
+# pairwise distance between variances = standardization?
+summary(sh.inc, confidence = 0.95, test.type = "var")
+```
+
+## Morphological disparity
+
+```{r m-disparityEX}
+# morphological disparity: does incision morphology display greater shape variation among individuals relative to incision profile shape?
+morphol.disparity(fit.shapeinc, groups = qdata$inc2, data = gdf, print.progress = FALSE, iter = 9999)
+# morphological disparity: does incision morphology display greater size variation among individuals relative to incision profile size?
+morphol.disparity(fit.sizeinc, groups = qdata$inc2, data = gdf, print.progress = FALSE, iter = 9999)
+```
+
+## Mean shapes
+
+```{r m-shapesEX}
+# subset landmark coordinates to produce mean shapes by site
+new.coords<-coords.subset(A = Y.gpa$coords, group = qdata$inc2)
+names(new.coords)
+# group shape means
+mean<-lapply(new.coords, mshape)
+# end of code
+```

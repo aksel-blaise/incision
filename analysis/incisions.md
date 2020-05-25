@@ -2,7 +2,7 @@ Supplementary materials for paper: Does similar ceramic incision
 morphology provide inference to a common toolkit?
 ================
 Robert Z. Selden, Jr.
-19 May 2020
+21 May 2020
 
 ## Incision morphology
 
