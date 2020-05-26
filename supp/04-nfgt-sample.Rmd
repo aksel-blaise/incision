@@ -1,3 +1,40 @@
 # Archaeological sample
 
-* overview of sample and methods
+## 41SA66
+
+The David Fox site is located in the Angelina National Forest on a high terrace overlooking the Attoyac Bayou floodplain and a small tributary. The site was described by Stephenson [-@RN5040] as being ``small and culturally poor,'' and was under cultivation at that time [@RN793].
+
+There are Woodland period and pre-CE 1200 Caddo components at 41SA66. The Woodland component includes eight _Goose Creek Plain_ body sherds from surface contexts [@RN5066, 57, Pl. 29]. The Caddo component is evidenced by 11 grog-tempered rim and body sherds. Three of the rims bear multiple (5-12 lines) horizontal incised lines, and three body sherds include 7-12 parallel incised lines. The other five sherds---four body sherds and a body/base sherd---are plain.
+
+### 41SA66
+
+```{r sa66, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/sa66-inc.png')
+fig.cap="Incisions on sherd from 41SA66."
+```
+
+### 41SA66-4
+
+```{r sa66-4, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/sa66-4-inc.png')
+fig.cap="Incisions on sherd from 41SA66."
+```
+
+### 41SA66-5
+
+```{r sa66-5, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/sa66-5-inc.png')
+fig.cap="Incisions on sherd from 41SA66."
+```
+
+### 41SA66-6
+
+```{r sa66-6, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/sa66-6-inc.png')
+fig.cap="Incisions on sherd from 41SA66."
+```
+

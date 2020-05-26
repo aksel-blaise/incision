@@ -25,10 +25,3 @@ This volume enlists a variety of tools from the [Open Review Toolkit](https://ww
 ## Funding
 
 Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to the author from the National Center for Preservation Technology and Training (NCPTT), and funding for this project was provided by grants to the author as a subaward from the Caddo Tribe of Oklahoma's NCPTT Media Grant and the National Forests and Grasslands in Texas (15-PA-11081300-033 and 20-PA-11081300-074).
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```

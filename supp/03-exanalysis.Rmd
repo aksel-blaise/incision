@@ -21,24 +21,25 @@ qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 ## Generalised Procrustes Analysis
 
 ```{r gpaEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-Y.gpa<-gpagen(coords, PrinAxes = TRUE, print.progress = FALSE)
+Y.gpa<-gpagen(coords, PrinAxes = TRUE, ProcD = TRUE, Proj = TRUE, print.progress = FALSE)
 
 # 3D GPA plot
 knitr::include_graphics('images/gpa3dEX.png')
-fig.cap="Results of generalized Procrustes analysis."
+fig.cap="Results of generalised Procrustes analysis."
 
 # geomorph data frame
 gdf<-geomorph.data.frame(shape=Y.gpa$coords, size=Y.gpa$Csize, inc2=qdata$inc2)
 csz<-Y.gpa$Csize # attribute for boxplot
 inc2<-qdata$inc2 # attribute for boxplot
-# boxplot of incision (centroid) size by nfgt unit
+# boxplot of incision (centroid) size by incision profile
 boxplot(csz~inc2, 
         main = "Centroid size of experimental incisions by profile type",
-        names = c("U", "V"),
-        xlab = "Incision",
+        names = c("Un", "Uw", "V"),
+        xlab = "Incision Profile",
         ylab = "Centroid Size",
-        col = c("dodgerblue4","indianred4")
+        col = c("dodgerblue4","indianred4","tan3")
         )
+fig.cap="Boxplot of experimental incision profile types (U-narrow, U-Wide, and V)."
 ```
 
 ## Principal Components Analysis
@@ -47,11 +48,12 @@ boxplot(csz~inc2,
 # principal components analysis
 pca<-gm.prcomp(Y.gpa$coords)
 summary(pca)
+
 # set plot parameters
-# for profile type
-inc2 <- qdata$incision
-pch.gps <- c(15,17)[as.factor(inc2)]
-col.gps <- c("dodgerblue4","indianred4")[as.factor(inc2)]
+inc2 <- qdata$inc2
+pch.gps <- c(15,17,19)[as.factor(inc2)]
+col.gps <- c("dodgerblue4","indianred4","tan3")[as.factor(inc2)]
+
 # plotPCAbyProfile
 pca<-plot(pca,
           pch = pch.gps,
@@ -71,6 +73,7 @@ fit.shapeinc<-procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter = 
 ```{r shszsiteEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA: allometry?
 anova(fit.size)
+
 # ANOVA: do incision sizes differ by profile?
 anova(fit.sizeinc)
 # pairwise comparison of LS means = which differ?
@@ -78,6 +81,7 @@ sz.inc<-pairwise(fit.sizeinc, groups = qdata$inc2)
 summary(sz.inc, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sz.inc, confidence = 0.95, test.type = "var")
+
 # ANOVA: do incision shapes differ by profile?
 anova(fit.shapeinc)
 # pairwise comparison of LS means = which differ?
@@ -92,6 +96,7 @@ summary(sh.inc, confidence = 0.95, test.type = "var")
 ```{r m-disparityEX}
 # morphological disparity: does incision morphology display greater shape variation among individuals relative to incision profile shape?
 morphol.disparity(fit.shapeinc, groups = qdata$inc2, data = gdf, print.progress = FALSE, iter = 9999)
+
 # morphological disparity: does incision morphology display greater size variation among individuals relative to incision profile size?
 morphol.disparity(fit.sizeinc, groups = qdata$inc2, data = gdf, print.progress = FALSE, iter = 9999)
 ```
@@ -104,5 +109,10 @@ new.coords<-coords.subset(A = Y.gpa$coords, group = qdata$inc2)
 names(new.coords)
 # group shape means
 mean<-lapply(new.coords, mshape)
+# plot(mean$Uw)
+
+# mean shapes
+knitr::include_graphics('images/mshapeEX.png')
+fig.cap="Mean shapes for incision profiles Un, Uw, and V."
 # end of code
 ```

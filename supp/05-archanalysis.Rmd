@@ -1,11 +1,5 @@
 # Archaeological sample - analysis
 
-```{r image, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# location of landmarks
-knitr::include_graphics('images/FigLM.jpg')
-fig.cap="Location of landmarks (blue) and equidistant semilandmarks (white)."
-```
-
 ```{r loadsetwd, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # library(devtools)
 # devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
@@ -27,7 +21,7 @@ qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 ## Generalised Procrustes Analysis
 
 ```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-Y.gpa<-gpagen(coords, PrinAxes = TRUE, print.progress = FALSE)
+Y.gpa<-gpagen(coords, PrinAxes = TRUE, ProcD = TRUE, Proj = TRUE, print.progress = FALSE)
 
 # 3D GPA plot
 knitr::include_graphics('images/gpa3d.png')
@@ -35,6 +29,7 @@ fig.cap="Results of generalized Procrustes analysis."
 
 # geomorph data frame
 gdf<-geomorph.data.frame(shape=Y.gpa$coords, size=Y.gpa$Csize, site=qdata$site, unit=qdata$unit, county=qdata$county) 
+
 csz<-Y.gpa$Csize # attribute for boxplot
 unt<-qdata$unit # attribute for boxplot
 # boxplot of incision (centroid) size by nfgt unit
@@ -45,6 +40,7 @@ boxplot(csz~unt,
         ylab = "Centroid Size",
         col = c("dodgerblue4","indianred4","tan3")
         )
+fig.cap="Boxplot of incision profiles for the Angelina, Davy Crockett, and Sabine National Forests."
 ```
 
 ## Principal Components Analysis
@@ -53,6 +49,7 @@ boxplot(csz~unt,
 # principal components analysis
 pca<-gm.prcomp(Y.gpa$coords)
 summary(pca)
+
 # set plot parameters
 # for site
 site <- qdata$site
@@ -101,6 +98,7 @@ sz.site<-pairwise(fit.sizesite, groups = qdata$site)
 summary(sz.site, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sz.site, confidence = 0.95, test.type = "var")
+
 # ANOVA: do incision shapes differ by site?
 anova(fit.shapesite)
 # pairwise comparison of LS means = which differ?
@@ -120,6 +118,7 @@ sz.unit<-pairwise(fit.sizeunit, groups = qdata$unit)
 summary(sz.unit, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sz.unit, confidence = 0.95, test.type = "var")
+
 # ANOVA: do incision shapes differ by unit?
 anova(fit.shapeunit)
 # pairwise comparison of LS means = which differ?
@@ -129,20 +128,21 @@ summary(sh.unit, confidence = 0.95, test.type = "dist")
 summary(sh.unit, confidence = 0.95, test.type = "var")
 ```
 
-## Size/Shape ~ Unit?
+## Size/Shape ~ County?
 
 ```{r szshpcounty, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA: do incision sizes differ by county?
 anova(fit.sizecounty)
 # pairwise comparison of LS means = which differ?
-sz.county<-pairwise(fit.sizecounty, groups = qdata$unit)
+sz.county<-pairwise(fit.sizecounty, groups = qdata$county)
 summary(sz.county, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sz.county, confidence = 0.95, test.type = "var")
+
 # ANOVA: do incision shapes differ by county?
 anova(fit.shapecounty)
 # pairwise comparison of LS means = which differ?
-sh.county<-pairwise(fit.shapecounty, groups = qdata$unit)
+sh.county<-pairwise(fit.shapecounty, groups = qdata$county)
 summary(sh.county, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sh.county, confidence = 0.95, test.type = "var")
@@ -158,6 +158,7 @@ morphol.disparity(fit.shapesite, groups = qdata$site, data = gdf, print.progress
 morphol.disparity(fit.shapeunit, groups = qdata$unit, data = gdf, print.progress = FALSE, iter = 9999)
 # county
 morphol.disparity(fit.shapecounty, groups = qdata$county, data = gdf, print.progress = FALSE, iter = 9999)
+
 # morphological disparity: does incision morphology display greater size variation among individuals relative to site, unit, or county?
 # site
 morphol.disparity(fit.sizesite, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
@@ -176,17 +177,9 @@ names(new.coords)
 # group shape means
 mean<-lapply(new.coords, mshape)
 # plot(mean$tn91)
+
+# mean shapes
 knitr::include_graphics('images/site-meanshape.png')
 fig.cap="Mean shapes for Caddo incisions from sites on the National Forests and Grasslands in Texas."
 # end of code
 ```
-
-## Acknowledgments
-
-I extend my gratitude to the Caddo Tribe of Oklahoma and the National Forests and Grasslands in Texas for the requisite permissions and access needed to generate the scans of the Caddo incisions, and to the National Center for Preservation Technology and Training for access to the optical profilometer. 
-
-## Funding
-
-Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to the author from the National Center for Preservation Technology and Training, and funding for this project was provided by grants to the author from the Caddo Tribe of Oklahoma and the National Forests and Grasslands in Texas (15-PA-11081300-033 and 20-PA-11081300-074).
-
-## References cited
