@@ -68,7 +68,7 @@ fit.sizeinc<-procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter = 99
 fit.shapeinc<-procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
 ```
 
-## Size/Shape ~ Site?
+## Size/Shape ~ Incision Profile?
 
 ```{r shszsiteEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA: allometry?
