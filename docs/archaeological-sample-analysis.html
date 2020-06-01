@@ -192,6 +192,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.1" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sb291-4-st64-3040-lot245"><i class="fa fa-check"></i><b>4.4.1</b> 41sb291-4-st64-3040-lot245</a></li>
 <li class="chapter" data-level="4.4.2" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sb291-9-st61-50-55-lot229"><i class="fa fa-check"></i><b>4.4.2</b> 41sb291-9-st61-50-55-lot229</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy43"><i class="fa fa-check"></i><b>4.5</b> 41SY43</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy43-1"><i class="fa fa-check"></i><b>4.5.1</b> 41sy43-1</a></li>
+<li class="chapter" data-level="4.5.2" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy43-13-1191"><i class="fa fa-check"></i><b>4.5.2</b> 41sy43-13-1191</a></li>
+<li class="chapter" data-level="4.5.3" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy43-19"><i class="fa fa-check"></i><b>4.5.3</b> 41sy43-19</a></li>
+<li class="chapter" data-level="4.5.4" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy43-830"><i class="fa fa-check"></i><b>4.5.4</b> 41sy43-830</a></li>
+<li class="chapter" data-level="4.5.5" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy43-k-2-27-37"><i class="fa fa-check"></i><b>4.5.5</b> 41sy43-k-2-27-37</a></li>
+<li class="chapter" data-level="4.5.6" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy43-k-6-1020"><i class="fa fa-check"></i><b>4.5.6</b> 41sy43-K-6-1020</a></li>
+<li class="chapter" data-level="4.5.7" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy43-k8-17"><i class="fa fa-check"></i><b>4.5.7</b> 41sy43-k8-17</a></li>
+<li class="chapter" data-level="4.5.8" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy43-lot1035-2030"><i class="fa fa-check"></i><b>4.5.8</b> 41sy43-lot1035-2030</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy258"><i class="fa fa-check"></i><b>4.6</b> 41SY258</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy258-st2-10-20"><i class="fa fa-check"></i><b>4.6.1</b> 41sy258-st2-10-20</a></li>
+<li class="chapter" data-level="4.6.2" data-path="archaeological-sample.html"><a href="archaeological-sample.html#sy258-st3-2030"><i class="fa fa-check"></i><b>4.6.2</b> 41sy258-st3-2030</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="archaeological-sample-analysis.html"><a href="archaeological-sample-analysis.html"><i class="fa fa-check"></i><b>5</b> Archaeological sample - analysis</a><ul>
 <li class="chapter" data-level="5.1" data-path="archaeological-sample-analysis.html"><a href="archaeological-sample-analysis.html#generalised-procrustes-analysis-1"><i class="fa fa-check"></i><b>5.1</b> Generalised Procrustes Analysis</a></li>
@@ -254,51 +268,51 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 </div>
 <div id="archaeological-sample---analysis" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Archaeological sample - analysis</h1>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="co"># library(devtools)</span></a>
-<a class="sourceLine" id="cb81-2" title="2"><span class="co"># devtools::install_github(&quot;geomorphR/geomorph&quot;, ref = &quot;Stable&quot;, build_vignettes = TRUE)</span></a>
-<a class="sourceLine" id="cb81-3" title="3"><span class="kw">library</span>(geomorph)</a>
-<a class="sourceLine" id="cb81-4" title="4"><span class="kw">setwd</span>(<span class="kw">getwd</span>())</a>
-<a class="sourceLine" id="cb81-5" title="5"><span class="kw">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</a>
-<a class="sourceLine" id="cb81-6" title="6"></a>
-<a class="sourceLine" id="cb81-7" title="7"><span class="co"># Read .csv files</span></a>
-<a class="sourceLine" id="cb81-8" title="8"><span class="kw">setwd</span>(<span class="st">&quot;./data1&quot;</span>)</a>
-<a class="sourceLine" id="cb81-9" title="9">filelist &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb81-10" title="10">coords&lt;-<span class="kw">readmulti.csv</span>(filelist)</a>
-<a class="sourceLine" id="cb81-11" title="11"><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</a>
-<a class="sourceLine" id="cb81-12" title="12"></a>
-<a class="sourceLine" id="cb81-13" title="13"><span class="co"># read qualitative data</span></a>
-<a class="sourceLine" id="cb81-14" title="14">qdata&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;qdata1.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb81-15" title="15">qdata&lt;-qdata[<span class="kw">match</span>(<span class="kw">dimnames</span>(coords)[[<span class="dv">3</span>]],<span class="kw">rownames</span>(qdata)),]</a></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="co"># library(devtools)</span></a>
+<a class="sourceLine" id="cb101-2" title="2"><span class="co"># devtools::install_github(&quot;geomorphR/geomorph&quot;, ref = &quot;Stable&quot;, build_vignettes = TRUE)</span></a>
+<a class="sourceLine" id="cb101-3" title="3"><span class="kw">library</span>(geomorph)</a>
+<a class="sourceLine" id="cb101-4" title="4"><span class="kw">setwd</span>(<span class="kw">getwd</span>())</a>
+<a class="sourceLine" id="cb101-5" title="5"><span class="kw">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</a>
+<a class="sourceLine" id="cb101-6" title="6"></a>
+<a class="sourceLine" id="cb101-7" title="7"><span class="co"># Read .csv files</span></a>
+<a class="sourceLine" id="cb101-8" title="8"><span class="kw">setwd</span>(<span class="st">&quot;./data1&quot;</span>)</a>
+<a class="sourceLine" id="cb101-9" title="9">filelist &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb101-10" title="10">coords&lt;-<span class="kw">readmulti.csv</span>(filelist)</a>
+<a class="sourceLine" id="cb101-11" title="11"><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</a>
+<a class="sourceLine" id="cb101-12" title="12"></a>
+<a class="sourceLine" id="cb101-13" title="13"><span class="co"># read qualitative data</span></a>
+<a class="sourceLine" id="cb101-14" title="14">qdata&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;qdata1.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb101-15" title="15">qdata&lt;-qdata[<span class="kw">match</span>(<span class="kw">dimnames</span>(coords)[[<span class="dv">3</span>]],<span class="kw">rownames</span>(qdata)),]</a></code></pre></div>
 <div id="generalised-procrustes-analysis-1" class="section level2">
 <h2><span class="header-section-number">5.1</span> Generalised Procrustes Analysis</h2>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1">Y.gpa&lt;-<span class="kw">gpagen</span>(coords, <span class="dt">PrinAxes =</span> <span class="ot">TRUE</span>, <span class="dt">ProcD =</span> <span class="ot">TRUE</span>, <span class="dt">Proj =</span> <span class="ot">TRUE</span>, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb82-2" title="2"></a>
-<a class="sourceLine" id="cb82-3" title="3"><span class="co"># 3D GPA plot</span></a>
-<a class="sourceLine" id="cb82-4" title="4">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1">Y.gpa&lt;-<span class="kw">gpagen</span>(coords, <span class="dt">PrinAxes =</span> <span class="ot">TRUE</span>, <span class="dt">ProcD =</span> <span class="ot">TRUE</span>, <span class="dt">Proj =</span> <span class="ot">TRUE</span>, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb102-2" title="2"></a>
+<a class="sourceLine" id="cb102-3" title="3"><span class="co"># 3D GPA plot</span></a>
+<a class="sourceLine" id="cb102-4" title="4">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</a></code></pre></div>
 <p><img src="images/gpa3d.png" width="100%" /></p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1">fig.cap=<span class="st">&quot;Results of generalized Procrustes analysis.&quot;</span></a>
-<a class="sourceLine" id="cb83-2" title="2"></a>
-<a class="sourceLine" id="cb83-3" title="3"><span class="co"># geomorph data frame</span></a>
-<a class="sourceLine" id="cb83-4" title="4">gdf&lt;-<span class="kw">geomorph.data.frame</span>(<span class="dt">shape=</span>Y.gpa<span class="op">$</span>coords, <span class="dt">size=</span>Y.gpa<span class="op">$</span>Csize, <span class="dt">site=</span>qdata<span class="op">$</span>site, <span class="dt">unit=</span>qdata<span class="op">$</span>unit, <span class="dt">county=</span>qdata<span class="op">$</span>county) </a>
-<a class="sourceLine" id="cb83-5" title="5"></a>
-<a class="sourceLine" id="cb83-6" title="6">csz&lt;-Y.gpa<span class="op">$</span>Csize <span class="co"># attribute for boxplot</span></a>
-<a class="sourceLine" id="cb83-7" title="7">unt&lt;-qdata<span class="op">$</span>unit <span class="co"># attribute for boxplot</span></a>
-<a class="sourceLine" id="cb83-8" title="8"><span class="co"># boxplot of incision (centroid) size by nfgt unit</span></a>
-<a class="sourceLine" id="cb83-9" title="9"><span class="kw">boxplot</span>(csz<span class="op">~</span>unt, </a>
-<a class="sourceLine" id="cb83-10" title="10">        <span class="dt">main =</span> <span class="st">&quot;Centroid size of Caddo incisions by NFGT Unit&quot;</span>,</a>
-<a class="sourceLine" id="cb83-11" title="11">        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;AngelinaNF&quot;</span>, <span class="st">&quot;DavyCrockettNF&quot;</span>, <span class="st">&quot;SabineNF&quot;</span>),</a>
-<a class="sourceLine" id="cb83-12" title="12">        <span class="dt">xlab =</span> <span class="st">&quot;Unit&quot;</span>,</a>
-<a class="sourceLine" id="cb83-13" title="13">        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</a>
-<a class="sourceLine" id="cb83-14" title="14">        <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;dodgerblue4&quot;</span>,<span class="st">&quot;indianred4&quot;</span>,<span class="st">&quot;tan3&quot;</span>)</a>
-<a class="sourceLine" id="cb83-15" title="15">        )</a></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1">fig.cap=<span class="st">&quot;Results of generalized Procrustes analysis.&quot;</span></a>
+<a class="sourceLine" id="cb103-2" title="2"></a>
+<a class="sourceLine" id="cb103-3" title="3"><span class="co"># geomorph data frame</span></a>
+<a class="sourceLine" id="cb103-4" title="4">gdf&lt;-<span class="kw">geomorph.data.frame</span>(<span class="dt">shape=</span>Y.gpa<span class="op">$</span>coords, <span class="dt">size=</span>Y.gpa<span class="op">$</span>Csize, <span class="dt">site=</span>qdata<span class="op">$</span>site, <span class="dt">unit=</span>qdata<span class="op">$</span>unit, <span class="dt">county=</span>qdata<span class="op">$</span>county) </a>
+<a class="sourceLine" id="cb103-5" title="5"></a>
+<a class="sourceLine" id="cb103-6" title="6">csz&lt;-Y.gpa<span class="op">$</span>Csize <span class="co"># attribute for boxplot</span></a>
+<a class="sourceLine" id="cb103-7" title="7">unt&lt;-qdata<span class="op">$</span>unit <span class="co"># attribute for boxplot</span></a>
+<a class="sourceLine" id="cb103-8" title="8"><span class="co"># boxplot of incision (centroid) size by nfgt unit</span></a>
+<a class="sourceLine" id="cb103-9" title="9"><span class="kw">boxplot</span>(csz<span class="op">~</span>unt, </a>
+<a class="sourceLine" id="cb103-10" title="10">        <span class="dt">main =</span> <span class="st">&quot;Centroid size of Caddo incisions by NFGT Unit&quot;</span>,</a>
+<a class="sourceLine" id="cb103-11" title="11">        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;AngelinaNF&quot;</span>, <span class="st">&quot;DavyCrockettNF&quot;</span>, <span class="st">&quot;SabineNF&quot;</span>),</a>
+<a class="sourceLine" id="cb103-12" title="12">        <span class="dt">xlab =</span> <span class="st">&quot;Unit&quot;</span>,</a>
+<a class="sourceLine" id="cb103-13" title="13">        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</a>
+<a class="sourceLine" id="cb103-14" title="14">        <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;dodgerblue4&quot;</span>,<span class="st">&quot;indianred4&quot;</span>,<span class="st">&quot;tan3&quot;</span>)</a>
+<a class="sourceLine" id="cb103-15" title="15">        )</a></code></pre></div>
 <p><img src="incision_files/figure-html/gpa-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1">fig.cap=<span class="st">&quot;Boxplot of incision profiles for the Angelina, Davy Crockett, and Sabine National Forests.&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" title="1">fig.cap=<span class="st">&quot;Boxplot of incision profiles for the Angelina, Davy Crockett, and Sabine National Forests.&quot;</span></a></code></pre></div>
 </div>
 <div id="principal-components-analysis-1" class="section level2">
 <h2><span class="header-section-number">5.2</span> Principal Components Analysis</h2>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="co"># principal components analysis</span></a>
-<a class="sourceLine" id="cb85-2" title="2">pca&lt;-<span class="kw">gm.prcomp</span>(Y.gpa<span class="op">$</span>coords)</a>
-<a class="sourceLine" id="cb85-3" title="3"><span class="kw">summary</span>(pca)</a></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="co"># principal components analysis</span></a>
+<a class="sourceLine" id="cb105-2" title="2">pca&lt;-<span class="kw">gm.prcomp</span>(Y.gpa<span class="op">$</span>coords)</a>
+<a class="sourceLine" id="cb105-3" title="3"><span class="kw">summary</span>(pca)</a></code></pre></div>
 <pre><code>## Importance of components: 
 ##                               PC1         PC2         PC3         PC4
 ## Tips variance          0.05005241 0.007101587 0.004207237 0.001010877
@@ -360,46 +374,46 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Tips variance          2.524843e-08 1.466766e-08 8.934916e-09
 ## Proportion of variance 3.969758e-07 2.306165e-07 1.404818e-07
 ## Cumulative Proportion  9.999996e-01 9.999999e-01 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1"><span class="co"># set plot parameters</span></a>
-<a class="sourceLine" id="cb87-2" title="2"><span class="co"># for site</span></a>
-<a class="sourceLine" id="cb87-3" title="3">site &lt;-<span class="st"> </span>qdata<span class="op">$</span>site</a>
-<a class="sourceLine" id="cb87-4" title="4">pch.gps.site &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">14</span>)[<span class="kw">as.factor</span>(site)]</a>
-<a class="sourceLine" id="cb87-5" title="5"><span class="co"># for unit</span></a>
-<a class="sourceLine" id="cb87-6" title="6">unit &lt;-<span class="st"> </span>qdata<span class="op">$</span>unit</a>
-<a class="sourceLine" id="cb87-7" title="7">pch.gps &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(unit)]</a>
-<a class="sourceLine" id="cb87-8" title="8">col.gps &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dodgerblue4&quot;</span>,<span class="st">&quot;indianred4&quot;</span>,<span class="st">&quot;tan3&quot;</span>)[<span class="kw">as.factor</span>(unit)]</a>
-<a class="sourceLine" id="cb87-9" title="9"><span class="co"># for county</span></a>
-<a class="sourceLine" id="cb87-10" title="10">county &lt;-<span class="st"> </span>qdata<span class="op">$</span>county</a>
-<a class="sourceLine" id="cb87-11" title="11">pch.gps.cty &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)[<span class="kw">as.factor</span>(county)]</a>
-<a class="sourceLine" id="cb87-12" title="12"></a>
-<a class="sourceLine" id="cb87-13" title="13"><span class="co"># plotPCAbySite</span></a>
-<a class="sourceLine" id="cb87-14" title="14">pca.plot1&lt;-<span class="kw">plot</span>(pca,</a>
-<a class="sourceLine" id="cb87-15" title="15">                <span class="dt">pch =</span> pch.gps.site)</a></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="co"># set plot parameters</span></a>
+<a class="sourceLine" id="cb107-2" title="2"><span class="co"># for site</span></a>
+<a class="sourceLine" id="cb107-3" title="3">site &lt;-<span class="st"> </span>qdata<span class="op">$</span>site</a>
+<a class="sourceLine" id="cb107-4" title="4">pch.gps.site &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">14</span>)[<span class="kw">as.factor</span>(site)]</a>
+<a class="sourceLine" id="cb107-5" title="5"><span class="co"># for unit</span></a>
+<a class="sourceLine" id="cb107-6" title="6">unit &lt;-<span class="st"> </span>qdata<span class="op">$</span>unit</a>
+<a class="sourceLine" id="cb107-7" title="7">pch.gps &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(unit)]</a>
+<a class="sourceLine" id="cb107-8" title="8">col.gps &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dodgerblue4&quot;</span>,<span class="st">&quot;indianred4&quot;</span>,<span class="st">&quot;tan3&quot;</span>)[<span class="kw">as.factor</span>(unit)]</a>
+<a class="sourceLine" id="cb107-9" title="9"><span class="co"># for county</span></a>
+<a class="sourceLine" id="cb107-10" title="10">county &lt;-<span class="st"> </span>qdata<span class="op">$</span>county</a>
+<a class="sourceLine" id="cb107-11" title="11">pch.gps.cty &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)[<span class="kw">as.factor</span>(county)]</a>
+<a class="sourceLine" id="cb107-12" title="12"></a>
+<a class="sourceLine" id="cb107-13" title="13"><span class="co"># plotPCAbySite</span></a>
+<a class="sourceLine" id="cb107-14" title="14">pca.plot1&lt;-<span class="kw">plot</span>(pca,</a>
+<a class="sourceLine" id="cb107-15" title="15">                <span class="dt">pch =</span> pch.gps.site)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pca-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="co"># plotPCAbyUnit</span></a>
-<a class="sourceLine" id="cb88-2" title="2">pca.plot2&lt;-<span class="kw">plot</span>(pca,</a>
-<a class="sourceLine" id="cb88-3" title="3">               <span class="dt">pch =</span> pch.gps,</a>
-<a class="sourceLine" id="cb88-4" title="4">               <span class="dt">col =</span> col.gps)</a></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" title="1"><span class="co"># plotPCAbyUnit</span></a>
+<a class="sourceLine" id="cb108-2" title="2">pca.plot2&lt;-<span class="kw">plot</span>(pca,</a>
+<a class="sourceLine" id="cb108-3" title="3">               <span class="dt">pch =</span> pch.gps,</a>
+<a class="sourceLine" id="cb108-4" title="4">               <span class="dt">col =</span> col.gps)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pca-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1"><span class="co"># plotPCAbyCounty</span></a>
-<a class="sourceLine" id="cb89-2" title="2">pca.plot1&lt;-<span class="kw">plot</span>(pca,</a>
-<a class="sourceLine" id="cb89-3" title="3">                <span class="dt">pch =</span> pch.gps.cty)</a></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="co"># plotPCAbyCounty</span></a>
+<a class="sourceLine" id="cb109-2" title="2">pca.plot1&lt;-<span class="kw">plot</span>(pca,</a>
+<a class="sourceLine" id="cb109-3" title="3">                <span class="dt">pch =</span> pch.gps.cty)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pca-3.png" width="100%" /></p>
 </div>
 <div id="define-models-1" class="section level2">
 <h2><span class="header-section-number">5.3</span> Define models</h2>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1">fit.size&lt;-<span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
-<a class="sourceLine" id="cb90-2" title="2">fit.sizesite&lt;-<span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>site, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
-<a class="sourceLine" id="cb90-3" title="3">fit.sizeunit&lt;-<span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>unit, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
-<a class="sourceLine" id="cb90-4" title="4">fit.sizecounty&lt;-<span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>county, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
-<a class="sourceLine" id="cb90-5" title="5">fit.shapesite&lt;-<span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>site, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
-<a class="sourceLine" id="cb90-6" title="6">fit.shapeunit&lt;-<span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>unit, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
-<a class="sourceLine" id="cb90-7" title="7">fit.shapecounty&lt;-<span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>county, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1">fit.size&lt;-<span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
+<a class="sourceLine" id="cb110-2" title="2">fit.sizesite&lt;-<span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>site, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
+<a class="sourceLine" id="cb110-3" title="3">fit.sizeunit&lt;-<span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>unit, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
+<a class="sourceLine" id="cb110-4" title="4">fit.sizecounty&lt;-<span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>county, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
+<a class="sourceLine" id="cb110-5" title="5">fit.shapesite&lt;-<span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>site, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
+<a class="sourceLine" id="cb110-6" title="6">fit.shapeunit&lt;-<span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>unit, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
+<a class="sourceLine" id="cb110-7" title="7">fit.shapecounty&lt;-<span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>county, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
 </div>
 <div id="sizeshape-site" class="section level2">
 <h2><span class="header-section-number">5.4</span> Size/Shape ~ Site?</h2>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="co"># ANOVA: do incision sizes differ by site?</span></a>
-<a class="sourceLine" id="cb91-2" title="2"><span class="kw">anova</span>(fit.sizesite)</a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="co"># ANOVA: do incision sizes differ by site?</span></a>
+<a class="sourceLine" id="cb111-2" title="2"><span class="kw">anova</span>(fit.sizesite)</a></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -416,9 +430,9 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = size ~ site, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
-<a class="sourceLine" id="cb93-2" title="2">sz.site&lt;-<span class="kw">pairwise</span>(fit.sizesite, <span class="dt">groups =</span> qdata<span class="op">$</span>site)</a>
-<a class="sourceLine" id="cb93-3" title="3"><span class="kw">summary</span>(sz.site, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
+<a class="sourceLine" id="cb113-2" title="2">sz.site&lt;-<span class="kw">pairwise</span>(fit.sizesite, <span class="dt">groups =</span> qdata<span class="op">$</span>site)</a>
+<a class="sourceLine" id="cb113-3" title="3"><span class="kw">summary</span>(sz.site, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -459,8 +473,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## sy280:sy43  0.37468806  1.290900 -0.39753557 0.5750
 ## sy280:tn91  0.11579994  1.178315 -1.04454452 0.8523
 ## sy43:tn91   0.49048800  1.378876 -0.20294743 0.5048</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
-<a class="sourceLine" id="cb95-2" title="2"><span class="kw">summary</span>(sz.site, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
+<a class="sourceLine" id="cb115-2" title="2"><span class="kw">summary</span>(sz.site, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -506,8 +520,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## sy280:sy43  0.77819996  1.941683 -0.04333318 0.4452
 ## sy280:tn91  0.34782507  1.728787 -0.72890816 0.7181
 ## sy43:tn91   1.12602503  2.115523  0.38271730 0.3062</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1"><span class="co"># ANOVA: do incision shapes differ by site?</span></a>
-<a class="sourceLine" id="cb97-2" title="2"><span class="kw">anova</span>(fit.shapesite)</a></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1"><span class="co"># ANOVA: do incision shapes differ by site?</span></a>
+<a class="sourceLine" id="cb117-2" title="2"><span class="kw">anova</span>(fit.shapesite)</a></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -522,9 +536,9 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Total     48 3.05289                                       
 ## 
 ## Call: procD.lm(f1 = shape ~ site, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
-<a class="sourceLine" id="cb99-2" title="2">sh.site&lt;-<span class="kw">pairwise</span>(fit.shapesite, <span class="dt">groups =</span> qdata<span class="op">$</span>site)</a>
-<a class="sourceLine" id="cb99-3" title="3"><span class="kw">summary</span>(sh.site, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
+<a class="sourceLine" id="cb119-2" title="2">sh.site&lt;-<span class="kw">pairwise</span>(fit.shapesite, <span class="dt">groups =</span> qdata<span class="op">$</span>site)</a>
+<a class="sourceLine" id="cb119-3" title="3"><span class="kw">summary</span>(sh.site, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -565,8 +579,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## sy280:sy43  0.14196417 0.1902481  0.94417481 0.1671
 ## sy280:tn91  0.07961867 0.1742751 -0.16336003 0.4676
 ## sy43:tn91   0.07811097 0.2083811 -0.48053675 0.6318</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
-<a class="sourceLine" id="cb101-2" title="2"><span class="kw">summary</span>(sh.site, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
+<a class="sourceLine" id="cb121-2" title="2"><span class="kw">summary</span>(sh.site, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -615,8 +629,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 </div>
 <div id="sizeshape-unit" class="section level2">
 <h2><span class="header-section-number">5.5</span> Size/Shape ~ Unit?</h2>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="co"># ANOVA: do incision sizes differ by unit?</span></a>
-<a class="sourceLine" id="cb103-2" title="2"><span class="kw">anova</span>(fit.sizeunit)</a></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="co"># ANOVA: do incision sizes differ by unit?</span></a>
+<a class="sourceLine" id="cb123-2" title="2"><span class="kw">anova</span>(fit.sizeunit)</a></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -631,9 +645,9 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Total     48 115.342                                     
 ## 
 ## Call: procD.lm(f1 = size ~ unit, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
-<a class="sourceLine" id="cb105-2" title="2">sz.unit&lt;-<span class="kw">pairwise</span>(fit.sizeunit, <span class="dt">groups =</span> qdata<span class="op">$</span>unit)</a>
-<a class="sourceLine" id="cb105-3" title="3"><span class="kw">summary</span>(sz.unit, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
+<a class="sourceLine" id="cb125-2" title="2">sz.unit&lt;-<span class="kw">pairwise</span>(fit.sizeunit, <span class="dt">groups =</span> qdata<span class="op">$</span>unit)</a>
+<a class="sourceLine" id="cb125-3" title="3"><span class="kw">summary</span>(sz.unit, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -649,8 +663,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## angelinaNF:davycNF  0.96472603  1.755851  0.4431446 0.2949
 ## angelinaNF:sabineNF 0.94846933  1.569764  0.5910503 0.2463
 ## davycNF:sabineNF    0.01625669  1.050857 -1.3048870 0.9773</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
-<a class="sourceLine" id="cb107-2" title="2"><span class="kw">summary</span>(sz.unit, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
+<a class="sourceLine" id="cb127-2" title="2"><span class="kw">summary</span>(sz.unit, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -669,8 +683,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## angelinaNF:davycNF  0.3925666  6.399278 -0.7260704 0.8072
 ## angelinaNF:sabineNF 0.8586073  6.454379 -0.3594053 0.5744
 ## davycNF:sabineNF    0.4660408  3.015764 -0.8585883 0.7832</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="co"># ANOVA: do incision shapes differ by unit?</span></a>
-<a class="sourceLine" id="cb109-2" title="2"><span class="kw">anova</span>(fit.shapeunit)</a></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1"><span class="co"># ANOVA: do incision shapes differ by unit?</span></a>
+<a class="sourceLine" id="cb129-2" title="2"><span class="kw">anova</span>(fit.shapeunit)</a></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -685,9 +699,9 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Total     48 3.05289                                        
 ## 
 ## Call: procD.lm(f1 = shape ~ unit, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
-<a class="sourceLine" id="cb111-2" title="2">sh.unit&lt;-<span class="kw">pairwise</span>(fit.shapeunit, <span class="dt">groups =</span> qdata<span class="op">$</span>unit)</a>
-<a class="sourceLine" id="cb111-3" title="3"><span class="kw">summary</span>(sh.unit, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
+<a class="sourceLine" id="cb131-2" title="2">sh.unit&lt;-<span class="kw">pairwise</span>(fit.shapeunit, <span class="dt">groups =</span> qdata<span class="op">$</span>unit)</a>
+<a class="sourceLine" id="cb131-3" title="3"><span class="kw">summary</span>(sh.unit, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -703,8 +717,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## angelinaNF:davycNF  0.06600043 0.2647030 -0.9041731 0.8123
 ## angelinaNF:sabineNF 0.12046607 0.2354948  0.0360844 0.4219
 ## davycNF:sabineNF    0.05918481 0.1541155 -0.4655855 0.6260</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
-<a class="sourceLine" id="cb113-2" title="2"><span class="kw">summary</span>(sh.unit, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
+<a class="sourceLine" id="cb133-2" title="2"><span class="kw">summary</span>(sh.unit, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -726,8 +740,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 </div>
 <div id="sizeshape-county" class="section level2">
 <h2><span class="header-section-number">5.6</span> Size/Shape ~ County?</h2>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1"><span class="co"># ANOVA: do incision sizes differ by county?</span></a>
-<a class="sourceLine" id="cb115-2" title="2"><span class="kw">anova</span>(fit.sizecounty)</a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1"><span class="co"># ANOVA: do incision sizes differ by county?</span></a>
+<a class="sourceLine" id="cb135-2" title="2"><span class="kw">anova</span>(fit.sizecounty)</a></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -742,9 +756,9 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Total     48 115.342                                     
 ## 
 ## Call: procD.lm(f1 = size ~ county, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
-<a class="sourceLine" id="cb117-2" title="2">sz.county&lt;-<span class="kw">pairwise</span>(fit.sizecounty, <span class="dt">groups =</span> qdata<span class="op">$</span>county)</a>
-<a class="sourceLine" id="cb117-3" title="3"><span class="kw">summary</span>(sz.county, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
+<a class="sourceLine" id="cb137-2" title="2">sz.county&lt;-<span class="kw">pairwise</span>(fit.sizecounty, <span class="dt">groups =</span> qdata<span class="op">$</span>county)</a>
+<a class="sourceLine" id="cb137-3" title="3"><span class="kw">summary</span>(sz.county, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -763,8 +777,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## san-augustine:shelby  0.91475139  1.601641  0.5011701 0.2694
 ## san-augustine:trinity 0.96472603  1.755851  0.4431446 0.2949
 ## shelby:trinity        0.04997464  1.096645 -1.2016654 0.9304</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
-<a class="sourceLine" id="cb119-2" title="2"><span class="kw">summary</span>(sz.county, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
+<a class="sourceLine" id="cb139-2" title="2"><span class="kw">summary</span>(sz.county, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -786,8 +800,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## san-augustine:shelby  0.87169403  6.541165 -0.3685743 0.5704
 ## san-augustine:trinity 0.39256655  6.487580 -0.7203759 0.8031
 ## shelby:trinity        0.47912748  3.072151 -0.8873498 0.7826</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1"><span class="co"># ANOVA: do incision shapes differ by county?</span></a>
-<a class="sourceLine" id="cb121-2" title="2"><span class="kw">anova</span>(fit.shapecounty)</a></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" title="1"><span class="co"># ANOVA: do incision shapes differ by county?</span></a>
+<a class="sourceLine" id="cb141-2" title="2"><span class="kw">anova</span>(fit.shapecounty)</a></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -802,9 +816,9 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Total     48 3.05289                                        
 ## 
 ## Call: procD.lm(f1 = shape ~ county, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
-<a class="sourceLine" id="cb123-2" title="2">sh.county&lt;-<span class="kw">pairwise</span>(fit.shapecounty, <span class="dt">groups =</span> qdata<span class="op">$</span>county)</a>
-<a class="sourceLine" id="cb123-3" title="3"><span class="kw">summary</span>(sh.county, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
+<a class="sourceLine" id="cb143-2" title="2">sh.county&lt;-<span class="kw">pairwise</span>(fit.shapecounty, <span class="dt">groups =</span> qdata<span class="op">$</span>county)</a>
+<a class="sourceLine" id="cb143-3" title="3"><span class="kw">summary</span>(sh.county, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -823,8 +837,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## san-augustine:shelby  0.11155655 0.2375741 -0.12442065 0.4800
 ## san-augustine:trinity 0.06600043 0.2647030 -0.90417309 0.8123
 ## shelby:trinity        0.05122195 0.1581386 -0.71090871 0.7419</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
-<a class="sourceLine" id="cb125-2" title="2"><span class="kw">summary</span>(sh.county, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" title="1"><span class="co"># pairwise distance between variances = standardization?</span></a>
+<a class="sourceLine" id="cb145-2" title="2"><span class="kw">summary</span>(sh.county, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -849,9 +863,9 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 </div>
 <div id="morphological-disparity-1" class="section level2">
 <h2><span class="header-section-number">5.7</span> Morphological disparity</h2>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1"><span class="co"># morphological disparity: does incision morphology display greater shape variation among individuals relative to site, unit, or county?</span></a>
-<a class="sourceLine" id="cb127-2" title="2"><span class="co"># site</span></a>
-<a class="sourceLine" id="cb127-3" title="3"><span class="kw">morphol.disparity</span>(fit.shapesite, <span class="dt">groups =</span> qdata<span class="op">$</span>site, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" title="1"><span class="co"># morphological disparity: does incision morphology display greater shape variation among individuals relative to site, unit, or county?</span></a>
+<a class="sourceLine" id="cb147-2" title="2"><span class="co"># site</span></a>
+<a class="sourceLine" id="cb147-3" title="3"><span class="kw">morphol.disparity</span>(fit.shapesite, <span class="dt">groups =</span> qdata<span class="op">$</span>site, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.shapesite, groups = qdata$site, iter = 9999,  
@@ -900,8 +914,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## sy280 0.5476 0.2736 0.2304 0.2792 0.2165 1.0000 0.8331 0.5233
 ## sy43  0.4520 0.2789 0.2453 0.2892 0.2363 0.8331 1.0000 0.4697
 ## tn91  0.8478 0.5616 0.4434 0.5395 0.4103 0.5233 0.4697 1.0000</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1"><span class="co"># unit</span></a>
-<a class="sourceLine" id="cb129-2" title="2"><span class="kw">morphol.disparity</span>(fit.shapeunit, <span class="dt">groups =</span> qdata<span class="op">$</span>unit, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1"><span class="co"># unit</span></a>
+<a class="sourceLine" id="cb149-2" title="2"><span class="kw">morphol.disparity</span>(fit.shapeunit, <span class="dt">groups =</span> qdata<span class="op">$</span>unit, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.shapeunit, groups = qdata$unit, iter = 9999,  
@@ -929,8 +943,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## angelinaNF     1.0000  0.8607   0.7814
 ## davycNF        0.8607  1.0000   0.7082
 ## sabineNF       0.7814  0.7082   1.0000</code></pre>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" title="1"><span class="co"># county</span></a>
-<a class="sourceLine" id="cb131-2" title="2"><span class="kw">morphol.disparity</span>(fit.shapecounty, <span class="dt">groups =</span> qdata<span class="op">$</span>county, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1"><span class="co"># county</span></a>
+<a class="sourceLine" id="cb151-2" title="2"><span class="kw">morphol.disparity</span>(fit.shapecounty, <span class="dt">groups =</span> qdata<span class="op">$</span>county, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.shapecounty, groups = qdata$county,  
@@ -960,9 +974,9 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## san-augustine 0.6688        1.0000 0.5335  0.8606
 ## shelby        0.1055        0.5335 1.0000  0.4832
 ## trinity       0.4569        0.8606 0.4832  1.0000</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1"><span class="co"># morphological disparity: does incision morphology display greater size variation among individuals relative to site, unit, or county?</span></a>
-<a class="sourceLine" id="cb133-2" title="2"><span class="co"># site</span></a>
-<a class="sourceLine" id="cb133-3" title="3"><span class="kw">morphol.disparity</span>(fit.sizesite, <span class="dt">groups =</span> qdata<span class="op">$</span>site, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="co"># morphological disparity: does incision morphology display greater size variation among individuals relative to site, unit, or county?</span></a>
+<a class="sourceLine" id="cb153-2" title="2"><span class="co"># site</span></a>
+<a class="sourceLine" id="cb153-3" title="3"><span class="kw">morphol.disparity</span>(fit.sizesite, <span class="dt">groups =</span> qdata<span class="op">$</span>site, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.sizesite, groups = qdata$site, iter = 9999,  
@@ -1011,8 +1025,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## sy280 0.9757 0.3745 0.6419 0.3857 0.0007 1.0000 0.4452 0.7181
 ## sy43  0.6127 0.7562 0.9627 0.7280 0.0003 0.4452 1.0000 0.3062
 ## tn91  0.7734 0.2755 0.4763 0.2774 0.0011 0.7181 0.3062 1.0000</code></pre>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1"><span class="co"># unit</span></a>
-<a class="sourceLine" id="cb135-2" title="2"><span class="kw">morphol.disparity</span>(fit.sizeunit, <span class="dt">groups =</span> qdata<span class="op">$</span>unit, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="co"># unit</span></a>
+<a class="sourceLine" id="cb155-2" title="2"><span class="kw">morphol.disparity</span>(fit.sizeunit, <span class="dt">groups =</span> qdata<span class="op">$</span>unit, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.sizeunit, groups = qdata$unit, iter = 9999,  
@@ -1040,8 +1054,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## angelinaNF     1.0000  0.8072   0.5744
 ## davycNF        0.8072  1.0000   0.7832
 ## sabineNF       0.5744  0.7832   1.0000</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1"><span class="co"># county</span></a>
-<a class="sourceLine" id="cb137-2" title="2"><span class="kw">morphol.disparity</span>(fit.sizecounty, <span class="dt">groups =</span> qdata<span class="op">$</span>county, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1"><span class="co"># county</span></a>
+<a class="sourceLine" id="cb157-2" title="2"><span class="kw">morphol.disparity</span>(fit.sizecounty, <span class="dt">groups =</span> qdata<span class="op">$</span>county, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.sizecounty, groups = qdata$county,  
@@ -1074,19 +1088,19 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 </div>
 <div id="mean-shapes-1" class="section level2">
 <h2><span class="header-section-number">5.8</span> Mean shapes</h2>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1"><span class="co"># subset landmark coordinates to produce mean shapes by site</span></a>
-<a class="sourceLine" id="cb139-2" title="2">new.coords&lt;-<span class="kw">coords.subset</span>(<span class="dt">A =</span> Y.gpa<span class="op">$</span>coords, <span class="dt">group =</span> qdata<span class="op">$</span>site)</a>
-<a class="sourceLine" id="cb139-3" title="3"><span class="kw">names</span>(new.coords)</a></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"><span class="co"># subset landmark coordinates to produce mean shapes by site</span></a>
+<a class="sourceLine" id="cb159-2" title="2">new.coords&lt;-<span class="kw">coords.subset</span>(<span class="dt">A =</span> Y.gpa<span class="op">$</span>coords, <span class="dt">group =</span> qdata<span class="op">$</span>site)</a>
+<a class="sourceLine" id="cb159-3" title="3"><span class="kw">names</span>(new.coords)</a></code></pre></div>
 <pre><code>## [1] &quot;sa66&quot;  &quot;sb125&quot; &quot;sb189&quot; &quot;sb291&quot; &quot;sy258&quot; &quot;sy280&quot; &quot;sy43&quot;  &quot;tn91&quot;</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" title="1"><span class="co"># group shape means</span></a>
-<a class="sourceLine" id="cb141-2" title="2">mean&lt;-<span class="kw">lapply</span>(new.coords, mshape)</a>
-<a class="sourceLine" id="cb141-3" title="3"><span class="co"># plot(mean$tn91)</span></a>
-<a class="sourceLine" id="cb141-4" title="4"></a>
-<a class="sourceLine" id="cb141-5" title="5"><span class="co"># mean shapes</span></a>
-<a class="sourceLine" id="cb141-6" title="6">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/site-meanshape.png&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="co"># group shape means</span></a>
+<a class="sourceLine" id="cb161-2" title="2">mean&lt;-<span class="kw">lapply</span>(new.coords, mshape)</a>
+<a class="sourceLine" id="cb161-3" title="3"><span class="co"># plot(mean$tn91)</span></a>
+<a class="sourceLine" id="cb161-4" title="4"></a>
+<a class="sourceLine" id="cb161-5" title="5"><span class="co"># mean shapes</span></a>
+<a class="sourceLine" id="cb161-6" title="6">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/site-meanshape.png&#39;</span>)</a></code></pre></div>
 <p><img src="images/site-meanshape.png" width="1458" /></p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">fig.cap=<span class="st">&quot;Mean shapes for Caddo incisions from sites on the National Forests and Grasslands in Texas.&quot;</span></a>
-<a class="sourceLine" id="cb142-2" title="2"><span class="co"># end of code</span></a></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1">fig.cap=<span class="st">&quot;Mean shapes for Caddo incisions from sites on the National Forests and Grasslands in Texas.&quot;</span></a>
+<a class="sourceLine" id="cb162-2" title="2"><span class="co"># end of code</span></a></code></pre></div>
 
 </div>
 </div>

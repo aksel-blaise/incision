@@ -115,3 +115,95 @@ fig.cap="Incisions on sherd 41sb291-4-st64-3040-lot245."
 knitr::include_graphics('images/41sb291-9-st61-50-55-lot229-inc.png')
 fig.cap="Incisions on sherd 41sb291-9-st61-50-55-lot229."
 ```
+
+## 41SY43
+
+The Old Timers site was the location of the 2001 Passport in Time (PIT) excavation project conducted by the U.S. Forest Service between March 9-18, 2001. The site is on a sandy ridge overlooking Bayou Siepe, an eastward-flowing tributary to the Sabine River; it is a few miles west of one of the upper arms of Toledo Bend Reservoir.
+
+In 1998, the Forest Service conducted  shovel tests at the Old Timers site to establish its boundaries and archeological content. A total of  31 shovel tests were excavated, and only one shovel test (ST 27) on the northwestern part of the landform did not contain archeological deposits. The site covered a 2000 m2 area.
+
+Not including lithic debris or fire-cracked rock from the shovel tests, more than 162 artifacts of analytical value were recovered in 22 of the shovel tests. The majority of these artifacts include plain and decorated ancestral Caddo ceramic sherds (n=141), as well as Woodland period _Goose Creek Plain_  [@RN5066, 57, Pl. 29] sherds (n=2). Other recovered artifacts include arrow points, dart points, other lithic tools, as well as burned clay and daub.
+
+### 41sy43-1
+
+```{r 41sy43-1-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy43-1-inc.png')
+fig.cap="Incisions on sherd 41sy43-1."
+```
+
+### 41sy43-13-1191
+
+```{r 41sy43-13-1191-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy43-13-1191-inc.png')
+fig.cap="Incisions on sherd 41sy43-13-1191."
+```
+
+### 41sy43-19
+
+```{r 41sy43-19-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy43-19-inc.png')
+fig.cap="Incisions on sherd 41sy43-19."
+```
+
+### 41sy43-830
+
+```{r 41SY43-830-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy43-830-inc.png')
+fig.cap="Incisions on sherd 41sy43-830."
+```
+
+### 41sy43-k-2-27-37
+
+```{r 41sy43-k-2-27-37, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy43-k-2-27-37-inc.png')
+fig.cap="Incisions on sherd 41sy43-k-2-27-37."
+```
+
+### 41sy43-K-6-1020
+
+```{r 41sy43-K-6-1020-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy43-K-6-1020-inc.png')
+fig.cap="Incisions on sherd 41sy43-K-6-1020."
+```
+
+### 41sy43-k8-17
+
+```{r 41sy43-k8-17-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy43-k8-17-inc.png')
+fig.cap="Incisions on sherd 41sy43-k8-17."
+```
+
+### 41sy43-lot1035-2030
+
+```{r 41sy43-lot1035-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy43-lot1035-2030-inc.png')
+fig.cap="Incisions on sherd 41sy43-lot1035-2030."
+```
+
+## 41SY258
+
+41SY258 consists of a large aboriginal campsite situated on a terrace knoll near the northern bank of Patroon Bayou along the southern margin of SNF Compartment 53 in Shelby County, Texas. It consists of a subsurface scatter of lithic and ceramic artifacts--as well Perdiz, Kent-like, Yarbrough-like, and Palmer-like projectile points--suggesting an occupation that occurred at some point or recurrently between the Middle Archaic and Late Caddoan periods periods (4000 BCE to CE 1680).
+
+### 41sy258-st2-10-20
+
+```{r 41sy258-st2-10-20-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy258-st2-10-20-inc.png')
+fig.cap="Incisions on sherd 41sy258-st2-10-20."
+```
+
+### 41sy258-st3-2030
+
+```{r 41sy258-st3-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy258-st3-2030-inc.png')
+fig.cap="Incisions on sherd 41sy258-st3-2030."
+```
