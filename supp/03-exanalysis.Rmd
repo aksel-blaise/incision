@@ -62,6 +62,8 @@ pca<-plot(pca,
 
 ## Define models
 
+The `inc2` field in the qdataEX file relates to the general differences in shape that were noted when reviewing the incisions. Some were U-shaped and narrow, others U-shaped and wide (twice as wide as they are deep), and the remainder were V-shaped. The V-shaped incisions were the only incision type to be made by multiple tools. The narrow and wide U-shaped incisions were made by different tools; however, it is worth noting that it is not difficult to imagine a scenario where both of the U-shaped incisions could have been produced with two different sides of the same tool.
+
 ```{r defmodEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 fit.size<-procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
 fit.sizeinc<-procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
