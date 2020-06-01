@@ -20,7 +20,7 @@ This volume is written in **Markdown**, and includes all analysis code employed 
 
 I extend my gratitude to the Caddo Tribe of Oklahoma and the National Forests and Grasslands in Texas for the requisite permissions and access needed to generate the scans of the Caddo incisions, and to the National Center for Preservation Technology and Training for access to the optical profilometer. 
 
-This volume enlists a variety of tools from the [Open Review Toolkit](https://www.openreviewtoolkit.org/), as well as the code provided for the `bookdown` package, and follows the excellent example advanced by [Ben Marwick](https://benmarwick.github.io/bookdown-ort/). I extend my gratitude to all who contribute comments and constructive criticisms throughout the development and maturation of this project. This document will remain in open review until the article is published.
+This volume enlists a variety of tools from the [Open Review Toolkit](https://www.openreviewtoolkit.org/), as well as the code provided for the `bookdown` package, and follows the excellent example advanced by [Ben Marwick](http://faculty.washington.edu/bmarwick/). I extend my gratitude to all who contribute comments and constructive criticisms throughout the development and maturation of this project. This document will remain in open review until the article is published.
 
 ## Funding
 
