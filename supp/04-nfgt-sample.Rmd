@@ -207,3 +207,241 @@ fig.cap="Incisions on sherd 41sy258-st2-10-20."
 knitr::include_graphics('images/41sy258-st3-2030-inc.png')
 fig.cap="Incisions on sherd 41sy258-st3-2030."
 ```
+
+## 41SY280
+
+41SY280 is located in the Sabine National Forest along the shoreline of Toledo Bend Reservoir. The site had been looted in the past, is exposed to shoreline fluctuations, and large quantities of archaeological material remains were also exposed on the site surface. The combination of looting and surface exposure led to the identification of 26 surface collection areas.
+
+More than 1625 plain and decorated sherds have been collected from 21 surface collection areas at 41SY280. The distribution of high sherd density collection areas and the locations of daub/burned clay clusters is suggestive of an ancestral Caddo occupation (hamlet?). The high sherd density areas have a circular distribution at the southern end of the site, and the six daub/burned clay clusters occur within the circular zone of high sherd densities. The daub/burned clay clusters are potential locations of burned clay and thatch-covered Caddo structures, and the high sherd density areas represent the accumulation of discarded broken ceramic vessels in outdoor work areas and trash disposal locations. 
+
+Taking into consideration the wide range in decorated sherd sample sizes in the different surface collection areas, there does appear to be a consistent range of the same decorative methods in the sherds distributed across the site. The most common decorative methods represented are brushed (95 percent of the surface collection areas); incised (81 percent of the surface collection areas); engraved (67 percent of the surface collection areas); brushed-incised (62 percent of the surface collection areas); ridged (52 percent of the surface collection areas); and punctated (48 percent of the surface collection areas). It is reasonable to conclude that there is one contemporaneous ancestral Caddo ceramic assemblage at the site that dates well after CE 1400 in the Late Caddo period. 
+
+### 41sy280
+
+```{r 41sy280-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-inc.png')
+fig.cap="Incisions on sherd 41sy280."
+```
+
+### 41sy280-11
+
+```{r 41sy280-11-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-11-inc.png')
+fig.cap="Incisions on sherd 41sy280-11."
+```
+
+### 41sy280-18
+
+```{r 41sy280-18-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-18-inc.png')
+fig.cap="Incisions on sherd 41sy280-18."
+```
+
+### 41sy280-20
+
+```{r 41sy280-20-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-20-inc.png')
+fig.cap="Incisions on sherd 41sy280-20."
+```
+
+### 41sy280-84
+
+```{r 41sy280-84-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-84-inc.png')
+fig.cap="Incisions on sherd 41sy280-84."
+```
+
+### 41sy280-101
+
+```{r 41sy280-101-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-101-inc.png')
+fig.cap="Incisions on sherd 41sy280-101."
+```
+
+### 41sy280-127
+
+```{r 41sy280-127-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-127-inc.png')
+fig.cap="Incisions on sherd 41sy280-127."
+```
+
+### 41sy280-lot31
+
+```{r 41sy280-lot31-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-lot31-inc.png')
+fig.cap="Incisions on sherd 41sy280-lot31."
+```
+
+### 41sy280-lot48
+
+```{r 41sy280-lot48-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-lot48-inc.png')
+fig.cap="Incisions on sherd 41sy280-lot48."
+```
+
+### 41sy280-lot50
+
+```{r 41SY280-lot50-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-lot50-inc.png')
+fig.cap="Incisions on sherd 41SY280-lot50."
+```
+
+### 41sy280-lot52
+
+```{r 41sy280-lot52-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-lot52-inc.png')
+fig.cap="Incisions on sherd 41sy280-lot52."
+```
+
+### 41sy280-lot90
+
+```{r 41sy280-lot90, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-lot90-inc.png')
+fig.cap="Incisions on sherd 41sy280-lot90."
+```
+
+### 41sy280-lot91
+
+```{r 41sy280-lot91-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-lot91-inc.png')
+fig.cap="Incisions on sherd 41sy280-lot91."
+```
+
+### 41sy280-lot94
+
+```{r 41sy280-lot94-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-lot94-inc.png')
+fig.cap="Incisions on sherd 41sy280-lot94."
+```
+
+### 41sy280-lot107
+
+```{r 41sy280-lot107-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-lot107-inc.png')
+fig.cap="Incisions on sherd 41sy280-lot107."
+```
+
+### 41sy280-lot112
+
+```{r 41sy280-lot112-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-lot112-inc.png')
+fig.cap="Incisions on sherd 41sy280-lot112."
+```
+
+### 41sy280-lot125
+
+```{r 41sy280-lot125-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41sy280-lot125-inc.png')
+fig.cap="Incisions on sherd 41sy280-lot125."
+```
+
+## 41TN91
+
+Multiple archeological components were found at 41TN91 in the Davy Crockett National Forest, which begins with a Late Archaic occupation marked by a petrified wood Williams dart point. A second component dates to the Woodland period, and includes a quartzite Gary dart point and _Goose Creek Plain_ sherds, and a later Woodland occupation defined by a petrified wood Steiner arrow point. Late Prehistoric occupations dating from CE 900 to after CE 1200 are represented by a petrified wood Catahoula arrow point, a red chert Bonham arrow point, and a petrified wood Perdiz arrow point.
+
+The ceramic sherd assemblage from 41TN91 is unique among other sites in Trinity County on USFS lands that it has a high proportion of grog-tempered wares (89 percent), and few _Goose Creek Plain_ sherds (9.3 percent). The entire ceramic assemblage postdates CE 800, where sandy paste ceramic vessels were not commonly made or used, and the decorated motifs and elements in the sherds strongly suggests occupation by the Caddo. It is possible that the ceramic vessel sherds are a product of one or more temporally distinct occupations, one dating sometime before CE 1200, and the other dating sometime after CE 1200.
+
+### 41tn91-u1-0-10
+
+```{r 41tn91-u1-0-10-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-u1-0-10-inc.png')
+fig.cap="Incisions on sherd 41tn91-u1-0-10."
+```
+
+### 41tn91-u1-2030
+
+```{r 41tn91-u1-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-u1-2030-inc.png')
+fig.cap="Incisions on sherd 41tn91-u1-2030."
+```
+
+### 41tn91-u2-1020
+
+```{r 41tn91-u2-1020-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-u2-1020-inc.png')
+fig.cap="Incisions on sherd 41tn91-u2-1020."
+```
+
+### 41tn91-u3-2030
+
+```{r 41tn91-u3-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-u3-2030-inc.png')
+fig.cap="Incisions on sherd 41tn91-u3-2030."
+```
+
+### 41tn91-u4-0-20
+
+```{r 41tn91-u4-0-20-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-u4-0-20-inc.png')
+fig.cap="Incisions on sherd 41tn91-u4-0-20."
+```
+
+### 41tn91-u4-4050
+
+```{r 41tn91-u4-4050-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-u4-4050-inc.png')
+fig.cap="Incisions on sherd 41tn91-u4-4050."
+```
+
+### 41tn91-u4-5060
+
+```{r 41tn91-u4-5060-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-u4-5060-inc.png')
+fig.cap="Incisions on sherd 41tn91-u4-5060."
+```
+
+### 41tn91-u6-3040
+
+```{r 41tn91-u6-3040, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-u6-3040-inc.png')
+fig.cap="Incisions on sherd 41tn91-u6-3040."
+```
+
+### 41tn91-u7-30-40
+
+```{r 41tn91-u7-30-40-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-u7-30-40-inc.png')
+fig.cap="Incisions on sherd 41tn91-u7-30-40."
+```
+
+### 41tn91-u8-1020
+
+```{r 41tn91-u8-1020, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-u8-1020-inc.png')
+fig.cap="Incisions on sherd 41tn91-u8-1020."
+```
+
+### 41tn91-unit2-lot17
+
+```{r 41tn91-unit2-lot17-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/41tn91-unit2-lot17-inc.png')
+fig.cap="Incisions on sherd 41tn91-unit2-lot17."
+```
