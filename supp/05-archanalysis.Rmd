@@ -5,7 +5,7 @@
 # devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
 library(geomorph)
 setwd(getwd())
-source('readmulti.csv.r')
+source('readmulti.csv.R')
 
 # Read .csv files
 setwd("./data1")

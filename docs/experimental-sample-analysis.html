@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr." />
 
 
-<meta name="date" content="2020-05-27" />
+<meta name="date" content="2020-06-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -260,7 +260,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <pre><code>## Loading required package: RRPP</code></pre>
 <pre><code>## Loading required package: rgl</code></pre>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">setwd</span>(<span class="kw">getwd</span>())</a>
-<a class="sourceLine" id="cb32-2" title="2"><span class="kw">source</span>(<span class="st">&#39;readmulti.csv.r&#39;</span>)</a>
+<a class="sourceLine" id="cb32-2" title="2"><span class="kw">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</a>
 <a class="sourceLine" id="cb32-3" title="3"></a>
 <a class="sourceLine" id="cb32-4" title="4"><span class="co"># Read .csv files</span></a>
 <a class="sourceLine" id="cb32-5" title="5"><span class="kw">setwd</span>(<span class="st">&quot;./dataEX&quot;</span>)</a>
@@ -301,18 +301,22 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb36-2" title="2">pca&lt;-<span class="kw">gm.prcomp</span>(Y.gpa<span class="op">$</span>coords)</a>
 <a class="sourceLine" id="cb36-3" title="3"><span class="kw">summary</span>(pca)</a></code></pre></div>
 <pre><code>## Importance of components: 
-##                              PC1         PC2         PC3          PC4          PC5          PC6
-## Tips variance          0.0441045 0.005014108 0.003398275 0.0003353507 0.0002822004 0.0001809061
-## Proportion of variance 0.8226607 0.093525803 0.063386441 0.0062551403 0.0052637514 0.0033743561
-## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536 0.9910918051 0.9944661611
-##                                 PC7          PC8          PC9         PC10         PC11
-## Tips variance          0.0001525644 7.081347e-05 3.658645e-05 2.060166e-05 1.050025e-05
-## Proportion of variance 0.0028457127 1.320850e-03 6.824299e-04 3.842732e-04 1.958562e-04
-## Cumulative Proportion  0.9973118738 9.986327e-01 9.993152e-01 9.996994e-01 9.998953e-01
-##                                PC12
-## Tips variance          5.614060e-06
-## Proportion of variance 1.047164e-04
-## Cumulative Proportion  1.000000e+00</code></pre>
+##                              PC1         PC2         PC3          PC4
+## Tips variance          0.0441045 0.005014108 0.003398275 0.0003353507
+## Proportion of variance 0.8226607 0.093525803 0.063386441 0.0062551403
+## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536
+##                                 PC5          PC6          PC7
+## Tips variance          0.0002822004 0.0001809061 0.0001525644
+## Proportion of variance 0.0052637514 0.0033743561 0.0028457127
+## Cumulative Proportion  0.9910918051 0.9944661611 0.9973118738
+##                                 PC8          PC9         PC10
+## Tips variance          7.081347e-05 3.658645e-05 2.060166e-05
+## Proportion of variance 1.320850e-03 6.824299e-04 3.842732e-04
+## Cumulative Proportion  9.986327e-01 9.993152e-01 9.996994e-01
+##                                PC11         PC12
+## Tips variance          1.050025e-05 5.614060e-06
+## Proportion of variance 1.958562e-04 1.047164e-04
+## Cumulative Proportion  9.998953e-01 1.000000e+00</code></pre>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="co"># set plot parameters</span></a>
 <a class="sourceLine" id="cb38-2" title="2">inc2 &lt;-<span class="st"> </span>qdata<span class="op">$</span>inc2</a>
 <a class="sourceLine" id="cb38-3" title="3">pch.gps &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(inc2)]</a>
