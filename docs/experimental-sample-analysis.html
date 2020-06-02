@@ -311,12 +311,12 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb29-8" title="8"><span class="co"># Read .csv files</span></a>
 <a class="sourceLine" id="cb29-9" title="9"><span class="kw">setwd</span>(<span class="st">&quot;./dataEX&quot;</span>)</a>
 <a class="sourceLine" id="cb29-10" title="10">filelist &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb29-11" title="11">coords&lt;-<span class="kw">readmulti.csv</span>(filelist)</a>
+<a class="sourceLine" id="cb29-11" title="11">coords &lt;-<span class="st"> </span><span class="kw">readmulti.csv</span>(filelist)</a>
 <a class="sourceLine" id="cb29-12" title="12"><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</a>
 <a class="sourceLine" id="cb29-13" title="13"></a>
 <a class="sourceLine" id="cb29-14" title="14"><span class="co"># read qualitative data</span></a>
-<a class="sourceLine" id="cb29-15" title="15">qdata&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;qdataEX.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb29-16" title="16">qdata&lt;-qdata[<span class="kw">match</span>(<span class="kw">dimnames</span>(coords)[[<span class="dv">3</span>]],<span class="kw">rownames</span>(qdata)),]</a>
+<a class="sourceLine" id="cb29-15" title="15">qdata &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;qdataEX.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb29-16" title="16">qdata &lt;-<span class="st"> </span>qdata[<span class="kw">match</span>(<span class="kw">dimnames</span>(coords)[[<span class="dv">3</span>]],<span class="kw">rownames</span>(qdata)),]</a>
 <a class="sourceLine" id="cb29-17" title="17">qdata</a></code></pre></div>
 <pre><code>##           incision inc2
 ## ex-tile2         U   Un
@@ -334,18 +334,18 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## ex-tile8b        V    V</code></pre>
 <div id="generalised-procrustes-analysis" class="section level2">
 <h2><span class="header-section-number">3.1</span> Generalised Procrustes Analysis</h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">Y.gpa&lt;-<span class="kw">gpagen</span>(coords, <span class="dt">PrinAxes =</span> <span class="ot">TRUE</span>, <span class="dt">ProcD =</span> <span class="ot">TRUE</span>, <span class="dt">Proj =</span> <span class="ot">TRUE</span>, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>)</a>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">Y.gpa &lt;-<span class="st"> </span><span class="kw">gpagen</span>(coords, <span class="dt">PrinAxes =</span> <span class="ot">TRUE</span>, <span class="dt">ProcD =</span> <span class="ot">TRUE</span>, <span class="dt">Proj =</span> <span class="ot">TRUE</span>, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb31-2" title="2"></a>
 <a class="sourceLine" id="cb31-3" title="3"><span class="co"># 3D GPA plot</span></a>
 <a class="sourceLine" id="cb31-4" title="4">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/gpa3dEX.png&#39;</span>)</a></code></pre></div>
 <p><img src="images/gpa3dEX.png" width="100%" /></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">fig.cap=<span class="st">&quot;Results of generalised Procrustes analysis.&quot;</span></a>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">fig.cap =<span class="st"> &quot;Results of generalised Procrustes analysis.&quot;</span></a>
 <a class="sourceLine" id="cb32-2" title="2"></a>
 <a class="sourceLine" id="cb32-3" title="3"><span class="co"># geomorph data frame</span></a>
-<a class="sourceLine" id="cb32-4" title="4">gdf&lt;-<span class="kw">geomorph.data.frame</span>(<span class="dt">shape=</span>Y.gpa<span class="op">$</span>coords, <span class="dt">size=</span>Y.gpa<span class="op">$</span>Csize, <span class="dt">incision=</span>qdata<span class="op">$</span>incision, <span class="dt">inc2=</span>qdata<span class="op">$</span>inc2)</a>
-<a class="sourceLine" id="cb32-5" title="5">csz&lt;-Y.gpa<span class="op">$</span>Csize <span class="co"># attribute for boxplot</span></a>
-<a class="sourceLine" id="cb32-6" title="6">inc&lt;-qdata<span class="op">$</span>incision</a>
-<a class="sourceLine" id="cb32-7" title="7">inc2&lt;-qdata<span class="op">$</span>inc2 <span class="co"># attribute for boxplot</span></a>
+<a class="sourceLine" id="cb32-4" title="4">gdf &lt;-<span class="st"> </span><span class="kw">geomorph.data.frame</span>(<span class="dt">shape =</span> Y.gpa<span class="op">$</span>coords, <span class="dt">size =</span> Y.gpa<span class="op">$</span>Csize, <span class="dt">incision =</span> qdata<span class="op">$</span>incision, <span class="dt">inc2 =</span> qdata<span class="op">$</span>inc2)</a>
+<a class="sourceLine" id="cb32-5" title="5">csz &lt;-<span class="st"> </span>Y.gpa<span class="op">$</span>Csize <span class="co"># attribute for boxplot</span></a>
+<a class="sourceLine" id="cb32-6" title="6">inc &lt;-<span class="st"> </span>qdata<span class="op">$</span>incision</a>
+<a class="sourceLine" id="cb32-7" title="7">inc2 &lt;-<span class="st"> </span>qdata<span class="op">$</span>inc2 <span class="co"># attribute for boxplot</span></a>
 <a class="sourceLine" id="cb32-8" title="8"></a>
 <a class="sourceLine" id="cb32-9" title="9"><span class="co"># boxplot of incision (centroid) size by incision profile (inc)</span></a>
 <a class="sourceLine" id="cb32-10" title="10"><span class="kw">boxplot</span>(csz<span class="op">~</span>inc, </a>
@@ -356,7 +356,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb32-15" title="15">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</a>
 <a class="sourceLine" id="cb32-16" title="16">        )</a></code></pre></div>
 <p><img src="incision_files/figure-html/gpaEX-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">fig.cap=<span class="st">&quot;Boxplot of experimental incision profile types (U-shaped and V-shaped).&quot;</span></a>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">fig.cap =<span class="st"> &quot;Boxplot of experimental incision profile types (U-shaped and V-shaped).&quot;</span></a>
 <a class="sourceLine" id="cb33-2" title="2"></a>
 <a class="sourceLine" id="cb33-3" title="3"><span class="co"># boxplot of incision (centroid) size by incision profile (inc2)</span></a>
 <a class="sourceLine" id="cb33-4" title="4"><span class="kw">boxplot</span>(csz<span class="op">~</span>inc2, </a>
@@ -367,12 +367,12 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb33-9" title="9">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</a>
 <a class="sourceLine" id="cb33-10" title="10">        )</a></code></pre></div>
 <p><img src="incision_files/figure-html/gpaEX-3.png" width="100%" /></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">fig.cap=<span class="st">&quot;Boxplot of experimental incision profile types (U-narrow, U-Wide, and V).&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">fig.cap =<span class="st"> &quot;Boxplot of experimental incision profile types (U-narrow, U-Wide, and V).&quot;</span></a></code></pre></div>
 </div>
 <div id="principal-components-analysis" class="section level2">
 <h2><span class="header-section-number">3.2</span> Principal Components Analysis</h2>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="co"># principal components analysis</span></a>
-<a class="sourceLine" id="cb35-2" title="2">pca&lt;-<span class="kw">gm.prcomp</span>(Y.gpa<span class="op">$</span>coords)</a>
+<a class="sourceLine" id="cb35-2" title="2">pca &lt;-<span class="st"> </span><span class="kw">gm.prcomp</span>(Y.gpa<span class="op">$</span>coords)</a>
 <a class="sourceLine" id="cb35-3" title="3"><span class="kw">summary</span>(pca)</a></code></pre></div>
 <pre><code>## Importance of components: 
 ##                              PC1         PC2         PC3          PC4          PC5          PC6
@@ -388,16 +388,16 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb37-3" title="3">col.gps<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc2)]</a>
 <a class="sourceLine" id="cb37-4" title="4"></a>
 <a class="sourceLine" id="cb37-5" title="5"><span class="co"># plotPCAbyinc2</span></a>
-<a class="sourceLine" id="cb37-6" title="6">pca&lt;-<span class="kw">plot</span>(pca,<span class="dt">asp =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb37-6" title="6">pca &lt;-<span class="st"> </span><span class="kw">plot</span>(pca,<span class="dt">asp =</span> <span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb37-7" title="7">          <span class="dt">pch =</span> pch.gps<span class="fl">.2</span>,</a>
 <a class="sourceLine" id="cb37-8" title="8">          <span class="dt">col =</span> col.gps<span class="fl">.2</span>)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pcaEX-1.png" width="100%" /></p>
 </div>
 <div id="define-models" class="section level2">
 <h2><span class="header-section-number">3.3</span> Define models</h2>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">fit.size&lt;-<span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
-<a class="sourceLine" id="cb38-2" title="2">fit.sizeinc&lt;-<span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
-<a class="sourceLine" id="cb38-3" title="3">fit.shapeinc&lt;-<span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">fit.size &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
+<a class="sourceLine" id="cb38-2" title="2">fit.sizeinc &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a>
+<a class="sourceLine" id="cb38-3" title="3">fit.shapeinc &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
 </div>
 <div id="sizeshape-incision-profile" class="section level2">
 <h2><span class="header-section-number">3.4</span> Size/Shape ~ Incision Profile?</h2>
@@ -438,7 +438,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## 
 ## Call: procD.lm(f1 = size ~ inc2, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
-<a class="sourceLine" id="cb43-2" title="2">sz.inc&lt;-<span class="kw">pairwise</span>(fit.sizeinc, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2)</a>
+<a class="sourceLine" id="cb43-2" title="2">sz.inc &lt;-<span class="st"> </span><span class="kw">pairwise</span>(fit.sizeinc, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2)</a>
 <a class="sourceLine" id="cb43-3" title="3"><span class="kw">summary</span>(sz.inc, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
@@ -494,7 +494,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## 
 ## Call: procD.lm(f1 = shape ~ inc2, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="co"># pairwise comparison of LS means = which differ?</span></a>
-<a class="sourceLine" id="cb49-2" title="2">sh.inc&lt;-<span class="kw">pairwise</span>(fit.shapeinc, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2)</a>
+<a class="sourceLine" id="cb49-2" title="2">sh.inc &lt;-<span class="st"> </span><span class="kw">pairwise</span>(fit.shapeinc, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2)</a>
 <a class="sourceLine" id="cb49-3" title="3"><span class="kw">summary</span>(sh.inc, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
@@ -596,17 +596,17 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <div id="mean-shapes" class="section level2">
 <h2><span class="header-section-number">3.6</span> Mean shapes</h2>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="co"># subset landmark coordinates to produce mean shapes by site</span></a>
-<a class="sourceLine" id="cb57-2" title="2">new.coords&lt;-<span class="kw">coords.subset</span>(<span class="dt">A =</span> Y.gpa<span class="op">$</span>coords, <span class="dt">group =</span> qdata<span class="op">$</span>inc2)</a>
+<a class="sourceLine" id="cb57-2" title="2">new.coords &lt;-<span class="st"> </span><span class="kw">coords.subset</span>(<span class="dt">A =</span> Y.gpa<span class="op">$</span>coords, <span class="dt">group =</span> qdata<span class="op">$</span>inc2)</a>
 <a class="sourceLine" id="cb57-3" title="3"><span class="kw">names</span>(new.coords)</a></code></pre></div>
 <pre><code>## [1] &quot;Un&quot; &quot;Uw&quot; &quot;V&quot;</code></pre>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1"><span class="co"># group shape means</span></a>
-<a class="sourceLine" id="cb59-2" title="2">mean&lt;-<span class="kw">lapply</span>(new.coords, mshape)</a>
+<a class="sourceLine" id="cb59-2" title="2">mean &lt;-<span class="st"> </span><span class="kw">lapply</span>(new.coords, mshape)</a>
 <a class="sourceLine" id="cb59-3" title="3"><span class="co"># plot(mean$Uw)</span></a>
 <a class="sourceLine" id="cb59-4" title="4"></a>
 <a class="sourceLine" id="cb59-5" title="5"><span class="co"># mean shapes</span></a>
 <a class="sourceLine" id="cb59-6" title="6">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/mshapeEX.png&#39;</span>)</a></code></pre></div>
 <p><img src="images/mshapeEX.png" width="1726" /></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">fig.cap=<span class="st">&quot;Mean shapes for incision profiles Un, Uw, and V.&quot;</span></a>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">fig.cap =<span class="st"> &quot;Mean shapes for incision profiles Un, Uw, and V.&quot;</span></a>
 <a class="sourceLine" id="cb60-2" title="2"><span class="co"># end of code</span></a></code></pre></div>
 
 </div>

@@ -11,31 +11,31 @@ source('readmulti.csv.R')
 # Read .csv files
 setwd("./data1")
 filelist <- list.files(pattern = ".csv")
-coords<-readmulti.csv(filelist)
+coords <- readmulti.csv(filelist)
 setwd("../")
 
 # read qualitative data
-qdata<-read.csv("qdata1.csv",header=TRUE,row.names=1)
-qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
+qdata <- read.csv("qdata1.csv",header=TRUE,row.names=1)
+qdata <- qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 qdata
 ```
 
 ## Generalised Procrustes Analysis
 
 ```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-Y.gpa<-gpagen(coords, PrinAxes = TRUE, ProcD = TRUE, Proj = TRUE, print.progress = FALSE)
+Y.gpa <- gpagen(coords, PrinAxes = TRUE, ProcD = TRUE, Proj = TRUE, print.progress = FALSE)
 
 # 3D GPA plot
 knitr::include_graphics('images/gpa3d.png')
 fig.cap="Results of generalized Procrustes analysis."
 
 # geomorph data frame
-gdf<-geomorph.data.frame(shape=Y.gpa$coords, size=Y.gpa$Csize, site=qdata$site, unit=qdata$unit, county=qdata$county) 
+gdf <- geomorph.data.frame(shape = Y.gpa$coords, size = Y.gpa$Csize, site = qdata$site, unit = qdata$unit, county = qdata$county) 
 
-csz<-Y.gpa$Csize # attribute for boxplot
-sit<-qdata$site # attribute for boxplot
-cty<-qdata$county # attribute for boxplot
-unt<-qdata$unit # attribute for boxplot
+csz <- Y.gpa$Csize # attribute for boxplot
+sit <- qdata$site # attribute for boxplot
+cty <- qdata$county # attribute for boxplot
+unt <- qdata$unit # attribute for boxplot
 
 # boxplot of incision (centroid) size by site
 boxplot(csz~sit,
@@ -45,7 +45,7 @@ boxplot(csz~sit,
         ylab = "Centroid Size",
         col = wes_palette("Cavalcanti1"),
         )
-fig.cap="Boxplot of incision profiles for the 41SA66, 41SB125, 41SB189, 41SB291, 41SY258, 41SY280, 41SY43, and 41TN91 sites."
+fig.cap = "Boxplot of incision profiles for the 41SA66, 41SB125, 41SB189, 41SB291, 41SY258, 41SY280, 41SY43, and 41TN91 sites."
 
 # boxplot of incision (centroid) size by county (potential east-west spatial differences)
 boxplot(csz~cty,
@@ -55,7 +55,7 @@ boxplot(csz~cty,
         ylab = "Centroid Size",
         col = wes_palette("Cavalcanti1"),
         )
-fig.cap="Boxplot of incision profiles for San Augustine, Sabine, Shelby, and Trinity Counties."
+fig.cap = "Boxplot of incision profiles for San Augustine, Sabine, Shelby, and Trinity Counties."
 
 # boxplot of incision (centroid) size by nfgt unit
 boxplot(csz~unt, 
@@ -65,7 +65,7 @@ boxplot(csz~unt,
         ylab = "Centroid Size",
         col = wes_palette("Cavalcanti1"),
         )
-fig.cap="Boxplot of incision profiles for the Angelina, Davy Crockett, and Sabine National Forests."
+fig.cap = "Boxplot of incision profiles for the Angelina, Davy Crockett, and Sabine National Forests."
 ```
 
 ## Principal Components Analysis
@@ -76,44 +76,24 @@ pca<-gm.prcomp(Y.gpa$coords)
 summary(pca)
 
 # set plot parameters
-# for site
 site <- qdata$site
 pch.gps.site <- c(1:14)[as.factor(site)]
-# for unit
-unit <- qdata$unit
-pch.gps <- c(15,17,19)[as.factor(unit)]
-col.gps <- wes_palette("Cavalcanti1")[as.factor(unit)]
-# for county
-county <- qdata$county
-pch.gps.cty <- c(21:25)[as.factor(county)]
-col.gps.cty <- wes_palette("Cavalcanti1")[as.factor(unit)]
 
 # plotPCAbySite
-pca.plot1<-plot(pca, asp = 1,
+pca.plot1 <- plot(pca, asp = 1,
                 pch = pch.gps.site)
-
-# plotPCAbyUnit
-pca.plot2<-plot(pca, asp = 1,
-               pch = pch.gps,
-               col = col.gps)
-
-# plotPCAbyCounty
-pca.plot1<-plot(pca, asp = 1,
-                pch = pch.gps.cty,
-                col = col.gps.cty,
-                bg = wes_palette("Chevalier1"))
 ```
 
 ## Define models
 
 ```{r define-models, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-fit.size<-procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
-fit.sizesite<-procD.lm(size ~ site, data = gdf, print.progress = FALSE, iter = 9999)
-fit.sizeunit<-procD.lm(size ~ unit, data = gdf, print.progress = FALSE, iter = 9999)
-fit.sizecounty<-procD.lm(size ~ county, data = gdf, print.progress = FALSE, iter = 9999)
-fit.shapesite<-procD.lm(shape ~ site, data = gdf, print.progress = FALSE, iter = 9999)
-fit.shapeunit<-procD.lm(shape ~ unit, data = gdf, print.progress = FALSE, iter = 9999)
-fit.shapecounty<-procD.lm(shape ~ county, data = gdf, print.progress = FALSE, iter = 9999)
+fit.size <- procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizesite <- procD.lm(size ~ site, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizeunit <- procD.lm(size ~ unit, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizecounty <- procD.lm(size ~ county, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapesite <- procD.lm(shape ~ site, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapeunit <- procD.lm(shape ~ unit, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapecounty <- procD.lm(shape ~ county, data = gdf, print.progress = FALSE, iter = 9999)
 ```
 
 ## Size/Shape ~ Site?
@@ -122,7 +102,7 @@ fit.shapecounty<-procD.lm(shape ~ county, data = gdf, print.progress = FALSE, it
 # ANOVA: do incision sizes differ by site?
 anova(fit.sizesite)
 # pairwise comparison of LS means = which differ?
-sz.site<-pairwise(fit.sizesite, groups = qdata$site)
+sz.site <- pairwise(fit.sizesite, groups = qdata$site)
 summary(sz.site, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sz.site, confidence = 0.95, test.type = "var")
@@ -130,7 +110,7 @@ summary(sz.site, confidence = 0.95, test.type = "var")
 # ANOVA: do incision shapes differ by site?
 anova(fit.shapesite)
 # pairwise comparison of LS means = which differ?
-sh.site<-pairwise(fit.shapesite, groups = qdata$site)
+sh.site <- pairwise(fit.shapesite, groups = qdata$site)
 summary(sh.site, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sh.site, confidence = 0.95, test.type = "var")
@@ -142,7 +122,7 @@ summary(sh.site, confidence = 0.95, test.type = "var")
 # ANOVA: do incision sizes differ by unit?
 anova(fit.sizeunit)
 # pairwise comparison of LS means = which differ?
-sz.unit<-pairwise(fit.sizeunit, groups = qdata$unit)
+sz.unit <- pairwise(fit.sizeunit, groups = qdata$unit)
 summary(sz.unit, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sz.unit, confidence = 0.95, test.type = "var")
@@ -150,7 +130,7 @@ summary(sz.unit, confidence = 0.95, test.type = "var")
 # ANOVA: do incision shapes differ by unit?
 anova(fit.shapeunit)
 # pairwise comparison of LS means = which differ?
-sh.unit<-pairwise(fit.shapeunit, groups = qdata$unit)
+sh.unit <- pairwise(fit.shapeunit, groups = qdata$unit)
 summary(sh.unit, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sh.unit, confidence = 0.95, test.type = "var")
@@ -162,7 +142,7 @@ summary(sh.unit, confidence = 0.95, test.type = "var")
 # ANOVA: do incision sizes differ by county?
 anova(fit.sizecounty)
 # pairwise comparison of LS means = which differ?
-sz.county<-pairwise(fit.sizecounty, groups = qdata$county)
+sz.county <- pairwise(fit.sizecounty, groups = qdata$county)
 summary(sz.county, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sz.county, confidence = 0.95, test.type = "var")
@@ -170,7 +150,7 @@ summary(sz.county, confidence = 0.95, test.type = "var")
 # ANOVA: do incision shapes differ by county?
 anova(fit.shapecounty)
 # pairwise comparison of LS means = which differ?
-sh.county<-pairwise(fit.shapecounty, groups = qdata$county)
+sh.county <- pairwise(fit.shapecounty, groups = qdata$county)
 summary(sh.county, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sh.county, confidence = 0.95, test.type = "var")
@@ -200,14 +180,14 @@ morphol.disparity(fit.sizecounty, groups = qdata$county, data = gdf, print.progr
 
 ```{r m-shapes}
 # subset landmark coordinates to produce mean shapes by site
-new.coords<-coords.subset(A = Y.gpa$coords, group = qdata$site)
+new.coords <- coords.subset(A = Y.gpa$coords, group = qdata$site)
 names(new.coords)
 # group shape means
-mean<-lapply(new.coords, mshape)
+mean <- lapply(new.coords, mshape)
 # plot(mean$tn91)
 
 # mean shapes
 knitr::include_graphics('images/site-meanshape.png')
-fig.cap="Mean shapes for Caddo incisions from sites on the National Forests and Grasslands in Texas."
+fig.cap = "Mean shapes for Caddo incisions from sites on the National Forests and Grasslands in Texas."
 # end of code
 ```

@@ -13,29 +13,29 @@ source('readmulti.csv.R')
 # Read .csv files
 setwd("./dataEX")
 filelist <- list.files(pattern = ".csv")
-coords<-readmulti.csv(filelist)
+coords <- readmulti.csv(filelist)
 setwd("../")
 
 # read qualitative data
-qdata<-read.csv("qdataEX.csv",header=TRUE,row.names=1)
-qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
+qdata <- read.csv("qdataEX.csv",header=TRUE,row.names=1)
+qdata <- qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 qdata
 ```
 
 ## Generalised Procrustes Analysis
 
 ```{r gpaEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-Y.gpa<-gpagen(coords, PrinAxes = TRUE, ProcD = TRUE, Proj = TRUE, print.progress = FALSE)
+Y.gpa <- gpagen(coords, PrinAxes = TRUE, ProcD = TRUE, Proj = TRUE, print.progress = FALSE)
 
 # 3D GPA plot
 knitr::include_graphics('images/gpa3dEX.png')
-fig.cap="Results of generalised Procrustes analysis."
+fig.cap = "Results of generalised Procrustes analysis."
 
 # geomorph data frame
-gdf<-geomorph.data.frame(shape=Y.gpa$coords, size=Y.gpa$Csize, incision=qdata$incision, inc2=qdata$inc2)
-csz<-Y.gpa$Csize # attribute for boxplot
-inc<-qdata$incision
-inc2<-qdata$inc2 # attribute for boxplot
+gdf <- geomorph.data.frame(shape = Y.gpa$coords, size = Y.gpa$Csize, incision = qdata$incision, inc2 = qdata$inc2)
+csz <- Y.gpa$Csize # attribute for boxplot
+inc <- qdata$incision
+inc2 <- qdata$inc2 # attribute for boxplot
 
 # boxplot of incision (centroid) size by incision profile (inc)
 boxplot(csz~inc, 
@@ -45,7 +45,7 @@ boxplot(csz~inc,
         ylab = "Centroid Size",
         col = wes_palette("Moonrise2")
         )
-fig.cap="Boxplot of experimental incision profile types (U-shaped and V-shaped)."
+fig.cap = "Boxplot of experimental incision profile types (U-shaped and V-shaped)."
 
 # boxplot of incision (centroid) size by incision profile (inc2)
 boxplot(csz~inc2, 
@@ -55,14 +55,14 @@ boxplot(csz~inc2,
         ylab = "Centroid Size",
         col = wes_palette("Moonrise2")
         )
-fig.cap="Boxplot of experimental incision profile types (U-narrow, U-Wide, and V)."
+fig.cap = "Boxplot of experimental incision profile types (U-narrow, U-Wide, and V)."
 ```
 
 ## Principal Components Analysis
 
 ```{r pcaEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # principal components analysis
-pca<-gm.prcomp(Y.gpa$coords)
+pca <- gm.prcomp(Y.gpa$coords)
 summary(pca)
 
 # set plot parameters
@@ -70,7 +70,7 @@ pch.gps.2 <- c(15,17,19)[as.factor(inc2)]
 col.gps.2 <- wes_palette("Moonrise2")[as.factor(inc2)]
 
 # plotPCAbyinc2
-pca<-plot(pca,asp = 1,
+pca <- plot(pca,asp = 1,
           pch = pch.gps.2,
           col = col.gps.2)
 ```
@@ -78,9 +78,9 @@ pca<-plot(pca,asp = 1,
 ## Define models
 
 ```{r defmodEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-fit.size<-procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
-fit.sizeinc<-procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
-fit.shapeinc<-procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
+fit.size <- procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizeinc <- procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapeinc <- procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
 ```
 
 ## Size/Shape ~ Incision Profile?
@@ -92,7 +92,7 @@ anova(fit.size)
 # ANOVA: do incision sizes differ by profile?
 anova(fit.sizeinc)
 # pairwise comparison of LS means = which differ?
-sz.inc<-pairwise(fit.sizeinc, groups = qdata$inc2)
+sz.inc <- pairwise(fit.sizeinc, groups = qdata$inc2)
 summary(sz.inc, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sz.inc, confidence = 0.95, test.type = "var")
@@ -100,7 +100,7 @@ summary(sz.inc, confidence = 0.95, test.type = "var")
 # ANOVA: do incision shapes differ by profile?
 anova(fit.shapeinc)
 # pairwise comparison of LS means = which differ?
-sh.inc<-pairwise(fit.shapeinc, groups = qdata$inc2)
+sh.inc <- pairwise(fit.shapeinc, groups = qdata$inc2)
 summary(sh.inc, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
 summary(sh.inc, confidence = 0.95, test.type = "var")
@@ -120,14 +120,14 @@ morphol.disparity(fit.sizeinc, groups = qdata$inc2, data = gdf, print.progress =
 
 ```{r m-shapesEX}
 # subset landmark coordinates to produce mean shapes by site
-new.coords<-coords.subset(A = Y.gpa$coords, group = qdata$inc2)
+new.coords <- coords.subset(A = Y.gpa$coords, group = qdata$inc2)
 names(new.coords)
 # group shape means
-mean<-lapply(new.coords, mshape)
+mean <- lapply(new.coords, mshape)
 # plot(mean$Uw)
 
 # mean shapes
 knitr::include_graphics('images/mshapeEX.png')
-fig.cap="Mean shapes for incision profiles Un, Uw, and V."
+fig.cap = "Mean shapes for incision profiles Un, Uw, and V."
 # end of code
 ```
