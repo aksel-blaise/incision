@@ -14,13 +14,17 @@ description: "Morphological analysis of Caddo ceramic incisions"
 
 >Reproducibility—the ability to recompute results—and replicability—the chances other experimenters will achieve a consistent result—are two foundational characteristics of successful scientific research [@RN20918].
 
-This volume is written in **Markdown**, and includes all analysis code employed in the study, providing a means for others to reproduce (exactly) those results discussed and expounded upon in the following chapters. The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components of this study [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge. 
+This volume is written in _Markdown_, and all files are included in the [GitHub](https://github.com/aksel-blaise/incision) and Open Science Framework repositories, providing a means for others to reproduce (exactly) those results discussed and expounded upon in the accompanying article. The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
+
+While a large-scale reproducibility project in archaeology remains to be seen, projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting the current practice of research across all domains. Examples of reproducible research are quickly becoming more abundant in archaeology [@RN20804;@RN21009;@RN21001], and the next generation of archaeologists are currently learning the tools methods of reproducible research [@RN21007]. Replicable research is no stranger to the humanities [@RN21008], is regularly used to mitigate concern or doubt regarding proper execution, and is of particular import if the study results do, or could have, a major impact on scientific progress.
+
+As an exploratory research endeavour, this study was not [preregistered](https://www.cos.io/prereg).
 
 ## Acknowledgments
 
 I extend my gratitude to the Caddo Tribe of Oklahoma and the National Forests and Grasslands in Texas for the requisite permissions and access needed to generate the scans of the Caddo incisions, and to the National Center for Preservation Technology and Training for access to the optical profilometer. 
 
-This volume enlists a variety of tools from the [Open Review Toolkit](https://www.openreviewtoolkit.org/), as well as the code provided for the `bookdown` package, and follows the excellent example advanced by [Ben Marwick](http://faculty.washington.edu/bmarwick/). I extend my gratitude to all who contribute comments and constructive criticisms throughout the development and maturation of this project. This document will remain in open review until the article is published.
+This volume enlists a variety of tools from the [Open Review Toolkit](https://www.openreviewtoolkit.org/), as well as the code provided for the `bookdown` package. I extend my gratitude to all who contribute comments and constructive criticisms throughout the development and maturation of this project. This document will remain in open review until the article is published.
 
 ## Funding
 
