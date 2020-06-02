@@ -6,6 +6,7 @@ The `inc2` field in the qdataEX file relates to the differences in shape that we
 # library(devtools)
 # devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
 library(geomorph)
+library(wesanderson)
 setwd(getwd())
 source('readmulti.csv.R')
 
@@ -18,6 +19,7 @@ setwd("../")
 # read qualitative data
 qdata<-read.csv("qdataEX.csv",header=TRUE,row.names=1)
 qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
+qdata
 ```
 
 ## Generalised Procrustes Analysis
@@ -30,16 +32,28 @@ knitr::include_graphics('images/gpa3dEX.png')
 fig.cap="Results of generalised Procrustes analysis."
 
 # geomorph data frame
-gdf<-geomorph.data.frame(shape=Y.gpa$coords, size=Y.gpa$Csize, inc2=qdata$inc2)
+gdf<-geomorph.data.frame(shape=Y.gpa$coords, size=Y.gpa$Csize, incision=qdata$incision, inc2=qdata$inc2)
 csz<-Y.gpa$Csize # attribute for boxplot
+inc<-qdata$incision
 inc2<-qdata$inc2 # attribute for boxplot
-# boxplot of incision (centroid) size by incision profile
+
+# boxplot of incision (centroid) size by incision profile (inc)
+boxplot(csz~inc, 
+        main = "Centroid size of experimental incisions by profile",
+        names = c("U", "V"),
+        xlab = "Incision Profile",
+        ylab = "Centroid Size",
+        col = wes_palette("Moonrise2")
+        )
+fig.cap="Boxplot of experimental incision profile types (U-shaped and V-shaped)."
+
+# boxplot of incision (centroid) size by incision profile (inc2)
 boxplot(csz~inc2, 
         main = "Centroid size of experimental incisions by profile type",
         names = c("Un", "Uw", "V"),
-        xlab = "Incision Profile",
+        xlab = "Incision Profile (inc2)",
         ylab = "Centroid Size",
-        col = c("dodgerblue4","indianred4","tan3")
+        col = wes_palette("Moonrise2")
         )
 fig.cap="Boxplot of experimental incision profile types (U-narrow, U-Wide, and V)."
 ```
@@ -52,14 +66,13 @@ pca<-gm.prcomp(Y.gpa$coords)
 summary(pca)
 
 # set plot parameters
-inc2 <- qdata$inc2
-pch.gps <- c(15,17,19)[as.factor(inc2)]
-col.gps <- c("dodgerblue4","indianred4","tan3")[as.factor(inc2)]
+pch.gps.2 <- c(15,17,19)[as.factor(inc2)]
+col.gps.2 <- wes_palette("Moonrise2")[as.factor(inc2)]
 
-# plotPCAbyProfile
+# plotPCAbyinc2
 pca<-plot(pca,
-          pch = pch.gps,
-          col = col.gps)
+          pch = pch.gps.2,
+          col = col.gps.2)
 ```
 
 ## Define models

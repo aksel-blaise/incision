@@ -4,6 +4,8 @@
 # library(devtools)
 # devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
 library(geomorph)
+library(wesanderson)
+library(viridis)
 setwd(getwd())
 source('readmulti.csv.R')
 
@@ -16,6 +18,7 @@ setwd("../")
 # read qualitative data
 qdata<-read.csv("qdata1.csv",header=TRUE,row.names=1)
 qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
+qdata
 ```
 
 ## Generalised Procrustes Analysis
@@ -31,14 +34,37 @@ fig.cap="Results of generalized Procrustes analysis."
 gdf<-geomorph.data.frame(shape=Y.gpa$coords, size=Y.gpa$Csize, site=qdata$site, unit=qdata$unit, county=qdata$county) 
 
 csz<-Y.gpa$Csize # attribute for boxplot
+sit<-qdata$site # attribute for boxplot
+cty<-qdata$county # attribute for boxplot
 unt<-qdata$unit # attribute for boxplot
+
+# boxplot of incision (centroid) size by site
+boxplot(csz~sit,
+        main = "Centroid size of Caddo incisions by Site",
+        names = c("SA66","SB125","SB189","SB291","SY258","SY280","SY43","TN91"),
+        xlab = "Site",
+        ylab = "Centroid Size",
+        col = wes_palette("Chevalier1"),
+        )
+fig.cap="Boxplot of incision profiles for the 41SA66, 41SB125, 41SB189, 41SB291, 41SY258, 41SY280, 41SY43, and 41TN91 sites."
+
+# boxplot of incision (centroid) size by county (potential east-west spatial differences)
+boxplot(csz~cty,
+        main = "Centroid size of Caddo incisions by County",
+        names = c("San Augustine","Sabine","Shelby","Trinity"),
+        xlab = "County",
+        ylab = "Centroid Size",
+        col = wes_palette("Chevalier1"),
+        )
+fig.cap="Boxplot of incision profiles for San Augustine, Sabine, Shelby, and Trinity Counties."
+
 # boxplot of incision (centroid) size by nfgt unit
 boxplot(csz~unt, 
         main = "Centroid size of Caddo incisions by NFGT Unit",
         names = c("AngelinaNF", "DavyCrockettNF", "SabineNF"),
         xlab = "Unit",
         ylab = "Centroid Size",
-        col = c("dodgerblue4","indianred4","tan3")
+        col = wes_palette("Chevalier1"),
         )
 fig.cap="Boxplot of incision profiles for the Angelina, Davy Crockett, and Sabine National Forests."
 ```
@@ -57,10 +83,11 @@ pch.gps.site <- c(1:14)[as.factor(site)]
 # for unit
 unit <- qdata$unit
 pch.gps <- c(15,17,19)[as.factor(unit)]
-col.gps <- c("dodgerblue4","indianred4","tan3")[as.factor(unit)]
+col.gps <- wes_palette("Chevalier1")[as.factor(unit)]
 # for county
 county <- qdata$county
-pch.gps.cty <- c(1:5)[as.factor(county)]
+pch.gps.cty <- c(21:25)[as.factor(county)]
+col.gps.cty <- wes_palette("Chevalier1")[as.factor(unit)]
 
 # plotPCAbySite
 pca.plot1<-plot(pca,
@@ -73,7 +100,9 @@ pca.plot2<-plot(pca,
 
 # plotPCAbyCounty
 pca.plot1<-plot(pca,
-                pch = pch.gps.cty)
+                pch = pch.gps.cty,
+                col = col.gps.cty,
+                bg = wes_palette("Chevalier1"))
 ```
 
 ## Define models
