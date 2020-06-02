@@ -304,20 +304,19 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb159-2" title="2"><span class="co"># devtools::install_github(&quot;geomorphR/geomorph&quot;, ref = &quot;Stable&quot;, build_vignettes = TRUE)</span></a>
 <a class="sourceLine" id="cb159-3" title="3"><span class="kw">library</span>(geomorph)</a>
 <a class="sourceLine" id="cb159-4" title="4"><span class="kw">library</span>(wesanderson)</a>
-<a class="sourceLine" id="cb159-5" title="5"><span class="kw">library</span>(viridis)</a>
-<a class="sourceLine" id="cb159-6" title="6"><span class="kw">setwd</span>(<span class="kw">getwd</span>())</a>
-<a class="sourceLine" id="cb159-7" title="7"><span class="kw">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</a>
-<a class="sourceLine" id="cb159-8" title="8"></a>
-<a class="sourceLine" id="cb159-9" title="9"><span class="co"># Read .csv files</span></a>
-<a class="sourceLine" id="cb159-10" title="10"><span class="kw">setwd</span>(<span class="st">&quot;./data1&quot;</span>)</a>
-<a class="sourceLine" id="cb159-11" title="11">filelist &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb159-12" title="12">coords&lt;-<span class="kw">readmulti.csv</span>(filelist)</a>
-<a class="sourceLine" id="cb159-13" title="13"><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</a>
-<a class="sourceLine" id="cb159-14" title="14"></a>
-<a class="sourceLine" id="cb159-15" title="15"><span class="co"># read qualitative data</span></a>
-<a class="sourceLine" id="cb159-16" title="16">qdata&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;qdata1.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb159-17" title="17">qdata&lt;-qdata[<span class="kw">match</span>(<span class="kw">dimnames</span>(coords)[[<span class="dv">3</span>]],<span class="kw">rownames</span>(qdata)),]</a>
-<a class="sourceLine" id="cb159-18" title="18">qdata</a></code></pre></div>
+<a class="sourceLine" id="cb159-5" title="5"><span class="kw">setwd</span>(<span class="kw">getwd</span>())</a>
+<a class="sourceLine" id="cb159-6" title="6"><span class="kw">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</a>
+<a class="sourceLine" id="cb159-7" title="7"></a>
+<a class="sourceLine" id="cb159-8" title="8"><span class="co"># Read .csv files</span></a>
+<a class="sourceLine" id="cb159-9" title="9"><span class="kw">setwd</span>(<span class="st">&quot;./data1&quot;</span>)</a>
+<a class="sourceLine" id="cb159-10" title="10">filelist &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb159-11" title="11">coords&lt;-<span class="kw">readmulti.csv</span>(filelist)</a>
+<a class="sourceLine" id="cb159-12" title="12"><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</a>
+<a class="sourceLine" id="cb159-13" title="13"></a>
+<a class="sourceLine" id="cb159-14" title="14"><span class="co"># read qualitative data</span></a>
+<a class="sourceLine" id="cb159-15" title="15">qdata&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;qdata1.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb159-16" title="16">qdata&lt;-qdata[<span class="kw">match</span>(<span class="kw">dimnames</span>(coords)[[<span class="dv">3</span>]],<span class="kw">rownames</span>(qdata)),]</a>
+<a class="sourceLine" id="cb159-17" title="17">qdata</a></code></pre></div>
 <pre><code>##                   site       unit        county
 ## 41sa66-4          sa66 angelinaNF san-augustine
 ## 41sa66-5          sa66 angelinaNF san-augustine
@@ -391,7 +390,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb162-14" title="14">        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;SA66&quot;</span>,<span class="st">&quot;SB125&quot;</span>,<span class="st">&quot;SB189&quot;</span>,<span class="st">&quot;SB291&quot;</span>,<span class="st">&quot;SY258&quot;</span>,<span class="st">&quot;SY280&quot;</span>,<span class="st">&quot;SY43&quot;</span>,<span class="st">&quot;TN91&quot;</span>),</a>
 <a class="sourceLine" id="cb162-15" title="15">        <span class="dt">xlab =</span> <span class="st">&quot;Site&quot;</span>,</a>
 <a class="sourceLine" id="cb162-16" title="16">        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</a>
-<a class="sourceLine" id="cb162-17" title="17">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Chevalier1&quot;</span>),</a>
+<a class="sourceLine" id="cb162-17" title="17">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Cavalcanti1&quot;</span>),</a>
 <a class="sourceLine" id="cb162-18" title="18">        )</a></code></pre></div>
 <p><img src="incision_files/figure-html/gpa-2.png" width="100%" /></p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1">fig.cap=<span class="st">&quot;Boxplot of incision profiles for the 41SA66, 41SB125, 41SB189, 41SB291, 41SY258, 41SY280, 41SY43, and 41TN91 sites.&quot;</span></a>
@@ -402,7 +401,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb163-6" title="6">        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;San Augustine&quot;</span>,<span class="st">&quot;Sabine&quot;</span>,<span class="st">&quot;Shelby&quot;</span>,<span class="st">&quot;Trinity&quot;</span>),</a>
 <a class="sourceLine" id="cb163-7" title="7">        <span class="dt">xlab =</span> <span class="st">&quot;County&quot;</span>,</a>
 <a class="sourceLine" id="cb163-8" title="8">        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</a>
-<a class="sourceLine" id="cb163-9" title="9">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Chevalier1&quot;</span>),</a>
+<a class="sourceLine" id="cb163-9" title="9">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Cavalcanti1&quot;</span>),</a>
 <a class="sourceLine" id="cb163-10" title="10">        )</a></code></pre></div>
 <p><img src="incision_files/figure-html/gpa-3.png" width="100%" /></p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1">fig.cap=<span class="st">&quot;Boxplot of incision profiles for San Augustine, Sabine, Shelby, and Trinity Counties.&quot;</span></a>
@@ -413,7 +412,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb164-6" title="6">        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;AngelinaNF&quot;</span>, <span class="st">&quot;DavyCrockettNF&quot;</span>, <span class="st">&quot;SabineNF&quot;</span>),</a>
 <a class="sourceLine" id="cb164-7" title="7">        <span class="dt">xlab =</span> <span class="st">&quot;Unit&quot;</span>,</a>
 <a class="sourceLine" id="cb164-8" title="8">        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</a>
-<a class="sourceLine" id="cb164-9" title="9">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Chevalier1&quot;</span>),</a>
+<a class="sourceLine" id="cb164-9" title="9">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Cavalcanti1&quot;</span>),</a>
 <a class="sourceLine" id="cb164-10" title="10">        )</a></code></pre></div>
 <p><img src="incision_files/figure-html/gpa-4.png" width="100%" /></p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1">fig.cap=<span class="st">&quot;Boxplot of incision profiles for the Angelina, Davy Crockett, and Sabine National Forests.&quot;</span></a></code></pre></div>
@@ -463,23 +462,23 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb168-5" title="5"><span class="co"># for unit</span></a>
 <a class="sourceLine" id="cb168-6" title="6">unit &lt;-<span class="st"> </span>qdata<span class="op">$</span>unit</a>
 <a class="sourceLine" id="cb168-7" title="7">pch.gps &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(unit)]</a>
-<a class="sourceLine" id="cb168-8" title="8">col.gps &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Chevalier1&quot;</span>)[<span class="kw">as.factor</span>(unit)]</a>
+<a class="sourceLine" id="cb168-8" title="8">col.gps &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Cavalcanti1&quot;</span>)[<span class="kw">as.factor</span>(unit)]</a>
 <a class="sourceLine" id="cb168-9" title="9"><span class="co"># for county</span></a>
 <a class="sourceLine" id="cb168-10" title="10">county &lt;-<span class="st"> </span>qdata<span class="op">$</span>county</a>
 <a class="sourceLine" id="cb168-11" title="11">pch.gps.cty &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span><span class="op">:</span><span class="dv">25</span>)[<span class="kw">as.factor</span>(county)]</a>
-<a class="sourceLine" id="cb168-12" title="12">col.gps.cty &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Chevalier1&quot;</span>)[<span class="kw">as.factor</span>(unit)]</a>
+<a class="sourceLine" id="cb168-12" title="12">col.gps.cty &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Cavalcanti1&quot;</span>)[<span class="kw">as.factor</span>(unit)]</a>
 <a class="sourceLine" id="cb168-13" title="13"></a>
 <a class="sourceLine" id="cb168-14" title="14"><span class="co"># plotPCAbySite</span></a>
-<a class="sourceLine" id="cb168-15" title="15">pca.plot1&lt;-<span class="kw">plot</span>(pca,</a>
+<a class="sourceLine" id="cb168-15" title="15">pca.plot1&lt;-<span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb168-16" title="16">                <span class="dt">pch =</span> pch.gps.site)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pca-1.png" width="100%" /></p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" title="1"><span class="co"># plotPCAbyUnit</span></a>
-<a class="sourceLine" id="cb169-2" title="2">pca.plot2&lt;-<span class="kw">plot</span>(pca,</a>
+<a class="sourceLine" id="cb169-2" title="2">pca.plot2&lt;-<span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb169-3" title="3">               <span class="dt">pch =</span> pch.gps,</a>
 <a class="sourceLine" id="cb169-4" title="4">               <span class="dt">col =</span> col.gps)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pca-2.png" width="100%" /></p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="co"># plotPCAbyCounty</span></a>
-<a class="sourceLine" id="cb170-2" title="2">pca.plot1&lt;-<span class="kw">plot</span>(pca,</a>
+<a class="sourceLine" id="cb170-2" title="2">pca.plot1&lt;-<span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb170-3" title="3">                <span class="dt">pch =</span> pch.gps.cty,</a>
 <a class="sourceLine" id="cb170-4" title="4">                <span class="dt">col =</span> col.gps.cty,</a>
 <a class="sourceLine" id="cb170-5" title="5">                <span class="dt">bg =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Chevalier1&quot;</span>))</a></code></pre></div>

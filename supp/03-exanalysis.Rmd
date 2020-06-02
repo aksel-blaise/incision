@@ -70,7 +70,7 @@ pch.gps.2 <- c(15,17,19)[as.factor(inc2)]
 col.gps.2 <- wes_palette("Moonrise2")[as.factor(inc2)]
 
 # plotPCAbyinc2
-pca<-plot(pca,
+pca<-plot(pca,asp = 1,
           pch = pch.gps.2,
           col = col.gps.2)
 ```

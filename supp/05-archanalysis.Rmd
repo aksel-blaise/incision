@@ -5,7 +5,6 @@
 # devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
 library(geomorph)
 library(wesanderson)
-library(viridis)
 setwd(getwd())
 source('readmulti.csv.R')
 
@@ -44,7 +43,7 @@ boxplot(csz~sit,
         names = c("SA66","SB125","SB189","SB291","SY258","SY280","SY43","TN91"),
         xlab = "Site",
         ylab = "Centroid Size",
-        col = wes_palette("Chevalier1"),
+        col = wes_palette("Cavalcanti1"),
         )
 fig.cap="Boxplot of incision profiles for the 41SA66, 41SB125, 41SB189, 41SB291, 41SY258, 41SY280, 41SY43, and 41TN91 sites."
 
@@ -54,7 +53,7 @@ boxplot(csz~cty,
         names = c("San Augustine","Sabine","Shelby","Trinity"),
         xlab = "County",
         ylab = "Centroid Size",
-        col = wes_palette("Chevalier1"),
+        col = wes_palette("Cavalcanti1"),
         )
 fig.cap="Boxplot of incision profiles for San Augustine, Sabine, Shelby, and Trinity Counties."
 
@@ -64,7 +63,7 @@ boxplot(csz~unt,
         names = c("AngelinaNF", "DavyCrockettNF", "SabineNF"),
         xlab = "Unit",
         ylab = "Centroid Size",
-        col = wes_palette("Chevalier1"),
+        col = wes_palette("Cavalcanti1"),
         )
 fig.cap="Boxplot of incision profiles for the Angelina, Davy Crockett, and Sabine National Forests."
 ```
@@ -83,23 +82,23 @@ pch.gps.site <- c(1:14)[as.factor(site)]
 # for unit
 unit <- qdata$unit
 pch.gps <- c(15,17,19)[as.factor(unit)]
-col.gps <- wes_palette("Chevalier1")[as.factor(unit)]
+col.gps <- wes_palette("Cavalcanti1")[as.factor(unit)]
 # for county
 county <- qdata$county
 pch.gps.cty <- c(21:25)[as.factor(county)]
-col.gps.cty <- wes_palette("Chevalier1")[as.factor(unit)]
+col.gps.cty <- wes_palette("Cavalcanti1")[as.factor(unit)]
 
 # plotPCAbySite
-pca.plot1<-plot(pca,
+pca.plot1<-plot(pca, asp = 1,
                 pch = pch.gps.site)
 
 # plotPCAbyUnit
-pca.plot2<-plot(pca,
+pca.plot2<-plot(pca, asp = 1,
                pch = pch.gps,
                col = col.gps)
 
 # plotPCAbyCounty
-pca.plot1<-plot(pca,
+pca.plot1<-plot(pca, asp = 1,
                 pch = pch.gps.cty,
                 col = col.gps.cty,
                 bg = wes_palette("Chevalier1"))
