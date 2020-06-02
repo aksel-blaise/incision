@@ -73,6 +73,7 @@ col.gps.2 <- wes_palette("Moonrise2")[as.factor(inc2)]
 pca <- plot(pca,asp = 1,
           pch = pch.gps.2,
           col = col.gps.2)
+fig.cap = "Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, U-narrow incisions; and orange triangles, U-wide incisions."
 ```
 
 ## Define models
