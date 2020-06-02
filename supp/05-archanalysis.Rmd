@@ -77,11 +77,13 @@ summary(pca)
 
 # set plot parameters
 site <- qdata$site
-pch.gps.site <- c(1:14)[as.factor(site)]
+pch.gps.site <- c(15:22)[as.factor(site)]
+col.gps.site <- wes_palette("Cavalcanti1")[as.factor(site)]
 
 # plotPCAbySite
 pca.plot1 <- plot(pca, asp = 1,
-                pch = pch.gps.site)
+                pch = pch.gps.site,
+                col = pch.gps.site)
 ```
 
 ## Define models

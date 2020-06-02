@@ -457,11 +457,13 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Cumulative Proportion  9.999992e-01 9.999996e-01 9.999999e-01 1.000000e+00</code></pre>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="co"># set plot parameters</span></a>
 <a class="sourceLine" id="cb168-2" title="2">site &lt;-<span class="st"> </span>qdata<span class="op">$</span>site</a>
-<a class="sourceLine" id="cb168-3" title="3">pch.gps.site &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">14</span>)[<span class="kw">as.factor</span>(site)]</a>
-<a class="sourceLine" id="cb168-4" title="4"></a>
-<a class="sourceLine" id="cb168-5" title="5"><span class="co"># plotPCAbySite</span></a>
-<a class="sourceLine" id="cb168-6" title="6">pca.plot1 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb168-7" title="7">                <span class="dt">pch =</span> pch.gps.site)</a></code></pre></div>
+<a class="sourceLine" id="cb168-3" title="3">pch.gps.site &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span><span class="op">:</span><span class="dv">22</span>)[<span class="kw">as.factor</span>(site)]</a>
+<a class="sourceLine" id="cb168-4" title="4">col.gps.site &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Cavalcanti1&quot;</span>)[<span class="kw">as.factor</span>(site)]</a>
+<a class="sourceLine" id="cb168-5" title="5"></a>
+<a class="sourceLine" id="cb168-6" title="6"><span class="co"># plotPCAbySite</span></a>
+<a class="sourceLine" id="cb168-7" title="7">pca.plot1 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb168-8" title="8">                <span class="dt">pch =</span> pch.gps.site,</a>
+<a class="sourceLine" id="cb168-9" title="9">                <span class="dt">col =</span> pch.gps.site)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pca-1.png" width="100%" /></p>
 </div>
 <div id="define-models-1" class="section level2">
