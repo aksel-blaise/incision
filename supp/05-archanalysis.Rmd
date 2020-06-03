@@ -1,14 +1,38 @@
 # Archaeological sample - analysis
 
-```{r loadsetwd, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+## Temporal and spatial dynamics
+
+The sample used in this study was generated through archaeological surveys, and there are no chronometric dates for any of the sites. Temporal assignments employ relative dates. Therefore, if a site spans the Woodland period through CE 1200 (41SA66), the date range is considered to range from 500 BCE to CE 1200. However, for this study only those temporal assignments associated with the Caddo components are plotted since that is the component of interest.
+
+```{r temporal, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # library(devtools)
 # devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
 library(geomorph)
+library(ggplot2)
 library(wesanderson)
+# set wd
 setwd(getwd())
+
+# gantt chart of (possible) relative dates for ceramic components
+temp<-data.frame(Site=c('41SA66','41SB125','41SB189','41SB189','41SB291','41SY43','41SY43','41SY258','41SY280','41TN91'),
+                 Date_Range=c(800,1200,1000,1400,1200,1000,1450,800,1400,900), # in years BCE/CE
+                 end=c(1200,1680,1200,1680,1680,1300,1680,1680,1680,1200) # in years CE
+)
+temp.site<-ggplot(temp,aes(x=Date_Range,xend=end,y=Site,yend=Site,color=Site)) +
+  geom_segment(size=2) +
+  scale_color_brewer(palette = "Dark2") +
+  theme(legend.position = "none")
+# render figure
+temp.site
+```
+
+## Generalised Procrustes Analysis
+
+```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# read GM data
 source('readmulti.csv.R')
 
-# Read .csv files
+# read .csv files
 setwd("./data1")
 filelist <- list.files(pattern = ".csv")
 coords <- readmulti.csv(filelist)
@@ -18,14 +42,11 @@ setwd("../")
 qdata <- read.csv("qdata1.csv",header=TRUE,row.names=1)
 qdata <- qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 qdata
-```
 
-## Generalised Procrustes Analysis
-
-```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# gpa
 Y.gpa <- gpagen(coords, PrinAxes = TRUE, ProcD = TRUE, Proj = TRUE, print.progress = FALSE)
 
-# 3D GPA plot
+# gpa plot
 knitr::include_graphics('images/gpa3d.png')
 fig.cap="Results of generalized Procrustes analysis."
 
