@@ -1,8 +1,29 @@
 # Archaeological sample
 
+## Temporal and spatial dynamics
+
+The sample used in this study was generated through archaeological surveys, and there are no chronometric dates for any of the sites. Temporal assignments employ relative dates. Therefore, if a site spans the Woodland period through CE 1200 (41SA66), the date range is considered to range from 500 BCE to CE 1200. However, for this study only those temporal assignments associated with Caddo components are plotted, so that same plot for 41SA66 is altered to illustrate a span from CE 800-1200.
+
+```{r temporal, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# load ggplot2
+library(ggplot2)
+
+# gantt chart of (possible) relative dates for ceramic components
+temp<-data.frame(Site=c('41SA66','41SB125','41SB189','41SB189','41SB291','41SY43','41SY43','41SY258','41SY280','41TN91'),
+                 Date_Range_CE=c(800,1200,1000,1400,1200,1000,1450,800,1400,900), # in years BCE/CE
+                 end=c(1200,1680,1200,1680,1680,1300,1680,1680,1680,1200) # in years CE
+)
+temp.site<-ggplot(temp,aes(x=Date_Range_CE,xend=end,y=Site,yend=Site,color=Site)) +
+  geom_segment(size=2) +
+  scale_color_brewer(palette = "Dark2") +
+  theme(legend.position = "none")
+# render figure
+temp.site
+```
+
 ## 41SA66
 
-The David Fox site is located in the Angelina National Forest on a high terrace overlooking the Attoyac Bayou floodplain and a small tributary. The site was described by Stephenson [-@RN5040] as being ``small and culturally poor,'' and was under cultivation at that time [@RN793].
+The David Fox site (41SA66) is located in the Angelina National Forest on a high terrace overlooking the Attoyac Bayou floodplain and a small tributary. The site was described by Stephenson [-@RN5040] as being ``small and culturally poor,'' and was under cultivation at that time [@RN793].
 
 There are Woodland period and pre-CE 1200 Caddo components at 41SA66. The Woodland component includes eight _Goose Creek Plain_ body sherds from surface contexts [@RN5066, 57, Pl. 29]. The Caddo component is evidenced by 11 grog-tempered rim and body sherds. Three of the rims bear multiple (5-12 lines) horizontal incised lines, and three body sherds include 7-12 parallel incised lines. The other five sherds---four body sherds and a body/base sherd---are plain.
 
