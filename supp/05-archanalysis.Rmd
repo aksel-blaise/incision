@@ -72,7 +72,7 @@ summary(pca)
 inc <- qdata$incision
 pch.gps.inc <- c(15,17)[as.factor(inc)]
 col.gps.inc <- wes_palette("Darjeeling1")[as.factor(inc)]
-col.hull <- wes_palette("Darjeeling2", 2)
+col.hull <- c("#00A08A","#FF0000")
 
 # plotPCAbyINC
 pca.plot1 <- plot(pca, asp = 1,
@@ -86,7 +86,7 @@ pca.plot1 <- plot(pca, asp = 1,
 inc2 <- qdata$inc2
 pch.gps.inc2 <- c(15,17:19)[as.factor(inc2)]
 col.gps.inc2 <- wes_palette("Darjeeling1")[as.factor(inc2)]
-col.hull2 <- wes_palette("Darjeeling2", 4)
+col.hull2 <- c("#F98400","#FF0000","#00A08A","#F2AD00")
 
 # plotPCAbyINC
 pca.plot2 <- plot(pca, asp = 1,

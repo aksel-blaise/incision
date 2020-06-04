@@ -394,32 +394,26 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb35-2" title="2">pca &lt;-<span class="st"> </span><span class="kw">gm.prcomp</span>(Y.gpa<span class="op">$</span>coords)</a>
 <a class="sourceLine" id="cb35-3" title="3"><span class="kw">summary</span>(pca)</a></code></pre></div>
 <pre><code>## Importance of components: 
-##                              PC1         PC2         PC3          PC4
-## Tips variance          0.0441045 0.005014108 0.003398275 0.0003353507
-## Proportion of variance 0.8226607 0.093525803 0.063386441 0.0062551403
-## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536
-##                                 PC5          PC6          PC7
-## Tips variance          0.0002822004 0.0001809061 0.0001525644
-## Proportion of variance 0.0052637514 0.0033743561 0.0028457127
-## Cumulative Proportion  0.9910918051 0.9944661611 0.9973118738
-##                                 PC8          PC9         PC10
-## Tips variance          7.081347e-05 3.658645e-05 2.060166e-05
-## Proportion of variance 1.320850e-03 6.824299e-04 3.842732e-04
-## Cumulative Proportion  9.986327e-01 9.993152e-01 9.996994e-01
-##                                PC11         PC12
-## Tips variance          1.050025e-05 5.614060e-06
-## Proportion of variance 1.958562e-04 1.047164e-04
-## Cumulative Proportion  9.998953e-01 1.000000e+00</code></pre>
+##                              PC1         PC2         PC3          PC4          PC5          PC6          PC7
+## Tips variance          0.0441045 0.005014108 0.003398275 0.0003353507 0.0002822004 0.0001809061 0.0001525644
+## Proportion of variance 0.8226607 0.093525803 0.063386441 0.0062551403 0.0052637514 0.0033743561 0.0028457127
+## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536 0.9910918051 0.9944661611 0.9973118738
+##                                 PC8          PC9         PC10         PC11         PC12
+## Tips variance          7.081347e-05 3.658645e-05 2.060166e-05 1.050025e-05 5.614060e-06
+## Proportion of variance 1.320850e-03 6.824299e-04 3.842732e-04 1.958562e-04 1.047164e-04
+## Cumulative Proportion  9.986327e-01 9.993152e-01 9.996994e-01 9.998953e-01 1.000000e+00</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="co"># set plot parameters</span></a>
 <a class="sourceLine" id="cb37-2" title="2">pch.gps<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(inc2)]</a>
 <a class="sourceLine" id="cb37-3" title="3">col.gps<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc2)]</a>
-<a class="sourceLine" id="cb37-4" title="4">col.hull &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc2)]</a>
+<a class="sourceLine" id="cb37-4" title="4">col.hull<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>)</a>
 <a class="sourceLine" id="cb37-5" title="5"></a>
 <a class="sourceLine" id="cb37-6" title="6"><span class="co"># plotPCAbyinc2</span></a>
 <a class="sourceLine" id="cb37-7" title="7">pc.plot &lt;-<span class="st"> </span><span class="kw">plot</span>(pca,<span class="dt">asp =</span> <span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb37-8" title="8">            <span class="dt">pch =</span> pch.gps<span class="fl">.2</span>,</a>
 <a class="sourceLine" id="cb37-9" title="9">            <span class="dt">col =</span> col.gps<span class="fl">.2</span>)</a>
-<a class="sourceLine" id="cb37-10" title="10">            <span class="kw">shapeHulls</span>(pc.plot, <span class="dt">groups =</span> inc2)</a></code></pre></div>
+<a class="sourceLine" id="cb37-10" title="10">            <span class="kw">shapeHulls</span>(pc.plot, </a>
+<a class="sourceLine" id="cb37-11" title="11">                       <span class="dt">groups =</span> inc2,</a>
+<a class="sourceLine" id="cb37-12" title="12">                       <span class="dt">group.cols =</span> col.hull<span class="fl">.2</span>)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pcaEX-1.png" width="100%" /></p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">fig.cap =<span class="st"> &quot;Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, U-narrow incisions; and orange triangles, U-wide incisions.&quot;</span></a></code></pre></div>
 </div>
@@ -568,8 +562,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb54-2" title="2"><span class="kw">morphol.disparity</span>(fit.shapeinc, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = fit.shapeinc, groups = qdata$inc2, iter = 9999,  
-##     data = gdf, print.progress = FALSE) 
+## morphol.disparity(f1 = fit.shapeinc, groups = qdata$inc2, iter = 9999,      data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
@@ -597,8 +590,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb56-2" title="2"><span class="kw">morphol.disparity</span>(fit.sizeinc, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2, <span class="dt">data =</span> gdf, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</a></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = fit.sizeinc, groups = qdata$inc2, iter = 9999,  
-##     data = gdf, print.progress = FALSE) 
+## morphol.disparity(f1 = fit.sizeinc, groups = qdata$inc2, iter = 9999,      data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
