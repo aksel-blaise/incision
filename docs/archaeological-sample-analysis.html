@@ -395,7 +395,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb164-16" title="16">        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;V&quot;</span>,<span class="st">&quot;U&quot;</span>),</a>
 <a class="sourceLine" id="cb164-17" title="17">        <span class="dt">xlab =</span> <span class="st">&quot;Profile&quot;</span>,</a>
 <a class="sourceLine" id="cb164-18" title="18">        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</a>
-<a class="sourceLine" id="cb164-19" title="19">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Cavalcanti1&quot;</span>),</a>
+<a class="sourceLine" id="cb164-19" title="19">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Darjeeling2&quot;</span>),</a>
 <a class="sourceLine" id="cb164-20" title="20">        )</a></code></pre></div>
 <p><img src="incision_files/figure-html/gpa-2.png" width="100%" /></p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1">fig.cap =<span class="st"> &quot;Boxplot of incision profile types (inc).&quot;</span></a>
@@ -406,7 +406,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb165-6" title="6">        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;V-V&quot;</span>,<span class="st">&quot;V-A&quot;</span>,<span class="st">&quot;U-N&quot;</span>,<span class="st">&quot;U-B&quot;</span>),</a>
 <a class="sourceLine" id="cb165-7" title="7">        <span class="dt">xlab =</span> <span class="st">&quot;Profile&quot;</span>,</a>
 <a class="sourceLine" id="cb165-8" title="8">        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</a>
-<a class="sourceLine" id="cb165-9" title="9">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Cavalcanti1&quot;</span>),</a>
+<a class="sourceLine" id="cb165-9" title="9">        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Darjeeling2&quot;</span>),</a>
 <a class="sourceLine" id="cb165-10" title="10">        )</a></code></pre></div>
 <p><img src="incision_files/figure-html/gpa-3.png" width="100%" /></p>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1">fig.cap =<span class="st"> &quot;Boxplot of incision profile types (inc2).&quot;</span></a></code></pre></div>
@@ -480,24 +480,30 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" title="1"><span class="co"># set plot parameters to plot by incision type</span></a>
 <a class="sourceLine" id="cb169-2" title="2">inc &lt;-<span class="st"> </span>qdata<span class="op">$</span>incision</a>
 <a class="sourceLine" id="cb169-3" title="3">pch.gps.inc &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="kw">as.factor</span>(inc)]</a>
-<a class="sourceLine" id="cb169-4" title="4">col.gps.inc &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Cavalcanti1&quot;</span>)[<span class="kw">as.factor</span>(inc)]</a>
-<a class="sourceLine" id="cb169-5" title="5"></a>
-<a class="sourceLine" id="cb169-6" title="6"><span class="co"># plotPCAbyINC</span></a>
-<a class="sourceLine" id="cb169-7" title="7">pca.plot1 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb169-8" title="8">                  <span class="dt">pch =</span> pch.gps.inc,</a>
-<a class="sourceLine" id="cb169-9" title="9">                  <span class="dt">col =</span> col.gps.inc)</a>
-<a class="sourceLine" id="cb169-10" title="10">                  <span class="kw">shapeHulls</span>(pca.plot2, <span class="dt">groups =</span> inc)</a></code></pre></div>
+<a class="sourceLine" id="cb169-4" title="4">col.gps.inc &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Darjeeling1&quot;</span>)[<span class="kw">as.factor</span>(inc)]</a>
+<a class="sourceLine" id="cb169-5" title="5">col.hull &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Darjeeling2&quot;</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb169-6" title="6"></a>
+<a class="sourceLine" id="cb169-7" title="7"><span class="co"># plotPCAbyINC</span></a>
+<a class="sourceLine" id="cb169-8" title="8">pca.plot1 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb169-9" title="9">                  <span class="dt">pch =</span> pch.gps.inc,</a>
+<a class="sourceLine" id="cb169-10" title="10">                  <span class="dt">col =</span> col.gps.inc)</a>
+<a class="sourceLine" id="cb169-11" title="11">                  <span class="kw">shapeHulls</span>(pca.plot2, </a>
+<a class="sourceLine" id="cb169-12" title="12">                             <span class="dt">groups =</span> inc,</a>
+<a class="sourceLine" id="cb169-13" title="13">                             <span class="dt">group.cols =</span> col.hull)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pca-1.png" width="100%" /></p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="co"># set plot parameters to plot by incision type (inc2)</span></a>
 <a class="sourceLine" id="cb170-2" title="2">inc2 &lt;-<span class="st"> </span>qdata<span class="op">$</span>inc2</a>
 <a class="sourceLine" id="cb170-3" title="3">pch.gps.inc2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span><span class="op">:</span><span class="dv">19</span>)[<span class="kw">as.factor</span>(inc2)]</a>
-<a class="sourceLine" id="cb170-4" title="4">col.gps.inc2 &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Cavalcanti1&quot;</span>)[<span class="kw">as.factor</span>(inc2)]</a>
-<a class="sourceLine" id="cb170-5" title="5"></a>
-<a class="sourceLine" id="cb170-6" title="6"><span class="co"># plotPCAbyINC</span></a>
-<a class="sourceLine" id="cb170-7" title="7">pca.plot2 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb170-8" title="8">                  <span class="dt">pch =</span> pch.gps.inc2,</a>
-<a class="sourceLine" id="cb170-9" title="9">                  <span class="dt">col =</span> col.gps.inc2)</a>
-<a class="sourceLine" id="cb170-10" title="10">                  <span class="kw">shapeHulls</span>(pca.plot2, <span class="dt">groups =</span> inc2)</a></code></pre></div>
+<a class="sourceLine" id="cb170-4" title="4">col.gps.inc2 &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Darjeeling1&quot;</span>)[<span class="kw">as.factor</span>(inc2)]</a>
+<a class="sourceLine" id="cb170-5" title="5">col.hull2 &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Darjeeling2&quot;</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb170-6" title="6"></a>
+<a class="sourceLine" id="cb170-7" title="7"><span class="co"># plotPCAbyINC</span></a>
+<a class="sourceLine" id="cb170-8" title="8">pca.plot2 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb170-9" title="9">                  <span class="dt">pch =</span> pch.gps.inc2,</a>
+<a class="sourceLine" id="cb170-10" title="10">                  <span class="dt">col =</span> col.gps.inc2)</a>
+<a class="sourceLine" id="cb170-11" title="11">                  <span class="kw">shapeHulls</span>(pca.plot2, </a>
+<a class="sourceLine" id="cb170-12" title="12">                             <span class="dt">groups =</span> inc2,</a>
+<a class="sourceLine" id="cb170-13" title="13">                             <span class="dt">group.cols =</span> col.hull2)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pca-2.png" width="100%" /></p>
 </div>
 <div id="define-models-1" class="section level2">
