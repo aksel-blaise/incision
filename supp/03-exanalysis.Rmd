@@ -60,7 +60,7 @@ knitr::include_graphics('images/gpa3dEX.png')
 fig.cap = "Results of generalised Procrustes analysis."
 
 # geomorph data frame
-gdf <- geomorph.data.frame(shape = Y.gpa$coords, size = Y.gpa$Csize, incision = qdata$incision, inc2 = qdata$inc2)
+gdf <- geomorph.data.frame(shape = Y.gpa$coords, size = Y.gpa$Csize, inc = qdata$incision, inc2 = qdata$inc2)
 csz <- Y.gpa$Csize # attribute for boxplot
 inc <- qdata$incision
 inc2 <- qdata$inc2 # attribute for boxplot
@@ -94,15 +94,29 @@ pca <- gm.prcomp(Y.gpa$coords)
 summary(pca)
 
 # set plot parameters
+pch.gps.1 <- c(15,17)[as.factor(inc)]
+col.gps.1 <- wes_palette("Moonrise2")[as.factor(inc)]
+col.hull.1 <- c("#798E87","#C27D38")
+
+# plotPCAbyinc2
+pc.plot.1 <- plot(pca,asp = 1,
+            pch = pch.gps.1,
+            col = col.gps.1)
+            shapeHulls(pc.plot.1, 
+                       groups = inc,
+                       group.cols = col.hull.1)
+fig.cap = "Plot of PC1 and PC2 for U- and V-shaped incisions."
+
+# set plot parameters
 pch.gps.2 <- c(15,17,19)[as.factor(inc2)]
 col.gps.2 <- wes_palette("Moonrise2")[as.factor(inc2)]
 col.hull.2 <- c("#798E87","#C27D38","#CCC591")
 
 # plotPCAbyinc2
-pc.plot <- plot(pca,asp = 1,
+pc.plot.2 <- plot(pca,asp = 1,
             pch = pch.gps.2,
             col = col.gps.2)
-            shapeHulls(pc.plot, 
+            shapeHulls(pc.plot.2, 
                        groups = inc2,
                        group.cols = col.hull.2)
 fig.cap = "Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, U-narrow incisions; and orange triangles, U-wide incisions."
@@ -112,8 +126,10 @@ fig.cap = "Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, U
 
 ```{r defmodEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 fit.size <- procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
-fit.sizeinc <- procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
-fit.shapeinc <- procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizeinc <- procD.lm(size ~ inc, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapeinc <- procD.lm(shape ~ inc, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizeinc2 <- procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapeinc2 <- procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
 ```
 
 ## Size/Shape ~ Incision Profile?
@@ -122,21 +138,31 @@ fit.shapeinc <- procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter 
 # ANOVA: allometry?
 anova(fit.size)
 
-# ANOVA: do incision sizes differ by profile?
-anova(fit.sizeinc)
-# pairwise comparison of LS means = which differ?
-sz.inc <- pairwise(fit.sizeinc, groups = qdata$inc2)
-summary(sz.inc, confidence = 0.95, test.type = "dist")
-# pairwise distance between variances = standardization?
-summary(sz.inc, confidence = 0.95, test.type = "var")
-
 # ANOVA: do incision shapes differ by profile?
 anova(fit.shapeinc)
+
+# ANOVA: do incision sizes differ by profile?
+anova(fit.sizeinc)
+```
+
+## Size/Shape ~ Incision Profile 2?
+
+```{r szshpinc2EX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# ANOVA: do incision shapes differ (inc2)?
+anova(fit.shapeinc2)
 # pairwise comparison of LS means = which differ?
-sh.inc <- pairwise(fit.shapeinc, groups = qdata$inc2)
-summary(sh.inc, confidence = 0.95, test.type = "dist")
+sh.inc2 <- pairwise(fit.shapeinc2, groups = qdata$inc2)
+summary(sh.inc2, confidence = 0.95, test.type = "dist")
 # pairwise distance between variances = standardization?
-summary(sh.inc, confidence = 0.95, test.type = "var")
+summary(sh.inc2, confidence = 0.95, test.type = "var")
+
+# ANOVA: do incision sizes differ (inc2)?
+anova(fit.sizeinc2)
+# pairwise comparison of LS means = which differ?
+sz.inc2 <- pairwise(fit.sizeinc2, groups = qdata$inc2)
+summary(sz.inc2, confidence = 0.95, test.type = "dist")
+# pairwise distance between variances = standardization?
+summary(sz.inc2, confidence = 0.95, test.type = "var")
 ```
 
 ## Morphological disparity

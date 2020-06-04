@@ -75,10 +75,10 @@ col.gps.inc <- wes_palette("Moonrise2")[as.factor(inc)]
 col.hull <- c("#C27D38","#798E87")
 
 # plotPCAbyINC
-pca.plot1 <- plot(pca, asp = 1,
+pc.plot1 <- plot(pca, asp = 1,
                   pch = pch.gps.inc,
                   col = col.gps.inc)
-                  shapeHulls(pca.plot2, 
+                  shapeHulls(pc.plot1, 
                              groups = inc,
                              group.cols = col.hull)
 
@@ -89,10 +89,10 @@ col.gps.inc2 <- wes_palette("Moonrise2")[as.factor(inc2)]
 col.hull2 <- c("#29211F","#798E87","#C27D38","#CCC591")
 
 # plotPCAbyINC
-pca.plot2 <- plot(pca, asp = 1,
+pc.plot2 <- plot(pca, asp = 1,
                   pch = pch.gps.inc2,
                   col = col.gps.inc2)
-                  shapeHulls(pca.plot2, 
+                  shapeHulls(pc.plot2, 
                              groups = inc2,
                              group.cols = col.hull2)
 ```
@@ -112,19 +112,9 @@ fit.shapeinc2 <- procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter
 ```{r szshpinc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA: do incision shapes differ?
 anova(fit.shapeinc)
-# pairwise comparison of LS means = which differ?
-sh.inc <- pairwise(fit.shapeinc, groups = qdata$incision)
-summary(sh.inc, confidence = 0.95, test.type = "dist")
-# pairwise distance between variances = standardization?
-summary(sh.inc, confidence = 0.95, test.type = "var")
 
 # ANOVA: do incision sizes differ?
 anova(fit.sizeinc)
-# pairwise comparison of LS means = which differ?
-sz.inc <- pairwise(fit.sizeinc, groups = qdata$incision)
-summary(sz.inc, confidence = 0.95, test.type = "dist")
-# pairwise distance between variances = standardization?
-summary(sz.inc, confidence = 0.95, test.type = "var")
 ```
 
 ## Size/Shape ~ Incision Profile 2?
