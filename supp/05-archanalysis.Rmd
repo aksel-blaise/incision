@@ -33,10 +33,10 @@ fig.cap="Results of generalized Procrustes analysis."
 # geomorph data frame
 gdf <- geomorph.data.frame(shape = Y.gpa$coords, size = Y.gpa$Csize, site = qdata$site, unit = qdata$unit, county = qdata$county, inc = qdata$incision, inc2 = qdata$inc2) 
 
-csz <- Y.gpa$Csize # attribute for boxplot
-sit <- qdata$site # attribute for boxplot
-inc <- qdata$incision
-inc2 <- qdata$inc2
+# attributes for boxplots
+csz <- Y.gpa$Csize # centroid size
+inc <- qdata$incision # basic incision profile
+inc2 <- qdata$inc2 # incision profile + qualitative characteristics
 cty <- qdata$county # attribute for boxplot
 unt <- qdata$unit # attribute for boxplot
 
@@ -48,7 +48,7 @@ boxplot(csz~inc,
         ylab = "Centroid Size",
         col = wes_palette("Cavalcanti1"),
         )
-fig.cap = "Boxplot of incision profile types."
+fig.cap = "Boxplot of incision profile types (inc)."
 
 # boxplot of incision (centroid) size by profile type (inc2)
 boxplot(csz~inc2,
@@ -58,17 +58,7 @@ boxplot(csz~inc2,
         ylab = "Centroid Size",
         col = wes_palette("Cavalcanti1"),
         )
-fig.cap = "Boxplot of incision profile types."
-
-# boxplot of incision (centroid) size by site
-boxplot(csz~sit,
-        main = "Centroid size of Caddo incisions by Site",
-        names = c("SA66","SB125","SB189","SB291","SY258","SY280","SY43","TN91"),
-        xlab = "Site",
-        ylab = "Centroid Size",
-        col = wes_palette("Cavalcanti1"),
-        )
-fig.cap = "Boxplot of incision profiles for the 41SA66, 41SB125, 41SB189, 41SB291, 41SY258, 41SY280, 41SY43, and 41TN91 sites."
+fig.cap = "Boxplot of incision profile types (inc2)."
 ```
 
 ## Principal Components Analysis
@@ -78,23 +68,13 @@ fig.cap = "Boxplot of incision profiles for the 41SA66, 41SB125, 41SB189, 41SB29
 pca<-gm.prcomp(Y.gpa$coords)
 summary(pca)
 
-# set plot parameters to plot by site
-site <- qdata$site
-pch.gps.site <- c(15:22)[as.factor(site)]
-col.gps.site <- wes_palette("Cavalcanti1")[as.factor(site)]
-
-# plotPCAbySite
-pca.plot1 <- plot(pca, asp = 1,
-                pch = pch.gps.site,
-                col = pch.gps.site)
-
 # set plot parameters to plot by incision type
 inc <- qdata$incision
 pch.gps.inc <- c(15,17)[as.factor(inc)]
 col.gps.inc <- wes_palette("Cavalcanti1")[as.factor(inc)]
 
 # plotPCAbyINC
-pca.plot2 <- plot(pca, asp = 1,
+pca.plot1 <- plot(pca, asp = 1,
                   pch = pch.gps.inc,
                   col = col.gps.inc)
 
@@ -104,7 +84,7 @@ pch.gps.inc2 <- c(15,17:19)[as.factor(inc2)]
 col.gps.inc2 <- wes_palette("Cavalcanti1")[as.factor(inc2)]
 
 # plotPCAbyINC
-pca.plot3 <- plot(pca, asp = 1,
+pca.plot2 <- plot(pca, asp = 1,
                   pch = pch.gps.inc2,
                   col = col.gps.inc2)
 ```
@@ -113,32 +93,10 @@ pca.plot3 <- plot(pca, asp = 1,
 
 ```{r define-models, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 fit.size <- procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
-fit.sizesite <- procD.lm(size ~ site, data = gdf, print.progress = FALSE, iter = 9999)
 fit.sizeinc <- procD.lm(size ~ inc, data = gdf, print.progress = FALSE, iter = 9999)
 fit.sizeinc2 <- procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
-fit.shapesite <- procD.lm(shape ~ site, data = gdf, print.progress = FALSE, iter = 9999)
 fit.shapeinc <- procD.lm(shape ~ inc, data = gdf, print.progress = FALSE, iter = 9999)
 fit.shapeinc2 <- procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
-```
-
-## Size/Shape ~ Site?
-
-```{r shszsite, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# ANOVA: do incision sizes differ by site?
-anova(fit.sizesite)
-# pairwise comparison of LS means = which differ?
-sz.site <- pairwise(fit.sizesite, groups = qdata$site)
-summary(sz.site, confidence = 0.95, test.type = "dist")
-# pairwise distance between variances = standardization?
-summary(sz.site, confidence = 0.95, test.type = "var")
-
-# ANOVA: do incision shapes differ by site?
-anova(fit.shapesite)
-# pairwise comparison of LS means = which differ?
-sh.site <- pairwise(fit.shapesite, groups = qdata$site)
-summary(sh.site, confidence = 0.95, test.type = "dist")
-# pairwise distance between variances = standardization?
-summary(sh.site, confidence = 0.95, test.type = "var")
 ```
 
 ## Size/Shape ~ Incision Profile?
@@ -184,17 +142,13 @@ summary(sh.inc2, confidence = 0.95, test.type = "var")
 ## Morphological disparity
 
 ```{r m-disparity}
-# morphological disparity: does incision morphology display greater shape variation among individuals relative to site or profile (inc or inc2?
-# site
-morphol.disparity(fit.shapesite, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
+# morphological disparity: does incision morphology display greater shape variation among individuals relative to incision profile (inc or inc2?
 # incision
 morphol.disparity(fit.shapeinc, groups = qdata$incision, data = gdf, print.progress = FALSE, iter = 9999)
 # inc2
 morphol.disparity(fit.shapeinc2, groups = qdata$inc2, data = gdf, print.progress = FALSE, iter = 9999)
 
-# morphological disparity: does incision morphology display greater size variation among individuals relative to site or profile (inc or inc2?
-# site
-morphol.disparity(fit.sizesite, groups = qdata$site, data = gdf, print.progress = FALSE, iter = 9999)
+# morphological disparity: does incision morphology display greater size variation among individuals relative to incision profile (inc or inc2?
 # incision
 morphol.disparity(fit.sizeinc, groups = qdata$incision, data = gdf, print.progress = FALSE, iter = 9999)
 # inc2
@@ -205,14 +159,14 @@ morphol.disparity(fit.sizeinc2, groups = qdata$inc2, data = gdf, print.progress 
 
 ```{r m-shapes}
 # subset landmark coordinates to produce mean shapes by site
-new.coords <- coords.subset(A = Y.gpa$coords, group = qdata$site)
+new.coords <- coords.subset(A = Y.gpa$coords, group = qdata$inc2)
 names(new.coords)
 # group shape means
 mean <- lapply(new.coords, mshape)
-# plot(mean$tn91)
+# plot(mean$vv)
 
 # mean shapes
-knitr::include_graphics('images/site-meanshape.png')
-fig.cap = "Mean shapes for Caddo incisions from sites on the National Forests and Grasslands in Texas."
+knitr::include_graphics('images/inc2-mshape.png')
+fig.cap = "Mean shapes for u-shaped broad, u-shaped narrow, v-shaped angled, and v-shaped vertical Caddo incision profiles (inc2)."
 # end of code
 ```

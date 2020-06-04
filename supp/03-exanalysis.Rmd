@@ -2,6 +2,35 @@
 
 The `inc2` field in the qdataEX file relates to the differences in shape that were noted when reviewing general incision morphology. Some were U-shaped and narrow, others U-shaped and wide (twice as wide as they are deep), and the remainder were V-shaped. The V-shaped incisions were the only incisions made by multiple tools. In this study, the narrow and wide U-shaped incisions were made by different tools; however, it is not difficult to imagine a scenario where both of the U-shaped incisions could also have been produced with two different sides of the same tool. It is thus necessary to use abundant caution when interpreting potential tool shape, or the number of tools employed in the application of incisions. To avoid confounding the issue, the tip of each of the tools used to generate the incision is referred to as a bit in the remainder of this document. Tools may have multiple bits, but each bit is capable of generating different incision profiles.
 
+## Landmarking protocol
+
+The characteristic points and tangents used in the landmarking protocol were inspired by the work of Birkhoff [-@RN11786]. Using Geomagic Design X, a plane was inserted to capture the deepest incision profile on each scan.
+
+```{r insertplane, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/insertplane.png')
+fig.cap="Reference plane (blue) inserted at deepest point of incision of experimental tile 6b."
+```
+
+The horizontal tangent was calculated for the rise in the clay matrix that occurrs on each side of the incision. A linear distance was then calculated to identify the mid-point of the incision, and the deepest part of the incision was always oriented to the right of center. 
+
+```{r h.tangent, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/h-tangents.png')
+fig.cap="Spline (500 interpolation points) that was cut at the location of horizontal tangents on each side, then oriented where the deepest part of the incision was to the right of center."
+```
+
+Once properly oriented, the horizontal tangent of the left was assigned as Point (LM01), and the horizontal tangent on the right as Point (LM02). Twenty five equidistant landmarks were then placed between the two landmarks along a spline.
+
+```{r semi.land, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# incision image
+knitr::include_graphics('images/semiland.png')
+fig.cap="Placement of 25 equidistant semilandmarks (white) between LM01 and LM02 (blue)"
+```
+
+Landmarks and semilandmarks for each specimen were then exported as CSV files (included in supplemental materials as dataEX), which were used in the geometric morphometric analysis presented in the next chapter. 
+
+
 ```{r loadsetwdEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # library(devtools)
 # devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
