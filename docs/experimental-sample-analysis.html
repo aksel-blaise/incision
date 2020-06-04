@@ -303,17 +303,17 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <p>The <code>inc2</code> field in the qdataEX file relates to the differences in shape that were noted when reviewing general incision morphology. Some were U-shaped and narrow, others U-shaped and wide (twice as wide as they are deep), and the remainder were V-shaped. The V-shaped incisions were the only incisions made by multiple tools. In this study, the narrow and wide U-shaped incisions were made by different tools; however, it is not difficult to imagine a scenario where both of the U-shaped incisions could also have been produced with two different sides of the same tool. It is thus necessary to use abundant caution when interpreting potential tool shape, or the number of tools employed in the application of incisions. To avoid confounding the issue, the tip of each of the tools used to generate the incision is referred to as a bit in the remainder of this document. Tools may have multiple bits, but each bit is capable of generating different incision profiles.</p>
 <div id="landmarking-protocol" class="section level2">
 <h2><span class="header-section-number">3.1</span> Landmarking protocol</h2>
-<p>The characteristic points and tangents used in the landmarking protocol were inspired by the work of Birkhoff <span class="citation">(<a href="#ref-RN11786" role="doc-biblioref">1933</a>)</span>. Using Geomagic Design X, a plane was inserted to capture the deepest incision profile on each scan.</p>
+<p>The characteristic points and tangents used in the landmarking protocol were inspired by the work of Birkhoff <span class="citation">(<a href="#ref-RN11786" role="doc-biblioref">1933</a>)</span>. Using Geomagic Design X, a plane was inserted to capture the deepest incision profile.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="co"># incision image</span></a>
 <a class="sourceLine" id="cb23-2" title="2">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/insertplane.png&#39;</span>)</a></code></pre></div>
 <p><img src="images/insertplane.png" width="100%" /></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">fig.cap=<span class="st">&quot;Reference plane (blue) inserted at deepest point of incision of experimental tile 6b.&quot;</span></a></code></pre></div>
-<p>The horizontal tangent was calculated for the rise in the clay matrix that occurrs on each side of the incision. A linear distance was then calculated to identify the mid-point of the incision, and the deepest part of the incision was always oriented to the right of center.</p>
+<p>The horizontal tangent was calculated for the rise in the clay matrix on either side of the incision. A linear distance was then calculated to identify the mid-point of the incision, and the deepest part of the incision profile was oriented to the right of center.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co"># incision image</span></a>
 <a class="sourceLine" id="cb25-2" title="2">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/h-tangents.png&#39;</span>)</a></code></pre></div>
 <p><img src="images/h-tangents.png" width="100%" /></p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">fig.cap=<span class="st">&quot;Spline (500 interpolation points) that was cut at the location of horizontal tangents on each side, then oriented where the deepest part of the incision was to the right of center.&quot;</span></a></code></pre></div>
-<p>Once properly oriented, the horizontal tangent of the left was assigned as Point (LM01), and the horizontal tangent on the right as Point (LM02). Twenty five equidistant landmarks were then placed between the two landmarks along a spline.</p>
+<p>Once properly oriented, the horizontal tangent of the left was assigned as Point 01, and the horizontal tangent on the right as Point 02. Twenty five equidistant landmarks were subsequently placed between the two landmarks along the spline.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="co"># incision image</span></a>
 <a class="sourceLine" id="cb27-2" title="2">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/semiland.png&#39;</span>)</a></code></pre></div>
 <p><img src="images/semiland.png" width="100%" /></p>
@@ -398,14 +398,18 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Tips variance          0.0441045 0.005014108 0.003398275 0.0003353507
 ## Proportion of variance 0.8226607 0.093525803 0.063386441 0.0062551403
 ## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536
-##                                 PC5          PC6          PC7          PC8
-## Tips variance          0.0002822004 0.0001809061 0.0001525644 7.081347e-05
-## Proportion of variance 0.0052637514 0.0033743561 0.0028457127 1.320850e-03
-## Cumulative Proportion  0.9910918051 0.9944661611 0.9973118738 9.986327e-01
-##                                 PC9         PC10         PC11         PC12
-## Tips variance          3.658645e-05 2.060166e-05 1.050025e-05 5.614060e-06
-## Proportion of variance 6.824299e-04 3.842732e-04 1.958562e-04 1.047164e-04
-## Cumulative Proportion  9.993152e-01 9.996994e-01 9.998953e-01 1.000000e+00</code></pre>
+##                                 PC5          PC6          PC7
+## Tips variance          0.0002822004 0.0001809061 0.0001525644
+## Proportion of variance 0.0052637514 0.0033743561 0.0028457127
+## Cumulative Proportion  0.9910918051 0.9944661611 0.9973118738
+##                                 PC8          PC9         PC10
+## Tips variance          7.081347e-05 3.658645e-05 2.060166e-05
+## Proportion of variance 1.320850e-03 6.824299e-04 3.842732e-04
+## Cumulative Proportion  9.986327e-01 9.993152e-01 9.996994e-01
+##                                PC11         PC12
+## Tips variance          1.050025e-05 5.614060e-06
+## Proportion of variance 1.958562e-04 1.047164e-04
+## Cumulative Proportion  9.998953e-01 1.000000e+00</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="co"># set plot parameters</span></a>
 <a class="sourceLine" id="cb37-2" title="2">pch.gps<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(inc2)]</a>
 <a class="sourceLine" id="cb37-3" title="3">col.gps<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc2)]</a>
