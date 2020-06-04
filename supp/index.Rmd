@@ -1,5 +1,5 @@
 --- 
-title: "Supplementary materials for paper: Do apparent differences in ceramic incision morphology provide inference to a standard toolkit?"
+title: "Supplementary materials for paper: Do apparent differences in ceramic incision morphology provide inference to a common toolkit?"
 author: 
     - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Virtual Curation Laboratory, Virginia Commonwealth University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu]
 date: "`r Sys.Date()`"
