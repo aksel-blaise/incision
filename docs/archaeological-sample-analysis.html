@@ -485,7 +485,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb169-6" title="6"><span class="co"># plotPCAbyINC</span></a>
 <a class="sourceLine" id="cb169-7" title="7">pca.plot1 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb169-8" title="8">                  <span class="dt">pch =</span> pch.gps.inc,</a>
-<a class="sourceLine" id="cb169-9" title="9">                  <span class="dt">col =</span> col.gps.inc)</a></code></pre></div>
+<a class="sourceLine" id="cb169-9" title="9">                  <span class="dt">col =</span> col.gps.inc)</a>
+<a class="sourceLine" id="cb169-10" title="10">                  <span class="kw">shapeHulls</span>(pca.plot2, <span class="dt">groups =</span> inc)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pca-1.png" width="100%" /></p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="co"># set plot parameters to plot by incision type (inc2)</span></a>
 <a class="sourceLine" id="cb170-2" title="2">inc2 &lt;-<span class="st"> </span>qdata<span class="op">$</span>inc2</a>
@@ -495,7 +496,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb170-6" title="6"><span class="co"># plotPCAbyINC</span></a>
 <a class="sourceLine" id="cb170-7" title="7">pca.plot2 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb170-8" title="8">                  <span class="dt">pch =</span> pch.gps.inc2,</a>
-<a class="sourceLine" id="cb170-9" title="9">                  <span class="dt">col =</span> col.gps.inc2)</a></code></pre></div>
+<a class="sourceLine" id="cb170-9" title="9">                  <span class="dt">col =</span> col.gps.inc2)</a>
+<a class="sourceLine" id="cb170-10" title="10">                  <span class="kw">shapeHulls</span>(pca.plot2, <span class="dt">groups =</span> inc2)</a></code></pre></div>
 <p><img src="incision_files/figure-html/pca-2.png" width="100%" /></p>
 </div>
 <div id="define-models-1" class="section level2">

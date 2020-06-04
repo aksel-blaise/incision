@@ -96,11 +96,13 @@ summary(pca)
 # set plot parameters
 pch.gps.2 <- c(15,17,19)[as.factor(inc2)]
 col.gps.2 <- wes_palette("Moonrise2")[as.factor(inc2)]
+col.hull <- wes_palette("Moonrise2")[as.factor(inc2)]
 
 # plotPCAbyinc2
-pca <- plot(pca,asp = 1,
-          pch = pch.gps.2,
-          col = col.gps.2)
+pc.plot <- plot(pca,asp = 1,
+            pch = pch.gps.2,
+            col = col.gps.2)
+            shapeHulls(pc.plot, groups = inc2)
 fig.cap = "Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, U-narrow incisions; and orange triangles, U-wide incisions."
 ```
 

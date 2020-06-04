@@ -77,6 +77,7 @@ col.gps.inc <- wes_palette("Cavalcanti1")[as.factor(inc)]
 pca.plot1 <- plot(pca, asp = 1,
                   pch = pch.gps.inc,
                   col = col.gps.inc)
+                  shapeHulls(pca.plot2, groups = inc)
 
 # set plot parameters to plot by incision type (inc2)
 inc2 <- qdata$inc2
@@ -87,6 +88,7 @@ col.gps.inc2 <- wes_palette("Cavalcanti1")[as.factor(inc2)]
 pca.plot2 <- plot(pca, asp = 1,
                   pch = pch.gps.inc2,
                   col = col.gps.inc2)
+                  shapeHulls(pca.plot2, groups = inc2)
 ```
 
 ## Define models
