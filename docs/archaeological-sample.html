@@ -319,15 +319,16 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb88-7" title="7">                 <span class="dt">end =</span> <span class="kw">c</span>(<span class="dv">1200</span>, <span class="dv">1680</span>, <span class="dv">1200</span>, <span class="dv">1680</span>, <span class="dv">1680</span>, <span class="dv">1300</span>, <span class="dv">1680</span>, <span class="dv">1680</span>, <span class="dv">1680</span>, <span class="dv">1200</span>) <span class="co"># in years CE</span></a>
 <a class="sourceLine" id="cb88-8" title="8">)</a>
 <a class="sourceLine" id="cb88-9" title="9"></a>
-<a class="sourceLine" id="cb88-10" title="10">temp.site &lt;-<span class="st"> </span><span class="kw">ggplot</span>(temp,<span class="kw">aes</span>(<span class="dt">x =</span> Date_Range_CE, <span class="dt">xend =</span> end, <span class="dt">y =</span> <span class="kw">factor</span>(Site, </a>
-<a class="sourceLine" id="cb88-11" title="11">       <span class="dt">levels =</span> <span class="kw">rev</span>(<span class="kw">levels</span>(<span class="kw">factor</span>(Site)))), <span class="dt">yend =</span> Site, <span class="dt">color =</span> Site)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb88-12" title="12"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb88-13" title="13"><span class="st">  </span><span class="kw">scale_colour_discrete</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb88-14" title="14"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb88-15" title="15"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Archaeological Site&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Date Range CE&quot;</span>)</a>
-<a class="sourceLine" id="cb88-16" title="16"></a>
-<a class="sourceLine" id="cb88-17" title="17"><span class="co"># render figure</span></a>
-<a class="sourceLine" id="cb88-18" title="18">temp.site</a></code></pre></div>
+<a class="sourceLine" id="cb88-10" title="10"><span class="co"># arrange figure</span></a>
+<a class="sourceLine" id="cb88-11" title="11">temp.site &lt;-<span class="st"> </span><span class="kw">ggplot</span>(temp,<span class="kw">aes</span>(<span class="dt">x =</span> Date_Range_CE, <span class="dt">xend =</span> end, <span class="dt">y =</span> <span class="kw">factor</span>(Site, </a>
+<a class="sourceLine" id="cb88-12" title="12">       <span class="dt">levels =</span> <span class="kw">rev</span>(<span class="kw">levels</span>(<span class="kw">factor</span>(Site)))), <span class="dt">yend =</span> Site, <span class="dt">color =</span> Site)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-13" title="13"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-14" title="14"><span class="st">  </span><span class="kw">scale_colour_discrete</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-15" title="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-16" title="16"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Archaeological Site&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Date Range CE&quot;</span>)</a>
+<a class="sourceLine" id="cb88-17" title="17"></a>
+<a class="sourceLine" id="cb88-18" title="18"><span class="co"># render figure</span></a>
+<a class="sourceLine" id="cb88-19" title="19">temp.site</a></code></pre></div>
 <p><img src="incision_files/figure-html/temporal-1.png" width="100%" /></p>
 <p>All samples were collected in east Texas within San Augustine (SA), Sabine (SB), Shelby (SY), and Trinity (TN) counties. Smithsonian trinomials for each site indicate the state designation for Texas (41), the county (SA, SB, SY, or TN), and the site number. The coordinates for archaeological sites are redacted as mandated by law; however, county names and centroids that articulate with the sample are noted below.</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1"><span class="kw">library</span>(sf)</a>

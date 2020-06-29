@@ -325,18 +325,19 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb1-7" title="7">                 <span class="dt">end =</span> <span class="kw">c</span>(<span class="dv">1300</span>, <span class="dv">1500</span>, <span class="dv">1010</span>, <span class="dv">1800</span>, <span class="dv">1500</span>, <span class="dv">1000</span>, <span class="dv">1000</span>, <span class="dv">1000</span>, <span class="dv">1010</span>, <span class="dv">1600</span>, <span class="dv">1700</span>, <span class="dv">1200</span>, <span class="dv">1500</span>, <span class="dv">1800</span>, <span class="dv">1500</span>, <span class="dv">1200</span>, <span class="dv">1500</span>, <span class="dv">1500</span>, <span class="dv">1700</span>, <span class="dv">1300</span>, <span class="dv">1000</span>, <span class="dv">1000</span>, <span class="dv">1000</span>) <span class="co"># in years CE</span></a>
 <a class="sourceLine" id="cb1-8" title="8">)</a>
 <a class="sourceLine" id="cb1-9" title="9"></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="co"># reorder types by date range</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co"># reorder types by beginning of relative date range</span></a>
 <a class="sourceLine" id="cb1-11" title="11">temp<span class="op">$</span>Type &lt;-<span class="st"> </span><span class="kw">factor</span>(temp<span class="op">$</span>Type, <span class="dt">levels =</span> temp<span class="op">$</span>Type[<span class="kw">order</span>(temp<span class="op">$</span>Date_Range_CE)])</a>
 <a class="sourceLine" id="cb1-12" title="12"></a>
-<a class="sourceLine" id="cb1-13" title="13">type.time &lt;-<span class="st"> </span><span class="kw">ggplot</span>(temp, <span class="kw">aes</span>(<span class="dt">x =</span> Date_Range_CE, <span class="dt">xend =</span> end, <span class="dt">y =</span> <span class="kw">factor</span>(Type, </a>
-<a class="sourceLine" id="cb1-14" title="14">       <span class="dt">levels =</span> <span class="kw">rev</span>(<span class="kw">levels</span>(<span class="kw">factor</span>(Type)))), <span class="dt">yend =</span> Type, <span class="dt">color =</span> Type)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-15" title="15"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-16" title="16"><span class="st">  </span><span class="kw">scale_colour_discrete</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-17" title="17"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-18" title="18"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Incised Caddo Types&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Date Range CE&quot;</span>)</a>
-<a class="sourceLine" id="cb1-19" title="19"></a>
-<a class="sourceLine" id="cb1-20" title="20"><span class="co"># render figure</span></a>
-<a class="sourceLine" id="cb1-21" title="21">type.time</a></code></pre></div>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co"># arrange figure</span></a>
+<a class="sourceLine" id="cb1-14" title="14">type.time &lt;-<span class="st"> </span><span class="kw">ggplot</span>(temp, <span class="kw">aes</span>(<span class="dt">x =</span> Date_Range_CE, <span class="dt">xend =</span> end, <span class="dt">y =</span> <span class="kw">factor</span>(Type, </a>
+<a class="sourceLine" id="cb1-15" title="15">       <span class="dt">levels =</span> <span class="kw">rev</span>(<span class="kw">levels</span>(<span class="kw">factor</span>(Type)))), <span class="dt">yend =</span> Type, <span class="dt">color =</span> Type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="st">  </span><span class="kw">scale_colour_discrete</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Incised Caddo Types&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Date Range CE&quot;</span>)</a>
+<a class="sourceLine" id="cb1-20" title="20"></a>
+<a class="sourceLine" id="cb1-21" title="21"><span class="co"># render figure</span></a>
+<a class="sourceLine" id="cb1-22" title="22">type.time</a></code></pre></div>
 <p><img src="incision_files/figure-html/typetemporal-1.png" width="100%" /></p>
 
 </div>
