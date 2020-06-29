@@ -24,9 +24,10 @@ temp<-data.frame(Type = c('Belcher Ridged (Bossier)', 'Belcher Ridged (Belcher)'
                  end = c(1300, 1500, 1010, 1800, 1500, 1000, 1000, 1000, 1010, 1600, 1700, 1200, 1500, 1800, 1500, 1200, 1500, 1500, 1700, 1300, 1000, 1000, 1000) # in years CE
 )
 
-# reorder types by date range
+# reorder types by beginning of relative date range
 temp$Type <- factor(temp$Type, levels = temp$Type[order(temp$Date_Range_CE)])
 
+# arrange figure
 type.time <- ggplot(temp, aes(x = Date_Range_CE, xend = end, y = factor(Type, 
        levels = rev(levels(factor(Type)))), yend = Type, color = Type)) +
   geom_segment(size = 2) +

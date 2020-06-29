@@ -14,6 +14,7 @@ temp<-data.frame(Site = c('41SA66','41SB125','41SB189','41SB189','41SB291','41SY
                  end = c(1200, 1680, 1200, 1680, 1680, 1300, 1680, 1680, 1680, 1200) # in years CE
 )
 
+# arrange figure
 temp.site <- ggplot(temp,aes(x = Date_Range_CE, xend = end, y = factor(Site, 
        levels = rev(levels(factor(Site)))), yend = Site, color = Site)) +
   geom_segment(size = 2) +
