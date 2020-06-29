@@ -65,7 +65,7 @@ ggplot(data = world) +
             -0.25, 0.75, 0.5, 1)) +
     annotation_scale(location = "bl", width_hint = 0.2) +
     annotation_north_arrow(location = "bl", which_north = "true", 
-        pad_x = unit(0.06, "in"), pad_y = unit(0.2, "in"),
+        pad_x = unit(0.07, "in"), pad_y = unit(0.2, "in"),
         style = north_arrow_fancy_orienteering) +
     coord_sf(xlim = c(-107, -93), ylim = c(25, 37), expand = FALSE) +
     xlab ("Longitude") + ylab("Latitude") +
@@ -112,9 +112,9 @@ fig.cap="Incisions on sherd 41sa66-6."
 
 ## 41SB125
 
-Located in the Sabine National Forest, 41SB125 includes both Woodland and post-CE 1200 Caddo components. Diagnostic artifacts from the Woodland period component include 42 _Goose Creek Plain_ body sherds from eight shovel tests; these were recovered between 20-60 cmbs. There is another sandy paste sherd with incised and stamped decorative elements, potentially a Marksville Stamped body sherd [@RN5635, 65-74]. 
+Located in the Sabine National Forest, 41SB125 includes both Woodland and post-CE 1200 Caddo components. Diagnostic artifacts from the Woodland component includes 42 _Goose Creek Plain_ body sherds from eight shovel tests that were recovered between 20-60 cmbs. There is another sandy paste sherd (Marksville Stamped body sherd [@RN5635, 65-74]?) bearing incised and stamped decorative elements. 
 
-The Caddo component is marked by seven grog-tempered body sherds from four shovel tests, ranging from 20-75 cmbs. Three are plain grog-tempered body sherds. The decorated sherds include a body sherd with a single straight incised line (ST 20, 20-30 cmbs), another body sherd with parallel brushing marks (ST 11, 20-30 cmbs), a rim with a triangular incised zone filled with rows of cane punctates, and a body sherd with an incised zone filled with diagonal incised lines.
+The Caddo component is delimited by seven grog-tempered body sherds from four shovel tests, ranging in depth from 20-75 cmbs. Three are plain grog-tempered body sherds. The decorated sherds include a body sherd with a single straight incised line (ST 20, 20-30 cmbs), a body sherd with parallel brushing marks (ST 11, 20-30 cmbs), a rim with a triangular incised zone filled with rows of cane punctates, and a body sherd with an incised zone filled with diagonal incised lines.
 
 ### 41sb125-2-st27-25cm-lot100
 
@@ -142,11 +142,11 @@ fig.cap="Incisions on sherd 41sb125-11-st11-lot50."
 
 ## 41SB189
 
-There are several archeological components at 41SB189 in the Sabine National Forest. The earliest may date to the Middle Archaic period, based on the recovery of a possible Johnson dart point from Mound D that was manufactured from non-local white chert. Late Archaic use of the site is marked by a Williams dart point from Mound D that was manufactured from silicified wood.
+There are several archeological components at 41SB189 in the Sabine National Forest. The earliest may date to the Middle Archaic period, based on the recovery of a possible Johnson dart point from Mound D manufactured from non-local white chert. Late Archaic use of the site is marked by a Williams dart point from Mound D manufactured from silicified wood.
 
 The Woodland component at 41SB189 is more substantial, includes a chert Gary point from Mound A, three Friley arrow points (chert), and 15 _Goose Creek Plain_ body sherds. These were found in shovel tests, and range between 0-50 cmbs in Mounds A and H.
 
-Temporally diagnostic artifacts indicate that the Caddo occupation at the site occurred during the Early Caddo period (CE 1000-1200). That assertion is based on the recovery of an Alba point from Mound A made of chert. The final Caddo occupation occurred after CE 1400, and includes a Bassett arrow point from Mound D made from chert, as well as grog-tempered body sherds from Mound A and D recovered between 0-60 cmbs in different shovel tests. Sherds recovered from that component include seven plain body sherds, and five decorated body sherds. One decorated sherd from Mound A includes parallel brushing marks, two others from Mound D exhibit parallel incised lines, and another bears a single engraved line. The last decorated body sherd comes from what may have been a carinated bowl found in looter backfill that was excavated from Mound D, which has diagonal opposed engraved lines.
+Temporally diagnostic artifacts indicate that the Caddo occupation at the site occurred during the Early Caddo period (CE 1000-1200). That assertion is based upon the recovery of an Alba point made of chert in Mound A. The final Caddo occupation occurred after CE 1400, and includes a Bassett arrow point made from chert in Mound D, as well as grog-tempered body sherds from Mound A and D recovered from different shovel tests between 0-60 cmbs. Sherds recovered from that component include seven plain body sherds, and five decorated body sherds. One decorated sherd from Mound A includes parallel brushing marks, two others from Mound D exhibit parallel incised lines, and another bears a single engraved line. The last decorated body sherd comes from what may have been a carinated bowl found in looter backfill that was excavated from Mound D, which bears diagonal opposed engraved lines.
 
 ### 41sb189-9-lot17
 
@@ -190,11 +190,9 @@ fig.cap="Incisions on sherd 41sb291-9-st61-50-55-lot229."
 
 ## 41SY43
 
-The Old Timers site was the location of the 2001 Passport in Time (PIT) excavation project conducted by the U.S. Forest Service between March 9-18, 2001. The site is on a sandy ridge overlooking Bayou Siepe, an eastward-flowing tributary to the Sabine River; it is a few miles west of one of the upper arms of Toledo Bend Reservoir.
+The Old Timers' site was the location of the 2001 Passport in Time (PIT) excavation project conducted by the U.S. Forest Service between March 9-18, 2001. The site is located on a sandy ridge overlooking Bayou Siepe, an eastward-flowing tributary of the Sabine River. In 1998, the Forest Service conducted  shovel tests at the Old Timers' site to delineate site boundaries and identify potential cultural affiliations. A total of 31 shovel tests were excavated, and only one shovel test (ST 27) on the northwestern part of the landform did not contain archeological deposits. The site covered a 2000 m2 area.
 
-In 1998, the Forest Service conducted  shovel tests at the Old Timers site to establish its boundaries and archeological content. A total of  31 shovel tests were excavated, and only one shovel test (ST 27) on the northwestern part of the landform did not contain archeological deposits. The site covered a 2000 m2 area.
-
-Not including lithic debris or fire-cracked rock from the shovel tests, more than 162 artifacts of analytical value were recovered in 22 of the shovel tests. The majority of these artifacts include plain and decorated ancestral Caddo ceramic sherds (n=141), as well as Woodland period _Goose Creek Plain_  [@RN5066, 57, Pl. 29] sherds (n=2). Other recovered artifacts include arrow points, dart points, other lithic tools, as well as burned clay and daub.
+Not including lithic debris or fire-cracked rock from the shovel tests, more than 162 artifacts of analytical value were recovered in 22 of the shovel tests. The majority of these artifacts include plain and decorated ancestral Caddo ceramic sherds (n = 141), as well as Woodland period _Goose Creek Plain_ sherds (n = 2) [@RN5066, 57, Pl. 29]. Other artifacts recovered at the site include arrow points, dart points, and lithic tools, as well as burned clay and daub.
 
 ### 41sy43-1
 
@@ -262,7 +260,7 @@ fig.cap="Incisions on sherd 41sy43-lot1035-2030."
 
 ## 41SY258
 
-41SY258 consists of a large aboriginal campsite situated on a terrace knoll near the northern bank of Patroon Bayou along the southern margin of SNF Compartment 53 in Shelby County, Texas. It consists of a subsurface scatter of lithic and ceramic artifacts--as well Perdiz, Kent-like, Yarbrough-like, and Palmer-like projectile points--suggesting an occupation that occurred at some point or recurrently between the Middle Archaic and Late Caddoan periods periods (4000 BCE to CE 1680).
+41SY258 consists of a large campsite situated on a terrace knoll near the northern bank of Patroon Bayou along the southern margin of SNF Compartment 53 in Shelby County, Texas. It consists of a subsurface scatter of lithic and ceramic artifacts--as well Perdiz, Kent-like, Yarbrough-like, and Palmer-like projectile points--suggesting an occupation that occurred at some point or recurrently between the Middle Archaic and Late Caddoan periods periods (4000 BCE to CE 1680).
 
 ### 41sy258-st2-10-20
 
@@ -426,7 +424,7 @@ fig.cap="Incisions on sherd 41sy280-lot125."
 
 ## 41TN91
 
-Multiple archeological components were found at 41TN91 in the Davy Crockett National Forest, which begins with a Late Archaic occupation marked by a petrified wood Williams dart point. A second component dates to the Woodland period, and includes a quartzite Gary dart point and _Goose Creek Plain_ sherds, and a later Woodland occupation defined by a petrified wood Steiner arrow point. Late Prehistoric occupations dating from CE 900 to after CE 1200 are represented by a petrified wood Catahoula arrow point, a red chert Bonham arrow point, and a petrified wood Perdiz arrow point.
+Multiple archeological components were found at 41TN91 in the Davy Crockett National Forest, and that temporal sequence begins with a Late Archaic occupation identified by the presence of a petrified wood Williams dart point. A second component dates to the Woodland period, includes a quartzite Gary dart point and _Goose Creek Plain_ sherds, and a later Woodland occupation defined by a petrified wood Steiner arrow point. Late Prehistoric occupations dating from CE 900 to after CE 1200 are represented by a petrified wood Catahoula arrow point, a red chert Bonham arrow point, and a petrified wood Perdiz arrow point.
 
 The ceramic sherd assemblage from 41TN91 is unique among other sites in Trinity County on USFS lands that it has a high proportion of grog-tempered wares (89 percent), and few _Goose Creek Plain_ sherds (9.3 percent). The entire ceramic assemblage postdates CE 800, where sandy paste ceramic vessels were not commonly made or used, and the decorated motifs and elements in the sherds strongly suggests occupation by the Caddo. It is possible that the ceramic vessel sherds are a product of one or more temporally distinct occupations, one dating sometime before CE 1200, and the other dating sometime after CE 1200.
 
