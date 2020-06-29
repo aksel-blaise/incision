@@ -2,7 +2,7 @@
 
 ## Temporal and spatial dynamics
 
-The sample used in this study was generated through archaeological surveys, and there are no chronometric dates for any of the sites. Temporal assignments employ relative dates. Therefore, if a site spans the Woodland period through CE 1200 (41SA66), the date range is considered to range from 500 BCE to CE 1200. However, for this study only those temporal assignments associated with Caddo components are plotted, so that same plot for 41SA66 is altered to illustrate a span from CE 800-1200.
+The sample used in this study was generated through archaeological surveys, and there are no chronometric dates for any of the sites. Temporal assignments employ relative dates. Therefore, if a site spans the Woodland period through CE 1200 (41SA66), the date range is considered to range from 500 BCE to CE 1200. However, only those temporal assignments associated with Caddo components are plotted, so that the same plot for 41SA66 is altered to illustrate a span from CE 800-1200.
 
 ```{r temporal, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # load ggplot2
@@ -19,6 +19,57 @@ temp.site<-ggplot(temp,aes(x=Date_Range_CE,xend=end,y=Site,yend=Site,color=Site)
   theme(legend.position = "none")
 # render figure
 temp.site
+```
+
+All samples were collected in east Texas within San Augustine (SA), Sabine (SB), Shelby (SY), and Trinity (TN) counties. Smithsonian trinomials for each site indicate the state designation for Texas (41), the county (SA, SB, SY, or TN), and the site number. The coordinates for archaeological sites are redacted as mandated by law; however, county names and centroids that articulate with the sample are noted below.
+
+```{r spatial, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+library(sf)
+theme_set(theme_bw())
+library("rnaturalearth")
+library("rnaturalearthdata")
+library(ggrepel)
+library(ggspatial)
+
+world <- ne_countries(scale = "medium", returnclass = "sf")
+class(world)
+
+library(maps)
+states <- st_as_sf(map("state", plot = FALSE, fill = TRUE))
+head(states)
+states <- cbind(states, st_coordinates(st_centroid(states)))
+
+library("tools")
+states$ID <- toTitleCase(states$ID)
+head(states)
+
+counties <- st_as_sf(map("county", plot = FALSE, fill = TRUE))
+counties <- subset(counties, grepl("texas", counties$ID))
+counties$area <- as.numeric(st_area(counties))
+head(counties)
+
+scty <- data.frame(state = rep("Texas", 4), cty.cent = c("San Augustine", 
+    "Sabine", "Shelby", "Trinity"), lat = c(31.4699, 
+    31.2974, 31.8343, 31.0688), lng = c(-94.1514, 
+    -93.8248, -94.1514, -95.1432))
+
+(scty <- st_as_sf(scty, coords = c("lng", "lat"), remove = FALSE, 
+    crs = 4326, agr = "constant"))
+
+ggplot(data = world) +
+    geom_sf() +
+    geom_sf(data = counties, fill = NA, color = gray(.5)) +
+    geom_sf(data = scty) +
+    geom_text_repel(data = scty, aes(x = lng, y = lat, label = cty.cent), 
+        fontface = "bold", nudge_x = c(1, -1.5, -2, 2,1), nudge_y = c(0.25, 
+            -0.25, 0.5, 0.5,1)) +
+    annotation_scale(location = "bl", width_hint = 0.2) +
+    annotation_north_arrow(location = "bl", which_north = "true", 
+        pad_x = unit(0.05, "in"), pad_y = unit(0.2, "in"),
+        style = north_arrow_fancy_orienteering) +
+    coord_sf(xlim = c(-107, -93), ylim = c(25, 37), expand = FALSE) +
+    xlab ("Longitude") + ylab("Latitude") +
+    ggtitle("County Locations of Samples", subtitle = "(archaeological site locations redacted)")
 ```
 
 ## 41SA66
@@ -235,7 +286,7 @@ fig.cap="Incisions on sherd 41sy258-st3-2030."
 
 More than 1625 plain and decorated sherds have been collected from 21 surface collection areas at 41SY280. The distribution of high sherd density collection areas and the locations of daub/burned clay clusters is suggestive of an ancestral Caddo occupation (hamlet?). The high sherd density areas have a circular distribution at the southern end of the site, and the six daub/burned clay clusters occur within the circular zone of high sherd densities. The daub/burned clay clusters are potential locations of burned clay and thatch-covered Caddo structures, and the high sherd density areas represent the accumulation of discarded broken ceramic vessels in outdoor work areas and trash disposal locations. 
 
-Taking into consideration the wide range in decorated sherd sample sizes in the different surface collection areas, there does appear to be a consistent range of the same decorative methods in the sherds distributed across the site. The most common decorative methods represented are brushed (95 percent of the surface collection areas); incised (81 percent of the surface collection areas); engraved (67 percent of the surface collection areas); brushed-incised (62 percent of the surface collection areas); ridged (52 percent of the surface collection areas); and punctated (48 percent of the surface collection areas). It is reasonable to conclude that there is one contemporaneous ancestral Caddo ceramic assemblage at the site that dates well after CE 1400 in the Late Caddo period. 
+Taking into consideration the wide range in decorated sherd sample sizes in the different surface collection areas, there does appear to be a consistent range of the same decorative methods in the sherds distributed across the site. The most common decorative methods from the surface collection areas include brushed (95 percent); incised (81 percent); engraved (67 percent); brushed-incised (62 percent); ridged (52 percent); and punctated (48 percent). It is reasonable to conclude that there is one contemporaneous ancestral Caddo ceramic assemblage at the site that dates well after CE 1400 in the Late Caddo period. 
 
 ### 41sy280
 

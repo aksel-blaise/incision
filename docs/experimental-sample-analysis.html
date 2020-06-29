@@ -403,18 +403,18 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Number of vectors 13 
 ## 
 ## Importance of Components:
-##                            Comp1       Comp2       Comp3        Comp4        Comp5
-## Eigenvalues            0.0441045 0.005014108 0.003398275 0.0003353507 0.0002822004
-## Proportion of Variance 0.8226607 0.093525803 0.063386441 0.0062551403 0.0052637514
-## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536 0.9910918051
-##                               Comp6        Comp7        Comp8        Comp9       Comp10
-## Eigenvalues            0.0001809061 0.0001525644 7.081347e-05 3.658645e-05 2.060166e-05
-## Proportion of Variance 0.0033743561 0.0028457127 1.320850e-03 6.824299e-04 3.842732e-04
-## Cumulative Proportion  0.9944661611 0.9973118738 9.986327e-01 9.993152e-01 9.996994e-01
-##                              Comp11       Comp12       Comp13
-## Eigenvalues            1.050025e-05 5.614060e-06 2.143147e-33
-## Proportion of Variance 1.958562e-04 1.047164e-04 3.997511e-32
-## Cumulative Proportion  9.998953e-01 1.000000e+00 1.000000e+00</code></pre>
+##                            Comp1       Comp2       Comp3        Comp4        Comp5        Comp6
+## Eigenvalues            0.0441045 0.005014108 0.003398275 0.0003353507 0.0002822004 0.0001809061
+## Proportion of Variance 0.8226607 0.093525803 0.063386441 0.0062551403 0.0052637514 0.0033743561
+## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536 0.9910918051 0.9944661611
+##                               Comp7        Comp8        Comp9       Comp10       Comp11
+## Eigenvalues            0.0001525644 7.081347e-05 3.658645e-05 2.060166e-05 1.050025e-05
+## Proportion of Variance 0.0028457127 1.320850e-03 6.824299e-04 3.842732e-04 1.958562e-04
+## Cumulative Proportion  0.9973118738 9.986327e-01 9.993152e-01 9.996994e-01 9.998953e-01
+##                              Comp12       Comp13
+## Eigenvalues            5.614060e-06 2.143147e-33
+## Proportion of Variance 1.047164e-04 3.997511e-32
+## Cumulative Proportion  1.000000e+00 1.000000e+00</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="co"># set plot parameters</span></a>
 <a class="sourceLine" id="cb37-2" title="2">pch.gps<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="kw">as.factor</span>(inc)]</a>
 <a class="sourceLine" id="cb37-3" title="3">col.gps<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc)]</a>
@@ -532,13 +532,13 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Estimation method: Ordinary Least Squares 
 ## Effect sizes (Z) based on F distributions
 ## 
-##                           ResDf Df     RSS       SS       MS      Rsq      F      Z
-## shape ~ size + inc (Null)    10  1 0.13475                   0.000000              
-## shape ~ size * inc            9  1 0.08548 0.049269 0.049269 0.076583 5.1874 2.1765
-## Total                        12    0.64334                                         
-##                                P Pr(&gt;F)
-## shape ~ size + inc (Null)              
-## shape ~ size * inc        0.0104       
+##                           ResDf Df     RSS       SS       MS      Rsq      F
+## shape ~ size + inc (Null)    10  1 0.13475                   0.000000       
+## shape ~ size * inc            9  1 0.08548 0.049269 0.049269 0.076583 5.1874
+## Total                        12    0.64334                                  
+##                                Z      P Pr(&gt;F)
+## shape ~ size + inc (Null)                     
+## shape ~ size * inc        2.1765 0.0104       
 ## Total</code></pre>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="co"># inc2</span></a>
 <a class="sourceLine" id="cb49-2" title="2"><span class="kw">anova</span>(fit.sz.cinc2) <span class="co"># common allometry (inc2)</span></a></code></pre></div>
@@ -586,13 +586,13 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Estimation method: Ordinary Least Squares 
 ## Effect sizes (Z) based on F distributions
 ## 
-##                            ResDf Df     RSS       SS       MS      Rsq      F       Z
-## shape ~ size + inc2 (Null)     9  1 0.09676                   0.000000               
-## shape ~ size * inc2            7  2 0.07503 0.021725 0.010862 0.033768 1.0134 0.18816
-## Total                         12    0.64334                                          
-##                                 P Pr(&gt;F)
-## shape ~ size + inc2 (Null)              
-## shape ~ size * inc2        0.4522       
+##                            ResDf Df     RSS       SS       MS      Rsq      F
+## shape ~ size + inc2 (Null)     9  1 0.09676                   0.000000       
+## shape ~ size * inc2            7  2 0.07503 0.021725 0.010862 0.033768 1.0134
+## Total                         12    0.64334                                  
+##                                  Z      P Pr(&gt;F)
+## shape ~ size + inc2 (Null)                      
+## shape ~ size * inc2        0.18816 0.4522       
 ## Total</code></pre>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="co"># allometry plots</span></a>
 <a class="sourceLine" id="cb55-2" title="2"><span class="co"># regscore (Drake and Klingenberg 2008)</span></a>
