@@ -18,7 +18,7 @@ Temporal attributes of incised Caddo types were aggregated from published type b
 # load ggplot2
 library(ggplot2)
 
-# gantt chart of (possible) relative dates for ceramic components
+# gantt chart of relative dates for incised Caddo ceramic types
 temp<-data.frame(Type = c('Belcher Ridged (Bossier)', 'Belcher Ridged (Belcher)', 'Canton Incised', 'Clements Brushed', 'Cowhide Stamped', 'Crockett Curvilinear Incised', 'Davis Incised', 'Dunkin Incised', 'East Incised', 'Foster Trailed-Incised', 'Fulton Aspect Effigy Bowls', 'Haley Complicated Incised', 'Harleton Appliqued', 'Hudson Engraved', 'Karnack Brushed-Incised', 'Kiam Incised', 'Maydelle Incised', 'Military Road Incised', 'Nash Neck Banded', 'Pease Brushed-Incised', 'Pennington Punctated-Incised', 'Spiro Engraved', 'Weches Fingernail Impressed'), # canton/east incised types date to AD 1000, but were modified to 990-1010 so that it would show on the gantt chart
                  Date_Range_CE = c(1100, 1300, 990, 1500, 1200, 500, 500, 500, 990, 1200, 1200, 800, 1200, 1500, 1200, 500, 1200, 1200, 1400, 1100, 500, 500, 500), # in years CE
                  end = c(1300, 1500, 1010, 1800, 1500, 1000, 1000, 1000, 1010, 1600, 1700, 1200, 1500, 1800, 1500, 1200, 1500, 1500, 1700, 1300, 1000, 1000, 1000) # in years CE
