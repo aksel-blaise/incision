@@ -26,8 +26,8 @@ All samples were collected in east Texas within San Augustine (SA), Sabine (SB),
 ```{r spatial, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 library(sf)
 theme_set(theme_bw())
-library("rnaturalearth")
-library("rnaturalearthdata")
+library(rnaturalearth)
+library(rnaturalearthdata)
 library(ggrepel)
 library(ggspatial)
 
@@ -39,7 +39,7 @@ states <- st_as_sf(map("state", plot = FALSE, fill = TRUE))
 head(states)
 states <- cbind(states, st_coordinates(st_centroid(states)))
 
-library("tools")
+library(tools)
 states$ID <- toTitleCase(states$ID)
 head(states)
 
@@ -61,11 +61,11 @@ ggplot(data = world) +
     geom_sf(data = counties, fill = NA, color = gray(.5)) +
     geom_sf(data = scty) +
     geom_text_repel(data = scty, aes(x = lng, y = lat, label = cty.cent), 
-        fontface = "bold", nudge_x = c(1, -1.5, -2, 2,1), nudge_y = c(0.25, 
+        fontface = "bold", nudge_x = c(-3, -1.5, -2, -2, 1), nudge_y = c(0.25, 
             -0.25, 0.5, 0.5,1)) +
     annotation_scale(location = "bl", width_hint = 0.2) +
     annotation_north_arrow(location = "bl", which_north = "true", 
-        pad_x = unit(0.05, "in"), pad_y = unit(0.2, "in"),
+        pad_x = unit(0.06, "in"), pad_y = unit(0.2, "in"),
         style = north_arrow_fancy_orienteering) +
     coord_sf(xlim = c(-107, -93), ylim = c(25, 37), expand = FALSE) +
     xlab ("Longitude") + ylab("Latitude") +
