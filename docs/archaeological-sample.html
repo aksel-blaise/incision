@@ -324,8 +324,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <p>All samples were collected in east Texas within San Augustine (SA), Sabine (SB), Shelby (SY), and Trinity (TN) counties. Smithsonian trinomials for each site indicate the state designation for Texas (41), the county (SA, SB, SY, or TN), and the site number. The coordinates for archaeological sites are redacted as mandated by law; however, county names and centroids that articulate with the sample are noted below.</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw">library</span>(sf)</a>
 <a class="sourceLine" id="cb88-2" title="2"><span class="kw">theme_set</span>(<span class="kw">theme_bw</span>())</a>
-<a class="sourceLine" id="cb88-3" title="3"><span class="kw">library</span>(<span class="st">&quot;rnaturalearth&quot;</span>)</a>
-<a class="sourceLine" id="cb88-4" title="4"><span class="kw">library</span>(<span class="st">&quot;rnaturalearthdata&quot;</span>)</a>
+<a class="sourceLine" id="cb88-3" title="3"><span class="kw">library</span>(rnaturalearth)</a>
+<a class="sourceLine" id="cb88-4" title="4"><span class="kw">library</span>(rnaturalearthdata)</a>
 <a class="sourceLine" id="cb88-5" title="5"><span class="kw">library</span>(ggrepel)</a>
 <a class="sourceLine" id="cb88-6" title="6"><span class="kw">library</span>(ggspatial)</a>
 <a class="sourceLine" id="cb88-7" title="7"></a>
@@ -349,7 +349,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## 6 connecticut MULTIPOLYGON (((-73.49902 4...</code></pre>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1">states &lt;-<span class="st"> </span><span class="kw">cbind</span>(states, <span class="kw">st_coordinates</span>(<span class="kw">st_centroid</span>(states)))</a>
 <a class="sourceLine" id="cb92-2" title="2"></a>
-<a class="sourceLine" id="cb92-3" title="3"><span class="kw">library</span>(<span class="st">&quot;tools&quot;</span>)</a>
+<a class="sourceLine" id="cb92-3" title="3"><span class="kw">library</span>(tools)</a>
 <a class="sourceLine" id="cb92-4" title="4">states<span class="op">$</span>ID &lt;-<span class="st"> </span><span class="kw">toTitleCase</span>(states<span class="op">$</span>ID)</a>
 <a class="sourceLine" id="cb92-5" title="5"><span class="kw">head</span>(states)</a></code></pre></div>
 <pre><code>## Simple feature collection with 6 features and 3 fields
@@ -403,15 +403,15 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <a class="sourceLine" id="cb98-3" title="3"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> counties, <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">color =</span> <span class="kw">gray</span>(.<span class="dv">5</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb98-4" title="4"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> scty) <span class="op">+</span></a>
 <a class="sourceLine" id="cb98-5" title="5"><span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="dt">data =</span> scty, <span class="kw">aes</span>(<span class="dt">x =</span> lng, <span class="dt">y =</span> lat, <span class="dt">label =</span> cty.cent), </a>
-<a class="sourceLine" id="cb98-6" title="6">        <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">nudge_x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">-1.5</span>, <span class="dv">-2</span>, <span class="dv">2</span>,<span class="dv">1</span>), <span class="dt">nudge_y =</span> <span class="kw">c</span>(<span class="fl">0.25</span>, </a>
-<a class="sourceLine" id="cb98-7" title="7">            <span class="fl">-0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb98-6" title="6">        <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">nudge_x =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="fl">-1.5</span>, <span class="dv">-2</span>, <span class="dv">-2</span>, <span class="dv">1</span>), <span class="dt">nudge_y =</span> <span class="kw">c</span>(<span class="fl">0.25</span>, </a>
+<a class="sourceLine" id="cb98-7" title="7">            <span class="fl">-0.25</span>, <span class="fl">0.75</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb98-8" title="8"><span class="st">    </span><span class="kw">annotation_scale</span>(<span class="dt">location =</span> <span class="st">&quot;bl&quot;</span>, <span class="dt">width_hint =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb98-9" title="9"><span class="st">    </span><span class="kw">annotation_north_arrow</span>(<span class="dt">location =</span> <span class="st">&quot;bl&quot;</span>, <span class="dt">which_north =</span> <span class="st">&quot;true&quot;</span>, </a>
-<a class="sourceLine" id="cb98-10" title="10">        <span class="dt">pad_x =</span> <span class="kw">unit</span>(<span class="fl">0.05</span>, <span class="st">&quot;in&quot;</span>), <span class="dt">pad_y =</span> <span class="kw">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;in&quot;</span>),</a>
+<a class="sourceLine" id="cb98-10" title="10">        <span class="dt">pad_x =</span> <span class="kw">unit</span>(<span class="fl">0.06</span>, <span class="st">&quot;in&quot;</span>), <span class="dt">pad_y =</span> <span class="kw">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;in&quot;</span>),</a>
 <a class="sourceLine" id="cb98-11" title="11">        <span class="dt">style =</span> north_arrow_fancy_orienteering) <span class="op">+</span></a>
 <a class="sourceLine" id="cb98-12" title="12"><span class="st">    </span><span class="kw">coord_sf</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">107</span>, <span class="dv">-93</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">25</span>, <span class="dv">37</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb98-13" title="13"><span class="st">    </span><span class="kw">xlab</span> (<span class="st">&quot;Longitude&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Latitude&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb98-14" title="14"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;County Locations of Samples&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;(archaeological site locations redacted)&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb98-14" title="14"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Texas County Locations of Samples&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;(archaeological site locations redacted)&quot;</span>)</a></code></pre></div>
 <pre><code>## Scale on map varies by more than 10%, scale bar may be inaccurate</code></pre>
 <p><img src="incision_files/figure-html/spatial-1.png" width="100%" /></p>
 </div>
