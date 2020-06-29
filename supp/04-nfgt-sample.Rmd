@@ -74,9 +74,9 @@ ggplot(data = world) +
 
 ## 41SA66
 
-The David Fox site (41SA66) is located in the Angelina National Forest on a high terrace overlooking the Attoyac Bayou floodplain and a small tributary. The site was described by Stephenson [-@RN5040] as being ``small and culturally poor,'' and was under cultivation at that time [@RN793].
+The David Fox site (41SA66) is located in the Angelina National Forest on a high terrace overlooking the Attoyac Bayou floodplain and a small tributary. The site was initially described by Stephenson [-@RN5040] as being small and culturally poor, and was under active cultivation at that time [@RN793].
 
-There are Woodland period and pre-CE 1200 Caddo components at 41SA66. The Woodland component includes eight _Goose Creek Plain_ body sherds from surface contexts [@RN5066, 57, Pl. 29]. The Caddo component is evidenced by 11 grog-tempered rim and body sherds. Three of the rims bear multiple (5-12 lines) horizontal incised lines, and three body sherds include 7-12 parallel incised lines. The other five sherds---four body sherds and a body/base sherd---are plain.
+Woodland period and pre-CE 1200 Caddo components were found at 41SA66. The Woodland component includes eight _Goose Creek Plain_ body sherds from surface contexts [@RN5066, 57, Pl. 29]. The Caddo component is evidenced by 11 grog-tempered rim and body sherds. Three of the rims bear multiple (5-12 lines) horizontal incised lines, and three body sherds include 7-12 parallel incised lines. The other five sherds---four body sherds and a body/base sherd---are plain.
 
 ### 41sa66
 
