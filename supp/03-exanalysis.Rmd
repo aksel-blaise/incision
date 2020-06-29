@@ -125,19 +125,63 @@ fig.cap = "Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, U
 ## Define models
 
 ```{r defmodEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# allometry
 fit.size <- procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
+# allometry - common allometry, different means -> inc
+fit.sz.cinc <- procD.lm(shape ~ size + inc, data = gdf, print.progress = FALSE, iter = 9999)
+# allometry - unique allometries -> inc
+fit.sz.uinc <- procD.lm(shape ~ size * inc, data = gdf, print.progress = FALSE, iter = 9999)
+# allometry - common allometry, different means -> inc2
+fit.sz.cinc2 <- procD.lm(shape ~ size + inc2, data = gdf, print.progress = FALSE, iter = 9999)
+# allometry - unique allometries -> inc2
+fit.sz.uinc2 <- procD.lm(shape ~ size * inc2, data = gdf, print.progress = FALSE, iter = 9999)
+
+# size as a function of group
 fit.sizeinc <- procD.lm(size ~ inc, data = gdf, print.progress = FALSE, iter = 9999)
-fit.shapeinc <- procD.lm(shape ~ inc, data = gdf, print.progress = FALSE, iter = 9999)
 fit.sizeinc2 <- procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
+
+# shape as a function of group
+fit.shapeinc <- procD.lm(shape ~ inc, data = gdf, print.progress = FALSE, iter = 9999)
 fit.shapeinc2 <- procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
+```
+
+## Allometry
+
+```{r allometryEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# allometry - does shape change with size?
+anova(fit.size)
+
+# inc
+anova(fit.sz.cinc) # common allometry (inc)
+anova(fit.sz.uinc) # unique allometry (inc)
+anova(fit.sz.cinc, fit.sz.uinc, print.progress = FALSE)
+
+# inc2
+anova(fit.sz.cinc2) # common allometry (inc2)
+anova(fit.sz.uinc2) # unique allometry (inc2)
+anova(fit.sz.cinc2, fit.sz.uinc2, print.progress = FALSE)
+
+# allometry plots
+# regscore (Drake and Klingenberg 2008)
+plot(fit.size, type = "regression", reg.type = "RegScore", predictor = log(gdf$size), pch = pch.gps.1, col = col.gps.1)
+plot(fit.size, type = "regression", reg.type = "RegScore", predictor = log(gdf$size), pch = pch.gps.2, col = col.gps.2)
+
+# common allometric component (Mitteroecker 2004)
+plotAllometry(fit.size, size = gdf$size, logsz = TRUE, method = "CAC", pch = pch.gps.1, col = col.gps.1)
+plotAllometry(fit.size, size = gdf$size, logsz = TRUE, method = "CAC", pch = pch.gps.2, col = col.gps.2)
+
+# size-shape pca (Mitteroecker 2004)
+plotAllometry(fit.size, size = gdf$size, logsz = TRUE, method = "size.shape", pch = pch.gps.1, col = col.gps.1)
+plotAllometry(fit.size, size = gdf$size, logsz = TRUE, method = "size.shape", pch = pch.gps.2, col = col.gps.2)
+
+# predline (Adams and Nistri 2010)
+plotAllometry(fit.sz.uinc, size = gdf$size, logsz = TRUE, method = "PredLine", pch = pch.gps.1, col = col.gps.1)
+plotAllometry(fit.sz.uinc2, size = gdf$size, logsz = TRUE, method = "PredLine", pch = pch.gps.2, col = col.gps.2)
 ```
 
 ## Size/Shape ~ Incision Profile?
 
 ```{r shszsiteEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# ANOVA: allometry?
-anova(fit.size)
-
 # ANOVA: do incision shapes differ by profile?
 anova(fit.shapeinc)
 
