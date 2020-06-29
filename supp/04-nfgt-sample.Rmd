@@ -19,7 +19,7 @@ temp.site <- ggplot(temp,aes(x = Date_Range_CE, xend = end, y = factor(Site,
   geom_segment(size = 2) +
   scale_colour_discrete() +
   theme(legend.position = "none") +
-  labs(y = "Site", x = "Date Range CE")
+  labs(y = "Archaeological Site", x = "Date Range CE")
 
 # render figure
 temp.site

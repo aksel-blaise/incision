@@ -6,11 +6,11 @@ The incision project is part of a long-term research programme, representing an 
 
 The genesis of this project occurred during a slip, glazing, and atmospheric firing workshop at the Arrowmont School of Arts and Crafts in Gatlinburg, Tennessee, where access to the materials, dry box, and electric kilns provided a means to produce the experimental sample. The archaeological sample was provided with permission and support from the Caddo Tribe of Oklahoma, and comes from sites on the Angelina, Davy Crockett, and Sabine National Forests, which are units of the National Forests and Grasslands in Texas (NFGT). Partial funding for this project came from a Media Grant to the Caddo Tribe of Oklahoma through the National Center for Preservation Technology and Training (NCPTT), and additional funding was provided by grants from the NFGT (15-PA-11081300-033 and 20-PA-11081300-074). NCPTT provided access and training for the optical profilometer used to generate 3D meshes for the experimental and archaeological samples at their laboratory in Natchitoches, Louisiana, as well as a copy of the Keyence VR Series Analyzer Software that was used to render and export the meshes.
 
-The landmarking protocol (see Section 3.1) is identical on both the experimental and archaeological samples, and was designed to capture the profile of the business end of the instrument used to apply each incision. One insight made clear by the experimental analysis is that a single tool could have been used to apply incisions that render differing marks in profile. Since incisions are made while the clay body is not yet dry, the range of variation is potentially greater than that of engraved or etched designs, and the deepest profile of each incision should provide the most complete profile of the tool employed by Caddo potters to apply the marks.
+The landmarking protocol (see Section 3.1) is identical on both the experimental and archaeological samples, and was designed to capture the profile of the business end of the instrument used to apply each incision. One insight made clear by the experimental analysis is that a single tool could have been used to apply incisions that render differing marks in profile. Since incisions are made while the clay body is not yet dry, the range of variation is potentially greater than that of engraved, trailed, or etched designs, and the deepest cross-section of each incision should provide the most complete profile of the tool employed by Caddo potters to apply these marks.
 
 ## Incised Caddo types
 
-Temporal attributes of the incised Caddo types were aggregated from published type books [@RN5066;@RN4302], and arranged alphabetically. This provides a basic temporal framework from which chronological components can begin to be isolated. It is worth noting that none of the incised sherds employed within the framework of this study were able to be typed; however, the temporal differences in incised Caddo types are worthy of note.
+Temporal attributes of incised Caddo types were aggregated from published type books [@RN5066;@RN4302], and arranged chronologically. The list of incised Caddo types includes those types where the decorative treatments listed in the type book made note of incised elements. This provides a basic temporal framework from which chronological components can begin to be isolated. None of the incised sherds used in this study include enough of a decorative pattern to be assigned to a type, meaning that this sample could span the full temporal range of incised Caddo types. As this study is expanded, incisions from specific types will be included to explore whether Caddo potters may have used different tools to apply the various decorative motifs that include incised elements.
 
 ### Chronology for incised Caddo types
 
@@ -32,7 +32,7 @@ type.time <- ggplot(temp, aes(x = Date_Range_CE, xend = end, y = factor(Type,
   geom_segment(size = 2) +
   scale_colour_discrete() +
   theme(legend.position = "none") +
-  labs(y = "Type", x = "Date Range CE")
+  labs(y = "Incised Caddo Types", x = "Date Range CE")
 
 # render figure
 type.time
