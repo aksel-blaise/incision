@@ -7,3 +7,34 @@ The incision project is part of a long-term research programme, representing an 
 The genesis of this project occurred during a slip, glazing, and atmospheric firing workshop at the Arrowmont School of Arts and Crafts in Gatlinburg, Tennessee, where access to the materials, dry box, and electric kilns provided a means to produce the experimental sample. The archaeological sample was provided with permission and support from the Caddo Tribe of Oklahoma, and comes from sites on the Angelina, Davy Crockett, and Sabine National Forests, which are units of the National Forests and Grasslands in Texas (NFGT). Partial funding for this project came from a Media Grant to the Caddo Tribe of Oklahoma through the National Center for Preservation Technology and Training (NCPTT), and additional funding was provided by grants from the NFGT (15-PA-11081300-033 and 20-PA-11081300-074). NCPTT provided access and training for the optical profilometer used to generate 3D meshes for the experimental and archaeological samples at their laboratory in Natchitoches, Louisiana, as well as a copy of the Keyence VR Series Analyzer Software that was used to render and export the meshes.
 
 The landmarking protocol (see Section 3.1) is identical on both the experimental and archaeological samples, and was designed to capture the profile of the business end of the instrument used to apply each incision. One insight made clear by the experimental analysis is that a single tool could have been used to apply incisions that render differing marks in profile. Since incisions are made while the clay body is not yet dry, the range of variation is potentially greater than that of engraved or etched designs, and the deepest profile of each incision should provide the most complete profile of the tool employed by Caddo potters to apply the marks.
+
+## Incised Caddo types
+
+Temporal attributes of the incised Caddo types were aggregated from published type books [@RN5066;@RN4302], and arranged alphabetically. This provides a basic temporal framework from which chronological components can begin to be isolated. It is worth noting that none of the incised sherds employed within the framework of this study were able to be typed; however, the temporal differences in incised Caddo types are worthy of note.
+
+### Chronology for incised Caddo types
+
+```{r typetemporal, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# load ggplot2
+library(ggplot2)
+
+# gantt chart of (possible) relative dates for ceramic components
+temp<-data.frame(Type = c('Belcher Ridged (Bossier)', 'Belcher Ridged (Belcher)', 'Canton Incised', 'Clements Brushed', 'Cowhide Stamped', 'Crockett Curvilinear Incised', 'Davis Incised', 'Dunkin Incised', 'East Incised', 'Foster Trailed-Incised', 'Fulton Aspect Effigy Bowls', 'Haley Complicated Incised', 'Harleton Appliqued', 'Hudson Engraved', 'Karnack Brushed-Incised', 'Kiam Incised', 'Maydelle Incised', 'Military Road Incised', 'Nash Neck Banded', 'Pease Brushed-Incised', 'Pennington Punctated-Incised', 'Spiro Engraved', 'Weches Fingernail Impressed'), # canton/east incised types date to AD 1000, but were modified to 990-1010 so that it would show on the gantt chart
+                 Date_Range_CE = c(1100, 1300, 990, 1500, 1200, 500, 500, 500, 990, 1200, 1200, 800, 1200, 1500, 1200, 500, 1200, 1200, 1400, 1100, 500, 500, 500), # in years CE
+                 end = c(1300, 1500, 1010, 1800, 1500, 1000, 1000, 1000, 1010, 1600, 1700, 1200, 1500, 1800, 1500, 1200, 1500, 1500, 1700, 1300, 1000, 1000, 1000) # in years CE
+)
+
+# reorder types by date range
+temp$Type <- factor(temp$Type, levels = temp$Type[order(temp$Date_Range_CE)])
+
+type.time <- ggplot(temp, aes(x = Date_Range_CE, xend = end, y = factor(Type, 
+       levels = rev(levels(factor(Type)))), yend = Type, color = Type)) +
+  geom_segment(size = 2) +
+  scale_colour_discrete() +
+  theme(legend.position = "none") +
+  labs(y = "Type", x = "Date Range CE")
+
+# render figure
+type.time
+```
+

@@ -9,14 +9,18 @@ The sample used in this study was generated through archaeological surveys, and 
 library(ggplot2)
 
 # gantt chart of (possible) relative dates for ceramic components
-temp<-data.frame(Site=c('41SA66','41SB125','41SB189','41SB189','41SB291','41SY43','41SY43','41SY258','41SY280','41TN91'),
-                 Date_Range_CE=c(800,1200,1000,1400,1200,1000,1450,800,1400,900), # in years BCE/CE
-                 end=c(1200,1680,1200,1680,1680,1300,1680,1680,1680,1200) # in years CE
+temp<-data.frame(Site = c('41SA66','41SB125','41SB189','41SB189','41SB291','41SY43','41SY43','41SY258','41SY280','41TN91'),
+                 Date_Range_CE = c(800, 1200, 1000, 1400, 1200, 1000, 1450, 800, 1400, 900), # in years CE
+                 end = c(1200, 1680, 1200, 1680, 1680, 1300, 1680, 1680, 1680, 1200) # in years CE
 )
-temp.site<-ggplot(temp,aes(x=Date_Range_CE,xend=end,y=Site,yend=Site,color=Site)) +
-  geom_segment(size=2) +
-  scale_color_brewer(palette = "Dark2") +
-  theme(legend.position = "none")
+
+temp.site <- ggplot(temp,aes(x = Date_Range_CE, xend = end, y = factor(Site, 
+       levels = rev(levels(factor(Site)))), yend = Site, color = Site)) +
+  geom_segment(size = 2) +
+  scale_colour_discrete() +
+  theme(legend.position = "none") +
+  labs(y = "Site", x = "Date Range CE")
+
 # render figure
 temp.site
 ```
@@ -69,7 +73,7 @@ ggplot(data = world) +
         style = north_arrow_fancy_orienteering) +
     coord_sf(xlim = c(-107, -93), ylim = c(25, 37), expand = FALSE) +
     xlab ("Longitude") + ylab("Latitude") +
-    ggtitle("Texas County Locations of Samples", subtitle = "(archaeological site locations redacted)")
+    ggtitle("Samples from Texas Counties", subtitle = "(archaeological site locations redacted)")
 ```
 
 ## 41SA66
