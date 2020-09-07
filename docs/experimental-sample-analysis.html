@@ -253,11 +253,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#generalised-procrustes-analysis"><i class="fa fa-check"></i><b>6.1</b> Generalised Procrustes Analysis</a></li>
 <li class="chapter" data-level="6.2" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#principal-components-analysis"><i class="fa fa-check"></i><b>6.2</b> Principal Components Analysis</a></li>
 <li class="chapter" data-level="6.3" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#define-models"><i class="fa fa-check"></i><b>6.3</b> Define models</a></li>
-<li class="chapter" data-level="6.4" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#allometry"><i class="fa fa-check"></i><b>6.4</b> Allometry</a></li>
-<li class="chapter" data-level="6.5" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#sizeshape-incision-profile"><i class="fa fa-check"></i><b>6.5</b> Size/Shape ~ Incision Profile?</a></li>
-<li class="chapter" data-level="6.6" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#sizeshape-incision-profile-2"><i class="fa fa-check"></i><b>6.6</b> Size/Shape ~ Incision Profile 2?</a></li>
-<li class="chapter" data-level="6.7" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#morphological-disparity"><i class="fa fa-check"></i><b>6.7</b> Morphological disparity</a></li>
-<li class="chapter" data-level="6.8" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#mean-shapes"><i class="fa fa-check"></i><b>6.8</b> Mean shapes</a></li>
+<li class="chapter" data-level="6.4" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#sizeshape-incision-profile"><i class="fa fa-check"></i><b>6.4</b> Size/Shape ~ Incision Profile?</a></li>
+<li class="chapter" data-level="6.5" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#sizeshape-incision-profile-2"><i class="fa fa-check"></i><b>6.5</b> Size/Shape ~ Incision Profile 2?</a></li>
+<li class="chapter" data-level="6.6" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#morphological-disparity"><i class="fa fa-check"></i><b>6.6</b> Morphological disparity</a></li>
+<li class="chapter" data-level="6.7" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#mean-shapes"><i class="fa fa-check"></i><b>6.7</b> Mean shapes</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="open.html"><a href="open.html"><i class="fa fa-check"></i><b>7</b> Open Review</a><ul>
 <li class="chapter" data-level="7.1" data-path="open.html"><a href="open.html#faq-about-open-review"><i class="fa fa-check"></i><b>7.1</b> FAQ about open review</a><ul>
@@ -391,18 +390,26 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Number of vectors 13 
 ## 
 ## Importance of Components:
-##                            Comp1       Comp2       Comp3        Comp4        Comp5
-## Eigenvalues            0.0441045 0.005014108 0.003398275 0.0003353507 0.0002822004
-## Proportion of Variance 0.8226607 0.093525803 0.063386441 0.0062551403 0.0052637514
-## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536 0.9910918051
-##                               Comp6        Comp7        Comp8        Comp9       Comp10
-## Eigenvalues            0.0001809061 0.0001525644 7.081347e-05 3.658645e-05 2.060166e-05
-## Proportion of Variance 0.0033743561 0.0028457127 1.320850e-03 6.824299e-04 3.842732e-04
-## Cumulative Proportion  0.9944661611 0.9973118738 9.986327e-01 9.993152e-01 9.996994e-01
-##                              Comp11       Comp12       Comp13
-## Eigenvalues            1.050025e-05 5.614060e-06 2.143147e-33
-## Proportion of Variance 1.958562e-04 1.047164e-04 3.997511e-32
-## Cumulative Proportion  9.998953e-01 1.000000e+00 1.000000e+00</code></pre>
+##                            Comp1       Comp2       Comp3
+## Eigenvalues            0.0441045 0.005014108 0.003398275
+## Proportion of Variance 0.8226607 0.093525803 0.063386441
+## Cumulative Proportion  0.8226607 0.916186472 0.979572913
+##                               Comp4        Comp5        Comp6
+## Eigenvalues            0.0003353507 0.0002822004 0.0001809061
+## Proportion of Variance 0.0062551403 0.0052637514 0.0033743561
+## Cumulative Proportion  0.9858280536 0.9910918051 0.9944661611
+##                               Comp7        Comp8        Comp9
+## Eigenvalues            0.0001525644 7.081347e-05 3.658645e-05
+## Proportion of Variance 0.0028457127 1.320850e-03 6.824299e-04
+## Cumulative Proportion  0.9973118738 9.986327e-01 9.993152e-01
+##                              Comp10       Comp11       Comp12
+## Eigenvalues            2.060166e-05 1.050025e-05 5.614060e-06
+## Proportion of Variance 3.842732e-04 1.958562e-04 1.047164e-04
+## Cumulative Proportion  9.996994e-01 9.998953e-01 1.000000e+00
+##                              Comp13
+## Eigenvalues            2.143147e-33
+## Proportion of Variance 3.997511e-32
+## Cumulative Proportion  1.000000e+00</code></pre>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="experimental-sample-analysis.html#cb38-1"></a><span class="co"># set plot parameters</span></span>
 <span id="cb38-2"><a href="experimental-sample-analysis.html#cb38-2"></a>pch.gps<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="kw">as.factor</span>(inc)]</span>
 <span id="cb38-3"><a href="experimental-sample-analysis.html#cb38-3"></a>col.gps<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc)]</span>
@@ -520,13 +527,13 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Estimation method: Ordinary Least Squares 
 ## Effect sizes (Z) based on F distributions
 ## 
-##                           ResDf Df     RSS       SS       MS      Rsq      F      Z
-## shape ~ size + inc (Null)    10  1 0.13475                   0.000000              
-## shape ~ size * inc            9  1 0.08548 0.049269 0.049269 0.076583 5.1874 2.1765
-## Total                        12    0.64334                                         
-##                                P Pr(&gt;F)
-## shape ~ size + inc (Null)              
-## shape ~ size * inc        0.0104       
+##                           ResDf Df     RSS       SS       MS
+## shape ~ size + inc (Null)    10  1 0.13475                  
+## shape ~ size * inc            9  1 0.08548 0.049269 0.049269
+## Total                        12    0.64334                  
+##                                Rsq      F      Z      P Pr(&gt;F)
+## shape ~ size + inc (Null) 0.000000                            
+## shape ~ size * inc        0.076583 5.1874 2.1765 0.0104       
 ## Total</code></pre>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="experimental-sample-analysis.html#cb50-1"></a><span class="co"># inc2</span></span>
 <span id="cb50-2"><a href="experimental-sample-analysis.html#cb50-2"></a><span class="kw">anova</span>(fit.sz.cinc2) <span class="co"># common allometry (inc2)</span></span></code></pre></div>
@@ -574,13 +581,13 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Estimation method: Ordinary Least Squares 
 ## Effect sizes (Z) based on F distributions
 ## 
-##                            ResDf Df     RSS       SS       MS      Rsq      F       Z
-## shape ~ size + inc2 (Null)     9  1 0.09676                   0.000000               
-## shape ~ size * inc2            7  2 0.07503 0.021725 0.010862 0.033768 1.0134 0.18816
-## Total                         12    0.64334                                          
-##                                 P Pr(&gt;F)
-## shape ~ size + inc2 (Null)              
-## shape ~ size * inc2        0.4522       
+##                            ResDf Df     RSS       SS       MS
+## shape ~ size + inc2 (Null)     9  1 0.09676                  
+## shape ~ size * inc2            7  2 0.07503 0.021725 0.010862
+## Total                         12    0.64334                  
+##                                 Rsq      F       Z      P Pr(&gt;F)
+## shape ~ size + inc2 (Null) 0.000000                             
+## shape ~ size * inc2        0.033768 1.0134 0.18816 0.4522       
 ## Total</code></pre>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="experimental-sample-analysis.html#cb56-1"></a><span class="co"># allometry plots</span></span>
 <span id="cb56-2"><a href="experimental-sample-analysis.html#cb56-2"></a><span class="co"># regscore (Drake and Klingenberg 2008)</span></span>

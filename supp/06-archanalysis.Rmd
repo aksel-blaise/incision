@@ -53,7 +53,7 @@ fig.cap = "Boxplot of incision profile types (inc)."
 # boxplot of incision (centroid) size by profile type (inc2)
 boxplot(csz~inc2,
         main = "Centroid size of Caddo incisions by profile type (inc2)",
-        names = c("V-V","V-A","U-N","U-B"),
+        names = c("V","U-N","U-B"),
         xlab = "Profile",
         ylab = "Centroid Size",
         col = wes_palette("Moonrise2"),
@@ -84,9 +84,9 @@ pc.plot1 <- plot(pca, asp = 1,
 
 # set plot parameters to plot by incision profile (inc2)
 inc2 <- qdata$inc2
-pch.gps.inc2 <- c(15,17:19)[as.factor(inc2)]
+pch.gps.inc2 <- c(15,17,19)[as.factor(inc2)]
 col.gps.inc2 <- wes_palette("Moonrise2")[as.factor(inc2)]
-col.hull2 <- c("#29211F","#798E87","#C27D38","#CCC591")
+col.hull2 <- c("#CCC591","#798E87","#C27D38")
 
 # plot pca by incision profile (inc2)
 pc.plot2 <- plot(pca, asp = 1,
@@ -100,17 +100,6 @@ pc.plot2 <- plot(pca, asp = 1,
 ## Define models
 
 ```{r define-models, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# allometry
-fit.size <- procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
-# allometry - common allometry, different means -> inc
-fit.sz.cinc <- procD.lm(shape ~ size + inc, data = gdf, print.progress = FALSE, iter = 9999)
-# allometry - unique allometries -> inc
-fit.sz.uinc <- procD.lm(shape ~ size * inc, data = gdf, print.progress = FALSE, iter = 9999)
-# allometry - common allometry, different means -> inc2
-fit.sz.cinc2 <- procD.lm(shape ~ size + inc2, data = gdf, print.progress = FALSE, iter = 9999)
-# allometry - unique allometries -> inc2
-fit.sz.uinc2 <- procD.lm(shape ~ size * inc2, data = gdf, print.progress = FALSE, iter = 9999)
-
 # size as a function of group
 fit.sizeinc <- procD.lm(size ~ inc, data = gdf, print.progress = FALSE, iter = 9999)
 fit.sizeinc2 <- procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
@@ -118,40 +107,6 @@ fit.sizeinc2 <- procD.lm(size ~ inc2, data = gdf, print.progress = FALSE, iter =
 # shape as a function of group
 fit.shapeinc <- procD.lm(shape ~ inc, data = gdf, print.progress = FALSE, iter = 9999)
 fit.shapeinc2 <- procD.lm(shape ~ inc2, data = gdf, print.progress = FALSE, iter = 9999)
-```
-
-## Allometry
-
-```{r allometry, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# allometry - does shape change with size?
-anova(fit.size)
-
-# inc
-anova(fit.sz.cinc) # common allometry (inc)
-anova(fit.sz.uinc) # unique allometry (inc)
-anova(fit.sz.cinc, fit.sz.uinc, print.progress = FALSE)
-
-# inc2
-anova(fit.sz.cinc2) # common allometry (inc2)
-anova(fit.sz.uinc2) # unique allometry (inc2)
-anova(fit.sz.cinc2, fit.sz.uinc2, print.progress = FALSE)
-
-# allometry plots
-# regscore (Drake and Klingenberg 2008)
-plot(fit.size, type = "regression", reg.type = "RegScore", predictor = log(gdf$size), pch = pch.gps.inc, col = col.gps.inc)
-plot(fit.size, type = "regression", reg.type = "RegScore", predictor = log(gdf$size), pch = pch.gps.inc2, col = col.gps.inc2)
-
-# common allometric component (Mitteroecker 2004)
-plotAllometry(fit.size, size = gdf$size, logsz = TRUE, method = "CAC", pch = pch.gps.inc, col = col.gps.inc)
-plotAllometry(fit.size, size = gdf$size, logsz = TRUE, method = "CAC", pch = pch.gps.inc2, col = col.gps.inc2)
-
-# size-shape pca (Mitteroecker 2004)
-plotAllometry(fit.size, size = gdf$size, logsz = TRUE, method = "size.shape", pch = pch.gps.inc, col = col.gps.inc)
-plotAllometry(fit.size, size = gdf$size, logsz = TRUE, method = "size.shape", pch = pch.gps.inc2, col = col.gps.inc2)
-
-# predline (Adams and Nistri 2010)
-plotAllometry(fit.sz.uinc, size = gdf$size, logsz = TRUE, method = "PredLine", pch = pch.gps.inc, col = col.gps.inc)
-plotAllometry(fit.sz.uinc2, size = gdf$size, logsz = TRUE, method = "PredLine", pch = pch.gps.inc2, col = col.gps.inc2)
 ```
 
 ## Size/Shape ~ Incision Profile?
