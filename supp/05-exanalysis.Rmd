@@ -4,11 +4,15 @@ The `inc` field in the qdataEX file relates to two primary differences in shape.
 
 In this study, the narrow and wide U-shaped incisions were made by different tools; however, it is not difficult to imagine a scenario where both of the U-shaped incisions could also have been produced with two different sides of the same tool. It is thus necessary to use abundant caution when interpreting potential tool shape, or the number of tools employed in the application of incisions. To avoid confounding the issue, the tip of each of the tools used to generate the incision is referred to as a bit in the remainder of this document. Tools may have multiple bits, but each bit is capable of generating different incision profiles.
 
+## Load packages + data
+
 ```{r loadsetwdEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# library(devtools)
 # devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
 library(geomorph)
+library(tidyverse)
 library(wesanderson)
+
+# setwd
 setwd(getwd())
 source('readmulti.csv.R')
 
@@ -52,25 +56,29 @@ knitr::kable(qdata, align = "ccc", caption = "Attributes included in qdata.")
 ```
 
 ```{r box1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Boxplot of experimental incision profile types (U-shaped and V-shaped)."}
-# boxplot of incision (centroid) size by incision profile (inc)
-boxplot(csz~inc, 
-        main = "Centroid size of experimental incisions by profile",
-        names = c("U", "V"),
-        xlab = "Incision Profile",
-        ylab = "Centroid Size",
-        col = wes_palette("Moonrise2")
-        )
+# boxplot of incision (centroid) size by profile type (inc)
+csz.inc.ex <- ggplot(qdata, aes(x = inc, y = csz, color = inc)) +
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
+  scale_color_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Incision', y = 'Centroid Size')
+
+#render plot
+csz.inc.ex
 ```
 
 ```{r box2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE,fig.cap = "Boxplot of experimental incision profile types (U-narrow, U-Wide, and V)."}
-# boxplot of incision (centroid) size by incision profile (inc2)
-boxplot(csz~inc2, 
-        main = "Centroid size of experimental incisions by profile type",
-        names = c("Un", "Uw", "V"),
-        xlab = "Incision Profile (inc2)",
-        ylab = "Centroid Size",
-        col = wes_palette("Moonrise2")
-        )
+# boxplot of incision (centroid) size by profile type (inc2)
+csz.inc2.ex <- ggplot(qdata, aes(x = inc2, y = csz, color = inc2)) +
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
+  scale_color_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Incision', y = 'Centroid Size')
+
+#render plot
+csz.inc2.ex
 ```
 
 ## Principal Components Analysis
