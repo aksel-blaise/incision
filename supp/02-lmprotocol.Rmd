@@ -1,6 +1,8 @@
 # Landmarking protocol
 
-The characteristic points and tangents used in the landmarking protocol were inspired by the work of Birkhoff [-@RN11786]. Using Geomagic Design X, a plane was inserted to capture the deepest incision profile.
+The characteristic points and tangents used in this landmarking protocol were inspired by the pioneering work of Birkhoff [-@RN11786].
+
+Using Geomagic Design X, a plane was inserted to capture the deepest incision profile.
 
 ```{r insertplane, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # incision image
@@ -8,7 +10,7 @@ knitr::include_graphics('images/insertplane.png')
 fig.cap="Reference plane (blue) inserted at deepest point of incision of experimental tile 6b."
 ```
 
-The horizontal tangent was calculated for the rise in the clay matrix on either side of the incision. A linear distance was then calculated to identify the mid-point of the incision, and the deepest part of the incision profile was oriented to the right of center.
+The horizontal tangent was calculated for the rise in the clay matrix on either side of the incision, followed by the calculation of linear distance between them to identify the mid-point of the incision. The deepest part of the incision profile was always oriented to the right of center.
 
 ```{r h.tangent, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # incision image
@@ -16,7 +18,7 @@ knitr::include_graphics('images/h-tangents.png')
 fig.cap="Spline (500 interpolation points) that was cut at the location of horizontal tangents on each side, then oriented where the deepest part of the incision was to the right of center."
 ```
 
-Once properly oriented, the horizontal tangent of the left was assigned as Point 01, and the horizontal tangent on the right as Point 02. Twenty five equidistant landmarks were subsequently placed between the two landmarks along the spline.
+Once properly oriented, the horizontal tangent on the left was assigned as landmark (LM) 01, and the tangent on the right as LM 02. Twenty five equidistant landmarks were placed between the two landmarks along the spline.
 
 ```{r semi.land, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # incision image
@@ -24,4 +26,4 @@ knitr::include_graphics('images/semiland.png')
 fig.cap="Placement of 25 equidistant semilandmarks (white) between LM01 and LM02 (blue)"
 ```
 
-Landmarks and semilandmarks for each specimen were then exported as CSV files (included in supplemental materials as dataEX), which were used in the geometric morphometric analysis presented in the next chapter. 
+Landmarks and semilandmarks for each specimen were exported as CSV files (included in supplemental materials as dataEX).
