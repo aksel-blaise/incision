@@ -19,7 +19,9 @@ setwd("../")
 # read qualitative data
 qdata <- read.csv("qdataEX.csv",header=TRUE,row.names=1)
 qdata <- qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
-qdata
+
+# print qdata
+knitr::kable(qdata, align = "ccccc", caption = "Attributes included in qdata.")
 ```
 
 ## Generalised Procrustes Analysis
