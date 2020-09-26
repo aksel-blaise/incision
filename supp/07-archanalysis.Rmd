@@ -1,11 +1,11 @@
 # Archaeological sample - analysis
 
-## Generalised Procrustes Analysis
+## Load packages + data
 
-```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# library(devtools)
+```{r load.arch, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
 library(geomorph)
+library(tidyverse)
 library(wesanderson)
 setwd(getwd())
 
@@ -24,48 +24,63 @@ qdata <- qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 
 # print qdata
 knitr::kable(qdata, align = "ccccc", caption = "Attributes included in qdata.")
+```
 
+```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE,fig.cap="Results of generalized Procrustes analysis."}
 # gpa
 Y.gpa <- gpagen(coords, PrinAxes = TRUE, ProcD = TRUE, Proj = TRUE, print.progress = FALSE)
 
 # gpa plot
 knitr::include_graphics('images/gpa3d.png')
-fig.cap="Results of generalized Procrustes analysis."
 
 # geomorph data frame
 gdf <- geomorph.data.frame(shape = Y.gpa$coords, size = Y.gpa$Csize, site = qdata$site, unit = qdata$unit, county = qdata$county, inc = qdata$incision, inc2 = qdata$inc2) 
+```
+
+```{r categorical.arch,, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# add centroid size to qdata
+qdata$csz <- Y.gpa$Csize
 
 # attributes for boxplots
-csz <- Y.gpa$Csize # centroid size
-inc <- qdata$incision # basic incision profile
-inc2 <- qdata$inc2 # incision profile + qualitative characteristics
-cty <- qdata$county # attribute for boxplot
-unt <- qdata$unit # attribute for boxplot
+csz <- Y.gpa$Csize
+inc <- qdata$incision
+inc2 <- qdata$inc2
+cty <- qdata$county
+unt <- qdata$unit
 
+# print qdata + centroid size
+knitr::kable(qdata, align = "cccccc", caption = "Attributes included in qdata.")
+```
+
+```{r box1.arch, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE,fig.cap = "Boxplot of incision profile types (inc)."}
 # boxplot of incision (centroid) size by profile type (inc)
-boxplot(csz~inc,
-        main = "Centroid size of Caddo incisions by profile type",
-        names = c("V","U"),
-        xlab = "Profile",
-        ylab = "Centroid Size",
-        col = wes_palette("Moonrise2"),
-        )
-fig.cap = "Boxplot of incision profile types (inc)."
+csz.inc <- ggplot(qdata, aes(x = inc, y = csz, color = inc)) +
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
+  scale_color_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Incision', y = 'Centroid Size')
 
+#render plot
+csz.inc
+```
+
+```{r box2.arch, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE,fig.cap = "Boxplot of incision profile types (inc2)."}
 # boxplot of incision (centroid) size by profile type (inc2)
-boxplot(csz~inc2,
-        main = "Centroid size of Caddo incisions by profile type (inc2)",
-        names = c("V","U-N","U-B"),
-        xlab = "Profile",
-        ylab = "Centroid Size",
-        col = wes_palette("Moonrise2"),
-        )
-fig.cap = "Boxplot of incision profile types (inc2)."
+csz.inc2 <- ggplot(qdata, aes(x = inc2, y = csz, color = inc2)) +
+  geom_boxplot() +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
+  scale_color_manual(values = wes_palette("Moonrise2")) +
+  theme(legend.position = "none") +
+  labs(x = 'Incision', y = 'Centroid Size')
+
+#render plot
+csz.inc2
 ```
 
 ## Principal Components Analysis
 
-```{r pca, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r pca1.arch, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE,fig.cap = "Plot of PC1 and PC2 for U- (gray square) and V-shaped (orange triangle) incisions."}
 # principal components analysis
 pca<-gm.prcomp(Y.gpa$coords)
 summary(pca)
@@ -83,7 +98,9 @@ pc.plot1 <- plot(pca, asp = 1,
                   shapeHulls(pc.plot1, 
                              groups = inc,
                              group.cols = col.hull)
+```
 
+```{r pca2.arch,, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE,fig.cap = "Plot of PC1 and PC2 for U-broad (gray square), U-narrow (orange triangle) and V-shaped (tan circle) incisions."}
 # set plot parameters to plot by incision profile (inc2)
 inc2 <- qdata$inc2
 pch.gps.inc2 <- c(15,17,19)[as.factor(inc2)]

@@ -256,7 +256,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="archaeological-sample-analysis.html"><a href="archaeological-sample-analysis.html"><i class="fa fa-check"></i><b>7</b> Archaeological sample - analysis</a><ul>
-<li class="chapter" data-level="7.1" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#generalised-procrustes-analysis"><i class="fa fa-check"></i><b>7.1</b> Generalised Procrustes Analysis</a></li>
+<li class="chapter" data-level="7.1" data-path="archaeological-sample-analysis.html"><a href="archaeological-sample-analysis.html#load-packages-data"><i class="fa fa-check"></i><b>7.1</b> Load packages + data</a></li>
 <li class="chapter" data-level="7.2" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#principal-components-analysis"><i class="fa fa-check"></i><b>7.2</b> Principal Components Analysis</a></li>
 <li class="chapter" data-level="7.3" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#define-models"><i class="fa fa-check"></i><b>7.3</b> Define models</a></li>
 <li class="chapter" data-level="7.4" data-path="experimental-sample-analysis.html"><a href="experimental-sample-analysis.html#sizeshape-incision-profile"><i class="fa fa-check"></i><b>7.4</b> Size/Shape ~ Incision Profile?</a></li>
@@ -334,7 +334,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <span id="cb38-16"><a href="experimental-sample-analysis.html#cb38-16"></a>qdata &lt;-<span class="st"> </span>qdata[<span class="kw">match</span>(<span class="kw">dimnames</span>(coords)[[<span class="dv">3</span>]],<span class="kw">rownames</span>(qdata)),]</span>
 <span id="cb38-17"><a href="experimental-sample-analysis.html#cb38-17"></a></span>
 <span id="cb38-18"><a href="experimental-sample-analysis.html#cb38-18"></a><span class="co"># print qdata</span></span>
-<span id="cb38-19"><a href="experimental-sample-analysis.html#cb38-19"></a>knitr<span class="op">::</span><span class="kw">kable</span>(qdata, <span class="dt">align =</span> <span class="st">&quot;ccccc&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Attributes included in qdata.&quot;</span>)</span></code></pre></div>
+<span id="cb38-19"><a href="experimental-sample-analysis.html#cb38-19"></a>knitr<span class="op">::</span><span class="kw">kable</span>(qdata, <span class="dt">align =</span> <span class="st">&quot;cc&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Attributes included in qdata.&quot;</span>)</span></code></pre></div>
 <table>
 <caption><span id="tab:loadsetwdEX">Table 5.1: </span>Attributes included in qdata.</caption>
 <thead>
@@ -418,42 +418,149 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <span id="cb39-2"><a href="experimental-sample-analysis.html#cb39-2"></a></span>
 <span id="cb39-3"><a href="experimental-sample-analysis.html#cb39-3"></a><span class="co"># 3D GPA plot</span></span>
 <span id="cb39-4"><a href="experimental-sample-analysis.html#cb39-4"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/gpa3dEX.png&#39;</span>)</span></code></pre></div>
-<p><img src="images/gpa3dEX.png" width="100%" /></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="experimental-sample-analysis.html#cb40-1"></a>fig.cap =<span class="st"> &quot;Results of generalised Procrustes analysis.&quot;</span></span>
-<span id="cb40-2"><a href="experimental-sample-analysis.html#cb40-2"></a></span>
-<span id="cb40-3"><a href="experimental-sample-analysis.html#cb40-3"></a><span class="co"># geomorph data frame</span></span>
-<span id="cb40-4"><a href="experimental-sample-analysis.html#cb40-4"></a>gdf &lt;-<span class="st"> </span><span class="kw">geomorph.data.frame</span>(<span class="dt">shape =</span> Y.gpa<span class="op">$</span>coords, <span class="dt">size =</span> Y.gpa<span class="op">$</span>Csize, <span class="dt">inc =</span> qdata<span class="op">$</span>incision, <span class="dt">inc2 =</span> qdata<span class="op">$</span>inc2)</span>
-<span id="cb40-5"><a href="experimental-sample-analysis.html#cb40-5"></a>csz &lt;-<span class="st"> </span>Y.gpa<span class="op">$</span>Csize <span class="co"># attribute for boxplot</span></span>
-<span id="cb40-6"><a href="experimental-sample-analysis.html#cb40-6"></a>inc &lt;-<span class="st"> </span>qdata<span class="op">$</span>incision</span>
-<span id="cb40-7"><a href="experimental-sample-analysis.html#cb40-7"></a>inc2 &lt;-<span class="st"> </span>qdata<span class="op">$</span>inc2 <span class="co"># attribute for boxplot</span></span>
-<span id="cb40-8"><a href="experimental-sample-analysis.html#cb40-8"></a></span>
-<span id="cb40-9"><a href="experimental-sample-analysis.html#cb40-9"></a><span class="co"># boxplot of incision (centroid) size by incision profile (inc)</span></span>
-<span id="cb40-10"><a href="experimental-sample-analysis.html#cb40-10"></a><span class="kw">boxplot</span>(csz<span class="op">~</span>inc, </span>
-<span id="cb40-11"><a href="experimental-sample-analysis.html#cb40-11"></a>        <span class="dt">main =</span> <span class="st">&quot;Centroid size of experimental incisions by profile&quot;</span>,</span>
-<span id="cb40-12"><a href="experimental-sample-analysis.html#cb40-12"></a>        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;U&quot;</span>, <span class="st">&quot;V&quot;</span>),</span>
-<span id="cb40-13"><a href="experimental-sample-analysis.html#cb40-13"></a>        <span class="dt">xlab =</span> <span class="st">&quot;Incision Profile&quot;</span>,</span>
-<span id="cb40-14"><a href="experimental-sample-analysis.html#cb40-14"></a>        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</span>
-<span id="cb40-15"><a href="experimental-sample-analysis.html#cb40-15"></a>        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</span>
-<span id="cb40-16"><a href="experimental-sample-analysis.html#cb40-16"></a>        )</span></code></pre></div>
-<p><img src="incision_files/figure-html/gpaEX-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="experimental-sample-analysis.html#cb41-1"></a>fig.cap =<span class="st"> &quot;Boxplot of experimental incision profile types (U-shaped and V-shaped).&quot;</span></span>
-<span id="cb41-2"><a href="experimental-sample-analysis.html#cb41-2"></a></span>
-<span id="cb41-3"><a href="experimental-sample-analysis.html#cb41-3"></a><span class="co"># boxplot of incision (centroid) size by incision profile (inc2)</span></span>
-<span id="cb41-4"><a href="experimental-sample-analysis.html#cb41-4"></a><span class="kw">boxplot</span>(csz<span class="op">~</span>inc2, </span>
-<span id="cb41-5"><a href="experimental-sample-analysis.html#cb41-5"></a>        <span class="dt">main =</span> <span class="st">&quot;Centroid size of experimental incisions by profile type&quot;</span>,</span>
-<span id="cb41-6"><a href="experimental-sample-analysis.html#cb41-6"></a>        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Un&quot;</span>, <span class="st">&quot;Uw&quot;</span>, <span class="st">&quot;V&quot;</span>),</span>
-<span id="cb41-7"><a href="experimental-sample-analysis.html#cb41-7"></a>        <span class="dt">xlab =</span> <span class="st">&quot;Incision Profile (inc2)&quot;</span>,</span>
-<span id="cb41-8"><a href="experimental-sample-analysis.html#cb41-8"></a>        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</span>
-<span id="cb41-9"><a href="experimental-sample-analysis.html#cb41-9"></a>        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</span>
-<span id="cb41-10"><a href="experimental-sample-analysis.html#cb41-10"></a>        )</span></code></pre></div>
-<p><img src="incision_files/figure-html/gpaEX-3.png" width="100%" /></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="experimental-sample-analysis.html#cb42-1"></a>fig.cap =<span class="st"> &quot;Boxplot of experimental incision profile types (U-narrow, U-Wide, and V).&quot;</span></span></code></pre></div>
+<div class="figure"><span id="fig:gpaEX"></span>
+<img src="images/gpa3dEX.png" alt="Results of generalised Procrustes analysis." width="100%" />
+<p class="caption">
+Figure 5.1: Results of generalised Procrustes analysis.
+</p>
+</div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="experimental-sample-analysis.html#cb40-1"></a><span class="co"># geomorph data frame</span></span>
+<span id="cb40-2"><a href="experimental-sample-analysis.html#cb40-2"></a>gdf &lt;-<span class="st"> </span><span class="kw">geomorph.data.frame</span>(<span class="dt">shape =</span> Y.gpa<span class="op">$</span>coords, <span class="dt">size =</span> Y.gpa<span class="op">$</span>Csize, <span class="dt">inc =</span> qdata<span class="op">$</span>incision, <span class="dt">inc2 =</span> qdata<span class="op">$</span>inc2)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="experimental-sample-analysis.html#cb41-1"></a><span class="co"># add centroid size to qdata</span></span>
+<span id="cb41-2"><a href="experimental-sample-analysis.html#cb41-2"></a>qdata<span class="op">$</span>csz &lt;-<span class="st"> </span>Y.gpa<span class="op">$</span>Csize</span>
+<span id="cb41-3"><a href="experimental-sample-analysis.html#cb41-3"></a></span>
+<span id="cb41-4"><a href="experimental-sample-analysis.html#cb41-4"></a><span class="co"># attributes for boxplots</span></span>
+<span id="cb41-5"><a href="experimental-sample-analysis.html#cb41-5"></a>csz &lt;-<span class="st"> </span>qdata<span class="op">$</span>csz</span>
+<span id="cb41-6"><a href="experimental-sample-analysis.html#cb41-6"></a>inc &lt;-<span class="st"> </span>qdata<span class="op">$</span>incision</span>
+<span id="cb41-7"><a href="experimental-sample-analysis.html#cb41-7"></a>inc2 &lt;-<span class="st"> </span>qdata<span class="op">$</span>inc2</span>
+<span id="cb41-8"><a href="experimental-sample-analysis.html#cb41-8"></a></span>
+<span id="cb41-9"><a href="experimental-sample-analysis.html#cb41-9"></a><span class="co"># print qdata + centroid size</span></span>
+<span id="cb41-10"><a href="experimental-sample-analysis.html#cb41-10"></a>knitr<span class="op">::</span><span class="kw">kable</span>(qdata, <span class="dt">align =</span> <span class="st">&quot;ccc&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Attributes included in qdata.&quot;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:boxEX">Table 5.2: </span>Attributes included in qdata.</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">incision</th>
+<th align="center">inc2</th>
+<th align="center">csz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ex-tile2</td>
+<td align="center">U</td>
+<td align="center">Un</td>
+<td align="center">7.457707</td>
+</tr>
+<tr class="even">
+<td align="left">ex-tile3a</td>
+<td align="center">U</td>
+<td align="center">Uw</td>
+<td align="center">13.962369</td>
+</tr>
+<tr class="odd">
+<td align="left">ex-tile3b</td>
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center">6.057672</td>
+</tr>
+<tr class="even">
+<td align="left">ex-tile4a</td>
+<td align="center">U</td>
+<td align="center">Un</td>
+<td align="center">6.709478</td>
+</tr>
+<tr class="odd">
+<td align="left">ex-tile4b</td>
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center">4.636639</td>
+</tr>
+<tr class="even">
+<td align="left">ex-tile5a</td>
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center">4.817187</td>
+</tr>
+<tr class="odd">
+<td align="left">ex-tile5b</td>
+<td align="center">U</td>
+<td align="center">Un</td>
+<td align="center">7.124874</td>
+</tr>
+<tr class="even">
+<td align="left">ex-tile6a</td>
+<td align="center">U</td>
+<td align="center">Un</td>
+<td align="center">10.150058</td>
+</tr>
+<tr class="odd">
+<td align="left">ex-tile6b</td>
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center">10.518014</td>
+</tr>
+<tr class="even">
+<td align="left">ex-tile7a</td>
+<td align="center">U</td>
+<td align="center">Uw</td>
+<td align="center">15.273933</td>
+</tr>
+<tr class="odd">
+<td align="left">ex-tile7b</td>
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center">10.073934</td>
+</tr>
+<tr class="even">
+<td align="left">ex-tile8a</td>
+<td align="center">U</td>
+<td align="center">Uw</td>
+<td align="center">18.107928</td>
+</tr>
+<tr class="odd">
+<td align="left">ex-tile8b</td>
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center">10.002956</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="experimental-sample-analysis.html#cb42-1"></a><span class="co"># boxplot of incision (centroid) size by incision profile (inc)</span></span>
+<span id="cb42-2"><a href="experimental-sample-analysis.html#cb42-2"></a><span class="kw">boxplot</span>(csz<span class="op">~</span>inc, </span>
+<span id="cb42-3"><a href="experimental-sample-analysis.html#cb42-3"></a>        <span class="dt">main =</span> <span class="st">&quot;Centroid size of experimental incisions by profile&quot;</span>,</span>
+<span id="cb42-4"><a href="experimental-sample-analysis.html#cb42-4"></a>        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;U&quot;</span>, <span class="st">&quot;V&quot;</span>),</span>
+<span id="cb42-5"><a href="experimental-sample-analysis.html#cb42-5"></a>        <span class="dt">xlab =</span> <span class="st">&quot;Incision Profile&quot;</span>,</span>
+<span id="cb42-6"><a href="experimental-sample-analysis.html#cb42-6"></a>        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</span>
+<span id="cb42-7"><a href="experimental-sample-analysis.html#cb42-7"></a>        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</span>
+<span id="cb42-8"><a href="experimental-sample-analysis.html#cb42-8"></a>        )</span></code></pre></div>
+<div class="figure"><span id="fig:box1"></span>
+<img src="incision_files/figure-html/box1-1.png" alt="Boxplot of experimental incision profile types (U-shaped and V-shaped)." width="100%" />
+<p class="caption">
+Figure 5.2: Boxplot of experimental incision profile types (U-shaped and V-shaped).
+</p>
+</div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="experimental-sample-analysis.html#cb43-1"></a><span class="co"># boxplot of incision (centroid) size by incision profile (inc2)</span></span>
+<span id="cb43-2"><a href="experimental-sample-analysis.html#cb43-2"></a><span class="kw">boxplot</span>(csz<span class="op">~</span>inc2, </span>
+<span id="cb43-3"><a href="experimental-sample-analysis.html#cb43-3"></a>        <span class="dt">main =</span> <span class="st">&quot;Centroid size of experimental incisions by profile type&quot;</span>,</span>
+<span id="cb43-4"><a href="experimental-sample-analysis.html#cb43-4"></a>        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Un&quot;</span>, <span class="st">&quot;Uw&quot;</span>, <span class="st">&quot;V&quot;</span>),</span>
+<span id="cb43-5"><a href="experimental-sample-analysis.html#cb43-5"></a>        <span class="dt">xlab =</span> <span class="st">&quot;Incision Profile (inc2)&quot;</span>,</span>
+<span id="cb43-6"><a href="experimental-sample-analysis.html#cb43-6"></a>        <span class="dt">ylab =</span> <span class="st">&quot;Centroid Size&quot;</span>,</span>
+<span id="cb43-7"><a href="experimental-sample-analysis.html#cb43-7"></a>        <span class="dt">col =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)</span>
+<span id="cb43-8"><a href="experimental-sample-analysis.html#cb43-8"></a>        )</span></code></pre></div>
+<div class="figure"><span id="fig:box2"></span>
+<img src="incision_files/figure-html/box2-1.png" alt="Boxplot of experimental incision profile types (U-narrow, U-Wide, and V)." width="100%" />
+<p class="caption">
+Figure 5.3: Boxplot of experimental incision profile types (U-narrow, U-Wide, and V).
+</p>
+</div>
 </div>
 <div id="principal-components-analysis" class="section level2">
 <h2><span class="header-section-number">5.2</span> Principal Components Analysis</h2>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="experimental-sample-analysis.html#cb43-1"></a><span class="co"># principal components analysis</span></span>
-<span id="cb43-2"><a href="experimental-sample-analysis.html#cb43-2"></a>pca &lt;-<span class="st"> </span><span class="kw">gm.prcomp</span>(Y.gpa<span class="op">$</span>coords)</span>
-<span id="cb43-3"><a href="experimental-sample-analysis.html#cb43-3"></a><span class="kw">summary</span>(pca)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="experimental-sample-analysis.html#cb44-1"></a><span class="co"># principal components analysis</span></span>
+<span id="cb44-2"><a href="experimental-sample-analysis.html#cb44-2"></a>pca &lt;-<span class="st"> </span><span class="kw">gm.prcomp</span>(Y.gpa<span class="op">$</span>coords)</span>
+<span id="cb44-3"><a href="experimental-sample-analysis.html#cb44-3"></a><span class="kw">summary</span>(pca)</span></code></pre></div>
 <pre><code>## 
 ## Ordination type: Principal Component Analysis 
 ## Centering and projection: OLS 
@@ -461,47 +568,58 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Number of vectors 13 
 ## 
 ## Importance of Components:
-##                            Comp1       Comp2       Comp3        Comp4        Comp5
-## Eigenvalues            0.0441045 0.005014108 0.003398275 0.0003353507 0.0002822004
-## Proportion of Variance 0.8226607 0.093525803 0.063386441 0.0062551403 0.0052637514
-## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536 0.9910918051
-##                               Comp6        Comp7        Comp8        Comp9       Comp10
-## Eigenvalues            0.0001809061 0.0001525644 7.081347e-05 3.658645e-05 2.060166e-05
-## Proportion of Variance 0.0033743561 0.0028457127 1.320850e-03 6.824299e-04 3.842732e-04
-## Cumulative Proportion  0.9944661611 0.9973118738 9.986327e-01 9.993152e-01 9.996994e-01
-##                              Comp11       Comp12       Comp13
-## Eigenvalues            1.050025e-05 5.614060e-06 2.143147e-33
-## Proportion of Variance 1.958562e-04 1.047164e-04 3.997511e-32
-## Cumulative Proportion  9.998953e-01 1.000000e+00 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="experimental-sample-analysis.html#cb45-1"></a><span class="co"># set plot parameters</span></span>
-<span id="cb45-2"><a href="experimental-sample-analysis.html#cb45-2"></a>pch.gps<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="kw">as.factor</span>(inc)]</span>
-<span id="cb45-3"><a href="experimental-sample-analysis.html#cb45-3"></a>col.gps<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc)]</span>
-<span id="cb45-4"><a href="experimental-sample-analysis.html#cb45-4"></a>col.hull<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#C27D38&quot;</span>)</span>
-<span id="cb45-5"><a href="experimental-sample-analysis.html#cb45-5"></a></span>
-<span id="cb45-6"><a href="experimental-sample-analysis.html#cb45-6"></a><span class="co"># plotPCAbyinc2</span></span>
-<span id="cb45-7"><a href="experimental-sample-analysis.html#cb45-7"></a>pc.plot<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">plot</span>(pca,<span class="dt">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb45-8"><a href="experimental-sample-analysis.html#cb45-8"></a>            <span class="dt">pch =</span> pch.gps<span class="fl">.1</span>,</span>
-<span id="cb45-9"><a href="experimental-sample-analysis.html#cb45-9"></a>            <span class="dt">col =</span> col.gps<span class="fl">.1</span>)</span>
-<span id="cb45-10"><a href="experimental-sample-analysis.html#cb45-10"></a>            <span class="kw">shapeHulls</span>(pc.plot<span class="fl">.1</span>, </span>
-<span id="cb45-11"><a href="experimental-sample-analysis.html#cb45-11"></a>                       <span class="dt">groups =</span> inc,</span>
-<span id="cb45-12"><a href="experimental-sample-analysis.html#cb45-12"></a>                       <span class="dt">group.cols =</span> col.hull<span class="fl">.1</span>)</span></code></pre></div>
-<p><img src="incision_files/figure-html/pcaEX-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="experimental-sample-analysis.html#cb46-1"></a>fig.cap =<span class="st"> &quot;Plot of PC1 and PC2 for U- and V-shaped incisions.&quot;</span></span>
-<span id="cb46-2"><a href="experimental-sample-analysis.html#cb46-2"></a></span>
-<span id="cb46-3"><a href="experimental-sample-analysis.html#cb46-3"></a><span class="co"># set plot parameters</span></span>
-<span id="cb46-4"><a href="experimental-sample-analysis.html#cb46-4"></a>pch.gps<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(inc2)]</span>
-<span id="cb46-5"><a href="experimental-sample-analysis.html#cb46-5"></a>col.gps<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc2)]</span>
-<span id="cb46-6"><a href="experimental-sample-analysis.html#cb46-6"></a>col.hull<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>)</span>
-<span id="cb46-7"><a href="experimental-sample-analysis.html#cb46-7"></a></span>
-<span id="cb46-8"><a href="experimental-sample-analysis.html#cb46-8"></a><span class="co"># plotPCAbyinc2</span></span>
-<span id="cb46-9"><a href="experimental-sample-analysis.html#cb46-9"></a>pc.plot<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">plot</span>(pca,<span class="dt">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb46-10"><a href="experimental-sample-analysis.html#cb46-10"></a>            <span class="dt">pch =</span> pch.gps<span class="fl">.2</span>,</span>
-<span id="cb46-11"><a href="experimental-sample-analysis.html#cb46-11"></a>            <span class="dt">col =</span> col.gps<span class="fl">.2</span>)</span>
-<span id="cb46-12"><a href="experimental-sample-analysis.html#cb46-12"></a>            <span class="kw">shapeHulls</span>(pc.plot<span class="fl">.2</span>, </span>
-<span id="cb46-13"><a href="experimental-sample-analysis.html#cb46-13"></a>                       <span class="dt">groups =</span> inc2,</span>
-<span id="cb46-14"><a href="experimental-sample-analysis.html#cb46-14"></a>                       <span class="dt">group.cols =</span> col.hull<span class="fl">.2</span>)</span></code></pre></div>
-<p><img src="incision_files/figure-html/pcaEX-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="experimental-sample-analysis.html#cb47-1"></a>fig.cap =<span class="st"> &quot;Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, U-narrow incisions; and orange triangles, U-wide incisions.&quot;</span></span></code></pre></div>
+##                            Comp1       Comp2       Comp3        Comp4
+## Eigenvalues            0.0441045 0.005014108 0.003398275 0.0003353507
+## Proportion of Variance 0.8226607 0.093525803 0.063386441 0.0062551403
+## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536
+##                               Comp5        Comp6        Comp7        Comp8
+## Eigenvalues            0.0002822004 0.0001809061 0.0001525644 7.081347e-05
+## Proportion of Variance 0.0052637514 0.0033743561 0.0028457127 1.320850e-03
+## Cumulative Proportion  0.9910918051 0.9944661611 0.9973118738 9.986327e-01
+##                               Comp9       Comp10       Comp11       Comp12
+## Eigenvalues            3.658645e-05 2.060166e-05 1.050025e-05 5.614060e-06
+## Proportion of Variance 6.824299e-04 3.842732e-04 1.958562e-04 1.047164e-04
+## Cumulative Proportion  9.993152e-01 9.996994e-01 9.998953e-01 1.000000e+00
+##                              Comp13
+## Eigenvalues            2.143147e-33
+## Proportion of Variance 3.997511e-32
+## Cumulative Proportion  1.000000e+00</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="experimental-sample-analysis.html#cb46-1"></a><span class="co"># set plot parameters</span></span>
+<span id="cb46-2"><a href="experimental-sample-analysis.html#cb46-2"></a>pch.gps<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="kw">as.factor</span>(inc)]</span>
+<span id="cb46-3"><a href="experimental-sample-analysis.html#cb46-3"></a>col.gps<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc)]</span>
+<span id="cb46-4"><a href="experimental-sample-analysis.html#cb46-4"></a>col.hull<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#C27D38&quot;</span>)</span>
+<span id="cb46-5"><a href="experimental-sample-analysis.html#cb46-5"></a></span>
+<span id="cb46-6"><a href="experimental-sample-analysis.html#cb46-6"></a><span class="co"># plotPCAbyinc2</span></span>
+<span id="cb46-7"><a href="experimental-sample-analysis.html#cb46-7"></a>pc.plot<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">plot</span>(pca,<span class="dt">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb46-8"><a href="experimental-sample-analysis.html#cb46-8"></a>            <span class="dt">pch =</span> pch.gps<span class="fl">.1</span>,</span>
+<span id="cb46-9"><a href="experimental-sample-analysis.html#cb46-9"></a>            <span class="dt">col =</span> col.gps<span class="fl">.1</span>)</span>
+<span id="cb46-10"><a href="experimental-sample-analysis.html#cb46-10"></a>            <span class="kw">shapeHulls</span>(pc.plot<span class="fl">.1</span>, </span>
+<span id="cb46-11"><a href="experimental-sample-analysis.html#cb46-11"></a>                       <span class="dt">groups =</span> inc,</span>
+<span id="cb46-12"><a href="experimental-sample-analysis.html#cb46-12"></a>                       <span class="dt">group.cols =</span> col.hull<span class="fl">.1</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:pcaEX1"></span>
+<img src="incision_files/figure-html/pcaEX1-1.png" alt="Plot of PC1 and PC2 for U- (gray) and V-shaped (orange) incisions." width="100%" />
+<p class="caption">
+Figure 5.4: Plot of PC1 and PC2 for U- (gray) and V-shaped (orange) incisions.
+</p>
+</div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="experimental-sample-analysis.html#cb47-1"></a><span class="co"># set plot parameters</span></span>
+<span id="cb47-2"><a href="experimental-sample-analysis.html#cb47-2"></a>pch.gps<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(inc2)]</span>
+<span id="cb47-3"><a href="experimental-sample-analysis.html#cb47-3"></a>col.gps<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc2)]</span>
+<span id="cb47-4"><a href="experimental-sample-analysis.html#cb47-4"></a>col.hull<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#CCC591&quot;</span>)</span>
+<span id="cb47-5"><a href="experimental-sample-analysis.html#cb47-5"></a></span>
+<span id="cb47-6"><a href="experimental-sample-analysis.html#cb47-6"></a><span class="co"># plotPCAbyinc2</span></span>
+<span id="cb47-7"><a href="experimental-sample-analysis.html#cb47-7"></a>pc.plot<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">plot</span>(pca,<span class="dt">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb47-8"><a href="experimental-sample-analysis.html#cb47-8"></a>            <span class="dt">pch =</span> pch.gps<span class="fl">.2</span>,</span>
+<span id="cb47-9"><a href="experimental-sample-analysis.html#cb47-9"></a>            <span class="dt">col =</span> col.gps<span class="fl">.2</span>)</span>
+<span id="cb47-10"><a href="experimental-sample-analysis.html#cb47-10"></a>            <span class="kw">shapeHulls</span>(pc.plot<span class="fl">.2</span>, </span>
+<span id="cb47-11"><a href="experimental-sample-analysis.html#cb47-11"></a>                       <span class="dt">groups =</span> inc2,</span>
+<span id="cb47-12"><a href="experimental-sample-analysis.html#cb47-12"></a>                       <span class="dt">group.cols =</span> col.hull<span class="fl">.2</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:pcaEX2"></span>
+<img src="incision_files/figure-html/pcaEX2-1.png" alt="Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, U-narrow incisions; and orange triangles, U-wide incisions." width="100%" />
+<p class="caption">
+Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, U-narrow incisions; and orange triangles, U-wide incisions.
+</p>
+</div>
 </div>
 <div id="define-models" class="section level2">
 <h2><span class="header-section-number">5.3</span> Define models</h2>
@@ -590,13 +708,13 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Estimation method: Ordinary Least Squares 
 ## Effect sizes (Z) based on F distributions
 ## 
-##                           ResDf Df     RSS       SS       MS      Rsq      F      Z      P
-## shape ~ size + inc (Null)    10  1 0.13475                   0.000000                     
-## shape ~ size * inc            9  1 0.08548 0.049269 0.049269 0.076583 5.1874 2.1765 0.0104
-## Total                        12    0.64334                                                
-##                           Pr(&gt;F)
-## shape ~ size + inc (Null)       
-## shape ~ size * inc              
+##                           ResDf Df     RSS       SS       MS      Rsq      F
+## shape ~ size + inc (Null)    10  1 0.13475                   0.000000       
+## shape ~ size * inc            9  1 0.08548 0.049269 0.049269 0.076583 5.1874
+## Total                        12    0.64334                                  
+##                                Z      P Pr(&gt;F)
+## shape ~ size + inc (Null)                     
+## shape ~ size * inc        2.1765 0.0104       
 ## Total</code></pre>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="experimental-sample-analysis.html#cb57-1"></a><span class="co"># inc2</span></span>
 <span id="cb57-2"><a href="experimental-sample-analysis.html#cb57-2"></a><span class="kw">anova</span>(fit.sz.cinc2) <span class="co"># common allometry (inc2)</span></span></code></pre></div>
@@ -644,13 +762,13 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 ## Estimation method: Ordinary Least Squares 
 ## Effect sizes (Z) based on F distributions
 ## 
-##                            ResDf Df     RSS       SS       MS      Rsq      F       Z
-## shape ~ size + inc2 (Null)     9  1 0.09676                   0.000000               
-## shape ~ size * inc2            7  2 0.07503 0.021725 0.010862 0.033768 1.0134 0.18816
-## Total                         12    0.64334                                          
-##                                 P Pr(&gt;F)
-## shape ~ size + inc2 (Null)              
-## shape ~ size * inc2        0.4522       
+##                            ResDf Df     RSS       SS       MS      Rsq      F
+## shape ~ size + inc2 (Null)     9  1 0.09676                   0.000000       
+## shape ~ size * inc2            7  2 0.07503 0.021725 0.010862 0.033768 1.0134
+## Total                         12    0.64334                                  
+##                                  Z      P Pr(&gt;F)
+## shape ~ size + inc2 (Null)                      
+## shape ~ size * inc2        0.18816 0.4522       
 ## Total</code></pre>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="experimental-sample-analysis.html#cb63-1"></a><span class="co"># allometry plots</span></span>
 <span id="cb63-2"><a href="experimental-sample-analysis.html#cb63-2"></a><span class="co"># regscore (Drake and Klingenberg 2008)</span></span>
@@ -899,9 +1017,13 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <span id="cb93-4"><a href="experimental-sample-analysis.html#cb93-4"></a></span>
 <span id="cb93-5"><a href="experimental-sample-analysis.html#cb93-5"></a><span class="co"># mean shapes</span></span>
 <span id="cb93-6"><a href="experimental-sample-analysis.html#cb93-6"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/mshapeEX.png&#39;</span>)</span></code></pre></div>
-<p><img src="images/mshapeEX.png" width="1726" /></p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="experimental-sample-analysis.html#cb94-1"></a>fig.cap =<span class="st"> &quot;Mean shapes for incision profiles Un, Uw, and V.&quot;</span></span>
-<span id="cb94-2"><a href="experimental-sample-analysis.html#cb94-2"></a><span class="co"># end of code</span></span></code></pre></div>
+<div class="figure"><span id="fig:m-shapesEX"></span>
+<img src="images/mshapeEX.png" alt="Mean shapes for incision profiles Un, Uw, and V." width="100%" />
+<p class="caption">
+Figure 5.6: Mean shapes for incision profiles Un, Uw, and V.
+</p>
+</div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="experimental-sample-analysis.html#cb94-1"></a><span class="co"># end of code</span></span></code></pre></div>
 
 </div>
 </div>
