@@ -44,14 +44,6 @@ Results demonstrate saltation, illustrating that some landmarks are critical for
 ## Analysis of archaeological sample
 
 ```{r, load.lasec.package.arch, echo=TRUE}
-# load package
-#devtools::install_github("akiopteryx/lambda")
-library(LaMBDA)
-
-# set working directory
-setwd(getwd())
-source('readmulti.csv.R')
-
 # read .csv files
 setwd("./data1")
 filelist <- list.files(pattern = ".csv")
@@ -65,7 +57,7 @@ lasec(coord.data = lmdata, n.dim = 3, iter = 1000)
 
 Results demonstrate that 10 landmarks are necessary to achieve a median fit value of 0.90, 14 to achieve a median fit value of 0.95, and 19 to achieve a fit value of 0.99. For centroid size, three landmarks were needed to achieve a median fit value of 0.95, and six were needed to achieve a median fit value of 0.99.
 
-```{r fig.lasec.arch, fig.cap="Sampling curves from performing `LaSEC` on the experimental dataset with respect to characterising shape variation. Each gray line indicates fit values from one iteration of subsampling. Thick, dark line denotes median fit value at each number of landmarks. `LaSEC` sampling curve for shape (left), and for centroid size (right). Results produced using the code above for this 3D dataset, using 1,000 iterations. _Images converted to PNG following export._"}
+```{r fig.lasec.arch, fig.cap="Sampling curves from performing `LaSEC` on the archaeological dataset with respect to characterising shape variation. Each gray line indicates fit values from one iteration of subsampling. Thick, dark line denotes median fit value at each number of landmarks. `LaSEC` sampling curve for shape (left), and for centroid size (right). Results produced using the code above for this 3D dataset, using 1,000 iterations. _Images converted to PNG following export._"}
 knitr::include_graphics('images/lasec.arch.png')
 ```
 
