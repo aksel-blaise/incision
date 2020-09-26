@@ -34,34 +34,30 @@ Woodland period and pre-CE 1200 Caddo components were found at 41SA66. The Woodl
 
 ### 41sa66
 
-```{r sa66, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r sa66, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sa66."}
 # incision image
 knitr::include_graphics('images/sa66-inc.png')
-fig.cap="Incisions on sherd 41sa66."
 ```
 
 ### 41sa66-4
 
-```{r sa66-4, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r sa66-4, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sa66-4."}
 # incision image
 knitr::include_graphics('images/sa66-4-inc.png')
-fig.cap="Incisions on sherd 41sa66-4."
 ```
 
 ### 41sa66-5
 
-```{r sa66-5, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r sa66-5, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sa66-5."}
 # incision image
 knitr::include_graphics('images/sa66-5-inc.png')
-fig.cap="Incisions on sherd 41sa66-5."
 ```
 
 ### 41sa66-6
 
-```{r sa66-6, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r sa66-6, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sa66-6."}
 # incision image
 knitr::include_graphics('images/sa66-6-inc.png')
-fig.cap="Incisions on sherd 41sa66-6."
 ```
 
 ## 41SB125
@@ -72,26 +68,23 @@ The Caddo component is delimited by seven grog-tempered body sherds from four sh
 
 ### 41sb125-2-st27-25cm-lot100
 
-```{r 41sb125-2-st27-25cm-lot100, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sb125-2-st27-25cm-lot100, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sb125-2-st27-25cm-lot100."}
 # incision image
 knitr::include_graphics('images/41sb125-2-st27-25cm-lot100-inc.png')
-fig.cap="Incisions on sherd 41sb125-2-st27-25cm-lot100."
 ```
 
 ### 41sb125-3-st27-lot99-inc
 
-```{r 41sb125-3-st27-lot99, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sb125-3-st27-lot99, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sb125-3-st27-lot99."}
 # incision image
 knitr::include_graphics('images/41sb125-3-st27-lot99-inc.png')
-fig.cap="Incisions on sherd 41sb125-3-st27-lot99."
 ```
 
 ### 41sb125-11-st11-lot50-inc
 
-```{r 41sb125-11-st11-lot50-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sb125-11-st11-lot50-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sb125-11-st11-lot50."}
 # incision image
 knitr::include_graphics('images/41sb125-11-st11-lot50-inc.png')
-fig.cap="Incisions on sherd 41sb125-11-st11-lot50."
 ```
 
 ## 41SB189
@@ -104,18 +97,16 @@ Temporally diagnostic artifacts indicate that the Caddo occupation at the site o
 
 ### 41sb189-9-lot17
 
-```{r 41SB189-9-lot17, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41SB189-9-lot17, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sb189-9-lot17."}
 # incision image
 knitr::include_graphics('images/41SB189-9-lot17-inc.png')
-fig.cap="Incisions on sherd 41sb189-9-lot17."
 ```
 
 ### 41sb189-10-Lot17
 
-```{r 41sb189-10-Lot17-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sb189-10-Lot17-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sb189-10-Lot17."}
 # incision image
 knitr::include_graphics('images/41sb189-10-Lot17-inc.png')
-fig.cap="Incisions on sherd 41sb189-10-Lot17."
 ```
 
 ## 41SB291
@@ -128,18 +119,16 @@ The ancestral Caddo component is marked by four grog and/or bone-tempered rim an
 
 ### 41sb291-4-st64-3040-lot245
 
-```{r 41sb291-4-st64-3040-lot245, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sb291-4-st64-3040-lot245, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sb291-4-st64-3040-lot245."}
 # incision image
 knitr::include_graphics('images/41sb291-4-st64-3040-lot245-inc.png')
-fig.cap="Incisions on sherd 41sb291-4-st64-3040-lot245."
 ```
 
 ### 41sb291-9-st61-50-55-lot229
 
-```{r 41sb291-9-st61-50-55-lot229, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sb291-9-st61-50-55-lot229, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sb291-9-st61-50-55-lot229."}
 # incision image
 knitr::include_graphics('images/41sb291-9-st61-50-55-lot229-inc.png')
-fig.cap="Incisions on sherd 41sb291-9-st61-50-55-lot229."
 ```
 
 ## 41SY43
@@ -150,66 +139,58 @@ Not including lithic debris or fire-cracked rock from the shovel tests, more tha
 
 ### 41sy43-1
 
-```{r 41sy43-1-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy43-1-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy43-1."}
 # incision image
 knitr::include_graphics('images/41sy43-1-inc.png')
-fig.cap="Incisions on sherd 41sy43-1."
 ```
 
 ### 41sy43-13-1191
 
-```{r 41sy43-13-1191-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy43-13-1191-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy43-13-1191."}
 # incision image
 knitr::include_graphics('images/41sy43-13-1191-inc.png')
-fig.cap="Incisions on sherd 41sy43-13-1191."
 ```
 
 ### 41sy43-19
 
-```{r 41sy43-19-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy43-19-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy43-19."}
 # incision image
 knitr::include_graphics('images/41sy43-19-inc.png')
-fig.cap="Incisions on sherd 41sy43-19."
 ```
 
 ### 41sy43-830
 
-```{r 41SY43-830-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41SY43-830-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy43-830."}
 # incision image
 knitr::include_graphics('images/41sy43-830-inc.png')
-fig.cap="Incisions on sherd 41sy43-830."
 ```
 
 ### 41sy43-k-2-27-37
 
-```{r 41sy43-k-2-27-37, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy43-k-2-27-37, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy43-k-2-27-37."}
 # incision image
 knitr::include_graphics('images/41sy43-k-2-27-37-inc.png')
-fig.cap="Incisions on sherd 41sy43-k-2-27-37."
 ```
 
 ### 41sy43-K-6-1020
 
-```{r 41sy43-K-6-1020-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy43-K-6-1020-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy43-K-6-1020."}
 # incision image
 knitr::include_graphics('images/41sy43-K-6-1020-inc.png')
-fig.cap="Incisions on sherd 41sy43-K-6-1020."
 ```
 
 ### 41sy43-k8-17
 
-```{r 41sy43-k8-17-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy43-k8-17-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy43-k8-17."}
 # incision image
 knitr::include_graphics('images/41sy43-k8-17-inc.png')
-fig.cap="Incisions on sherd 41sy43-k8-17."
 ```
 
 ### 41sy43-lot1035-2030
 
-```{r 41sy43-lot1035-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy43-lot1035-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy43-lot1035-2030."}
 # incision image
 knitr::include_graphics('images/41sy43-lot1035-2030-inc.png')
-fig.cap="Incisions on sherd 41sy43-lot1035-2030."
 ```
 
 ## 41SY258
@@ -218,18 +199,16 @@ fig.cap="Incisions on sherd 41sy43-lot1035-2030."
 
 ### 41sy258-st2-10-20
 
-```{r 41sy258-st2-10-20-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy258-st2-10-20-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy258-st2-10-20."}
 # incision image
 knitr::include_graphics('images/41sy258-st2-10-20-inc.png')
-fig.cap="Incisions on sherd 41sy258-st2-10-20."
 ```
 
 ### 41sy258-st3-2030
 
-```{r 41sy258-st3-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy258-st3-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy258-st3-2030."}
 # incision image
 knitr::include_graphics('images/41sy258-st3-2030-inc.png')
-fig.cap="Incisions on sherd 41sy258-st3-2030."
 ```
 
 ## 41SY280
@@ -242,138 +221,121 @@ Taking into consideration the wide range in decorated sherd sample sizes in the 
 
 ### 41sy280
 
-```{r 41sy280-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280."}
 # incision image
 knitr::include_graphics('images/41sy280-inc.png')
-fig.cap="Incisions on sherd 41sy280."
 ```
 
 ### 41sy280-11
 
-```{r 41sy280-11-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-11-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-11."}
 # incision image
 knitr::include_graphics('images/41sy280-11-inc.png')
-fig.cap="Incisions on sherd 41sy280-11."
 ```
 
 ### 41sy280-18
 
-```{r 41sy280-18-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-18-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-18."}
 # incision image
 knitr::include_graphics('images/41sy280-18-inc.png')
-fig.cap="Incisions on sherd 41sy280-18."
 ```
 
 ### 41sy280-20
 
-```{r 41sy280-20-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-20-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-20."}
 # incision image
 knitr::include_graphics('images/41sy280-20-inc.png')
-fig.cap="Incisions on sherd 41sy280-20."
 ```
 
 ### 41sy280-84
 
-```{r 41sy280-84-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-84-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-84."}
 # incision image
 knitr::include_graphics('images/41sy280-84-inc.png')
-fig.cap="Incisions on sherd 41sy280-84."
 ```
 
 ### 41sy280-101
 
-```{r 41sy280-101-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-101-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-101."}
 # incision image
 knitr::include_graphics('images/41sy280-101-inc.png')
-fig.cap="Incisions on sherd 41sy280-101."
 ```
 
 ### 41sy280-127
 
-```{r 41sy280-127-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-127-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-127."}
 # incision image
 knitr::include_graphics('images/41sy280-127-inc.png')
-fig.cap="Incisions on sherd 41sy280-127."
 ```
 
 ### 41sy280-lot31
 
-```{r 41sy280-lot31-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-lot31-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-lot31."}
 # incision image
 knitr::include_graphics('images/41sy280-lot31-inc.png')
-fig.cap="Incisions on sherd 41sy280-lot31."
 ```
 
 ### 41sy280-lot48
 
-```{r 41sy280-lot48-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-lot48-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-lot48."}
 # incision image
 knitr::include_graphics('images/41sy280-lot48-inc.png')
-fig.cap="Incisions on sherd 41sy280-lot48."
 ```
 
 ### 41sy280-lot50
 
-```{r 41SY280-lot50-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41SY280-lot50-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41SY280-lot50."}
 # incision image
 knitr::include_graphics('images/41sy280-lot50-inc.png')
-fig.cap="Incisions on sherd 41SY280-lot50."
 ```
 
 ### 41sy280-lot52
 
-```{r 41sy280-lot52-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-lot52-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-lot52."}
 # incision image
 knitr::include_graphics('images/41sy280-lot52-inc.png')
-fig.cap="Incisions on sherd 41sy280-lot52."
 ```
 
 ### 41sy280-lot90
 
-```{r 41sy280-lot90, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-lot90, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-lot90."}
 # incision image
 knitr::include_graphics('images/41sy280-lot90-inc.png')
-fig.cap="Incisions on sherd 41sy280-lot90."
 ```
 
 ### 41sy280-lot91
 
-```{r 41sy280-lot91-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-lot91-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-lot91."}
 # incision image
 knitr::include_graphics('images/41sy280-lot91-inc.png')
-fig.cap="Incisions on sherd 41sy280-lot91."
 ```
 
 ### 41sy280-lot94
 
-```{r 41sy280-lot94-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-lot94-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-lot94."}
 # incision image
 knitr::include_graphics('images/41sy280-lot94-inc.png')
-fig.cap="Incisions on sherd 41sy280-lot94."
 ```
 
 ### 41sy280-lot107
 
-```{r 41sy280-lot107-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-lot107-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-lot107."}
 # incision image
 knitr::include_graphics('images/41sy280-lot107-inc.png')
-fig.cap="Incisions on sherd 41sy280-lot107."
 ```
 
 ### 41sy280-lot112
 
-```{r 41sy280-lot112-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-lot112-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-lot112."}
 # incision image
 knitr::include_graphics('images/41sy280-lot112-inc.png')
-fig.cap="Incisions on sherd 41sy280-lot112."
 ```
 
 ### 41sy280-lot125
 
-```{r 41sy280-lot125-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41sy280-lot125-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41sy280-lot125."}
 # incision image
 knitr::include_graphics('images/41sy280-lot125-inc.png')
-fig.cap="Incisions on sherd 41sy280-lot125."
 ```
 
 ## 41TN91
@@ -384,88 +346,77 @@ The ceramic sherd assemblage from 41TN91 is unique among other sites in Trinity 
 
 ### 41tn91-u1-0-10
 
-```{r 41tn91-u1-0-10-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-u1-0-10-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-u1-0-10."}
 # incision image
 knitr::include_graphics('images/41tn91-u1-0-10-inc.png')
-fig.cap="Incisions on sherd 41tn91-u1-0-10."
 ```
 
 ### 41tn91-u1-2030
 
-```{r 41tn91-u1-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-u1-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-u1-2030."}
 # incision image
 knitr::include_graphics('images/41tn91-u1-2030-inc.png')
-fig.cap="Incisions on sherd 41tn91-u1-2030."
 ```
 
 ### 41tn91-u2-1020
 
-```{r 41tn91-u2-1020-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-u2-1020-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-u2-1020."}
 # incision image
 knitr::include_graphics('images/41tn91-u2-1020-inc.png')
-fig.cap="Incisions on sherd 41tn91-u2-1020."
 ```
 
 ### 41tn91-u3-2030
 
-```{r 41tn91-u3-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-u3-2030-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-u3-2030."}
 # incision image
 knitr::include_graphics('images/41tn91-u3-2030-inc.png')
-fig.cap="Incisions on sherd 41tn91-u3-2030."
 ```
 
 ### 41tn91-u4-0-20
 
-```{r 41tn91-u4-0-20-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-u4-0-20-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-u4-0-20."}
 # incision image
 knitr::include_graphics('images/41tn91-u4-0-20-inc.png')
-fig.cap="Incisions on sherd 41tn91-u4-0-20."
 ```
 
 ### 41tn91-u4-4050
 
-```{r 41tn91-u4-4050-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-u4-4050-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-u4-4050."}
 # incision image
 knitr::include_graphics('images/41tn91-u4-4050-inc.png')
-fig.cap="Incisions on sherd 41tn91-u4-4050."
 ```
 
 ### 41tn91-u4-5060
 
-```{r 41tn91-u4-5060-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-u4-5060-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-u4-5060."}
 # incision image
 knitr::include_graphics('images/41tn91-u4-5060-inc.png')
-fig.cap="Incisions on sherd 41tn91-u4-5060."
 ```
 
 ### 41tn91-u6-3040
 
-```{r 41tn91-u6-3040, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-u6-3040, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-u6-3040."}
 # incision image
 knitr::include_graphics('images/41tn91-u6-3040-inc.png')
-fig.cap="Incisions on sherd 41tn91-u6-3040."
 ```
 
 ### 41tn91-u7-30-40
 
-```{r 41tn91-u7-30-40-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-u7-30-40-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-u7-30-40."}
 # incision image
 knitr::include_graphics('images/41tn91-u7-30-40-inc.png')
-fig.cap="Incisions on sherd 41tn91-u7-30-40."
 ```
 
 ### 41tn91-u8-1020
 
-```{r 41tn91-u8-1020, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-u8-1020, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-u8-1020."}
 # incision image
 knitr::include_graphics('images/41tn91-u8-1020-inc.png')
-fig.cap="Incisions on sherd 41tn91-u8-1020."
 ```
 
 ### 41tn91-unit2-lot17
 
-```{r 41tn91-unit2-lot17-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r 41tn91-unit2-lot17-inc, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on sherd 41tn91-unit2-lot17."}
 # incision image
 knitr::include_graphics('images/41tn91-unit2-lot17-inc.png')
-fig.cap="Incisions on sherd 41tn91-unit2-lot17."
 ```

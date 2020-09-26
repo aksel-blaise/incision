@@ -325,27 +325,27 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <h1><span class="header-section-number">Chapter 7</span> Archaeological sample - analysis</h1>
 <div id="load-packages-data" class="section level2">
 <h2><span class="header-section-number">7.1</span> Load packages + data</h2>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="archaeological-sample-analysis.html#cb204-1"></a><span class="co"># devtools::install_github(&quot;geomorphR/geomorph&quot;, ref = &quot;Stable&quot;, build_vignettes = TRUE)</span></span>
-<span id="cb204-2"><a href="archaeological-sample-analysis.html#cb204-2"></a><span class="kw">library</span>(geomorph)</span>
-<span id="cb204-3"><a href="archaeological-sample-analysis.html#cb204-3"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb204-4"><a href="archaeological-sample-analysis.html#cb204-4"></a><span class="kw">library</span>(wesanderson)</span>
-<span id="cb204-5"><a href="archaeological-sample-analysis.html#cb204-5"></a><span class="kw">setwd</span>(<span class="kw">getwd</span>())</span>
-<span id="cb204-6"><a href="archaeological-sample-analysis.html#cb204-6"></a></span>
-<span id="cb204-7"><a href="archaeological-sample-analysis.html#cb204-7"></a><span class="co"># read GM data</span></span>
-<span id="cb204-8"><a href="archaeological-sample-analysis.html#cb204-8"></a><span class="kw">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
-<span id="cb204-9"><a href="archaeological-sample-analysis.html#cb204-9"></a></span>
-<span id="cb204-10"><a href="archaeological-sample-analysis.html#cb204-10"></a><span class="co"># read .csv files</span></span>
-<span id="cb204-11"><a href="archaeological-sample-analysis.html#cb204-11"></a><span class="kw">setwd</span>(<span class="st">&quot;./data1&quot;</span>)</span>
-<span id="cb204-12"><a href="archaeological-sample-analysis.html#cb204-12"></a>filelist &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
-<span id="cb204-13"><a href="archaeological-sample-analysis.html#cb204-13"></a>coords &lt;-<span class="st"> </span><span class="kw">readmulti.csv</span>(filelist)</span>
-<span id="cb204-14"><a href="archaeological-sample-analysis.html#cb204-14"></a><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
-<span id="cb204-15"><a href="archaeological-sample-analysis.html#cb204-15"></a></span>
-<span id="cb204-16"><a href="archaeological-sample-analysis.html#cb204-16"></a><span class="co"># read qualitative data</span></span>
-<span id="cb204-17"><a href="archaeological-sample-analysis.html#cb204-17"></a>qdata &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;qdata1.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</span>
-<span id="cb204-18"><a href="archaeological-sample-analysis.html#cb204-18"></a>qdata &lt;-<span class="st"> </span>qdata[<span class="kw">match</span>(<span class="kw">dimnames</span>(coords)[[<span class="dv">3</span>]],<span class="kw">rownames</span>(qdata)),]</span>
-<span id="cb204-19"><a href="archaeological-sample-analysis.html#cb204-19"></a></span>
-<span id="cb204-20"><a href="archaeological-sample-analysis.html#cb204-20"></a><span class="co"># print qdata</span></span>
-<span id="cb204-21"><a href="archaeological-sample-analysis.html#cb204-21"></a>knitr<span class="op">::</span><span class="kw">kable</span>(qdata, <span class="dt">align =</span> <span class="st">&quot;ccccc&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Attributes included in qdata.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="archaeological-sample-analysis.html#cb144-1"></a><span class="co"># devtools::install_github(&quot;geomorphR/geomorph&quot;, ref = &quot;Stable&quot;, build_vignettes = TRUE)</span></span>
+<span id="cb144-2"><a href="archaeological-sample-analysis.html#cb144-2"></a><span class="kw">library</span>(geomorph)</span>
+<span id="cb144-3"><a href="archaeological-sample-analysis.html#cb144-3"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb144-4"><a href="archaeological-sample-analysis.html#cb144-4"></a><span class="kw">library</span>(wesanderson)</span>
+<span id="cb144-5"><a href="archaeological-sample-analysis.html#cb144-5"></a><span class="kw">setwd</span>(<span class="kw">getwd</span>())</span>
+<span id="cb144-6"><a href="archaeological-sample-analysis.html#cb144-6"></a></span>
+<span id="cb144-7"><a href="archaeological-sample-analysis.html#cb144-7"></a><span class="co"># read GM data</span></span>
+<span id="cb144-8"><a href="archaeological-sample-analysis.html#cb144-8"></a><span class="kw">source</span>(<span class="st">&#39;readmulti.csv.R&#39;</span>)</span>
+<span id="cb144-9"><a href="archaeological-sample-analysis.html#cb144-9"></a></span>
+<span id="cb144-10"><a href="archaeological-sample-analysis.html#cb144-10"></a><span class="co"># read .csv files</span></span>
+<span id="cb144-11"><a href="archaeological-sample-analysis.html#cb144-11"></a><span class="kw">setwd</span>(<span class="st">&quot;./data1&quot;</span>)</span>
+<span id="cb144-12"><a href="archaeological-sample-analysis.html#cb144-12"></a>filelist &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>)</span>
+<span id="cb144-13"><a href="archaeological-sample-analysis.html#cb144-13"></a>coords &lt;-<span class="st"> </span><span class="kw">readmulti.csv</span>(filelist)</span>
+<span id="cb144-14"><a href="archaeological-sample-analysis.html#cb144-14"></a><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
+<span id="cb144-15"><a href="archaeological-sample-analysis.html#cb144-15"></a></span>
+<span id="cb144-16"><a href="archaeological-sample-analysis.html#cb144-16"></a><span class="co"># read qualitative data</span></span>
+<span id="cb144-17"><a href="archaeological-sample-analysis.html#cb144-17"></a>qdata &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;qdata1.csv&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</span>
+<span id="cb144-18"><a href="archaeological-sample-analysis.html#cb144-18"></a>qdata &lt;-<span class="st"> </span>qdata[<span class="kw">match</span>(<span class="kw">dimnames</span>(coords)[[<span class="dv">3</span>]],<span class="kw">rownames</span>(qdata)),]</span>
+<span id="cb144-19"><a href="archaeological-sample-analysis.html#cb144-19"></a></span>
+<span id="cb144-20"><a href="archaeological-sample-analysis.html#cb144-20"></a><span class="co"># print qdata</span></span>
+<span id="cb144-21"><a href="archaeological-sample-analysis.html#cb144-21"></a>knitr<span class="op">::</span><span class="kw">kable</span>(qdata, <span class="dt">align =</span> <span class="st">&quot;ccccc&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Attributes included in qdata.&quot;</span>)</span></code></pre></div>
 <table>
 <caption>(#tab:load.arch)Attributes included in qdata.</caption>
 <thead>
@@ -753,38 +753,38 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="archaeological-sample-analysis.html#cb205-1"></a><span class="co"># gpa</span></span>
-<span id="cb205-2"><a href="archaeological-sample-analysis.html#cb205-2"></a>Y.gpa &lt;-<span class="st"> </span><span class="kw">gpagen</span>(coords, <span class="dt">PrinAxes =</span> <span class="ot">TRUE</span>, <span class="dt">ProcD =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb205-3"><a href="archaeological-sample-analysis.html#cb205-3"></a>                <span class="dt">Proj =</span> <span class="ot">TRUE</span>, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb205-4"><a href="archaeological-sample-analysis.html#cb205-4"></a></span>
-<span id="cb205-5"><a href="archaeological-sample-analysis.html#cb205-5"></a><span class="co"># gpa plot</span></span>
-<span id="cb205-6"><a href="archaeological-sample-analysis.html#cb205-6"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="archaeological-sample-analysis.html#cb145-1"></a><span class="co"># gpa</span></span>
+<span id="cb145-2"><a href="archaeological-sample-analysis.html#cb145-2"></a>Y.gpa &lt;-<span class="st"> </span><span class="kw">gpagen</span>(coords, <span class="dt">PrinAxes =</span> <span class="ot">TRUE</span>, <span class="dt">ProcD =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb145-3"><a href="archaeological-sample-analysis.html#cb145-3"></a>                <span class="dt">Proj =</span> <span class="ot">TRUE</span>, <span class="dt">print.progress =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb145-4"><a href="archaeological-sample-analysis.html#cb145-4"></a></span>
+<span id="cb145-5"><a href="archaeological-sample-analysis.html#cb145-5"></a><span class="co"># gpa plot</span></span>
+<span id="cb145-6"><a href="archaeological-sample-analysis.html#cb145-6"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/gpa3d.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:gpa"></span>
 <img src="images/gpa3d.png" alt="Results of generalized Procrustes analysis." width="100%" />
 <p class="caption">
 Figure 7.1: Results of generalized Procrustes analysis.
 </p>
 </div>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="archaeological-sample-analysis.html#cb206-1"></a><span class="co"># geomorph data frame</span></span>
-<span id="cb206-2"><a href="archaeological-sample-analysis.html#cb206-2"></a>gdf &lt;-<span class="st"> </span><span class="kw">geomorph.data.frame</span>(<span class="dt">shape =</span> Y.gpa<span class="op">$</span>coords, </span>
-<span id="cb206-3"><a href="archaeological-sample-analysis.html#cb206-3"></a>                           <span class="dt">size =</span> Y.gpa<span class="op">$</span>Csize, </span>
-<span id="cb206-4"><a href="archaeological-sample-analysis.html#cb206-4"></a>                           <span class="dt">site =</span> qdata<span class="op">$</span>site, </span>
-<span id="cb206-5"><a href="archaeological-sample-analysis.html#cb206-5"></a>                           <span class="dt">unit =</span> qdata<span class="op">$</span>unit, </span>
-<span id="cb206-6"><a href="archaeological-sample-analysis.html#cb206-6"></a>                           <span class="dt">county =</span> qdata<span class="op">$</span>county, </span>
-<span id="cb206-7"><a href="archaeological-sample-analysis.html#cb206-7"></a>                           <span class="dt">inc =</span> qdata<span class="op">$</span>incision, </span>
-<span id="cb206-8"><a href="archaeological-sample-analysis.html#cb206-8"></a>                           <span class="dt">inc2 =</span> qdata<span class="op">$</span>inc2) </span></code></pre></div>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="archaeological-sample-analysis.html#cb207-1"></a><span class="co"># add centroid size to qdata</span></span>
-<span id="cb207-2"><a href="archaeological-sample-analysis.html#cb207-2"></a>qdata<span class="op">$</span>csz &lt;-<span class="st"> </span>Y.gpa<span class="op">$</span>Csize</span>
-<span id="cb207-3"><a href="archaeological-sample-analysis.html#cb207-3"></a></span>
-<span id="cb207-4"><a href="archaeological-sample-analysis.html#cb207-4"></a><span class="co"># attributes for boxplots</span></span>
-<span id="cb207-5"><a href="archaeological-sample-analysis.html#cb207-5"></a>csz &lt;-<span class="st"> </span>Y.gpa<span class="op">$</span>Csize</span>
-<span id="cb207-6"><a href="archaeological-sample-analysis.html#cb207-6"></a>inc &lt;-<span class="st"> </span>qdata<span class="op">$</span>incision</span>
-<span id="cb207-7"><a href="archaeological-sample-analysis.html#cb207-7"></a>inc2 &lt;-<span class="st"> </span>qdata<span class="op">$</span>inc2</span>
-<span id="cb207-8"><a href="archaeological-sample-analysis.html#cb207-8"></a>cty &lt;-<span class="st"> </span>qdata<span class="op">$</span>county</span>
-<span id="cb207-9"><a href="archaeological-sample-analysis.html#cb207-9"></a>unt &lt;-<span class="st"> </span>qdata<span class="op">$</span>unit</span>
-<span id="cb207-10"><a href="archaeological-sample-analysis.html#cb207-10"></a></span>
-<span id="cb207-11"><a href="archaeological-sample-analysis.html#cb207-11"></a><span class="co"># print qdata + centroid size</span></span>
-<span id="cb207-12"><a href="archaeological-sample-analysis.html#cb207-12"></a>knitr<span class="op">::</span><span class="kw">kable</span>(qdata, <span class="dt">align =</span> <span class="st">&quot;cccccc&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Attributes included in qdata.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="archaeological-sample-analysis.html#cb146-1"></a><span class="co"># geomorph data frame</span></span>
+<span id="cb146-2"><a href="archaeological-sample-analysis.html#cb146-2"></a>gdf &lt;-<span class="st"> </span><span class="kw">geomorph.data.frame</span>(<span class="dt">shape =</span> Y.gpa<span class="op">$</span>coords, </span>
+<span id="cb146-3"><a href="archaeological-sample-analysis.html#cb146-3"></a>                           <span class="dt">size =</span> Y.gpa<span class="op">$</span>Csize, </span>
+<span id="cb146-4"><a href="archaeological-sample-analysis.html#cb146-4"></a>                           <span class="dt">site =</span> qdata<span class="op">$</span>site, </span>
+<span id="cb146-5"><a href="archaeological-sample-analysis.html#cb146-5"></a>                           <span class="dt">unit =</span> qdata<span class="op">$</span>unit, </span>
+<span id="cb146-6"><a href="archaeological-sample-analysis.html#cb146-6"></a>                           <span class="dt">county =</span> qdata<span class="op">$</span>county, </span>
+<span id="cb146-7"><a href="archaeological-sample-analysis.html#cb146-7"></a>                           <span class="dt">inc =</span> qdata<span class="op">$</span>incision, </span>
+<span id="cb146-8"><a href="archaeological-sample-analysis.html#cb146-8"></a>                           <span class="dt">inc2 =</span> qdata<span class="op">$</span>inc2) </span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="archaeological-sample-analysis.html#cb147-1"></a><span class="co"># add centroid size to qdata</span></span>
+<span id="cb147-2"><a href="archaeological-sample-analysis.html#cb147-2"></a>qdata<span class="op">$</span>csz &lt;-<span class="st"> </span>Y.gpa<span class="op">$</span>Csize</span>
+<span id="cb147-3"><a href="archaeological-sample-analysis.html#cb147-3"></a></span>
+<span id="cb147-4"><a href="archaeological-sample-analysis.html#cb147-4"></a><span class="co"># attributes for boxplots</span></span>
+<span id="cb147-5"><a href="archaeological-sample-analysis.html#cb147-5"></a>csz &lt;-<span class="st"> </span>Y.gpa<span class="op">$</span>Csize</span>
+<span id="cb147-6"><a href="archaeological-sample-analysis.html#cb147-6"></a>inc &lt;-<span class="st"> </span>qdata<span class="op">$</span>incision</span>
+<span id="cb147-7"><a href="archaeological-sample-analysis.html#cb147-7"></a>inc2 &lt;-<span class="st"> </span>qdata<span class="op">$</span>inc2</span>
+<span id="cb147-8"><a href="archaeological-sample-analysis.html#cb147-8"></a>cty &lt;-<span class="st"> </span>qdata<span class="op">$</span>county</span>
+<span id="cb147-9"><a href="archaeological-sample-analysis.html#cb147-9"></a>unt &lt;-<span class="st"> </span>qdata<span class="op">$</span>unit</span>
+<span id="cb147-10"><a href="archaeological-sample-analysis.html#cb147-10"></a></span>
+<span id="cb147-11"><a href="archaeological-sample-analysis.html#cb147-11"></a><span class="co"># print qdata + centroid size</span></span>
+<span id="cb147-12"><a href="archaeological-sample-analysis.html#cb147-12"></a>knitr<span class="op">::</span><span class="kw">kable</span>(qdata, <span class="dt">align =</span> <span class="st">&quot;cccccc&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Attributes included in qdata.&quot;</span>)</span></code></pre></div>
 <table>
 <caption>(#tab:categorical.arch,)Attributes included in qdata.</caption>
 <thead>
@@ -1242,16 +1242,16 @@ Figure 7.1: Results of generalized Procrustes analysis.
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="archaeological-sample-analysis.html#cb208-1"></a><span class="co"># boxplot of incision (centroid) size by profile type (inc)</span></span>
-<span id="cb208-2"><a href="archaeological-sample-analysis.html#cb208-2"></a>csz.inc &lt;-<span class="st"> </span><span class="kw">ggplot</span>(qdata, <span class="kw">aes</span>(<span class="dt">x =</span> inc, <span class="dt">y =</span> csz, <span class="dt">color =</span> inc)) <span class="op">+</span></span>
-<span id="cb208-3"><a href="archaeological-sample-analysis.html#cb208-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
-<span id="cb208-4"><a href="archaeological-sample-analysis.html#cb208-4"></a><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="dt">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="dt">dotsize =</span> <span class="fl">0.3</span>) <span class="op">+</span></span>
-<span id="cb208-5"><a href="archaeological-sample-analysis.html#cb208-5"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)) <span class="op">+</span></span>
-<span id="cb208-6"><a href="archaeological-sample-analysis.html#cb208-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
-<span id="cb208-7"><a href="archaeological-sample-analysis.html#cb208-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Incision&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
-<span id="cb208-8"><a href="archaeological-sample-analysis.html#cb208-8"></a></span>
-<span id="cb208-9"><a href="archaeological-sample-analysis.html#cb208-9"></a><span class="co">#render plot</span></span>
-<span id="cb208-10"><a href="archaeological-sample-analysis.html#cb208-10"></a>csz.inc</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="archaeological-sample-analysis.html#cb148-1"></a><span class="co"># boxplot of incision (centroid) size by profile type (inc)</span></span>
+<span id="cb148-2"><a href="archaeological-sample-analysis.html#cb148-2"></a>csz.inc &lt;-<span class="st"> </span><span class="kw">ggplot</span>(qdata, <span class="kw">aes</span>(<span class="dt">x =</span> inc, <span class="dt">y =</span> csz, <span class="dt">color =</span> inc)) <span class="op">+</span></span>
+<span id="cb148-3"><a href="archaeological-sample-analysis.html#cb148-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb148-4"><a href="archaeological-sample-analysis.html#cb148-4"></a><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="dt">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="dt">dotsize =</span> <span class="fl">0.3</span>) <span class="op">+</span></span>
+<span id="cb148-5"><a href="archaeological-sample-analysis.html#cb148-5"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)) <span class="op">+</span></span>
+<span id="cb148-6"><a href="archaeological-sample-analysis.html#cb148-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb148-7"><a href="archaeological-sample-analysis.html#cb148-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Incision&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
+<span id="cb148-8"><a href="archaeological-sample-analysis.html#cb148-8"></a></span>
+<span id="cb148-9"><a href="archaeological-sample-analysis.html#cb148-9"></a><span class="co">#render plot</span></span>
+<span id="cb148-10"><a href="archaeological-sample-analysis.html#cb148-10"></a>csz.inc</span></code></pre></div>
 <pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure">
 <img src="incision_files/figure-html/box1.arch-1.png" alt="Boxplot of incision profile types (inc)." width="100%" />
@@ -1259,16 +1259,16 @@ Figure 7.1: Results of generalized Procrustes analysis.
 (#fig:box1.arch)Boxplot of incision profile types (inc).
 </p>
 </div>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="archaeological-sample-analysis.html#cb210-1"></a><span class="co"># boxplot of incision (centroid) size by profile type (inc2)</span></span>
-<span id="cb210-2"><a href="archaeological-sample-analysis.html#cb210-2"></a>csz.inc2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(qdata, <span class="kw">aes</span>(<span class="dt">x =</span> inc2, <span class="dt">y =</span> csz, <span class="dt">color =</span> inc2)) <span class="op">+</span></span>
-<span id="cb210-3"><a href="archaeological-sample-analysis.html#cb210-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
-<span id="cb210-4"><a href="archaeological-sample-analysis.html#cb210-4"></a><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="dt">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="dt">dotsize =</span> <span class="fl">0.3</span>) <span class="op">+</span></span>
-<span id="cb210-5"><a href="archaeological-sample-analysis.html#cb210-5"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)) <span class="op">+</span></span>
-<span id="cb210-6"><a href="archaeological-sample-analysis.html#cb210-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
-<span id="cb210-7"><a href="archaeological-sample-analysis.html#cb210-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Incision&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
-<span id="cb210-8"><a href="archaeological-sample-analysis.html#cb210-8"></a></span>
-<span id="cb210-9"><a href="archaeological-sample-analysis.html#cb210-9"></a><span class="co">#render plot</span></span>
-<span id="cb210-10"><a href="archaeological-sample-analysis.html#cb210-10"></a>csz.inc2</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="archaeological-sample-analysis.html#cb150-1"></a><span class="co"># boxplot of incision (centroid) size by profile type (inc2)</span></span>
+<span id="cb150-2"><a href="archaeological-sample-analysis.html#cb150-2"></a>csz.inc2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(qdata, <span class="kw">aes</span>(<span class="dt">x =</span> inc2, <span class="dt">y =</span> csz, <span class="dt">color =</span> inc2)) <span class="op">+</span></span>
+<span id="cb150-3"><a href="archaeological-sample-analysis.html#cb150-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb150-4"><a href="archaeological-sample-analysis.html#cb150-4"></a><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span> <span class="st">&#39;y&#39;</span>, <span class="dt">stackdir =</span> <span class="st">&#39;center&#39;</span>, <span class="dt">dotsize =</span> <span class="fl">0.3</span>) <span class="op">+</span></span>
+<span id="cb150-5"><a href="archaeological-sample-analysis.html#cb150-5"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)) <span class="op">+</span></span>
+<span id="cb150-6"><a href="archaeological-sample-analysis.html#cb150-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb150-7"><a href="archaeological-sample-analysis.html#cb150-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Incision&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Centroid Size&#39;</span>)</span>
+<span id="cb150-8"><a href="archaeological-sample-analysis.html#cb150-8"></a></span>
+<span id="cb150-9"><a href="archaeological-sample-analysis.html#cb150-9"></a><span class="co">#render plot</span></span>
+<span id="cb150-10"><a href="archaeological-sample-analysis.html#cb150-10"></a>csz.inc2</span></code></pre></div>
 <pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure">
 <img src="incision_files/figure-html/box2.arch-1.png" alt="Boxplot of incision profile types (inc2)." width="100%" />
@@ -1279,9 +1279,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 </div>
 <div id="principal-components-analysis" class="section level2">
 <h2><span class="header-section-number">7.2</span> Principal Components Analysis</h2>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="archaeological-sample-analysis.html#cb212-1"></a><span class="co"># principal components analysis</span></span>
-<span id="cb212-2"><a href="archaeological-sample-analysis.html#cb212-2"></a>pca&lt;-<span class="kw">gm.prcomp</span>(Y.gpa<span class="op">$</span>coords)</span>
-<span id="cb212-3"><a href="archaeological-sample-analysis.html#cb212-3"></a><span class="kw">summary</span>(pca)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="archaeological-sample-analysis.html#cb152-1"></a><span class="co"># principal components analysis</span></span>
+<span id="cb152-2"><a href="archaeological-sample-analysis.html#cb152-2"></a>pca&lt;-<span class="kw">gm.prcomp</span>(Y.gpa<span class="op">$</span>coords)</span>
+<span id="cb152-3"><a href="archaeological-sample-analysis.html#cb152-3"></a><span class="kw">summary</span>(pca)</span></code></pre></div>
 <pre><code>## 
 ## Ordination type: Principal Component Analysis 
 ## Centering and projection: OLS 
@@ -1289,58 +1289,66 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Number of vectors 49 
 ## 
 ## Importance of Components:
-##                             Comp1       Comp2       Comp3       Comp4        Comp5        Comp6        Comp7        Comp8        Comp9       Comp10
-## Eigenvalues            0.05005241 0.007101587 0.004207237 0.001010877 0.0004000871 0.0002918061 0.0001356203 0.0001049297 0.0000527297 4.893199e-05
-## Proportion of Variance 0.78696350 0.111656745 0.066149502 0.015893806 0.0062904852 0.0045880063 0.0021323291 0.0016497880 0.0008290579 7.693473e-04
-## Cumulative Proportion  0.78696350 0.898620247 0.964769748 0.980663554 0.9869540391 0.9915420454 0.9936743745 0.9953241625 0.9961532203 9.969226e-01
-##                              Comp11       Comp12       Comp13       Comp14       Comp15       Comp16       Comp17       Comp18       Comp19       Comp20
-## Eigenvalues            4.140238e-05 2.795772e-05 2.477753e-05 1.839935e-05 1.553619e-05 1.245841e-05 1.099519e-05 8.857840e-06 6.205629e-06 4.605748e-06
-## Proportion of Variance 6.509609e-04 4.395733e-04 3.895719e-04 2.892891e-04 2.442723e-04 1.958810e-04 1.728750e-04 1.392699e-04 9.756980e-05 7.241520e-05
-## Cumulative Proportion  9.975735e-01 9.980131e-01 9.984027e-01 9.986920e-01 9.989362e-01 9.991321e-01 9.993050e-01 9.994443e-01 9.995418e-01 9.996142e-01
-##                              Comp21       Comp22       Comp23       Comp24       Comp25       Comp26       Comp27       Comp28       Comp29       Comp30
-## Eigenvalues            4.189723e-06 3.711596e-06 2.789934e-06 2.436159e-06 2.014312e-06 1.668968e-06 1.638174e-06 1.185650e-06 9.495449e-07 6.727711e-07
-## Proportion of Variance 6.587413e-05 5.835663e-05 4.386554e-05 3.830321e-05 3.167061e-05 2.624083e-05 2.575666e-05 1.864172e-05 1.492949e-05 1.057784e-05
-## Cumulative Proportion  9.996801e-01 9.997385e-01 9.997823e-01 9.998206e-01 9.998523e-01 9.998786e-01 9.999043e-01 9.999230e-01 9.999379e-01 9.999485e-01
-##                              Comp31       Comp32       Comp33       Comp34       Comp35       Comp36       Comp37       Comp38       Comp39       Comp40
-## Eigenvalues            5.815500e-07 5.340935e-07 4.357276e-07 3.526829e-07 3.270684e-07 2.945186e-07 2.223463e-07 1.565223e-07 1.011302e-07 8.479653e-08
-## Proportion of Variance 9.143587e-06 8.397439e-06 6.850853e-06 5.545159e-06 5.142428e-06 4.630653e-06 3.495905e-06 2.460967e-06 1.590049e-06 1.333238e-06
-## Cumulative Proportion  9.999576e-01 9.999660e-01 9.999729e-01 9.999784e-01 9.999835e-01 9.999882e-01 9.999917e-01 9.999941e-01 9.999957e-01 9.999971e-01
-##                              Comp41       Comp42       Comp43       Comp44       Comp45       Comp46       Comp47       Comp48       Comp49
-## Eigenvalues            6.032788e-08 4.167519e-08 3.236851e-08 2.524843e-08 1.466766e-08 8.934916e-09 3.680275e-09 5.264413e-10 4.805676e-34
-## Proportion of Variance 9.485225e-07 6.552502e-07 5.089232e-07 3.969758e-07 2.306165e-07 1.404818e-07 5.786418e-08 8.277125e-09 7.555862e-33
-## Cumulative Proportion  9.999980e-01 9.999987e-01 9.999992e-01 9.999996e-01 9.999998e-01 9.999999e-01 1.000000e+00 1.000000e+00 1.000000e+00</code></pre>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="archaeological-sample-analysis.html#cb214-1"></a><span class="co"># set plot parameters to plot by incision type</span></span>
-<span id="cb214-2"><a href="archaeological-sample-analysis.html#cb214-2"></a>inc &lt;-<span class="st"> </span>qdata<span class="op">$</span>incision</span>
-<span id="cb214-3"><a href="archaeological-sample-analysis.html#cb214-3"></a>pch.gps.inc &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="kw">as.factor</span>(inc)]</span>
-<span id="cb214-4"><a href="archaeological-sample-analysis.html#cb214-4"></a>col.gps.inc &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc)]</span>
-<span id="cb214-5"><a href="archaeological-sample-analysis.html#cb214-5"></a>col.hull &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#798E87&quot;</span>)</span>
-<span id="cb214-6"><a href="archaeological-sample-analysis.html#cb214-6"></a></span>
-<span id="cb214-7"><a href="archaeological-sample-analysis.html#cb214-7"></a><span class="co"># plot pca by incision profile</span></span>
-<span id="cb214-8"><a href="archaeological-sample-analysis.html#cb214-8"></a>pc.plot1 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb214-9"><a href="archaeological-sample-analysis.html#cb214-9"></a>                  <span class="dt">pch =</span> pch.gps.inc,</span>
-<span id="cb214-10"><a href="archaeological-sample-analysis.html#cb214-10"></a>                  <span class="dt">col =</span> col.gps.inc)</span>
-<span id="cb214-11"><a href="archaeological-sample-analysis.html#cb214-11"></a>                  <span class="kw">shapeHulls</span>(pc.plot1, </span>
-<span id="cb214-12"><a href="archaeological-sample-analysis.html#cb214-12"></a>                             <span class="dt">groups =</span> inc,</span>
-<span id="cb214-13"><a href="archaeological-sample-analysis.html#cb214-13"></a>                             <span class="dt">group.cols =</span> col.hull)</span></code></pre></div>
+##                             Comp1       Comp2       Comp3       Comp4        Comp5        Comp6        Comp7        Comp8
+## Eigenvalues            0.05005241 0.007101587 0.004207237 0.001010877 0.0004000871 0.0002918061 0.0001356203 0.0001049297
+## Proportion of Variance 0.78696350 0.111656745 0.066149502 0.015893806 0.0062904852 0.0045880063 0.0021323291 0.0016497880
+## Cumulative Proportion  0.78696350 0.898620247 0.964769748 0.980663554 0.9869540391 0.9915420454 0.9936743745 0.9953241625
+##                               Comp9       Comp10       Comp11       Comp12       Comp13       Comp14       Comp15
+## Eigenvalues            0.0000527297 4.893199e-05 4.140238e-05 2.795772e-05 2.477753e-05 1.839935e-05 1.553619e-05
+## Proportion of Variance 0.0008290579 7.693473e-04 6.509609e-04 4.395733e-04 3.895719e-04 2.892891e-04 2.442723e-04
+## Cumulative Proportion  0.9961532203 9.969226e-01 9.975735e-01 9.980131e-01 9.984027e-01 9.986920e-01 9.989362e-01
+##                              Comp16       Comp17       Comp18       Comp19       Comp20       Comp21       Comp22
+## Eigenvalues            1.245841e-05 1.099519e-05 8.857840e-06 6.205629e-06 4.605748e-06 4.189723e-06 3.711596e-06
+## Proportion of Variance 1.958810e-04 1.728750e-04 1.392699e-04 9.756980e-05 7.241520e-05 6.587413e-05 5.835663e-05
+## Cumulative Proportion  9.991321e-01 9.993050e-01 9.994443e-01 9.995418e-01 9.996142e-01 9.996801e-01 9.997385e-01
+##                              Comp23       Comp24       Comp25       Comp26       Comp27       Comp28       Comp29
+## Eigenvalues            2.789934e-06 2.436159e-06 2.014312e-06 1.668968e-06 1.638174e-06 1.185650e-06 9.495449e-07
+## Proportion of Variance 4.386554e-05 3.830321e-05 3.167061e-05 2.624083e-05 2.575666e-05 1.864172e-05 1.492949e-05
+## Cumulative Proportion  9.997823e-01 9.998206e-01 9.998523e-01 9.998786e-01 9.999043e-01 9.999230e-01 9.999379e-01
+##                              Comp30       Comp31       Comp32       Comp33       Comp34       Comp35       Comp36
+## Eigenvalues            6.727711e-07 5.815500e-07 5.340935e-07 4.357276e-07 3.526829e-07 3.270684e-07 2.945186e-07
+## Proportion of Variance 1.057784e-05 9.143587e-06 8.397439e-06 6.850853e-06 5.545159e-06 5.142428e-06 4.630653e-06
+## Cumulative Proportion  9.999485e-01 9.999576e-01 9.999660e-01 9.999729e-01 9.999784e-01 9.999835e-01 9.999882e-01
+##                              Comp37       Comp38       Comp39       Comp40       Comp41       Comp42       Comp43
+## Eigenvalues            2.223463e-07 1.565223e-07 1.011302e-07 8.479653e-08 6.032788e-08 4.167519e-08 3.236851e-08
+## Proportion of Variance 3.495905e-06 2.460967e-06 1.590049e-06 1.333238e-06 9.485225e-07 6.552502e-07 5.089232e-07
+## Cumulative Proportion  9.999917e-01 9.999941e-01 9.999957e-01 9.999971e-01 9.999980e-01 9.999987e-01 9.999992e-01
+##                              Comp44       Comp45       Comp46       Comp47       Comp48       Comp49
+## Eigenvalues            2.524843e-08 1.466766e-08 8.934916e-09 3.680275e-09 5.264413e-10 4.805676e-34
+## Proportion of Variance 3.969758e-07 2.306165e-07 1.404818e-07 5.786418e-08 8.277125e-09 7.555862e-33
+## Cumulative Proportion  9.999996e-01 9.999998e-01 9.999999e-01 1.000000e+00 1.000000e+00 1.000000e+00</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="archaeological-sample-analysis.html#cb154-1"></a><span class="co"># set plot parameters to plot by incision type</span></span>
+<span id="cb154-2"><a href="archaeological-sample-analysis.html#cb154-2"></a>inc &lt;-<span class="st"> </span>qdata<span class="op">$</span>incision</span>
+<span id="cb154-3"><a href="archaeological-sample-analysis.html#cb154-3"></a>pch.gps.inc &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="kw">as.factor</span>(inc)]</span>
+<span id="cb154-4"><a href="archaeological-sample-analysis.html#cb154-4"></a>col.gps.inc &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc)]</span>
+<span id="cb154-5"><a href="archaeological-sample-analysis.html#cb154-5"></a>col.hull &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C27D38&quot;</span>,<span class="st">&quot;#798E87&quot;</span>)</span>
+<span id="cb154-6"><a href="archaeological-sample-analysis.html#cb154-6"></a></span>
+<span id="cb154-7"><a href="archaeological-sample-analysis.html#cb154-7"></a><span class="co"># plot pca by incision profile</span></span>
+<span id="cb154-8"><a href="archaeological-sample-analysis.html#cb154-8"></a>pc.plot1 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb154-9"><a href="archaeological-sample-analysis.html#cb154-9"></a>                  <span class="dt">pch =</span> pch.gps.inc,</span>
+<span id="cb154-10"><a href="archaeological-sample-analysis.html#cb154-10"></a>                  <span class="dt">col =</span> col.gps.inc)</span>
+<span id="cb154-11"><a href="archaeological-sample-analysis.html#cb154-11"></a>                  <span class="kw">shapeHulls</span>(pc.plot1, </span>
+<span id="cb154-12"><a href="archaeological-sample-analysis.html#cb154-12"></a>                             <span class="dt">groups =</span> inc,</span>
+<span id="cb154-13"><a href="archaeological-sample-analysis.html#cb154-13"></a>                             <span class="dt">group.cols =</span> col.hull)</span></code></pre></div>
 <div class="figure">
 <img src="incision_files/figure-html/pca1.arch-1.png" alt="Plot of PC1 and PC2 for U- (gray square) and V-shaped (orange triangle) incisions." width="100%" />
 <p class="caption">
 (#fig:pca1.arch)Plot of PC1 and PC2 for U- (gray square) and V-shaped (orange triangle) incisions.
 </p>
 </div>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="archaeological-sample-analysis.html#cb215-1"></a><span class="co"># set plot parameters to plot by incision profile (inc2)</span></span>
-<span id="cb215-2"><a href="archaeological-sample-analysis.html#cb215-2"></a>inc2 &lt;-<span class="st"> </span>qdata<span class="op">$</span>inc2</span>
-<span id="cb215-3"><a href="archaeological-sample-analysis.html#cb215-3"></a>pch.gps.inc2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(inc2)]</span>
-<span id="cb215-4"><a href="archaeological-sample-analysis.html#cb215-4"></a>col.gps.inc2 &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc2)]</span>
-<span id="cb215-5"><a href="archaeological-sample-analysis.html#cb215-5"></a>col.hull2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#CCC591&quot;</span>,<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#C27D38&quot;</span>)</span>
-<span id="cb215-6"><a href="archaeological-sample-analysis.html#cb215-6"></a></span>
-<span id="cb215-7"><a href="archaeological-sample-analysis.html#cb215-7"></a><span class="co"># plot pca by incision profile (inc2)</span></span>
-<span id="cb215-8"><a href="archaeological-sample-analysis.html#cb215-8"></a>pc.plot2 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</span>
-<span id="cb215-9"><a href="archaeological-sample-analysis.html#cb215-9"></a>                  <span class="dt">pch =</span> pch.gps.inc2,</span>
-<span id="cb215-10"><a href="archaeological-sample-analysis.html#cb215-10"></a>                  <span class="dt">col =</span> col.gps.inc2)</span>
-<span id="cb215-11"><a href="archaeological-sample-analysis.html#cb215-11"></a>                  <span class="kw">shapeHulls</span>(pc.plot2, </span>
-<span id="cb215-12"><a href="archaeological-sample-analysis.html#cb215-12"></a>                             <span class="dt">groups =</span> inc2,</span>
-<span id="cb215-13"><a href="archaeological-sample-analysis.html#cb215-13"></a>                             <span class="dt">group.cols =</span> col.hull2)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="archaeological-sample-analysis.html#cb155-1"></a><span class="co"># set plot parameters to plot by incision profile (inc2)</span></span>
+<span id="cb155-2"><a href="archaeological-sample-analysis.html#cb155-2"></a>inc2 &lt;-<span class="st"> </span>qdata<span class="op">$</span>inc2</span>
+<span id="cb155-3"><a href="archaeological-sample-analysis.html#cb155-3"></a>pch.gps.inc2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>)[<span class="kw">as.factor</span>(inc2)]</span>
+<span id="cb155-4"><a href="archaeological-sample-analysis.html#cb155-4"></a>col.gps.inc2 &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc2)]</span>
+<span id="cb155-5"><a href="archaeological-sample-analysis.html#cb155-5"></a>col.hull2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#CCC591&quot;</span>,<span class="st">&quot;#798E87&quot;</span>,<span class="st">&quot;#C27D38&quot;</span>)</span>
+<span id="cb155-6"><a href="archaeological-sample-analysis.html#cb155-6"></a></span>
+<span id="cb155-7"><a href="archaeological-sample-analysis.html#cb155-7"></a><span class="co"># plot pca by incision profile (inc2)</span></span>
+<span id="cb155-8"><a href="archaeological-sample-analysis.html#cb155-8"></a>pc.plot2 &lt;-<span class="st"> </span><span class="kw">plot</span>(pca, <span class="dt">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb155-9"><a href="archaeological-sample-analysis.html#cb155-9"></a>                  <span class="dt">pch =</span> pch.gps.inc2,</span>
+<span id="cb155-10"><a href="archaeological-sample-analysis.html#cb155-10"></a>                  <span class="dt">col =</span> col.gps.inc2)</span>
+<span id="cb155-11"><a href="archaeological-sample-analysis.html#cb155-11"></a>                  <span class="kw">shapeHulls</span>(pc.plot2, </span>
+<span id="cb155-12"><a href="archaeological-sample-analysis.html#cb155-12"></a>                             <span class="dt">groups =</span> inc2,</span>
+<span id="cb155-13"><a href="archaeological-sample-analysis.html#cb155-13"></a>                             <span class="dt">group.cols =</span> col.hull2)</span></code></pre></div>
 <div class="figure">
 <img src="incision_files/figure-html/pca2.arch,-1.png" alt="Plot of PC1 and PC2 for U-broad (gray square), U-narrow (orange triangle) and V-shaped (tan circle) incisions." width="100%" />
 <p class="caption">
@@ -1350,38 +1358,38 @@ Figure 7.1: Results of generalized Procrustes analysis.
 </div>
 <div id="define-models" class="section level2">
 <h2><span class="header-section-number">7.3</span> Define models</h2>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="archaeological-sample-analysis.html#cb216-1"></a><span class="co"># allometry</span></span>
-<span id="cb216-2"><a href="archaeological-sample-analysis.html#cb216-2"></a>fit.size.a &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size, <span class="dt">data =</span> gdf, </span>
-<span id="cb216-3"><a href="archaeological-sample-analysis.html#cb216-3"></a>                       <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb216-4"><a href="archaeological-sample-analysis.html#cb216-4"></a><span class="co"># allometry - common allometry, different means -&gt; inc</span></span>
-<span id="cb216-5"><a href="archaeological-sample-analysis.html#cb216-5"></a>fit.sz.cinc.a &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size <span class="op">+</span><span class="st"> </span>inc, <span class="dt">data =</span> gdf, </span>
-<span id="cb216-6"><a href="archaeological-sample-analysis.html#cb216-6"></a>                          <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb216-7"><a href="archaeological-sample-analysis.html#cb216-7"></a><span class="co"># allometry - unique allometries -&gt; inc</span></span>
-<span id="cb216-8"><a href="archaeological-sample-analysis.html#cb216-8"></a>fit.sz.uinc.a &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size <span class="op">*</span><span class="st"> </span>inc, <span class="dt">data =</span> gdf, </span>
-<span id="cb216-9"><a href="archaeological-sample-analysis.html#cb216-9"></a>                          <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb216-10"><a href="archaeological-sample-analysis.html#cb216-10"></a><span class="co"># allometry - common allometry, different means -&gt; inc2</span></span>
-<span id="cb216-11"><a href="archaeological-sample-analysis.html#cb216-11"></a>fit.sz.cinc2.a &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size <span class="op">+</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, </span>
-<span id="cb216-12"><a href="archaeological-sample-analysis.html#cb216-12"></a>                           <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb216-13"><a href="archaeological-sample-analysis.html#cb216-13"></a><span class="co"># allometry - unique allometries -&gt; inc2</span></span>
-<span id="cb216-14"><a href="archaeological-sample-analysis.html#cb216-14"></a>fit.sz.uinc2.a &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size <span class="op">*</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, </span>
-<span id="cb216-15"><a href="archaeological-sample-analysis.html#cb216-15"></a>                           <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb216-16"><a href="archaeological-sample-analysis.html#cb216-16"></a></span>
-<span id="cb216-17"><a href="archaeological-sample-analysis.html#cb216-17"></a><span class="co"># size as a function of group</span></span>
-<span id="cb216-18"><a href="archaeological-sample-analysis.html#cb216-18"></a>fit.sizeinc &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>inc, <span class="dt">data =</span> gdf, </span>
-<span id="cb216-19"><a href="archaeological-sample-analysis.html#cb216-19"></a>                        <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb216-20"><a href="archaeological-sample-analysis.html#cb216-20"></a>fit.sizeinc2 &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, </span>
-<span id="cb216-21"><a href="archaeological-sample-analysis.html#cb216-21"></a>                         <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb216-22"><a href="archaeological-sample-analysis.html#cb216-22"></a></span>
-<span id="cb216-23"><a href="archaeological-sample-analysis.html#cb216-23"></a><span class="co"># shape as a function of group</span></span>
-<span id="cb216-24"><a href="archaeological-sample-analysis.html#cb216-24"></a>fit.shapeinc &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>inc, <span class="dt">data =</span> gdf, </span>
-<span id="cb216-25"><a href="archaeological-sample-analysis.html#cb216-25"></a>                         <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
-<span id="cb216-26"><a href="archaeological-sample-analysis.html#cb216-26"></a>fit.shapeinc2 &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, </span>
-<span id="cb216-27"><a href="archaeological-sample-analysis.html#cb216-27"></a>                          <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="archaeological-sample-analysis.html#cb156-1"></a><span class="co"># allometry</span></span>
+<span id="cb156-2"><a href="archaeological-sample-analysis.html#cb156-2"></a>fit.size.a &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size, <span class="dt">data =</span> gdf, </span>
+<span id="cb156-3"><a href="archaeological-sample-analysis.html#cb156-3"></a>                       <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb156-4"><a href="archaeological-sample-analysis.html#cb156-4"></a><span class="co"># allometry - common allometry, different means -&gt; inc</span></span>
+<span id="cb156-5"><a href="archaeological-sample-analysis.html#cb156-5"></a>fit.sz.cinc.a &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size <span class="op">+</span><span class="st"> </span>inc, <span class="dt">data =</span> gdf, </span>
+<span id="cb156-6"><a href="archaeological-sample-analysis.html#cb156-6"></a>                          <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb156-7"><a href="archaeological-sample-analysis.html#cb156-7"></a><span class="co"># allometry - unique allometries -&gt; inc</span></span>
+<span id="cb156-8"><a href="archaeological-sample-analysis.html#cb156-8"></a>fit.sz.uinc.a &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size <span class="op">*</span><span class="st"> </span>inc, <span class="dt">data =</span> gdf, </span>
+<span id="cb156-9"><a href="archaeological-sample-analysis.html#cb156-9"></a>                          <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb156-10"><a href="archaeological-sample-analysis.html#cb156-10"></a><span class="co"># allometry - common allometry, different means -&gt; inc2</span></span>
+<span id="cb156-11"><a href="archaeological-sample-analysis.html#cb156-11"></a>fit.sz.cinc2.a &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size <span class="op">+</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, </span>
+<span id="cb156-12"><a href="archaeological-sample-analysis.html#cb156-12"></a>                           <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb156-13"><a href="archaeological-sample-analysis.html#cb156-13"></a><span class="co"># allometry - unique allometries -&gt; inc2</span></span>
+<span id="cb156-14"><a href="archaeological-sample-analysis.html#cb156-14"></a>fit.sz.uinc2.a &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>size <span class="op">*</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, </span>
+<span id="cb156-15"><a href="archaeological-sample-analysis.html#cb156-15"></a>                           <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb156-16"><a href="archaeological-sample-analysis.html#cb156-16"></a></span>
+<span id="cb156-17"><a href="archaeological-sample-analysis.html#cb156-17"></a><span class="co"># size as a function of group</span></span>
+<span id="cb156-18"><a href="archaeological-sample-analysis.html#cb156-18"></a>fit.sizeinc &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>inc, <span class="dt">data =</span> gdf, </span>
+<span id="cb156-19"><a href="archaeological-sample-analysis.html#cb156-19"></a>                        <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb156-20"><a href="archaeological-sample-analysis.html#cb156-20"></a>fit.sizeinc2 &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(size <span class="op">~</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, </span>
+<span id="cb156-21"><a href="archaeological-sample-analysis.html#cb156-21"></a>                         <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb156-22"><a href="archaeological-sample-analysis.html#cb156-22"></a></span>
+<span id="cb156-23"><a href="archaeological-sample-analysis.html#cb156-23"></a><span class="co"># shape as a function of group</span></span>
+<span id="cb156-24"><a href="archaeological-sample-analysis.html#cb156-24"></a>fit.shapeinc &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>inc, <span class="dt">data =</span> gdf, </span>
+<span id="cb156-25"><a href="archaeological-sample-analysis.html#cb156-25"></a>                         <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span>
+<span id="cb156-26"><a href="archaeological-sample-analysis.html#cb156-26"></a>fit.shapeinc2 &lt;-<span class="st"> </span><span class="kw">procD.lm</span>(shape <span class="op">~</span><span class="st"> </span>inc2, <span class="dt">data =</span> gdf, </span>
+<span id="cb156-27"><a href="archaeological-sample-analysis.html#cb156-27"></a>                          <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 </div>
 <div id="allometry" class="section level2">
 <h2><span class="header-section-number">7.4</span> Allometry</h2>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="archaeological-sample-analysis.html#cb217-1"></a><span class="co"># allometry - does shape change with size?</span></span>
-<span id="cb217-2"><a href="archaeological-sample-analysis.html#cb217-2"></a><span class="kw">anova</span>(fit.size.a)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="archaeological-sample-analysis.html#cb157-1"></a><span class="co"># allometry - does shape change with size?</span></span>
+<span id="cb157-2"><a href="archaeological-sample-analysis.html#cb157-2"></a><span class="kw">anova</span>(fit.size.a)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -1400,8 +1408,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Call: procD.lm(f1 = shape ~ size, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
 <div id="common-allometry" class="section level3">
 <h3><span class="header-section-number">7.4.1</span> Common allometry</h3>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="archaeological-sample-analysis.html#cb219-1"></a><span class="co"># inc</span></span>
-<span id="cb219-2"><a href="archaeological-sample-analysis.html#cb219-2"></a><span class="kw">anova</span>(fit.sz.cinc.a) <span class="co"># common allometry (inc)</span></span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="archaeological-sample-analysis.html#cb159-1"></a><span class="co"># inc</span></span>
+<span id="cb159-2"><a href="archaeological-sample-analysis.html#cb159-2"></a><span class="kw">anova</span>(fit.sz.cinc.a) <span class="co"># common allometry (inc)</span></span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -1419,8 +1427,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = shape ~ size + inc, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="archaeological-sample-analysis.html#cb221-1"></a><span class="co"># inc2</span></span>
-<span id="cb221-2"><a href="archaeological-sample-analysis.html#cb221-2"></a><span class="kw">anova</span>(fit.sz.cinc2.a) <span class="co"># common allometry (inc2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="archaeological-sample-analysis.html#cb161-1"></a><span class="co"># inc2</span></span>
+<span id="cb161-2"><a href="archaeological-sample-analysis.html#cb161-2"></a><span class="kw">anova</span>(fit.sz.cinc2.a) <span class="co"># common allometry (inc2)</span></span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -1438,33 +1446,33 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = shape ~ size + inc2, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="archaeological-sample-analysis.html#cb223-1"></a><span class="co"># allometry plots</span></span>
-<span id="cb223-2"><a href="archaeological-sample-analysis.html#cb223-2"></a><span class="co"># regscore (Drake and Klingenberg 2008)</span></span>
-<span id="cb223-3"><a href="archaeological-sample-analysis.html#cb223-3"></a><span class="kw">plot</span>(fit.size.a, <span class="dt">type =</span> <span class="st">&quot;regression&quot;</span>, <span class="dt">reg.type =</span> <span class="st">&quot;RegScore&quot;</span>, </span>
-<span id="cb223-4"><a href="archaeological-sample-analysis.html#cb223-4"></a>     <span class="dt">predictor =</span> <span class="kw">log</span>(gdf<span class="op">$</span>size), <span class="dt">pch =</span> pch.gps.inc, <span class="dt">col =</span> col.gps.inc)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="archaeological-sample-analysis.html#cb163-1"></a><span class="co"># allometry plots</span></span>
+<span id="cb163-2"><a href="archaeological-sample-analysis.html#cb163-2"></a><span class="co"># regscore (Drake and Klingenberg 2008)</span></span>
+<span id="cb163-3"><a href="archaeological-sample-analysis.html#cb163-3"></a><span class="kw">plot</span>(fit.size.a, <span class="dt">type =</span> <span class="st">&quot;regression&quot;</span>, <span class="dt">reg.type =</span> <span class="st">&quot;RegScore&quot;</span>, </span>
+<span id="cb163-4"><a href="archaeological-sample-analysis.html#cb163-4"></a>     <span class="dt">predictor =</span> <span class="kw">log</span>(gdf<span class="op">$</span>size), <span class="dt">pch =</span> pch.gps.inc, <span class="dt">col =</span> col.gps.inc)</span></code></pre></div>
 <p><img src="incision_files/figure-html/allom.plot1.arch-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="archaeological-sample-analysis.html#cb224-1"></a><span class="kw">plot</span>(fit.size.a, <span class="dt">type =</span> <span class="st">&quot;regression&quot;</span>, <span class="dt">reg.type =</span> <span class="st">&quot;RegScore&quot;</span>, </span>
-<span id="cb224-2"><a href="archaeological-sample-analysis.html#cb224-2"></a>     <span class="dt">predictor =</span> <span class="kw">log</span>(gdf<span class="op">$</span>size), <span class="dt">pch =</span> pch.gps.inc2, <span class="dt">col =</span> col.gps.inc2)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="archaeological-sample-analysis.html#cb164-1"></a><span class="kw">plot</span>(fit.size.a, <span class="dt">type =</span> <span class="st">&quot;regression&quot;</span>, <span class="dt">reg.type =</span> <span class="st">&quot;RegScore&quot;</span>, </span>
+<span id="cb164-2"><a href="archaeological-sample-analysis.html#cb164-2"></a>     <span class="dt">predictor =</span> <span class="kw">log</span>(gdf<span class="op">$</span>size), <span class="dt">pch =</span> pch.gps.inc2, <span class="dt">col =</span> col.gps.inc2)</span></code></pre></div>
 <p><img src="incision_files/figure-html/allom.plot1.arch-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="archaeological-sample-analysis.html#cb225-1"></a><span class="co"># common allometric component (Mitteroecker 2004)</span></span>
-<span id="cb225-2"><a href="archaeological-sample-analysis.html#cb225-2"></a><span class="kw">plotAllometry</span>(fit.size.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;CAC&quot;</span>, </span>
-<span id="cb225-3"><a href="archaeological-sample-analysis.html#cb225-3"></a>              <span class="dt">pch =</span> pch.gps.inc, <span class="dt">col =</span> col.gps.inc)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="archaeological-sample-analysis.html#cb165-1"></a><span class="co"># common allometric component (Mitteroecker 2004)</span></span>
+<span id="cb165-2"><a href="archaeological-sample-analysis.html#cb165-2"></a><span class="kw">plotAllometry</span>(fit.size.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;CAC&quot;</span>, </span>
+<span id="cb165-3"><a href="archaeological-sample-analysis.html#cb165-3"></a>              <span class="dt">pch =</span> pch.gps.inc, <span class="dt">col =</span> col.gps.inc)</span></code></pre></div>
 <p><img src="incision_files/figure-html/allom.plot2.arch-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="archaeological-sample-analysis.html#cb226-1"></a><span class="kw">plotAllometry</span>(fit.size.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;CAC&quot;</span>, </span>
-<span id="cb226-2"><a href="archaeological-sample-analysis.html#cb226-2"></a>              <span class="dt">pch =</span> pch.gps.inc2, <span class="dt">col =</span> col.gps.inc2)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="archaeological-sample-analysis.html#cb166-1"></a><span class="kw">plotAllometry</span>(fit.size.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;CAC&quot;</span>, </span>
+<span id="cb166-2"><a href="archaeological-sample-analysis.html#cb166-2"></a>              <span class="dt">pch =</span> pch.gps.inc2, <span class="dt">col =</span> col.gps.inc2)</span></code></pre></div>
 <p><img src="incision_files/figure-html/allom.plot2.arch-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="archaeological-sample-analysis.html#cb227-1"></a><span class="co"># size-shape pca (Mitteroecker 2004)</span></span>
-<span id="cb227-2"><a href="archaeological-sample-analysis.html#cb227-2"></a><span class="kw">plotAllometry</span>(fit.size.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;size.shape&quot;</span>, </span>
-<span id="cb227-3"><a href="archaeological-sample-analysis.html#cb227-3"></a>              <span class="dt">pch =</span> pch.gps.inc, <span class="dt">col =</span> col.gps.inc)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="archaeological-sample-analysis.html#cb167-1"></a><span class="co"># size-shape pca (Mitteroecker 2004)</span></span>
+<span id="cb167-2"><a href="archaeological-sample-analysis.html#cb167-2"></a><span class="kw">plotAllometry</span>(fit.size.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;size.shape&quot;</span>, </span>
+<span id="cb167-3"><a href="archaeological-sample-analysis.html#cb167-3"></a>              <span class="dt">pch =</span> pch.gps.inc, <span class="dt">col =</span> col.gps.inc)</span></code></pre></div>
 <p><img src="incision_files/figure-html/allom.plot3.arch-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="archaeological-sample-analysis.html#cb228-1"></a><span class="kw">plotAllometry</span>(fit.size.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;size.shape&quot;</span>, </span>
-<span id="cb228-2"><a href="archaeological-sample-analysis.html#cb228-2"></a>              <span class="dt">pch =</span> pch.gps.inc2, <span class="dt">col =</span> col.gps.inc2)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="archaeological-sample-analysis.html#cb168-1"></a><span class="kw">plotAllometry</span>(fit.size.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;size.shape&quot;</span>, </span>
+<span id="cb168-2"><a href="archaeological-sample-analysis.html#cb168-2"></a>              <span class="dt">pch =</span> pch.gps.inc2, <span class="dt">col =</span> col.gps.inc2)</span></code></pre></div>
 <p><img src="incision_files/figure-html/allom.plot3.arch-2.png" width="100%" /></p>
 </div>
 <div id="unique-allometry" class="section level3">
 <h3><span class="header-section-number">7.4.2</span> Unique allometry</h3>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="archaeological-sample-analysis.html#cb229-1"></a><span class="co"># inc</span></span>
-<span id="cb229-2"><a href="archaeological-sample-analysis.html#cb229-2"></a><span class="kw">anova</span>(fit.sz.uinc.a) <span class="co"># unique allometry (inc)</span></span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="archaeological-sample-analysis.html#cb169-1"></a><span class="co"># inc</span></span>
+<span id="cb169-2"><a href="archaeological-sample-analysis.html#cb169-2"></a><span class="kw">anova</span>(fit.sz.uinc.a) <span class="co"># unique allometry (inc)</span></span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -1483,8 +1491,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = shape ~ size * inc, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="archaeological-sample-analysis.html#cb231-1"></a><span class="co"># inc2</span></span>
-<span id="cb231-2"><a href="archaeological-sample-analysis.html#cb231-2"></a><span class="kw">anova</span>(fit.sz.uinc2.a) <span class="co"># unique allometry (inc2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="archaeological-sample-analysis.html#cb171-1"></a><span class="co"># inc2</span></span>
+<span id="cb171-2"><a href="archaeological-sample-analysis.html#cb171-2"></a><span class="kw">anova</span>(fit.sz.uinc2.a) <span class="co"># unique allometry (inc2)</span></span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -1503,19 +1511,19 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = shape ~ size * inc2, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="archaeological-sample-analysis.html#cb233-1"></a><span class="co"># predline (Adams and Nistri 2010)</span></span>
-<span id="cb233-2"><a href="archaeological-sample-analysis.html#cb233-2"></a><span class="kw">plotAllometry</span>(fit.sz.uinc.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;PredLine&quot;</span>, </span>
-<span id="cb233-3"><a href="archaeological-sample-analysis.html#cb233-3"></a>              <span class="dt">pch =</span> pch.gps.inc, <span class="dt">col =</span> col.gps.inc)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="archaeological-sample-analysis.html#cb173-1"></a><span class="co"># predline (Adams and Nistri 2010)</span></span>
+<span id="cb173-2"><a href="archaeological-sample-analysis.html#cb173-2"></a><span class="kw">plotAllometry</span>(fit.sz.uinc.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;PredLine&quot;</span>, </span>
+<span id="cb173-3"><a href="archaeological-sample-analysis.html#cb173-3"></a>              <span class="dt">pch =</span> pch.gps.inc, <span class="dt">col =</span> col.gps.inc)</span></code></pre></div>
 <p><img src="incision_files/figure-html/unique.allom.plot.arch-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="archaeological-sample-analysis.html#cb234-1"></a><span class="kw">plotAllometry</span>(fit.sz.uinc2.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;PredLine&quot;</span>, </span>
-<span id="cb234-2"><a href="archaeological-sample-analysis.html#cb234-2"></a>              <span class="dt">pch =</span> pch.gps.inc2, <span class="dt">col =</span> col.gps.inc2)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="archaeological-sample-analysis.html#cb174-1"></a><span class="kw">plotAllometry</span>(fit.sz.uinc2.a, <span class="dt">size =</span> gdf<span class="op">$</span>size, <span class="dt">logsz =</span> <span class="ot">TRUE</span>, <span class="dt">method =</span> <span class="st">&quot;PredLine&quot;</span>, </span>
+<span id="cb174-2"><a href="archaeological-sample-analysis.html#cb174-2"></a>              <span class="dt">pch =</span> pch.gps.inc2, <span class="dt">col =</span> col.gps.inc2)</span></code></pre></div>
 <p><img src="incision_files/figure-html/unique.allom.plot.arch-2.png" width="100%" /></p>
 </div>
 </div>
 <div id="sizeshape-incision-profile" class="section level2">
 <h2><span class="header-section-number">7.5</span> Size/Shape ~ Incision Profile?</h2>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="archaeological-sample-analysis.html#cb235-1"></a><span class="co"># ANOVA: do incision shapes differ?</span></span>
-<span id="cb235-2"><a href="archaeological-sample-analysis.html#cb235-2"></a><span class="kw">anova</span>(fit.shapeinc)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="archaeological-sample-analysis.html#cb175-1"></a><span class="co"># ANOVA: do incision shapes differ?</span></span>
+<span id="cb175-2"><a href="archaeological-sample-analysis.html#cb175-2"></a><span class="kw">anova</span>(fit.shapeinc)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -1532,8 +1540,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = shape ~ inc, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="archaeological-sample-analysis.html#cb237-1"></a><span class="co"># ANOVA: do incision sizes differ?</span></span>
-<span id="cb237-2"><a href="archaeological-sample-analysis.html#cb237-2"></a><span class="kw">anova</span>(fit.sizeinc)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="archaeological-sample-analysis.html#cb177-1"></a><span class="co"># ANOVA: do incision sizes differ?</span></span>
+<span id="cb177-2"><a href="archaeological-sample-analysis.html#cb177-2"></a><span class="kw">anova</span>(fit.sizeinc)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -1551,8 +1559,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 </div>
 <div id="sizeshape-incision-profile-2" class="section level2">
 <h2><span class="header-section-number">7.6</span> Size/Shape ~ Incision Profile 2?</h2>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="archaeological-sample-analysis.html#cb239-1"></a><span class="co"># ANOVA: do incision shapes differ (inc2)?</span></span>
-<span id="cb239-2"><a href="archaeological-sample-analysis.html#cb239-2"></a><span class="kw">anova</span>(fit.shapeinc2)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="archaeological-sample-analysis.html#cb179-1"></a><span class="co"># ANOVA: do incision shapes differ (inc2)?</span></span>
+<span id="cb179-2"><a href="archaeological-sample-analysis.html#cb179-2"></a><span class="kw">anova</span>(fit.shapeinc2)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -1569,9 +1577,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Call: procD.lm(f1 = shape ~ inc2, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="archaeological-sample-analysis.html#cb241-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
-<span id="cb241-2"><a href="archaeological-sample-analysis.html#cb241-2"></a>sh.inc2 &lt;-<span class="st"> </span><span class="kw">pairwise</span>(fit.shapeinc2, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2)</span>
-<span id="cb241-3"><a href="archaeological-sample-analysis.html#cb241-3"></a><span class="kw">summary</span>(sh.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="archaeological-sample-analysis.html#cb181-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
+<span id="cb181-2"><a href="archaeological-sample-analysis.html#cb181-2"></a>sh.inc2 &lt;-<span class="st"> </span><span class="kw">pairwise</span>(fit.shapeinc2, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2)</span>
+<span id="cb181-3"><a href="archaeological-sample-analysis.html#cb181-3"></a><span class="kw">summary</span>(sh.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -1587,8 +1595,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## ub:un 0.2157557 0.1581367 3.383701 0.0062
 ## ub:v  0.4077494 0.1582476 8.161894 0.0001
 ## un:v  0.2010972 0.1849624 2.328530 0.0304</code></pre>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="archaeological-sample-analysis.html#cb243-1"></a><span class="co"># pairwise distance between variances = standardization?</span></span>
-<span id="cb243-2"><a href="archaeological-sample-analysis.html#cb243-2"></a><span class="kw">summary</span>(sh.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="archaeological-sample-analysis.html#cb183-1"></a><span class="co"># pairwise distance between variances = standardization?</span></span>
+<span id="cb183-2"><a href="archaeological-sample-analysis.html#cb183-2"></a><span class="kw">summary</span>(sh.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -1607,8 +1615,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## ub:un 0.007279854 0.03905262 -0.7743531 0.7369
 ## ub:v  0.076675739 0.03902052  4.9950780 0.0003
 ## un:v  0.083955593 0.04612575  4.5534741 0.0002</code></pre>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="archaeological-sample-analysis.html#cb245-1"></a><span class="co"># ANOVA: do incision sizes differ (inc2)?</span></span>
-<span id="cb245-2"><a href="archaeological-sample-analysis.html#cb245-2"></a><span class="kw">anova</span>(fit.sizeinc2)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="archaeological-sample-analysis.html#cb185-1"></a><span class="co"># ANOVA: do incision sizes differ (inc2)?</span></span>
+<span id="cb185-2"><a href="archaeological-sample-analysis.html#cb185-2"></a><span class="kw">anova</span>(fit.sizeinc2)</span></code></pre></div>
 <pre><code>## 
 ## Analysis of Variance, using Residual Randomization
 ## Permutation procedure: Randomization of null model residuals 
@@ -1623,9 +1631,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Total     48 115.342                                     
 ## 
 ## Call: procD.lm(f1 = size ~ inc2, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="archaeological-sample-analysis.html#cb247-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
-<span id="cb247-2"><a href="archaeological-sample-analysis.html#cb247-2"></a>sz.inc2 &lt;-<span class="st"> </span><span class="kw">pairwise</span>(fit.sizeinc2, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2)</span>
-<span id="cb247-3"><a href="archaeological-sample-analysis.html#cb247-3"></a><span class="kw">summary</span>(sz.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="archaeological-sample-analysis.html#cb187-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
+<span id="cb187-2"><a href="archaeological-sample-analysis.html#cb187-2"></a>sz.inc2 &lt;-<span class="st"> </span><span class="kw">pairwise</span>(fit.sizeinc2, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2)</span>
+<span id="cb187-3"><a href="archaeological-sample-analysis.html#cb187-3"></a><span class="kw">summary</span>(sz.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;dist&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -1641,8 +1649,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## ub:un 0.2430178  1.053165 -0.5888278 0.6608
 ## ub:v  0.5814296  1.071510  0.4236909 0.3003
 ## un:v  0.3384118  1.226190 -0.4430788 0.5999</code></pre>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="archaeological-sample-analysis.html#cb249-1"></a><span class="co"># pairwise distance between variances = standardization?</span></span>
-<span id="cb249-2"><a href="archaeological-sample-analysis.html#cb249-2"></a><span class="kw">summary</span>(sz.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="archaeological-sample-analysis.html#cb189-1"></a><span class="co"># pairwise distance between variances = standardization?</span></span>
+<span id="cb189-2"><a href="archaeological-sample-analysis.html#cb189-2"></a><span class="kw">summary</span>(sz.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Pairwise comparisons
 ## 
@@ -1664,10 +1672,10 @@ Figure 7.1: Results of generalized Procrustes analysis.
 </div>
 <div id="morphological-disparity" class="section level2">
 <h2><span class="header-section-number">7.7</span> Morphological disparity</h2>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="archaeological-sample-analysis.html#cb251-1"></a><span class="co"># morphological disparity: does incision morphology display greater shape variation among individuals relative to incision profile (inc or inc2)?</span></span>
-<span id="cb251-2"><a href="archaeological-sample-analysis.html#cb251-2"></a><span class="co"># incision</span></span>
-<span id="cb251-3"><a href="archaeological-sample-analysis.html#cb251-3"></a><span class="kw">morphol.disparity</span>(fit.shapeinc, <span class="dt">groups =</span> qdata<span class="op">$</span>incision, <span class="dt">data =</span> gdf, </span>
-<span id="cb251-4"><a href="archaeological-sample-analysis.html#cb251-4"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="archaeological-sample-analysis.html#cb191-1"></a><span class="co"># morphological disparity: does incision morphology display greater shape variation among individuals relative to incision profile (inc or inc2)?</span></span>
+<span id="cb191-2"><a href="archaeological-sample-analysis.html#cb191-2"></a><span class="co"># incision</span></span>
+<span id="cb191-3"><a href="archaeological-sample-analysis.html#cb191-3"></a><span class="kw">morphol.disparity</span>(fit.shapeinc, <span class="dt">groups =</span> qdata<span class="op">$</span>incision, <span class="dt">data =</span> gdf, </span>
+<span id="cb191-4"><a href="archaeological-sample-analysis.html#cb191-4"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.shapeinc, groups = qdata$incision,      iter = 9999, data = gdf, print.progress = FALSE) 
@@ -1692,9 +1700,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ##       u     v
 ## u 1e+00 7e-04
 ## v 7e-04 1e+00</code></pre>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="archaeological-sample-analysis.html#cb253-1"></a><span class="co"># inc2</span></span>
-<span id="cb253-2"><a href="archaeological-sample-analysis.html#cb253-2"></a><span class="kw">morphol.disparity</span>(fit.shapeinc2, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2, <span class="dt">data =</span> gdf, </span>
-<span id="cb253-3"><a href="archaeological-sample-analysis.html#cb253-3"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="archaeological-sample-analysis.html#cb193-1"></a><span class="co"># inc2</span></span>
+<span id="cb193-2"><a href="archaeological-sample-analysis.html#cb193-2"></a><span class="kw">morphol.disparity</span>(fit.shapeinc2, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2, <span class="dt">data =</span> gdf, </span>
+<span id="cb193-3"><a href="archaeological-sample-analysis.html#cb193-3"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.shapeinc2, groups = qdata$inc2, iter = 9999,      data = gdf, print.progress = FALSE) 
@@ -1721,10 +1729,10 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## ub 1.0000 0.7369 3e-04
 ## un 0.7369 1.0000 2e-04
 ## v  0.0003 0.0002 1e+00</code></pre>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="archaeological-sample-analysis.html#cb255-1"></a><span class="co"># morphological disparity: does incision morphology display greater size variation among individuals relative to incision profile (inc or inc2)?</span></span>
-<span id="cb255-2"><a href="archaeological-sample-analysis.html#cb255-2"></a><span class="co"># incision</span></span>
-<span id="cb255-3"><a href="archaeological-sample-analysis.html#cb255-3"></a><span class="kw">morphol.disparity</span>(fit.sizeinc, <span class="dt">groups =</span> qdata<span class="op">$</span>incision, <span class="dt">data =</span> gdf, </span>
-<span id="cb255-4"><a href="archaeological-sample-analysis.html#cb255-4"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="archaeological-sample-analysis.html#cb195-1"></a><span class="co"># morphological disparity: does incision morphology display greater size variation among individuals relative to incision profile (inc or inc2)?</span></span>
+<span id="cb195-2"><a href="archaeological-sample-analysis.html#cb195-2"></a><span class="co"># incision</span></span>
+<span id="cb195-3"><a href="archaeological-sample-analysis.html#cb195-3"></a><span class="kw">morphol.disparity</span>(fit.sizeinc, <span class="dt">groups =</span> qdata<span class="op">$</span>incision, <span class="dt">data =</span> gdf, </span>
+<span id="cb195-4"><a href="archaeological-sample-analysis.html#cb195-4"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.sizeinc, groups = qdata$incision,      iter = 9999, data = gdf, print.progress = FALSE) 
@@ -1749,9 +1757,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ##        u      v
 ## u 1.0000 0.2052
 ## v 0.2052 1.0000</code></pre>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="archaeological-sample-analysis.html#cb257-1"></a><span class="co"># inc2</span></span>
-<span id="cb257-2"><a href="archaeological-sample-analysis.html#cb257-2"></a><span class="kw">morphol.disparity</span>(fit.sizeinc2, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2, <span class="dt">data =</span> gdf, </span>
-<span id="cb257-3"><a href="archaeological-sample-analysis.html#cb257-3"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="archaeological-sample-analysis.html#cb197-1"></a><span class="co"># inc2</span></span>
+<span id="cb197-2"><a href="archaeological-sample-analysis.html#cb197-2"></a><span class="kw">morphol.disparity</span>(fit.sizeinc2, <span class="dt">groups =</span> qdata<span class="op">$</span>inc2, <span class="dt">data =</span> gdf, </span>
+<span id="cb197-3"><a href="archaeological-sample-analysis.html#cb197-3"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## morphol.disparity(f1 = fit.sizeinc2, groups = qdata$inc2, iter = 9999,      data = gdf, print.progress = FALSE) 
@@ -1781,17 +1789,17 @@ Figure 7.1: Results of generalized Procrustes analysis.
 </div>
 <div id="mean-shapes" class="section level2">
 <h2><span class="header-section-number">7.8</span> Mean shapes</h2>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="archaeological-sample-analysis.html#cb259-1"></a><span class="co"># subset landmark coordinates to produce mean shapes by site</span></span>
-<span id="cb259-2"><a href="archaeological-sample-analysis.html#cb259-2"></a>new.coords &lt;-<span class="st"> </span><span class="kw">coords.subset</span>(<span class="dt">A =</span> Y.gpa<span class="op">$</span>coords, <span class="dt">group =</span> qdata<span class="op">$</span>inc2)</span>
-<span id="cb259-3"><a href="archaeological-sample-analysis.html#cb259-3"></a><span class="kw">names</span>(new.coords)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="archaeological-sample-analysis.html#cb199-1"></a><span class="co"># subset landmark coordinates to produce mean shapes by site</span></span>
+<span id="cb199-2"><a href="archaeological-sample-analysis.html#cb199-2"></a>new.coords &lt;-<span class="st"> </span><span class="kw">coords.subset</span>(<span class="dt">A =</span> Y.gpa<span class="op">$</span>coords, <span class="dt">group =</span> qdata<span class="op">$</span>inc2)</span>
+<span id="cb199-3"><a href="archaeological-sample-analysis.html#cb199-3"></a><span class="kw">names</span>(new.coords)</span></code></pre></div>
 <pre><code>## [1] &quot;ub&quot; &quot;un&quot; &quot;v&quot;</code></pre>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="archaeological-sample-analysis.html#cb261-1"></a><span class="co"># group shape means</span></span>
-<span id="cb261-2"><a href="archaeological-sample-analysis.html#cb261-2"></a>mean &lt;-<span class="st"> </span><span class="kw">lapply</span>(new.coords, mshape)</span>
-<span id="cb261-3"><a href="archaeological-sample-analysis.html#cb261-3"></a><span class="co"># plot(mean$vv)</span></span>
-<span id="cb261-4"><a href="archaeological-sample-analysis.html#cb261-4"></a></span>
-<span id="cb261-5"><a href="archaeological-sample-analysis.html#cb261-5"></a><span class="co"># mean shapes</span></span>
-<span id="cb261-6"><a href="archaeological-sample-analysis.html#cb261-6"></a><span class="co">#knitr::include_graphics(&#39;images/inc2-mshape.png&#39;)</span></span>
-<span id="cb261-7"><a href="archaeological-sample-analysis.html#cb261-7"></a><span class="co"># end of code</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="archaeological-sample-analysis.html#cb201-1"></a><span class="co"># group shape means</span></span>
+<span id="cb201-2"><a href="archaeological-sample-analysis.html#cb201-2"></a>mean &lt;-<span class="st"> </span><span class="kw">lapply</span>(new.coords, mshape)</span>
+<span id="cb201-3"><a href="archaeological-sample-analysis.html#cb201-3"></a><span class="co"># plot(mean$vv)</span></span>
+<span id="cb201-4"><a href="archaeological-sample-analysis.html#cb201-4"></a></span>
+<span id="cb201-5"><a href="archaeological-sample-analysis.html#cb201-5"></a><span class="co"># mean shapes</span></span>
+<span id="cb201-6"><a href="archaeological-sample-analysis.html#cb201-6"></a><span class="co">#knitr::include_graphics(&#39;images/inc2-mshape.png&#39;)</span></span>
+<span id="cb201-7"><a href="archaeological-sample-analysis.html#cb201-7"></a><span class="co"># end of code</span></span></code></pre></div>
 
 </div>
 </div>
