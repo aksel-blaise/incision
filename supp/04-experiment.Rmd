@@ -22,88 +22,77 @@ A Keyence VR-5000 optical profilometer was used to capture each three-dimensiona
 
 ### Experimental tile 2
 
-```{r exp-tile2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on experimental tile 2 were made with a Size 0 cup chisel (plan), and a Size 0 cup round (plan)."}
 # incision image
 knitr::include_graphics('images/exp-tile2.png')
-fig.cap="Incisions on experimental tile 2 were made with a Size 0 cup chisel (plan), and a Size 0 cup round (plan)."
 ```
 
 ### Experimental tile 3
 
-```{r exp-tile3, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile3, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on experimental tile 3 were made with a Size 9 flat chisel (plan), and a Size 2 cup round (plan)."}
 # incision image
 knitr::include_graphics('images/exp-tile3.png')
-fig.cap="Incisions on experimental tile 3 were made with a Size 9 flat chisel (plan), and a Size 2 cup round (plan)."
 ```
 
 ### Experimental tile 4a
 
-```{r exp-tile4a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile4a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE,fig.cap="Incisions on experimental tile 4a were made with a Size 0 cup chisel."}
 # incision image
 knitr::include_graphics('images/exp-tile4a.png')
-fig.cap="Incisions on experimental tile 4a were made with a Size 0 cup chisel."
 ```
 
 ### Experimental tile 4b
 
-```{r exp-tile4b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile4b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on experimental tile 4b were made with a Size 0 cup chisel (profile)."}
 # incision image
 knitr::include_graphics('images/exp-tile4b.png')
-fig.cap="Incisions on experimental tile 4b were made with a Size 0 cup chisel (profile)."
 ```
 
 ### Experimental tile 5
 
-```{r exp-tile5, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile5, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on experimental tile 5 were made with a Size 0 cup chisel (plan), and a Size 0 cup round (plan)."}
 # incision image
 knitr::include_graphics('images/exp-tile5.png')
-fig.cap="Incisions on experimental tile 5 were made with a Size 0 cup chisel (plan), and a Size 0 cup round (plan)."
 ```
 
 ### Experimental tile 6a
 
-```{r exp-tile6a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile6a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on experimental tile 6a were made with a Size 2 cup round (plan)."}
 # incision image
 knitr::include_graphics('images/exp-tile6a.png')
-fig.cap="Incisions on experimental tile 6a were made with a Size 2 cup round (plan)."
 ```
 
 ### Experimental tile 6b
 
-```{r exp-tile6b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile6b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on experimental tile 6b were made with a Size 2 cup round (profile)."}
 # incision image
 knitr::include_graphics('images/exp-tile6b.png')
-fig.cap="Incisions on experimental tile 6b were made with a Size 2 cup round (profile)."
 ```
 
 ### Experimental tile 7a
 
-```{r exp-tile7a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile7a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on experimental tile 7a were made with a Size 9 flat (plan)."}
 # incision image
 knitr::include_graphics('images/exp-tile7a.png')
-fig.cap="Incisions on experimental tile 7a were made with a Size 9 flat (plan)."
 ```
 
 ### Experimental tile 7b
 
-```{r exp-tile7b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile7b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on experimental tile 7b were made with a Size 9 flat (profile)."}
 # incision image
 knitr::include_graphics('images/exp-tile7b.png')
-fig.cap="Incisions on experimental tile 7b were made with a Size 9 flat (profile)."
 ```
 
 ### Experimental tile 8a
 
-```{r exp-tile8a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile8a, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on experimental tile 8a were made with a Size 10 flat (plan)."}
 # incision image
 knitr::include_graphics('images/exp-tile8a.png')
-fig.cap="Incisions on experimental tile 8a were made with a Size 10 flat (plan)."
 ```
 
 ### Experimental tile 8a
 
-```{r exp-tile8b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r exp-tile8b, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Incisions on experimental tile 8b were made with a Size 10 flat (profile)."}
 # incision image
 knitr::include_graphics('images/exp-tile8b.png')
-fig.cap="Incisions on experimental tile 8b were made with a Size 10 flat (profile)."
 ```
