@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr." />
 
 
-<meta name="date" content="2020-09-26" />
+<meta name="date" content="2020-10-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -330,10 +330,10 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="experimental-sample-analysis.html#cb36-1"></a><span class="co"># devtools::install_github(&quot;geomorphR/geomorph&quot;, ref = &quot;Stable&quot;, build_vignettes = TRUE)</span></span>
 <span id="cb36-2"><a href="experimental-sample-analysis.html#cb36-2"></a><span class="kw">library</span>(geomorph)</span>
 <span id="cb36-3"><a href="experimental-sample-analysis.html#cb36-3"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## -- Attaching packages ---------------------------------- tidyverse 1.3.0.9000 --</code></pre>
 <pre><code>## v tibble  3.0.3     v dplyr   1.0.2
 ## v tidyr   1.1.2     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.5.0
+## v readr   1.4.0     v forcats 0.5.0
 ## v purrr   0.3.4</code></pre>
 <pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
@@ -594,19 +594,24 @@ Figure 5.3: Boxplot of experimental incision profile types (U-narrow, U-Wide, an
 <span id="cb48-3"><a href="experimental-sample-analysis.html#cb48-3"></a><span class="kw">summary</span>(pca)</span></code></pre></div>
 <pre><code>## 
 ## Ordination type: Principal Component Analysis 
-## Centering and projection: OLS 
-## Number of observations 13 
+## Centering by OLS mean
+## Orthogonal projection of OLS residuals
+## Number of observations: 13 
 ## Number of vectors 13 
 ## 
 ## Importance of Components:
-##                            Comp1       Comp2       Comp3        Comp4        Comp5        Comp6        Comp7        Comp8
-## Eigenvalues            0.0441045 0.005014108 0.003398275 0.0003353507 0.0002822004 0.0001809061 0.0001525644 7.081347e-05
-## Proportion of Variance 0.8226607 0.093525803 0.063386441 0.0062551403 0.0052637514 0.0033743561 0.0028457127 1.320850e-03
-## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536 0.9910918051 0.9944661611 0.9973118738 9.986327e-01
-##                               Comp9       Comp10       Comp11       Comp12       Comp13
-## Eigenvalues            3.658645e-05 2.060166e-05 1.050025e-05 5.614060e-06 2.143147e-33
-## Proportion of Variance 6.824299e-04 3.842732e-04 1.958562e-04 1.047164e-04 3.997511e-32
-## Cumulative Proportion  9.993152e-01 9.996994e-01 9.998953e-01 1.000000e+00 1.000000e+00</code></pre>
+##                            Comp1       Comp2       Comp3        Comp4        Comp5
+## Eigenvalues            0.0441045 0.005014108 0.003398275 0.0003353507 0.0002822004
+## Proportion of Variance 0.8226607 0.093525803 0.063386441 0.0062551403 0.0052637514
+## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536 0.9910918051
+##                               Comp6        Comp7        Comp8        Comp9       Comp10
+## Eigenvalues            0.0001809061 0.0001525644 7.081347e-05 3.658645e-05 2.060166e-05
+## Proportion of Variance 0.0033743561 0.0028457127 1.320850e-03 6.824299e-04 3.842732e-04
+## Cumulative Proportion  0.9944661611 0.9973118738 9.986327e-01 9.993152e-01 9.996994e-01
+##                              Comp11       Comp12       Comp13
+## Eigenvalues            1.050025e-05 5.614060e-06 2.143147e-33
+## Proportion of Variance 1.958562e-04 1.047164e-04 3.997511e-32
+## Cumulative Proportion  9.998953e-01 1.000000e+00 1.000000e+00</code></pre>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="experimental-sample-analysis.html#cb50-1"></a><span class="co"># set plot parameters</span></span>
 <span id="cb50-2"><a href="experimental-sample-analysis.html#cb50-2"></a>pch.gps<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="kw">as.factor</span>(inc)]</span>
 <span id="cb50-3"><a href="experimental-sample-analysis.html#cb50-3"></a>col.gps<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="kw">as.factor</span>(inc)]</span>
@@ -687,7 +692,7 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS       MS     Rsq      F      Z Pr(&gt;F)   
-## size       1 0.28340 0.283400 0.44051 8.6608 2.3394 0.0052 **
+## size       1 0.28340 0.283400 0.44051 8.6608 2.3784 0.0052 **
 ## Residuals 11 0.35994 0.032722 0.55949                        
 ## Total     12 0.64334                                         
 ## ---
@@ -707,8 +712,8 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS       MS     Rsq      F      Z Pr(&gt;F)    
-## size       1 0.28340 0.283400 0.44051 21.032 3.1042  1e-04 ***
-## inc        1 0.22519 0.225195 0.35004 16.712 3.1351  1e-04 ***
+## size       1 0.28340 0.283400 0.44051 21.032 3.1698  1e-04 ***
+## inc        1 0.22519 0.225195 0.35004 16.712 3.1780  1e-04 ***
 ## Residuals 10 0.13475 0.013475 0.20945                         
 ## Total     12 0.64334                                          
 ## ---
@@ -726,8 +731,8 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS       MS     Rsq      F      Z Pr(&gt;F)    
-## size       1 0.28340 0.283400 0.44051 26.361 3.2826  1e-04 ***
-## inc2       2 0.26319 0.131593 0.40909 12.240 3.3437  3e-04 ***
+## size       1 0.28340 0.283400 0.44051 26.361 3.3157  1e-04 ***
+## inc2       2 0.26319 0.131593 0.40909 12.240 3.2927  3e-04 ***
 ## Residuals  9 0.09676 0.010751 0.15040                         
 ## Total     12 0.64334                                          
 ## ---
@@ -770,9 +775,9 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS       MS     Rsq       F      Z Pr(&gt;F)    
-## size       1 0.28340 0.283400 0.44051 29.8384 3.3937  1e-04 ***
-## inc        1 0.22519 0.225195 0.35004 23.7101 3.4382  1e-04 ***
-## size:inc   1 0.04927 0.049269 0.07658  5.1874 2.1765 0.0104 *  
+## size       1 0.28340 0.283400 0.44051 29.8384 3.4401  1e-04 ***
+## inc        1 0.22519 0.225195 0.35004 23.7101 3.4595  1e-04 ***
+## size:inc   1 0.04927 0.049269 0.07658  5.1874 2.2701 0.0104 *  
 ## Residuals  9 0.08548 0.009498 0.13287                          
 ## Total     12 0.64334                                           
 ## ---
@@ -790,9 +795,9 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS       MS     Rsq       F      Z Pr(&gt;F)    
-## size       1 0.28340 0.283400 0.44051 26.4390 3.2457  1e-04 ***
-## inc2       2 0.26319 0.131593 0.40909 12.2766 3.2645 0.0003 ***
-## size:inc2  2 0.02172 0.010862 0.03377  1.0134 0.1882 0.4522    
+## size       1 0.28340 0.283400 0.44051 26.4390 3.2515  1e-04 ***
+## inc2       2 0.26319 0.131593 0.40909 12.2766 3.1795 0.0003 ***
+## size:inc2  2 0.02172 0.010862 0.03377  1.0134 0.1361 0.4522    
 ## Residuals  7 0.07503 0.010719 0.11663                          
 ## Total     12 0.64334                                           
 ## ---
@@ -820,10 +825,10 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## Sums of Squares and Cross-products: Type I 
 ## Effect sizes (Z) based on F distributions
 ## 
-##           Df      SS      MS     Rsq      F     Z Pr(&gt;F)    
-## inc        1 0.40707 0.40707 0.63274 18.951 3.026  5e-04 ***
-## Residuals 11 0.23628 0.02148 0.36726                        
-## Total     12 0.64334                                        
+##           Df      SS      MS     Rsq      F      Z Pr(&gt;F)    
+## inc        1 0.40707 0.40707 0.63274 18.951 2.9804  5e-04 ***
+## Residuals 11 0.23628 0.02148 0.36726                         
+## Total     12 0.64334                                         
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
@@ -838,10 +843,10 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## Sums of Squares and Cross-products: Type I 
 ## Effect sizes (Z) based on F distributions
 ## 
-##           Df      SS     MS     Rsq      F       Z Pr(&gt;F)
-## inc        1  41.194 41.194 0.20167 2.7787 0.93839  0.129
-## Residuals 11 163.075 14.825 0.79833                      
-## Total     12 204.269                                     
+##           Df      SS     MS     Rsq      F      Z Pr(&gt;F)
+## inc        1  41.194 41.194 0.20167 2.7787 1.1494  0.129
+## Residuals 11 163.075 14.825 0.79833                     
+## Total     12 204.269                                    
 ## 
 ## Call: procD.lm(f1 = size ~ inc, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
 </div>
@@ -858,7 +863,7 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS       MS     Rsq      F      Z Pr(&gt;F)    
-## inc2       2 0.54162 0.270809 0.84188 26.621 4.0495  1e-04 ***
+## inc2       2 0.54162 0.270809 0.84188 26.621 3.7921  1e-04 ***
 ## Residuals 10 0.10173 0.010173 0.15812                         
 ## Total     12 0.64334                                          
 ## ---
@@ -880,9 +885,9 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## 
 ## Pairwise distances between means, plus statistics
 ##               d UCL (95%)        Z Pr &gt; d
-## Un:Uw 0.2801554 0.3138160 1.551920 0.0885
-## Un:V  0.2689149 0.2657416 2.036655 0.0465
-## Uw:V  0.4923652 0.2925628 4.715051 0.0001</code></pre>
+## Un:Uw 0.2801554 0.3138160 1.412484 0.0885
+## Un:V  0.2689149 0.2657416 1.693278 0.0465
+## Uw:V  0.4923652 0.2925628 2.848955 0.0001</code></pre>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="experimental-sample-analysis.html#cb79-1"></a><span class="co"># pairwise distance between variances = standardization?</span></span>
 <span id="cb79-2"><a href="experimental-sample-analysis.html#cb79-2"></a><span class="kw">summary</span>(sh.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</span></code></pre></div>
 <pre><code>## 
@@ -900,9 +905,9 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## 
 ## Pairwise distances between variances, plus statistics
 ##                 d   UCL (95%)          Z Pr &gt; d
-## Un:Uw 0.006139884 0.008120517  1.1339478 0.1455
-## Un:V  0.004038578 0.006905215  0.5429554 0.2761
-## Uw:V  0.002101306 0.007528055 -0.4700532 0.6097</code></pre>
+## Un:Uw 0.006139884 0.008120517  1.1006324 0.1455
+## Un:V  0.004038578 0.006905215  0.6752955 0.2761
+## Uw:V  0.002101306 0.007528055 -0.2741477 0.6097</code></pre>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="experimental-sample-analysis.html#cb81-1"></a><span class="co"># ANOVA: do incision sizes differ (inc2)?</span></span>
 <span id="cb81-2"><a href="experimental-sample-analysis.html#cb81-2"></a><span class="kw">anova</span>(fit.sizeinc2)</span></code></pre></div>
 <pre><code>## 
@@ -914,7 +919,7 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df     SS     MS    Rsq      F      Z Pr(&gt;F)   
-## inc2       2 148.75 74.374 0.7282 13.396 2.2867 0.0031 **
+## inc2       2 148.75 74.374 0.7282 13.396 3.1046 0.0031 **
 ## Residuals 10  55.52  5.552 0.2718                        
 ## Total     12 204.27                                      
 ## ---
@@ -936,9 +941,9 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## 
 ## Pairwise distances between means, plus statistics
 ##               d UCL (95%)         Z Pr &gt; d
-## Un:Uw 7.9208803  5.971568  2.942239 0.0050
-## Un:V  0.1761291  5.062068 -1.293163 0.9510
-## Uw:V  8.0970094  5.576685  3.381419 0.0014</code></pre>
+## Un:Uw 7.9208803  5.971568  2.147324 0.0050
+## Un:V  0.1761291  5.062068 -1.724802 0.9510
+## Uw:V  8.0970094  5.576685  2.396917 0.0014</code></pre>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="experimental-sample-analysis.html#cb85-1"></a><span class="co"># pairwise distance between variances = standardization?</span></span>
 <span id="cb85-2"><a href="experimental-sample-analysis.html#cb85-2"></a><span class="kw">summary</span>(sz.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</span></code></pre></div>
 <pre><code>## 
@@ -955,10 +960,10 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 ## 1.817578 2.993043 6.545157 
 ## 
 ## Pairwise distances between variances, plus statistics
-##              d UCL (95%)          Z Pr &gt; d
-## Un:Uw 1.175464  4.698405 -0.5568451 0.6383
-## Un:V  4.727578  3.903940  2.5886896 0.0160
-## Uw:V  3.552114  4.358573  1.3182328 0.1185</code></pre>
+##              d UCL (95%)         Z Pr &gt; d
+## Un:Uw 1.175464  4.698405 -0.370935 0.6383
+## Un:V  4.727578  3.903940  1.952919 0.0160
+## Uw:V  3.552114  4.358573  1.220842 0.1185</code></pre>
 </div>
 <div id="morphological-disparity" class="section level2">
 <h2><span class="header-section-number">5.8</span> Morphological disparity</h2>
@@ -967,7 +972,8 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 <span id="cb87-3"><a href="experimental-sample-analysis.html#cb87-3"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = fit.shapeinc, groups = qdata$inc2, iter = 9999,      data = gdf, print.progress = FALSE) 
+## morphol.disparity(f1 = fit.shapeinc, groups = qdata$inc2, iter = 9999,  
+##     data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
@@ -996,7 +1002,8 @@ Figure 5.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 <span id="cb89-3"><a href="experimental-sample-analysis.html#cb89-3"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = fit.sizeinc, groups = qdata$inc2, iter = 9999,      data = gdf, print.progress = FALSE) 
+## morphol.disparity(f1 = fit.sizeinc, groups = qdata$inc2, iter = 9999,  
+##     data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 

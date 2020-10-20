@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr." />
 
 
-<meta name="date" content="2020-09-26" />
+<meta name="date" content="2020-10-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1284,39 +1284,52 @@ Figure 7.1: Results of generalized Procrustes analysis.
 <span id="cb152-3"><a href="archaeological-sample-analysis.html#cb152-3"></a><span class="kw">summary</span>(pca)</span></code></pre></div>
 <pre><code>## 
 ## Ordination type: Principal Component Analysis 
-## Centering and projection: OLS 
-## Number of observations 49 
+## Centering by OLS mean
+## Orthogonal projection of OLS residuals
+## Number of observations: 49 
 ## Number of vectors 49 
 ## 
 ## Importance of Components:
-##                             Comp1       Comp2       Comp3       Comp4        Comp5        Comp6        Comp7        Comp8
-## Eigenvalues            0.05005241 0.007101587 0.004207237 0.001010877 0.0004000871 0.0002918061 0.0001356203 0.0001049297
-## Proportion of Variance 0.78696350 0.111656745 0.066149502 0.015893806 0.0062904852 0.0045880063 0.0021323291 0.0016497880
-## Cumulative Proportion  0.78696350 0.898620247 0.964769748 0.980663554 0.9869540391 0.9915420454 0.9936743745 0.9953241625
-##                               Comp9       Comp10       Comp11       Comp12       Comp13       Comp14       Comp15
-## Eigenvalues            0.0000527297 4.893199e-05 4.140238e-05 2.795772e-05 2.477753e-05 1.839935e-05 1.553619e-05
-## Proportion of Variance 0.0008290579 7.693473e-04 6.509609e-04 4.395733e-04 3.895719e-04 2.892891e-04 2.442723e-04
-## Cumulative Proportion  0.9961532203 9.969226e-01 9.975735e-01 9.980131e-01 9.984027e-01 9.986920e-01 9.989362e-01
-##                              Comp16       Comp17       Comp18       Comp19       Comp20       Comp21       Comp22
-## Eigenvalues            1.245841e-05 1.099519e-05 8.857840e-06 6.205629e-06 4.605748e-06 4.189723e-06 3.711596e-06
-## Proportion of Variance 1.958810e-04 1.728750e-04 1.392699e-04 9.756980e-05 7.241520e-05 6.587413e-05 5.835663e-05
-## Cumulative Proportion  9.991321e-01 9.993050e-01 9.994443e-01 9.995418e-01 9.996142e-01 9.996801e-01 9.997385e-01
-##                              Comp23       Comp24       Comp25       Comp26       Comp27       Comp28       Comp29
-## Eigenvalues            2.789934e-06 2.436159e-06 2.014312e-06 1.668968e-06 1.638174e-06 1.185650e-06 9.495449e-07
-## Proportion of Variance 4.386554e-05 3.830321e-05 3.167061e-05 2.624083e-05 2.575666e-05 1.864172e-05 1.492949e-05
-## Cumulative Proportion  9.997823e-01 9.998206e-01 9.998523e-01 9.998786e-01 9.999043e-01 9.999230e-01 9.999379e-01
-##                              Comp30       Comp31       Comp32       Comp33       Comp34       Comp35       Comp36
-## Eigenvalues            6.727711e-07 5.815500e-07 5.340935e-07 4.357276e-07 3.526829e-07 3.270684e-07 2.945186e-07
-## Proportion of Variance 1.057784e-05 9.143587e-06 8.397439e-06 6.850853e-06 5.545159e-06 5.142428e-06 4.630653e-06
-## Cumulative Proportion  9.999485e-01 9.999576e-01 9.999660e-01 9.999729e-01 9.999784e-01 9.999835e-01 9.999882e-01
-##                              Comp37       Comp38       Comp39       Comp40       Comp41       Comp42       Comp43
-## Eigenvalues            2.223463e-07 1.565223e-07 1.011302e-07 8.479653e-08 6.032788e-08 4.167519e-08 3.236851e-08
-## Proportion of Variance 3.495905e-06 2.460967e-06 1.590049e-06 1.333238e-06 9.485225e-07 6.552502e-07 5.089232e-07
-## Cumulative Proportion  9.999917e-01 9.999941e-01 9.999957e-01 9.999971e-01 9.999980e-01 9.999987e-01 9.999992e-01
-##                              Comp44       Comp45       Comp46       Comp47       Comp48       Comp49
-## Eigenvalues            2.524843e-08 1.466766e-08 8.934916e-09 3.680275e-09 5.264413e-10 4.805676e-34
-## Proportion of Variance 3.969758e-07 2.306165e-07 1.404818e-07 5.786418e-08 8.277125e-09 7.555862e-33
-## Cumulative Proportion  9.999996e-01 9.999998e-01 9.999999e-01 1.000000e+00 1.000000e+00 1.000000e+00</code></pre>
+##                             Comp1       Comp2       Comp3       Comp4        Comp5
+## Eigenvalues            0.05005241 0.007101587 0.004207237 0.001010877 0.0004000871
+## Proportion of Variance 0.78696350 0.111656745 0.066149502 0.015893806 0.0062904852
+## Cumulative Proportion  0.78696350 0.898620247 0.964769748 0.980663554 0.9869540391
+##                               Comp6        Comp7        Comp8        Comp9       Comp10
+## Eigenvalues            0.0002918061 0.0001356203 0.0001049297 0.0000527297 4.893199e-05
+## Proportion of Variance 0.0045880063 0.0021323291 0.0016497880 0.0008290579 7.693473e-04
+## Cumulative Proportion  0.9915420454 0.9936743745 0.9953241625 0.9961532203 9.969226e-01
+##                              Comp11       Comp12       Comp13       Comp14       Comp15
+## Eigenvalues            4.140238e-05 2.795772e-05 2.477753e-05 1.839935e-05 1.553619e-05
+## Proportion of Variance 6.509609e-04 4.395733e-04 3.895719e-04 2.892891e-04 2.442723e-04
+## Cumulative Proportion  9.975735e-01 9.980131e-01 9.984027e-01 9.986920e-01 9.989362e-01
+##                              Comp16       Comp17       Comp18       Comp19       Comp20
+## Eigenvalues            1.245841e-05 1.099519e-05 8.857840e-06 6.205629e-06 4.605748e-06
+## Proportion of Variance 1.958810e-04 1.728750e-04 1.392699e-04 9.756980e-05 7.241520e-05
+## Cumulative Proportion  9.991321e-01 9.993050e-01 9.994443e-01 9.995418e-01 9.996142e-01
+##                              Comp21       Comp22       Comp23       Comp24       Comp25
+## Eigenvalues            4.189723e-06 3.711596e-06 2.789934e-06 2.436159e-06 2.014312e-06
+## Proportion of Variance 6.587413e-05 5.835663e-05 4.386554e-05 3.830321e-05 3.167061e-05
+## Cumulative Proportion  9.996801e-01 9.997385e-01 9.997823e-01 9.998206e-01 9.998523e-01
+##                              Comp26       Comp27       Comp28       Comp29       Comp30
+## Eigenvalues            1.668968e-06 1.638174e-06 1.185650e-06 9.495449e-07 6.727711e-07
+## Proportion of Variance 2.624083e-05 2.575666e-05 1.864172e-05 1.492949e-05 1.057784e-05
+## Cumulative Proportion  9.998786e-01 9.999043e-01 9.999230e-01 9.999379e-01 9.999485e-01
+##                              Comp31       Comp32       Comp33       Comp34       Comp35
+## Eigenvalues            5.815500e-07 5.340935e-07 4.357276e-07 3.526829e-07 3.270684e-07
+## Proportion of Variance 9.143587e-06 8.397439e-06 6.850853e-06 5.545159e-06 5.142428e-06
+## Cumulative Proportion  9.999576e-01 9.999660e-01 9.999729e-01 9.999784e-01 9.999835e-01
+##                              Comp36       Comp37       Comp38       Comp39       Comp40
+## Eigenvalues            2.945186e-07 2.223463e-07 1.565223e-07 1.011302e-07 8.479653e-08
+## Proportion of Variance 4.630653e-06 3.495905e-06 2.460967e-06 1.590049e-06 1.333238e-06
+## Cumulative Proportion  9.999882e-01 9.999917e-01 9.999941e-01 9.999957e-01 9.999971e-01
+##                              Comp41       Comp42       Comp43       Comp44       Comp45
+## Eigenvalues            6.032788e-08 4.167519e-08 3.236851e-08 2.524843e-08 1.466766e-08
+## Proportion of Variance 9.485225e-07 6.552502e-07 5.089232e-07 3.969758e-07 2.306165e-07
+## Cumulative Proportion  9.999980e-01 9.999987e-01 9.999992e-01 9.999996e-01 9.999998e-01
+##                              Comp46       Comp47       Comp48       Comp49
+## Eigenvalues            8.934916e-09 3.680275e-09 5.264413e-10 4.805676e-34
+## Proportion of Variance 1.404818e-07 5.786418e-08 8.277125e-09 7.555862e-33
+## Cumulative Proportion  9.999999e-01 1.000000e+00 1.000000e+00 1.000000e+00</code></pre>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="archaeological-sample-analysis.html#cb154-1"></a><span class="co"># set plot parameters to plot by incision type</span></span>
 <span id="cb154-2"><a href="archaeological-sample-analysis.html#cb154-2"></a>inc &lt;-<span class="st"> </span>qdata<span class="op">$</span>incision</span>
 <span id="cb154-3"><a href="archaeological-sample-analysis.html#cb154-3"></a>pch.gps.inc &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="kw">as.factor</span>(inc)]</span>
@@ -1399,7 +1412,7 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS       MS     Rsq      F      Z Pr(&gt;F)  
-## size       1 0.17948 0.179482 0.05879 2.9358 1.4862 0.0684 .
+## size       1 0.17948 0.179482 0.05879 2.9358 1.5028 0.0684 .
 ## Residuals 47 2.87341 0.061136 0.94121                       
 ## Total     48 3.05289                                        
 ## ---
@@ -1419,8 +1432,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS      MS     Rsq       F      Z Pr(&gt;F)    
-## size       1 0.17948 0.17948 0.05879  4.2925 1.8379 0.0257 *  
-## inc        1 0.95004 0.95004 0.31119 22.7214 3.4812  1e-04 ***
+## size       1 0.17948 0.17948 0.05879  4.2925 1.8694 0.0257 *  
+## inc        1 0.95004 0.95004 0.31119 22.7214 3.7082  1e-04 ***
 ## Residuals 46 1.92337 0.04181 0.63002                          
 ## Total     48 3.05289                                          
 ## ---
@@ -1438,8 +1451,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS      MS     Rsq       F      Z Pr(&gt;F)    
-## size       1 0.17948 0.17948 0.05879  5.1601 2.0090  0.015 *  
-## inc2       2 1.30818 0.65409 0.42851 18.8050 4.2136  1e-04 ***
+## size       1 0.17948 0.17948 0.05879  5.1601 2.0485  0.015 *  
+## inc2       2 1.30818 0.65409 0.42851 18.8050 4.3522  1e-04 ***
 ## Residuals 45 1.56523 0.03478 0.51270                          
 ## Total     48 3.05289                                          
 ## ---
@@ -1482,9 +1495,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS      MS     Rsq       F      Z Pr(&gt;F)    
-## size       1 0.17948 0.17948 0.05879  4.2822 1.8273 0.0266 *  
-## inc        1 0.95004 0.95004 0.31119 22.6668 3.4709  1e-04 ***
-## size:inc   1 0.03728 0.03728 0.01221  0.8895 0.3363 0.3730    
+## size       1 0.17948 0.17948 0.05879  4.2822 1.8572 0.0266 *  
+## inc        1 0.95004 0.95004 0.31119 22.6668 3.6895  1e-04 ***
+## size:inc   1 0.03728 0.03728 0.01221  0.8895 0.3327 0.3730    
 ## Residuals 45 1.88609 0.04191 0.61780                          
 ## Total     48 3.05289                                          
 ## ---
@@ -1502,9 +1515,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS      MS     Rsq       F      Z Pr(&gt;F)    
-## size       1 0.17948 0.17948 0.05879  5.1283 1.9925 0.0161 *  
-## inc2       2 1.30818 0.65409 0.42851 18.6891 4.1876  1e-04 ***
-## size:inc2  2 0.06029 0.03015 0.01975  0.8613 0.1108 0.4668    
+## size       1 0.17948 0.17948 0.05879  5.1283 2.0293 0.0161 *  
+## inc2       2 1.30818 0.65409 0.42851 18.6891 4.3129  1e-04 ***
+## size:inc2  2 0.06029 0.03015 0.01975  0.8613 0.0785 0.4668    
 ## Residuals 43 1.50494 0.03500 0.49295                          
 ## Total     48 3.05289                                          
 ## ---
@@ -1533,7 +1546,7 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df     SS      MS     Rsq      F      Z Pr(&gt;F)    
-## inc        1 1.0443 1.04433 0.34208 24.437 3.5466  1e-04 ***
+## inc        1 1.0443 1.04433 0.34208 24.437 3.6736  1e-04 ***
 ## Residuals 47 2.0086 0.04274 0.65792                         
 ## Total     48 3.0529                                         
 ## ---
@@ -1551,7 +1564,7 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df      SS     MS     Rsq      F       Z Pr(&gt;F)
-## inc        1   2.289 2.2891 0.01985 0.9516 0.52362 0.3419
+## inc        1   2.289 2.2891 0.01985 0.9516 0.46031 0.3419
 ## Residuals 47 113.053 2.4054 0.98015                      
 ## Total     48 115.342                                     
 ## 
@@ -1570,7 +1583,7 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Effect sizes (Z) based on F distributions
 ## 
 ##           Df     SS      MS     Rsq      F      Z Pr(&gt;F)    
-## inc2       2 1.4218 0.71088 0.46571 20.048 4.2566  1e-04 ***
+## inc2       2 1.4218 0.71088 0.46571 20.048 4.3796  1e-04 ***
 ## Residuals 46 1.6311 0.03546 0.53429                         
 ## Total     48 3.0529                                         
 ## ---
@@ -1592,9 +1605,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## 
 ## Pairwise distances between means, plus statistics
 ##               d UCL (95%)        Z Pr &gt; d
-## ub:un 0.2157557 0.1581367 3.383701 0.0062
-## ub:v  0.4077494 0.1582476 8.161894 0.0001
-## un:v  0.2010972 0.1849624 2.328530 0.0304</code></pre>
+## ub:un 0.2157557 0.1581367 2.312373 0.0062
+## ub:v  0.4077494 0.1582476 3.727039 0.0001
+## un:v  0.2010972 0.1849624 1.868986 0.0304</code></pre>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="archaeological-sample-analysis.html#cb183-1"></a><span class="co"># pairwise distance between variances = standardization?</span></span>
 <span id="cb183-2"><a href="archaeological-sample-analysis.html#cb183-2"></a><span class="kw">summary</span>(sh.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</span></code></pre></div>
 <pre><code>## 
@@ -1612,9 +1625,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## 
 ## Pairwise distances between variances, plus statistics
 ##                 d  UCL (95%)          Z Pr &gt; d
-## ub:un 0.007279854 0.03905262 -0.7743531 0.7369
-## ub:v  0.076675739 0.03902052  4.9950780 0.0003
-## un:v  0.083955593 0.04612575  4.5534741 0.0002</code></pre>
+## ub:un 0.007279854 0.03905262 -0.6669929 0.7369
+## ub:v  0.076675739 0.03902052  3.0374738 0.0003
+## un:v  0.083955593 0.04612575  2.8366679 0.0002</code></pre>
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="archaeological-sample-analysis.html#cb185-1"></a><span class="co"># ANOVA: do incision sizes differ (inc2)?</span></span>
 <span id="cb185-2"><a href="archaeological-sample-analysis.html#cb185-2"></a><span class="kw">anova</span>(fit.sizeinc2)</span></code></pre></div>
 <pre><code>## 
@@ -1625,10 +1638,10 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## Sums of Squares and Cross-products: Type I 
 ## Effect sizes (Z) based on F distributions
 ## 
-##           Df      SS     MS   Rsq      F         Z Pr(&gt;F)
-## inc2       2   2.768 1.3840 0.024 0.5655 -0.017125 0.5806
-## Residuals 46 112.574 2.4473 0.976                        
-## Total     48 115.342                                     
+##           Df      SS     MS   Rsq      F        Z Pr(&gt;F)
+## inc2       2   2.768 1.3840 0.024 0.5655 -0.18733 0.5806
+## Residuals 46 112.574 2.4473 0.976                       
+## Total     48 115.342                                    
 ## 
 ## Call: procD.lm(f1 = size ~ inc2, iter = 9999, data = gdf, print.progress = FALSE)</code></pre>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="archaeological-sample-analysis.html#cb187-1"></a><span class="co"># pairwise comparison of LS means = which differ?</span></span>
@@ -1646,9 +1659,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## 
 ## Pairwise distances between means, plus statistics
 ##               d UCL (95%)          Z Pr &gt; d
-## ub:un 0.2430178  1.053165 -0.5888278 0.6608
-## ub:v  0.5814296  1.071510  0.4236909 0.3003
-## un:v  0.3384118  1.226190 -0.4430788 0.5999</code></pre>
+## ub:un 0.2430178  1.053165 -0.4086566 0.6608
+## ub:v  0.5814296  1.071510  0.5925051 0.3003
+## un:v  0.3384118  1.226190 -0.2310006 0.5999</code></pre>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="archaeological-sample-analysis.html#cb189-1"></a><span class="co"># pairwise distance between variances = standardization?</span></span>
 <span id="cb189-2"><a href="archaeological-sample-analysis.html#cb189-2"></a><span class="kw">summary</span>(sz.inc2, <span class="dt">confidence =</span> <span class="fl">0.95</span>, <span class="dt">test.type =</span> <span class="st">&quot;var&quot;</span>)</span></code></pre></div>
 <pre><code>## 
@@ -1666,9 +1679,9 @@ Figure 7.1: Results of generalized Procrustes analysis.
 ## 
 ## Pairwise distances between variances, plus statistics
 ##               d UCL (95%)          Z Pr &gt; d
-## ub:un 0.7340703  3.184598 -0.7589678 0.7242
-## ub:v  1.9390542  3.180422  0.5157811 0.2893
-## un:v  2.6731245  3.538677  0.8846225 0.2595</code></pre>
+## ub:un 0.7340703  3.184598 -0.6420970 0.7242
+## ub:v  1.9390542  3.180422  0.6130079 0.2893
+## un:v  2.6731245  3.538677  0.9073940 0.2595</code></pre>
 </div>
 <div id="morphological-disparity" class="section level2">
 <h2><span class="header-section-number">7.7</span> Morphological disparity</h2>
@@ -1678,7 +1691,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 <span id="cb191-4"><a href="archaeological-sample-analysis.html#cb191-4"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = fit.shapeinc, groups = qdata$incision,      iter = 9999, data = gdf, print.progress = FALSE) 
+## morphol.disparity(f1 = fit.shapeinc, groups = qdata$incision,  
+##     iter = 9999, data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
@@ -1705,7 +1719,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 <span id="cb193-3"><a href="archaeological-sample-analysis.html#cb193-3"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = fit.shapeinc2, groups = qdata$inc2, iter = 9999,      data = gdf, print.progress = FALSE) 
+## morphol.disparity(f1 = fit.shapeinc2, groups = qdata$inc2, iter = 9999,  
+##     data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
@@ -1735,7 +1750,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 <span id="cb195-4"><a href="archaeological-sample-analysis.html#cb195-4"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = fit.sizeinc, groups = qdata$incision,      iter = 9999, data = gdf, print.progress = FALSE) 
+## morphol.disparity(f1 = fit.sizeinc, groups = qdata$incision,  
+##     iter = 9999, data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
@@ -1762,7 +1778,8 @@ Figure 7.1: Results of generalized Procrustes analysis.
 <span id="cb197-3"><a href="archaeological-sample-analysis.html#cb197-3"></a>                  <span class="dt">print.progress =</span> <span class="ot">FALSE</span>, <span class="dt">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = fit.sizeinc2, groups = qdata$inc2, iter = 9999,      data = gdf, print.progress = FALSE) 
+## morphol.disparity(f1 = fit.sizeinc2, groups = qdata$inc2, iter = 9999,  
+##     data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
