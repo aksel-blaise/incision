@@ -75,9 +75,6 @@ chronology-for-incised-caddo-types
 landmarking-protocol
 calculating-depth
 placing-the-landmarks
-landmark-sampling-evaluation-curve-lasec
-analysis-of-experimental-sample
-analysis-of-archaeological-sample
 experimental-sample
 experimental-tiles
 experimental-tile-2

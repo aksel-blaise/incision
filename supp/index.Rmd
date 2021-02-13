@@ -1,5 +1,5 @@
 --- 
-title: "Do apparent differences in ceramic incision morphology provide inference to a common toolkit?"
+title: "Toward a theory of the mark: A pilot study of ceramic incision morphology"
 author: 
     - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu]
 date: "`r Sys.Date()`"
@@ -8,7 +8,7 @@ documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-description: "Morphological analysis of Caddo ceramic incisions"
+description: "Morphological analysis of ceramic incisions"
 ---
 
 # Preface {-}

@@ -1,6 +1,6 @@
 # Introduction
 
-This document contains supplementary materials associated with the article, _"Do apparent differences in ceramic incision morphology provide inference to a common toolkit?"_ The volume is organised by chapter, and provides details associated with the experimental and archaeological samples, as well as the preliminary details related to the geometric morphometric analyses. Images of each sample are included; however, processed and unprocessed 3D scan data are embargoed for a period of one year from the most recent submission in which they are employed.
+This document contains supplementary materials associated with the article, _"Toward a theory of the mark: A pilot study of ceramic incision morphology"_ The volume is organised by chapter, and provides details associated with the experimental and archaeological samples, as well as the preliminary details related to the geometric morphometric analyses. Images of each sample are included; however, processed and unprocessed 3D scan data are embargoed for a period of one year from the most recent submission in which they are employed.
 
 The incision project is part of a long-term research programme, representing an expansion of previous efforts to better comprehend the vagaries associated with Caddo ceramic [@RN11521;@RN11782;@RN11801;@RN11716;@RN1994] and lithic morphology [@RN11783;@RN21001], which provided insights into inter- and intraspecific differences in morphology that articulate with Caddo bottles and bifaces [@RN20697]. 
 
