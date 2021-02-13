@@ -1,22 +1,26 @@
 # Introduction
 
-This document contains supplementary materials associated with the article, _"Do apparent differences in ceramic incision morphology provide inference to a common toolkit?"_ The volume is organised by chapter, and details the samples and geometric morphometric analyses associated with the experimental and archaeological materials. Images of each sample are included; however, the processed and unprocessed 3D scan data are embargoed for a period of five years from the most recent submission that leverages them.
+This document contains supplementary materials associated with the article, _"Do apparent differences in ceramic incision morphology provide inference to a common toolkit?"_ The volume is organised by chapter, and provides details associated with the experimental and archaeological samples, as well as the preliminary details related to the geometric morphometric analyses. Images of each sample are included; however, processed and unprocessed 3D scan data are embargoed for a period of one year from the most recent submission in which they are employed.
 
-The incision project is part of a long-term research programme, representing an expansion of previous efforts to better comprehend the vagaries associated with ceramic [@RN11521;@RN11782;@RN11801;@RN11716;@RN1994] and lithic morphology [@RN11783;@RN21001], which provided insights into inter- and intraspecific _shape differences_ and _shape changes_ that articulate in and among various categories of Caddo material culture [@RN20697]. 
+The incision project is part of a long-term research programme, representing an expansion of previous efforts to better comprehend the vagaries associated with Caddo ceramic [@RN11521;@RN11782;@RN11801;@RN11716;@RN1994] and lithic morphology [@RN11783;@RN21001], which provided insights into inter- and intraspecific differences in morphology that articulate with Caddo bottles and bifaces [@RN20697]. 
 
-The genesis of this project occurred during a slip, glazing, and atmospheric firing workshop at the Arrowmont School of Arts and Crafts in Gatlinburg, Tennessee, where access to the materials, dry box, and electric kilns provided a means to produce the experimental sample. The archaeological sample was provided with permission and support from the Caddo Tribe of Oklahoma, and the incised sherds comes from sites on the Angelina, Davy Crockett, and Sabine National Forests; units of the National Forests and Grasslands in Texas (NFGT). Partial funding for this project came from a Media Grant to the Caddo Tribe of Oklahoma through the National Center for Preservation Technology and Training (NCPTT), and additional funding was provided by grants from the NFGT (15-PA-11081300-033 and 20-PA-11081300-074). NCPTT provided access and training for the optical profilometer used to generate 3D meshes for the experimental and archaeological samples at their laboratory in Natchitoches, Louisiana, as well as a copy of the Keyence VR Series Analyzer Software used to render and export the meshes.
+The genesis of this project occurred during a slip, glazing, and atmospheric firing workshop at the Arrowmont School of Arts and Crafts in Gatlinburg, Tennessee, where access to the materials, dry box, and electric kilns provided a means to produce the experimental sample. The archaeological sample was provided with permission and support from the Caddo Nation of Oklahoma, and the incised sherds comes from sites on the Angelina, Davy Crockett, and Sabine National Forests; units of the National Forests and Grasslands in Texas. The National Center for Preservation Technology and Training provided access to their optical profilometer, which was used to generate 3D meshes for the experimental and archaeological samples at their laboratory in Natchitoches, Louisiana. They also provided a copy of the Keyence VR Series Analyzer Software used to render and export the meshes.
 
-The landmarking protocol (see Section 3.1) is identical on both the experimental and archaeological samples, and was designed to capture the profile of the business end of the instrument used to apply each incision. One insight made clear by the experimental analysis is that a single tool could have been used to apply incisions that render differing marks in profile. Since incisions are made while the clay body is not yet dry, the range of variation is potentially greater than that of engraved, trailed, or etched designs, and the deepest cross-section of each incision should provide the most complete profile of the tool employed by Caddo potters to apply these marks.
+The landmarking protocol (see Chapter 2) is identical for both the experimental and archaeological samples, and was designed to capture the profile of the business end of the instrument used by the Caddo to apply each incision. One observation made clear by this preliminary analysis is that a single tool could have been used to apply incisions that render different marks in profile. Since incisions are made while the clay body is not yet dry, the range of variation is potentially greater than that of engraved, trailed, or etched designs, and the deepest cross-section of each incision should provide the most complete profile of the tool employed by Caddo potters to apply these marks.
 
 ## Incised Caddo types
 
-Temporal attributes for incised Caddo types were aggregated from published type books [@RN5066;@RN4302], and arranged chronologically. The list of incised Caddo types includes those types where the decorative treatments described in the type book made note of incised elements. This provides a basic temporal framework from which chronological components can begin to be isolated. None of the incised sherds used in this study include enough of a decorative pattern to be assigned to a type, meaning that this sample could span the full temporal range of incised Caddo types. As this study is expanded, incisions from specific types will be included to explore whether Caddo potters may have employed different tools to apply the various decorative motifs that include incised elements.
+Temporal attributes for incised Caddo types were aggregated from published type books [@RN5066;@RN4302], and arranged chronologically. The list of incised Caddo types includes those types where the decorative treatments described in the type book made note of incised elements. This provides a basic temporal framework from which chronological components can begin to be isolated. None of the incised sherds used in this study include enough of a decorative pattern to be assigned to a type, meaning that this sample may well span the full temporal range of incised Caddo types. Funding permitted, the project will be expanded to include incisions from specific Caddo types to explore whether Caddo potters may have employed different (or multiple) tools to apply the various decorative motifs that include incised elements. Should that effort meet with success, it would provide the requisite analytical infrastructure needed to begin the pursuit of similar studies of ceramics that include engraved, etched, and trailed elements.
 
 ### Chronology for incised Caddo types
 
 ```{r typetemporal, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # load ggplot2
 library(ggplot2)
+library(wesanderson)
+
+# temporal attributes
+pal <- wes_palette("Moonrise2", 23, type = "continuous")
 
 # gantt chart of relative dates for incised Caddo ceramic types
 temp<-data.frame(Type = c('Belcher Ridged (Bossier)', 'Belcher Ridged (Belcher)', 'Canton Incised', 'Clements Brushed', 'Cowhide Stamped', 'Crockett Curvilinear Incised', 'Davis Incised', 'Dunkin Incised', 'East Incised', 'Foster Trailed-Incised', 'Fulton Aspect Effigy Bowls', 'Haley Complicated Incised', 'Harleton Appliqued', 'Hudson Engraved', 'Karnack Brushed-Incised', 'Kiam Incised', 'Maydelle Incised', 'Military Road Incised', 'Nash Neck Banded', 'Pease Brushed-Incised', 'Pennington Punctated-Incised', 'Spiro Engraved', 'Weches Fingernail Impressed'), # canton/east incised types date to AD 1000, but were modified to 990-1010 so that it would show on the gantt chart
@@ -28,12 +32,18 @@ temp<-data.frame(Type = c('Belcher Ridged (Bossier)', 'Belcher Ridged (Belcher)'
 temp$Type <- factor(temp$Type, levels = temp$Type[order(temp$Date_Range_CE)])
 
 # arrange figure
-type.time <- ggplot(temp, aes(x = Date_Range_CE, xend = end, y = factor(Type, 
-       levels = rev(levels(factor(Type)))), yend = Type, color = Type)) +
-  geom_segment(size = 2) +
-  scale_colour_discrete() +
+# arrange figure
+type.time <- ggplot(temp, 
+                    aes(x = Date_Range_CE, 
+                        xend = end, 
+                        y = factor(Type,
+                                   levels = rev(levels(factor(Type)))), 
+                        yend = Type, 
+                        color = Type)) +
+  geom_segment(size = 2.5) +
+  scale_colour_manual(values = pal) +
   theme(legend.position = "none") +
-  labs(y = "Incised Caddo Types", x = "Date Range CE")
+  labs(y = "Caddo Ceramic Type", x = "Date Range CE")
 
 # render figure
 type.time
