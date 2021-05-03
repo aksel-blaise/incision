@@ -69,6 +69,7 @@ fig:41tn91-unit2-lot17-inc
 fig:gpa
 acknowledgments
 funding
+colophon
 introduction
 incised-caddo-types
 chronology-for-incised-caddo-types

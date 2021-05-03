@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Landmarking protocol | Toward a theory of the mark: A pilot study of ceramic incision morphology</title>
   <meta name="description" content="Morphological analysis of ceramic incisions" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Landmarking protocol | Toward a theory of the mark: A pilot study of ceramic incision morphology" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr." />
 
 
-<meta name="date" content="2021-02-13" />
+<meta name="date" content="2021-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="introduction.html"/>
 <link rel="next" href="experimental-sample.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script async defer src="https://hypothes.is/embed.js"></script>
 
 <script>
@@ -129,6 +131,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -149,6 +174,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.1</b> Acknowledgments</a></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#funding"><i class="fa fa-check"></i><b>0.2</b> Funding</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i><b>0.3</b> Colophon</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
@@ -340,7 +366,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 </div>
 <div id="landmarking-protocol" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Landmarking protocol</h1>
-<p>The characteristic points and tangents used in this landmarking protocol were inspired by the pioneering work of Birkhoff <span class="citation">(<a href="references.html#ref-RN11786" role="doc-biblioref">1933</a>)</span>. The final configuration employs two horizontal tangents at either end of the curve with 25 equidistant semilandmarks placed along the dynamic contours of a spline.</p>
+<p>The characteristic points and tangents used in this landmarking protocol were inspired by the pioneering work of Birkhoff <span class="citation">(<a href="#ref-RN11786" role="doc-biblioref">1933</a>)</span>. The final configuration employs two horizontal tangents at either end of the curve with 25 equidistant semilandmarks placed along the dynamic contours of a spline.</p>
 <div id="calculating-depth" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Calculating depth</h2>
 <p>The method of calculating the depth of each incision employed the use of two planes. One plane was placed on the surface of each sherd using six points, with three on either side of the incision. The second plane was inserted using the <code>offset</code> function, and was extended to the furthest extent of the mesh associated with the incision. A <code>reference point</code> was inserted at that location, providing the X-coordinate of the cross-section.</p>
@@ -348,22 +374,28 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <div id="placing-the-landmarks" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Placing the landmarks</h2>
 <p>Using Geomagic Design X, a plane was inserted at the location of the <code>reference point</code> to capture the deepest incision profile. The rationale behind selecting the deepest incision profile is that these marks were made when the vessel was not yet leather hard, and the deepest incision would provide the most complete cross-section of the tool used in the application of the decorative motif.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="landmarking-protocol.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb2-2"><a href="landmarking-protocol.html#cb2-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/insertplane.png&#39;</span>)</span></code></pre></div>
-<p><img src="images/insertplane.png" width="100%" /></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="landmarking-protocol.html#cb3-1" aria-hidden="true" tabindex="-1"></a>fig.cap<span class="ot">=</span><span class="st">&quot;Reference plane (blue) inserted at deepest point of incision of experimental tile 6b.&quot;</span></span></code></pre></div>
-<p>After isolating the profile of the incision, the horizontal tangent was identified for the rise in the clay matrix above the <code>reference plane</code> on either side, then calculation of the linear distance between the tangents to identify the mid-point. Prior to the application of landmarks, the deepest point of the incision profile (X-coordinate) was oriented to the right of center.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="landmarking-protocol.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb4-2"><a href="landmarking-protocol.html#cb4-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/h-tangents.png&#39;</span>)</span></code></pre></div>
-<p><img src="images/h-tangents.png" width="100%" /></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="landmarking-protocol.html#cb5-1" aria-hidden="true" tabindex="-1"></a>fig.cap<span class="ot">=</span><span class="st">&quot;Spline (500 interpolation points) that was cut at the location of horizontal tangents on each side, then oriented where the deepest part of the incision was to the right of center.&quot;</span></span></code></pre></div>
-<p>Once properly oriented, the horizontal tangent on the left was assigned as landmark (LM) 01, and the tangent on the right as LM 02. Twenty five equidistant landmarks were inserted between the two landmarks along the spline.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="landmarking-protocol.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb6-2"><a href="landmarking-protocol.html#cb6-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/semiland.png&#39;</span>)</span></code></pre></div>
+<span id="cb6-2"><a href="landmarking-protocol.html#cb6-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/insertplane.png&#39;</span>)</span></code></pre></div>
+<p><img src="images/insertplane.png" width="100%" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="landmarking-protocol.html#cb7-1" aria-hidden="true" tabindex="-1"></a>fig.cap<span class="ot">=</span><span class="st">&quot;Reference plane (blue) inserted at deepest point of incision of experimental tile 6b.&quot;</span></span></code></pre></div>
+<p>After isolating the profile of the incision, the horizontal tangent was identified for the rise in the clay matrix above the <code>reference plane</code> on either side, then calculation of the linear distance between the tangents to identify the mid-point. Prior to the application of landmarks, the deepest point of the incision profile (X-coordinate) was oriented to the right of center.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="landmarking-protocol.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb8-2"><a href="landmarking-protocol.html#cb8-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/h-tangents.png&#39;</span>)</span></code></pre></div>
+<p><img src="images/h-tangents.png" width="100%" /></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="landmarking-protocol.html#cb9-1" aria-hidden="true" tabindex="-1"></a>fig.cap<span class="ot">=</span><span class="st">&quot;Spline (500 interpolation points) that was cut at the location of horizontal tangents on each side, then oriented where the deepest part of the incision was to the right of center.&quot;</span></span></code></pre></div>
+<p>Once properly oriented, the horizontal tangent on the left was assigned as landmark (LM) 01, and the tangent on the right as LM 02. Twenty five equidistant landmarks were inserted between the two landmarks along the spline.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="landmarking-protocol.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb10-2"><a href="landmarking-protocol.html#cb10-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/semiland.png&#39;</span>)</span></code></pre></div>
 <p><img src="images/semiland.png" width="100%" /></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="landmarking-protocol.html#cb7-1" aria-hidden="true" tabindex="-1"></a>fig.cap<span class="ot">=</span><span class="st">&quot;Placement of 25 equidistant semilandmarks (white) between LM01 and LM02 (blue)&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="landmarking-protocol.html#cb11-1" aria-hidden="true" tabindex="-1"></a>fig.cap<span class="ot">=</span><span class="st">&quot;Placement of 25 equidistant semilandmarks (white) between LM01 and LM02 (blue)&quot;</span></span></code></pre></div>
 <p>Landmarks and semilandmarks associated with each specimen were then exported as CSV files. These are included in the supplemental materials as <code>dataEX</code> for the experimental sample, and <code>data1</code> for the archaeological sample.</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-RN11786" class="csl-entry">
+Birkhoff, George D. 1933. <em>Aesthetic Measure</em>. Cambridge: Harvard University Press.
 </div>
 </div>
             </section>
@@ -395,6 +427,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
