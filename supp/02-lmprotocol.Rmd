@@ -4,11 +4,11 @@ The characteristic points and tangents used in this landmarking protocol were in
 
 ## Calculating depth
 
-The method of calculating the depth of each incision employed the use of two planes. one was places on the surface of each sherd by selecting three points outside of the area where the incision was made. The second plane was inserted using the `offset` function, and was extended to the limit of the mesh associated with the incision. A `reference point` was inserted at that location, used to identify the x coordinate of the cross-section.
+The method of calculating the depth of each incision employed the use of two planes. One plane was placed on the surface of each sherd using six points, with three on either side of the incision. The second plane was inserted using the `offset` function, and was extended to the furthest extent of the mesh associated with the incision. A `reference point` was inserted at that location, providing the X-coordinate of the cross-section.
 
 ## Placing the landmarks
 
-Using Geomagic Design X, a plane was inserted at the location of the `reference point` to capture the deepest profile of each incision. The rationale behind selecting the deepest incision is that these marks were made when the vessel was not yet leather hard, and the deepest incision would provide the most complete representation of the tool employed in the application of the decorative motif.
+Using Geomagic Design X, a plane was inserted at the location of the `reference point` to capture the deepest incision profile. The rationale behind selecting the deepest incision profile is that these marks were made when the vessel was not yet leather hard, and the deepest incision would provide the most complete cross-section of the tool used in the application of the decorative motif.
 
 ```{r insertplane, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # incision image
@@ -16,7 +16,7 @@ knitr::include_graphics('images/insertplane.png')
 fig.cap="Reference plane (blue) inserted at deepest point of incision of experimental tile 6b."
 ```
 
-The horizontal tangent was calculated for the rise in the clay matrix above the `reference plane` on either side of the incision, and was followed by calculating the linear distance between the tangents to identify the mid-point of the incision. Prior to the application of landmarks, the deepest point of the incision profile (identified in the depth measurement) was always oriented to the right of center.
+After isolating the profile of the incision, the horizontal tangent was identified for the rise in the clay matrix above the `reference plane` on either side, then calculation of the linear distance between the tangents to identify the mid-point. Prior to the application of landmarks, the deepest point of the incision profile (X-coordinate) was oriented to the right of center.
 
 ```{r h.tangent, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # incision image
@@ -24,7 +24,7 @@ knitr::include_graphics('images/h-tangents.png')
 fig.cap="Spline (500 interpolation points) that was cut at the location of horizontal tangents on each side, then oriented where the deepest part of the incision was to the right of center."
 ```
 
-Once properly oriented, the horizontal tangent on the left was assigned as landmark (LM) 01, and the tangent on the right as LM 02. Twenty five equidistant landmarks were subsequently placed between the two landmarks along the spline.
+Once properly oriented, the horizontal tangent on the left was assigned as landmark (LM) 01, and the tangent on the right as LM 02. Twenty five equidistant landmarks were inserted between the two landmarks along the spline.
 
 ```{r semi.land, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # incision image

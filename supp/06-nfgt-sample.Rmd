@@ -12,8 +12,8 @@ pal <- wes_palette("Moonrise2", 8, type = "continuous")
 
 # gantt chart of (possible) relative dates for ceramic components
 temp<-data.frame(Site = c('41SA66','41SB125','41SB189','41SB189','41SB291','41SY43','41SY43','41SY258','41SY280','41TN91'),
-                 Date_Range_CE = c(800, 1200, 1000, 1400, 1200, 1000, 1450, 800, 1400, 900), # in years CE
-                 end = c(1200, 1680, 1200, 1680, 1680, 1300, 1680, 1680, 1680, 1200) # in years CE
+                 Date_Range_CE = c(800, 1200, c(1000, 1400), 1200, c(1000, 1450), 800, 1400, 900), # in years CE
+                 end = c(1200, 1680, c(1200, 1680), 1680, c(1300, 1680), 1680, 1680, 1200) # in years CE
 )
 
 

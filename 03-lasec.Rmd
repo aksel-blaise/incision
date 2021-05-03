@@ -1,6 +1,6 @@
 # Landmark Sampling Evaluation Curve (LaSEC)
 
-The landmarking configuration used to analyse Caddo incisions was further scrutinised using the Landmark Sampling Error Curve, or `LaSEC` included in the `LaMBDA` package, as a means of assessing the fidelity of morphological characterisation by landmarks [@RN28913]. `LaSEC` was run twice for this study. Once on the experimental incisions, and a second time on the archaeological sample. 
+The landmark configuration used to analyse Caddo incisions was further scrutinised using the Landmark Sampling Error Curve, or `LaSEC` included in the `LaMBDA` package as a means of assessing the fidelity of morphological characterisation by landmarks [@RN28913]. `LaSEC` was run twice for this study. Once on the experimental incisions, then on the archaeological sample. 
 
 LaSEC conducts the following procedure [@RN28913, 4-5]:
 
