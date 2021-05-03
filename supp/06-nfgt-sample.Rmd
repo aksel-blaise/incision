@@ -5,6 +5,10 @@ The sample used in this study was generated through archaeological surveys, and 
 ```{r temporal, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # load ggplot2
 library(ggplot2)
+library(wesanderson)
+
+# temporal attributes
+pal <- wes_palette("Moonrise2", 8, type = "continuous")
 
 # gantt chart of (possible) relative dates for ceramic components
 temp<-data.frame(Site = c('41SA66','41SB125','41SB189','41SB189','41SB291','41SY43','41SY43','41SY258','41SY280','41TN91'),
@@ -12,13 +16,19 @@ temp<-data.frame(Site = c('41SA66','41SB125','41SB189','41SB189','41SB291','41SY
                  end = c(1200, 1680, 1200, 1680, 1680, 1300, 1680, 1680, 1680, 1200) # in years CE
 )
 
+
 # arrange figure
-temp.site <- ggplot(temp,aes(x = Date_Range_CE, xend = end, y = factor(Site, 
-       levels = rev(levels(factor(Site)))), yend = Site, color = Site)) +
+temp.site <- ggplot(temp, 
+                    aes(x = Date_Range_CE, 
+                        xend = end, 
+                        y = factor(Site,
+                                   levels = rev(levels(factor(Site)))), 
+                        yend = Site, 
+                        color = Site)) +
   geom_segment(size = 2) +
-  scale_colour_discrete() +
+  scale_colour_manual(values = pal) +
   theme(legend.position = "none") +
-  labs(y = "Archaeological Site", x = "Date Range CE")
+  labs(y = "Site", x = "Date Range CE")
 
 # render figure
 temp.site
