@@ -1,7 +1,7 @@
 --- 
 title: "Toward a theory of the mark: A pilot study of ceramic incision morphology"
 author: 
-    - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu]
+    - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
