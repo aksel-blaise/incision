@@ -1,6 +1,6 @@
 # Landmarking protocol
 
-The characteristic points and tangents used in this landmarking protocol were inspired by the pioneering work of Birkhoff [-@RN11786]. The final configuration employs two horizontal tangents at either end of the curve with 25 equidistant semilandmarks placed along the dynamic contours of a spline.
+The characteristic points and tangents used in this landmarking protocol were inspired by the pioneering work of Birkhoff [-@RN11786]. The final configuration employs two landmarks---one at each horizontal tangent---with an additional 25 equidistant semilandmarks placed along the dynamic contours of the spline.
 
 ## Calculating depth
 

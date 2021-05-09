@@ -1,6 +1,6 @@
 # Landmark Sampling Evaluation Curve (LaSEC)
 
-The landmark configuration used to analyse Caddo incisions was further scrutinised using the Landmark Sampling Error Curve, or `LaSEC` included in the `LaMBDA` package as a means of assessing the fidelity of morphological characterisation by landmarks [@RN28913]. `LaSEC` was run twice for this study. Once on the experimental incisions, then on the archaeological sample. 
+The landmark configuration used to analyse Caddo incisions was further scrutinised using the Landmark Sampling Error Curve, or `LaSEC` included in the `LaMBDA` package as a means of assessing the fidelity of morphological characterisation by landmarks [@RN28913]. `LaSEC` was run twice for this study. Once on the experimental incisions, then on the archaeological sample. The goal of using `LaSEC` in this study was to increase the precision of the geometric morphometric analysis.
 
 LaSEC conducts the following procedure [@RN28913, 4-5]:
 
@@ -19,7 +19,7 @@ LaSEC conducts the following procedure [@RN28913, 4-5]:
 library(LaMBDA)
 
 # set working directory
-setwd(getwd())
+library(here)
 source('readmulti.csv.R')
 
 # read .csv files
@@ -39,7 +39,7 @@ Results demonstrate that five landmarks are necessary to achieve a median fit va
 knitr::include_graphics('images/lasec.EX.png')
 ```
 
-Results demonstrate saltation, illustrating that some landmarks are critical for capturing shape information [@RN28913]. Dynamic as incisions may be in shape, that variation may be captured with a configuration of landmarks that employed fewer equidistant semilandmarks along the spline. The initial configuration of 50 semilandmarks was thus reduced by half based upon this result.
+Results demonstrate saltation, illustrating that some landmarks are critical for capturing shape information [@RN28913]. Dynamic as incisions may be in shape, that variation may be captured with a configuration of landmarks that employed fewer equidistant semilandmarks along the spline. The initial configuration of landmarks and semilandmarks was reduced to 14 based upon this result.
 
 ## Analysis of archaeological sample
 
@@ -61,4 +61,4 @@ Results demonstrate that 10 landmarks are necessary to achieve a median fit valu
 knitr::include_graphics('images/lasec.arch.png')
 ```
 
-Like the experimental sample, results demonstrate saltation, illustrating that some landmarks are critical for capturing shape information [@RN28913]. Dynamic as incisions may be in shape, that variation may be captured with a configuration of landmarks that employed fewer equidistant semilandmarks along the spline. The initial configuration of 50 semilandmarks was thus reduced by half based upon this result; however, it is noteworthy that the archaeological sample does require more landmarks than the experimental sample, and that saltation continues across the full range.
+Like the experimental sample, results demonstrate saltation, illustrating that some landmarks are critical for capturing shape information [@RN28913]. Dynamic as incisions may be in shape, that variation may be captured with a configuration of landmarks that employed fewer equidistant semilandmarks along the spline. The initial configuration of landmarks and semilandmarks was reduced to 19 based upon this result; however, it is noteworthy that the archaeological sample requires more landmarks than the experimental sample, and that saltation appears to be the norm, rather than the exception.

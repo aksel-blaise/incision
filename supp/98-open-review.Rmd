@@ -1,6 +1,6 @@
 # Open Review {#open}
 
-Open Review means that you can freely read this volume and easily help to make it better. You can offer suggestions by making annotations using [hypothes.is](https://hypothes.is/), an open source annotation system. This is a simple system for interacting with this volume. If you are familiar with GitHub or Git, you can also comment using [GitHub's issue tracker](https://github.com/aksel-blaise/incision/issues) for the volume, or make a pull request. In addition to these feedback options, this website for the book will be collecting your implicit feedback by tracking the readership and abandonment rate of each section.
+Open Review means that you can freely read this volume and easily help to make it better. You can offer suggestions by making annotations using [hypothes.is](https://hypothes.is/), an open source annotation system. This is a simple system for interacting with this volume. If you are familiar with GitHub or Git, you can also comment using [GitHub's issue tracker](https://github.com/aksel-blaise/incision/issues) for the volume, or make a pull request. In addition to these feedback options, this website will collect your implicit feedback by tracking the readership and abandonment rate of each section.
 
 Open Review takes place before and during the peer review process. The feedback from Open Review and peer review will be used to create a revised manuscript. The Open Review period will end when the final manuscript is submitted to the publisher. 
 
@@ -14,7 +14,7 @@ Open Review is not just about catching typos. Rather, Open Review is designed to
 
 ### Can I see the annotations that others are making?
 
-Yes, all annotations are public. You can view them on right side of the each page, or you can read them in [stream form](https://hypothes.is/stream?q=aksel-blaise-garylin).
+Yes, all annotations are public. You can view them on right side of the each page, or you can read them in [stream form](https://hypothes.is/stream?q=aksel-blaise-incision).
 
 ### What are the benefits for readers?
 
@@ -88,4 +88,4 @@ I reserve the right to this privacy policy from time to time at my discretion. P
 
 ### Acknowledgments
 
-The bulk of the (modified) text above comes directly from [Ben Marwick's](https://github.com/benmarwick/bookdown-ort) excellent bookdown example that illustrates how each of the pieces of this volume function independently, and as a whole. Many thanks to Ben for making this available, and I encourage other archaeologists to make use of these tools.
+The bulk of the (modified) text above comes directly from [Ben Marwick's](https://github.com/benmarwick/bookdown-ort) excellent `bookdown` example, which illustrates how each of the pieces of this volume function independently, and as a whole. Many thanks to Ben for making this available, and I encourage other archaeologists to make use of these tools.
