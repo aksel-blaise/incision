@@ -26,6 +26,8 @@ qdata <- qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 knitr::kable(qdata, align = "ccccc", caption = "Attributes included in qdata.")
 ```
 
+## Generalised Procrustes Analysis
+
 ```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE,fig.cap="Results of generalized Procrustes analysis."}
 # gpa
 Y.gpa <- gpagen(coords, PrinAxes = TRUE, ProcD = TRUE, 
@@ -52,8 +54,6 @@ qdata$csz <- Y.gpa$Csize
 csz <- Y.gpa$Csize
 inc <- qdata$incision
 inc2 <- qdata$inc2
-cty <- qdata$county
-unt <- qdata$unit
 
 # print qdata + centroid size
 knitr::kable(qdata, align = "cccccc", caption = "Attributes included in qdata.")
@@ -127,32 +127,56 @@ pc.plot2 <- plot(pca, asp = 1,
 
 ```{r define-models, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # allometry
-fit.size.a <- procD.lm(shape ~ size, data = gdf, 
-                       print.progress = FALSE, iter = 9999)
+fit.size.a <- procD.lm(shape ~ size, 
+                       data = gdf, 
+                       print.progress = FALSE, 
+                       iter = 9999)
+
 # allometry - common allometry, different means -> inc
-fit.sz.cinc.a <- procD.lm(shape ~ size + inc, data = gdf, 
-                          print.progress = FALSE, iter = 9999)
+fit.sz.cinc.a <- procD.lm(shape ~ size + inc, 
+                          data = gdf, 
+                          print.progress = FALSE, 
+                          iter = 9999)
+
 # allometry - unique allometries -> inc
-fit.sz.uinc.a <- procD.lm(shape ~ size * inc, data = gdf, 
-                          print.progress = FALSE, iter = 9999)
+fit.sz.uinc.a <- procD.lm(shape ~ size * inc, 
+                          data = gdf, 
+                          print.progress = FALSE, 
+                          iter = 9999)
+
 # allometry - common allometry, different means -> inc2
-fit.sz.cinc2.a <- procD.lm(shape ~ size + inc2, data = gdf, 
-                           print.progress = FALSE, iter = 9999)
+fit.sz.cinc2.a <- procD.lm(shape ~ size + inc2, 
+                           data = gdf, 
+                           print.progress = FALSE, 
+                           iter = 9999)
+
 # allometry - unique allometries -> inc2
-fit.sz.uinc2.a <- procD.lm(shape ~ size * inc2, data = gdf, 
-                           print.progress = FALSE, iter = 9999)
+fit.sz.uinc2.a <- procD.lm(shape ~ size * inc2, 
+                           data = gdf, 
+                           print.progress = FALSE, 
+                           iter = 9999)
 
 # size as a function of group
-fit.sizeinc <- procD.lm(size ~ inc, data = gdf, 
-                        print.progress = FALSE, iter = 9999)
-fit.sizeinc2 <- procD.lm(size ~ inc2, data = gdf, 
-                         print.progress = FALSE, iter = 9999)
+fit.sizeinc <- procD.lm(size ~ inc, 
+                        data = gdf, 
+                        print.progress = FALSE, 
+                        iter = 9999)
+
+fit.sizeinc2 <- procD.lm(size ~ inc2, 
+                         data = gdf, 
+                         print.progress = FALSE, 
+                         iter = 9999)
 
 # shape as a function of group
-fit.shapeinc <- procD.lm(shape ~ inc, data = gdf, 
-                         print.progress = FALSE, iter = 9999)
-fit.shapeinc2 <- procD.lm(shape ~ inc2, data = gdf, 
-                          print.progress = FALSE, iter = 9999)
+fit.shapeinc <- procD.lm(shape ~ inc, 
+                         data = gdf, 
+                         print.progress = FALSE, 
+                         iter = 9999)
+
+fit.shapeinc2 <- procD.lm(shape ~ inc2, 
+                          data = gdf, 
+                          print.progress = FALSE, 
+                          iter = 9999)
 ```
 
 ## Allometry
@@ -176,26 +200,53 @@ anova(fit.sz.cinc2.a) # common allometry (inc2)
 ```{r allom.plot1.arch, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # allometry plots
 # regscore (Drake and Klingenberg 2008)
-plot(fit.size.a, type = "regression", reg.type = "RegScore", 
-     predictor = log(gdf$size), pch = pch.gps.inc, col = col.gps.inc)
-plot(fit.size.a, type = "regression", reg.type = "RegScore", 
-     predictor = log(gdf$size), pch = pch.gps.inc2, col = col.gps.inc2)
+plot(fit.size.a, 
+     type = "regression", 
+     reg.type = "RegScore", 
+     predictor = log(gdf$size), 
+     pch = pch.gps.inc, 
+     col = col.gps.inc)
+
+plot(fit.size.a, 
+     type = "regression", 
+     reg.type = "RegScore", 
+     predictor = log(gdf$size), 
+     pch = pch.gps.inc2, 
+     col = col.gps.inc2)
 ```
 
 ```{r allom.plot2.arch, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # common allometric component (Mitteroecker 2004)
-plotAllometry(fit.size.a, size = gdf$size, logsz = TRUE, method = "CAC", 
-              pch = pch.gps.inc, col = col.gps.inc)
-plotAllometry(fit.size.a, size = gdf$size, logsz = TRUE, method = "CAC", 
-              pch = pch.gps.inc2, col = col.gps.inc2)
+plotAllometry(fit.size.a, 
+              size = gdf$size, 
+              logsz = TRUE, 
+              method = "CAC", 
+              pch = pch.gps.inc, 
+              col = col.gps.inc)
+
+plotAllometry(fit.size.a, 
+              size = gdf$size, 
+              logsz = TRUE, 
+              method = "CAC", 
+              pch = pch.gps.inc2, 
+              col = col.gps.inc2)
 ```
 
 ```{r allom.plot3.arch, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # size-shape pca (Mitteroecker 2004)
-plotAllometry(fit.size.a, size = gdf$size, logsz = TRUE, method = "size.shape", 
-              pch = pch.gps.inc, col = col.gps.inc)
-plotAllometry(fit.size.a, size = gdf$size, logsz = TRUE, method = "size.shape", 
-              pch = pch.gps.inc2, col = col.gps.inc2)
+plotAllometry(fit.size.a, 
+              size = gdf$size, 
+              logsz = TRUE, 
+              method = "size.shape", 
+              pch = pch.gps.inc, 
+              col = col.gps.inc)
+
+plotAllometry(fit.size.a, 
+              size = gdf$size, 
+              logsz = TRUE, 
+              method = "size.shape", 
+              pch = pch.gps.inc2, 
+              col = col.gps.inc2)
 ```
 
 ### Unique allometry
@@ -210,10 +261,19 @@ anova(fit.sz.uinc2.a) # unique allometry (inc2)
 
 ```{r unique.allom.plot.arch, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # predline (Adams and Nistri 2010)
-plotAllometry(fit.sz.uinc.a, size = gdf$size, logsz = TRUE, method = "PredLine", 
-              pch = pch.gps.inc, col = col.gps.inc)
-plotAllometry(fit.sz.uinc2.a, size = gdf$size, logsz = TRUE, method = "PredLine", 
-              pch = pch.gps.inc2, col = col.gps.inc2)
+plotAllometry(fit.sz.uinc.a, 
+              size = gdf$size, 
+              logsz = TRUE, 
+              method = "PredLine", 
+              pch = pch.gps.inc, 
+              col = col.gps.inc)
+
+plotAllometry(fit.sz.uinc2.a, 
+              size = gdf$size,
+              logsz = TRUE, 
+              method = "PredLine", 
+              pch = pch.gps.inc2, 
+              col = col.gps.inc2)
 ```
 
 ## Size/Shape ~ Incision Profile?
@@ -231,19 +291,34 @@ anova(fit.sizeinc)
 ```{r szshpinc2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # ANOVA: do incision shapes differ (inc2)?
 anova(fit.shapeinc2)
+
 # pairwise comparison of LS means = which differ?
-sh.inc2 <- pairwise(fit.shapeinc2, groups = qdata$inc2)
-summary(sh.inc2, confidence = 0.95, test.type = "dist")
+sh.inc2 <- pairwise(fit.shapeinc2, 
+                    groups = qdata$inc2)
+
+summary(sh.inc2, 
+        confidence = 0.95, 
+        test.type = "dist")
+
 # pairwise distance between variances = standardization?
-summary(sh.inc2, confidence = 0.95, test.type = "var")
+summary(sh.inc2, 
+        confidence = 0.95, 
+        test.type = "var")
 
 # ANOVA: do incision sizes differ (inc2)?
 anova(fit.sizeinc2)
+
 # pairwise comparison of LS means = which differ?
-sz.inc2 <- pairwise(fit.sizeinc2, groups = qdata$inc2)
-summary(sz.inc2, confidence = 0.95, test.type = "dist")
+sz.inc2 <- pairwise(fit.sizeinc2, 
+                    groups = qdata$inc2)
+summary(sz.inc2, 
+        confidence = 0.95, 
+        test.type = "dist")
+
 # pairwise distance between variances = standardization?
-summary(sz.inc2, confidence = 0.95, test.type = "var")
+summary(sz.inc2, 
+        confidence = 0.95, 
+        test.type = "var")
 ```
 
 ## Morphological disparity
@@ -251,27 +326,43 @@ summary(sz.inc2, confidence = 0.95, test.type = "var")
 ```{r m-disparity}
 # morphological disparity: does incision morphology display greater shape variation among individuals relative to incision profile (inc or inc2)?
 # incision
-morphol.disparity(fit.shapeinc, groups = qdata$incision, data = gdf, 
-                  print.progress = FALSE, iter = 9999)
+morphol.disparity(fit.shapeinc, 
+                  groups = qdata$incision, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
+
 # inc2
-morphol.disparity(fit.shapeinc2, groups = qdata$inc2, data = gdf, 
-                  print.progress = FALSE, iter = 9999)
+morphol.disparity(fit.shapeinc2, 
+                  groups = qdata$inc2, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
 
 # morphological disparity: does incision morphology display greater size variation among individuals relative to incision profile (inc or inc2)?
 # incision
-morphol.disparity(fit.sizeinc, groups = qdata$incision, data = gdf, 
-                  print.progress = FALSE, iter = 9999)
+morphol.disparity(fit.sizeinc, 
+                  groups = qdata$incision, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
 # inc2
-morphol.disparity(fit.sizeinc2, groups = qdata$inc2, data = gdf, 
-                  print.progress = FALSE, iter = 9999)
+morphol.disparity(fit.sizeinc2, 
+                  groups = qdata$inc2, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
 ```
 
 ## Mean shapes
 
 ```{r m-shapes, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Mean shapes for u-shaped broad, u-shaped narrow, v-shaped angled, and v-shaped vertical Caddo incision profiles (inc2)."}
 # subset landmark coordinates to produce mean shapes by site
-new.coords <- coords.subset(A = Y.gpa$coords, group = qdata$inc2)
+new.coords <- coords.subset(A = Y.gpa$coords, 
+                            group = qdata$inc2)
+
 names(new.coords)
+
 # group shape means
 mean <- lapply(new.coords, mshape)
 # plot(mean$vv)

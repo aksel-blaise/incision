@@ -79,6 +79,7 @@ placing-the-landmarks
 landmark-sampling-evaluation-curve-lasec
 analysis-of-experimental-sample
 analysis-of-archaeological-sample
+revise-landmark-configuration
 experimental-sample
 experimental-tiles
 experimental-tile-2
@@ -164,6 +165,7 @@ tn91-u8-1020
 tn91-unit2-lot17
 archaeological-sample---analysis
 load-packages-data-1
+generalised-procrustes-analysis-1
 principal-components-analysis-1
 define-models-1
 allometry-1

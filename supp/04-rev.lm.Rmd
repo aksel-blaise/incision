@@ -1,0 +1,3 @@
+# Revise landmark configuration
+
+Based upon the `LaSEC` results, the two landmarks (defined by the horizontal tangent on either side of each incision) remained constant; however, the number of equidistant semilandmarks were altered. In the case of the experimental analysis, the number of semilandmarks was reduced from 23 to 12, and from 23 to 17 for the analysis of Caddo incisions from archaeological contexts.
