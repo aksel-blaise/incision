@@ -15,7 +15,7 @@ LaSEC conducts the following procedure [@RN28913, 4-5]:
 
 ```{r, load.lasec.package.EX, echo=TRUE}
 # load package
-#devtools::install_github("akiopteryx/lambda")
+devtools::install_github("akiopteryx/lambda")
 library(LaMBDA)
 
 # set working directory
