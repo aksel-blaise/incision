@@ -67,8 +67,10 @@ fig:41tn91-u7-30-40-inc
 fig:41tn91-u8-1020
 fig:41tn91-unit2-lot17-inc
 fig:gpa
+basis-of-inquiry
 acknowledgments
 funding
+data-management
 colophon
 introduction
 incised-caddo-types

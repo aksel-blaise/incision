@@ -1,7 +1,7 @@
 --- 
 title: "Toward a theory of the mark: A pilot study of ceramic incision morphology"
 author: 
-    - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu]
+    - Robert Z. Selden, Jr.^[Heritage Research Center and Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -15,13 +15,9 @@ description: "Morphological analysis of ceramic incisions"
 
 >Reproducibility—the ability to recompute results—and replicability—the chances other experimenters will achieve a consistent result—are two foundational characteristics of successful scientific research [@RN20918].
 
-This volume is written in _Markdown_, and all files needed to reproduce it are included in the [GitHub repository](https://github.com/aksel-blaise/incision), as well as the [Open Science Framework (DOI: 10.17605/OSF.IO/SH7WR)](https://osf.io/sh7wr/). The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is necessary for the production of reliable knowledge.
+## Basis of inquiry
 
-Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN21001], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have—explicitly or implicitly—a major impact on scientific progress [@RN21008].
-
-Components of the undertaking presented in this volume are novel, and this basic research endeavour has its' roots in archaeological epistemology. Sharing data is not enough, and if investigators share only data absent their analysis code, it places a substantive burden on those who may seek to build upon or replicate their work in the future. In this instance, the choice to pursue a replicable work flow occurs based upon the simple fact that this work is foundational, and meant to begin a meaningful discussion related to the similarities and differences between tools used to apply—whether incised, engraved, or etched—the decorative motifs that adorn ceramic artefacts in the American Southeast. 
-
-As an exploratory research endeavour, this study was not [preregistered](https://www.cos.io/prereg).
+Decorative motifs that adorn prehistoric ceramic vessels are regularly employed as temporal, spatial, and cultural diagnostics. Incisions made on experimental and archaeological samples were scanned with an optical profilometer, and morphology was analysed using the tools of geometric morphometrics. In the experimental and archaeological samples, three discrete---and significantly different---incision profiles were identified. It remains to be learned whether the variable incision shapes articulate with a specific morphological or decorative type; however, the results raise interesting questions regarding whether a common tool or toolkit may have been used to apply incisions that articulate with a specific motif or group of motifs. Further work is warranted to incorporate specimens with known typological assignments, as well as additional analyses associated with the engraved, trailed, and etched marks applied by Caddo makers.
 
 ## Acknowledgments
 
@@ -32,6 +28,16 @@ This volume enlists a variety of tools from the [Open Review Toolkit](https://ww
 ## Funding
 
 Components of the analytical workflow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to RZS from the National Center for Preservation Technology and Training, as well as grants to RZS from the Caddo Nation of Oklahoma, National Forests and Grasslands in Texas (15-PA-11081300-033) and the United States Forest Service (20-PA-11081300-074).
+
+## Data management
+
+This volume is written in _Markdown_, and all files needed to reproduce it are included in the [GitHub repository](https://github.com/aksel-blaise/incision), as well as the [Open Science Framework (DOI: 10.17605/OSF.IO/SH7WR)](https://osf.io/sh7wr/). The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is necessary for the production of reliable knowledge.
+
+Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN21001], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have—explicitly or implicitly—a major impact on scientific progress [@RN21008].
+
+Components of the undertaking presented in this volume are novel, and this basic research endeavour has its' roots in archaeological epistemology. Sharing data is not enough, and if investigators share only data absent their analysis code, it places a substantive burden on those who may seek to build upon or replicate their work in the future. In this instance, the choice to pursue a replicable work flow occurs based upon the simple fact that this work is foundational, and meant to begin a meaningful discussion related to the similarities and differences between tools used to apply—whether incised, engraved, or etched—the decorative motifs that adorn ceramic artefacts in the American Southeast. 
+
+As an exploratory research endeavour, this study was not [preregistered](https://www.cos.io/prereg).
 
 ## Colophon
 

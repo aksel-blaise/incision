@@ -8,8 +8,8 @@ The narrow and wide U-shaped incisions were made by different tools; however, it
 
 ```{r loadsetwdEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # download analysis packages
-devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
-devtools::install_github("mlcollyer/RRPP")
+#devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
+#devtools::install_github("mlcollyer/RRPP")
 
 # load
 library(here)
