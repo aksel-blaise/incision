@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Experimental sample | Toward a theory of the mark: A pilot study of ceramic incision morphology</title>
   <meta name="description" content="Morphological analysis of ceramic incisions" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Experimental sample | Toward a theory of the mark: A pilot study of ceramic incision morphology" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr." />
 
 
-<meta name="date" content="2021-08-26" />
+<meta name="date" content="2021-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="revise-landmark-configuration.html"/>
 <link rel="next" href="experimental-sample---analysis.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -427,8 +427,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <p>A Keyence VR-5000 optical profilometer was used to capture each three-dimensional image, rendered in the VR Series (VR-3000 G2 Series) Analyzer Software, then exported to Geomagic Design X <em>Version 2020.0.2, Build 55</em> where the landmarks were applied.</p>
 <div id="experimental-tile-2" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Experimental tile 2</h3>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="experimental-sample.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb40-2"><a href="experimental-sample.html#cb40-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile2.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="experimental-sample.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb34-2"><a href="experimental-sample.html#cb34-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile2.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile2"></span>
 <img src="images/exp-tile2.png" alt="Incisions on experimental tile 2 were made with a Size 0 cup chisel (plan), and a Size 0 cup round (plan)." width="100%" />
 <p class="caption">
@@ -438,8 +438,8 @@ Figure 5.1: Incisions on experimental tile 2 were made with a Size 0 cup chisel 
 </div>
 <div id="experimental-tile-3" class="section level3" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Experimental tile 3</h3>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="experimental-sample.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb41-2"><a href="experimental-sample.html#cb41-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile3.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="experimental-sample.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb35-2"><a href="experimental-sample.html#cb35-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile3.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile3"></span>
 <img src="images/exp-tile3.png" alt="Incisions on experimental tile 3 were made with a Size 9 flat chisel (plan), and a Size 2 cup round (plan)." width="100%" />
 <p class="caption">
@@ -449,8 +449,8 @@ Figure 5.2: Incisions on experimental tile 3 were made with a Size 9 flat chisel
 </div>
 <div id="experimental-tile-4a" class="section level3" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> Experimental tile 4a</h3>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="experimental-sample.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb42-2"><a href="experimental-sample.html#cb42-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile4a.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="experimental-sample.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb36-2"><a href="experimental-sample.html#cb36-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile4a.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile4a"></span>
 <img src="images/exp-tile4a.png" alt="Incisions on experimental tile 4a were made with a Size 0 cup chisel." width="100%" />
 <p class="caption">
@@ -460,8 +460,8 @@ Figure 5.3: Incisions on experimental tile 4a were made with a Size 0 cup chisel
 </div>
 <div id="experimental-tile-4b" class="section level3" number="5.1.4">
 <h3><span class="header-section-number">5.1.4</span> Experimental tile 4b</h3>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="experimental-sample.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb43-2"><a href="experimental-sample.html#cb43-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile4b.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="experimental-sample.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb37-2"><a href="experimental-sample.html#cb37-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile4b.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile4b"></span>
 <img src="images/exp-tile4b.png" alt="Incisions on experimental tile 4b were made with a Size 0 cup chisel (profile)." width="100%" />
 <p class="caption">
@@ -471,8 +471,8 @@ Figure 5.4: Incisions on experimental tile 4b were made with a Size 0 cup chisel
 </div>
 <div id="experimental-tile-5" class="section level3" number="5.1.5">
 <h3><span class="header-section-number">5.1.5</span> Experimental tile 5</h3>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="experimental-sample.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb44-2"><a href="experimental-sample.html#cb44-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile5.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="experimental-sample.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb38-2"><a href="experimental-sample.html#cb38-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile5.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile5"></span>
 <img src="images/exp-tile5.png" alt="Incisions on experimental tile 5 were made with a Size 0 cup chisel (plan), and a Size 0 cup round (plan)." width="100%" />
 <p class="caption">
@@ -482,8 +482,8 @@ Figure 5.5: Incisions on experimental tile 5 were made with a Size 0 cup chisel 
 </div>
 <div id="experimental-tile-6a" class="section level3" number="5.1.6">
 <h3><span class="header-section-number">5.1.6</span> Experimental tile 6a</h3>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="experimental-sample.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb45-2"><a href="experimental-sample.html#cb45-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile6a.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="experimental-sample.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb39-2"><a href="experimental-sample.html#cb39-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile6a.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile6a"></span>
 <img src="images/exp-tile6a.png" alt="Incisions on experimental tile 6a were made with a Size 2 cup round (plan)." width="100%" />
 <p class="caption">
@@ -493,8 +493,8 @@ Figure 5.6: Incisions on experimental tile 6a were made with a Size 2 cup round 
 </div>
 <div id="experimental-tile-6b" class="section level3" number="5.1.7">
 <h3><span class="header-section-number">5.1.7</span> Experimental tile 6b</h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="experimental-sample.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb46-2"><a href="experimental-sample.html#cb46-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile6b.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="experimental-sample.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb40-2"><a href="experimental-sample.html#cb40-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile6b.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile6b"></span>
 <img src="images/exp-tile6b.png" alt="Incisions on experimental tile 6b were made with a Size 2 cup round (profile)." width="100%" />
 <p class="caption">
@@ -504,8 +504,8 @@ Figure 5.7: Incisions on experimental tile 6b were made with a Size 2 cup round 
 </div>
 <div id="experimental-tile-7a" class="section level3" number="5.1.8">
 <h3><span class="header-section-number">5.1.8</span> Experimental tile 7a</h3>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="experimental-sample.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb47-2"><a href="experimental-sample.html#cb47-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile7a.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="experimental-sample.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb41-2"><a href="experimental-sample.html#cb41-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile7a.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile7a"></span>
 <img src="images/exp-tile7a.png" alt="Incisions on experimental tile 7a were made with a Size 9 flat (plan)." width="100%" />
 <p class="caption">
@@ -515,8 +515,8 @@ Figure 5.8: Incisions on experimental tile 7a were made with a Size 9 flat (plan
 </div>
 <div id="experimental-tile-7b" class="section level3" number="5.1.9">
 <h3><span class="header-section-number">5.1.9</span> Experimental tile 7b</h3>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="experimental-sample.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb48-2"><a href="experimental-sample.html#cb48-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile7b.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="experimental-sample.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb42-2"><a href="experimental-sample.html#cb42-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile7b.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile7b"></span>
 <img src="images/exp-tile7b.png" alt="Incisions on experimental tile 7b were made with a Size 9 flat (profile)." width="100%" />
 <p class="caption">
@@ -526,8 +526,8 @@ Figure 5.9: Incisions on experimental tile 7b were made with a Size 9 flat (prof
 </div>
 <div id="experimental-tile-8a" class="section level3" number="5.1.10">
 <h3><span class="header-section-number">5.1.10</span> Experimental tile 8a</h3>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="experimental-sample.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb49-2"><a href="experimental-sample.html#cb49-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile8a.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="experimental-sample.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb43-2"><a href="experimental-sample.html#cb43-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile8a.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile8a"></span>
 <img src="images/exp-tile8a.png" alt="Incisions on experimental tile 8a were made with a Size 10 flat (plan)." width="100%" />
 <p class="caption">
@@ -537,8 +537,8 @@ Figure 5.10: Incisions on experimental tile 8a were made with a Size 10 flat (pl
 </div>
 <div id="experimental-tile-8a-1" class="section level3" number="5.1.11">
 <h3><span class="header-section-number">5.1.11</span> Experimental tile 8a</h3>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="experimental-sample.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb50-2"><a href="experimental-sample.html#cb50-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile8b.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="experimental-sample.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb44-2"><a href="experimental-sample.html#cb44-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/exp-tile8b.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:exp-tile8b"></span>
 <img src="images/exp-tile8b.png" alt="Incisions on experimental tile 8b were made with a Size 10 flat (profile)." width="100%" />
 <p class="caption">
@@ -559,7 +559,6 @@ Figure 5.11: Incisions on experimental tile 8b were made with a Size 10 flat (pr
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -600,7 +599,7 @@ gitbook.start({
 },
 "download": ["incision.pdf", "incision.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

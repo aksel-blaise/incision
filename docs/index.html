@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Toward a theory of the mark: A pilot study of ceramic incision morphology</title>
   <meta name="description" content="Morphological analysis of ceramic incisions" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Toward a theory of the mark: A pilot study of ceramic incision morphology" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr." />
 
 
-<meta name="date" content="2021-08-26" />
+<meta name="date" content="2021-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 
 <link rel="next" href="introduction.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -377,7 +377,7 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <div id="header">
 <h1 class="title">Toward a theory of the mark: A pilot study of ceramic incision morphology</h1>
 <p class="author"><em>Robert Z. Selden, Jr.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
-<p class="date"><em>2021-08-26</em></p>
+<p class="date"><em>2021-12-01</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
@@ -406,76 +406,82 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 </div>
 <div id="colophon" class="section level2" number="0.5">
 <h2><span class="header-section-number">0.5</span> Colophon</h2>
-<p>This version of the analysis was generated on 2021-08-26 04:26:55 using the following computational environment and dependencies:</p>
+<p>This version of the analysis was generated on 2021-12-01 05:41:28 using the following computational environment and dependencies:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what R packages and versions were used?</span></span>
 <span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>()) devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
-<pre><code>## - Session info -------------------------------------------------------------------------------------------------
-##  setting  value                       
-##  version  R version 4.1.1 (2021-08-10)
-##  os       Windows 10 x64              
-##  system   x86_64, mingw32             
-##  ui       RStudio                     
-##  language (EN)                        
-##  collate  English_United States.1252  
-##  ctype    English_United States.1252  
-##  tz       America/Chicago             
-##  date     2021-08-26                  
+<pre><code>## - Session info  ----------------------------------------------------------------------------------------------------
+##  hash: person frowning: medium skin tone, dragon face, girl: medium skin tone
 ## 
-## - Packages -----------------------------------------------------------------------------------------------------
-##  package     * version date       lib source        
-##  bookdown      0.23    2021-08-13 [1] CRAN (R 4.1.1)
-##  bslib         0.2.5.1 2021-05-18 [1] CRAN (R 4.1.0)
+##  setting  value
+##  version  R version 4.1.2 (2021-11-01)
+##  os       Windows 10 x64 (build 19044)
+##  system   x86_64, mingw32
+##  ui       RStudio
+##  language (EN)
+##  collate  English_United States.1252
+##  ctype    English_United States.1252
+##  tz       America/Chicago
+##  date     2021-12-01
+##  rstudio  2021.09.0+351 Ghost Orchid (desktop)
+##  pandoc   2.14.0.3 @ C:/Program Files/RStudio/bin/pandoc/ (via rmarkdown)
+## 
+## - Packages ---------------------------------------------------------------------------------------------------------
+##  package     * version date (UTC) lib source
+##  bookdown      0.24    2021-09-02 [1] CRAN (R 4.1.1)
+##  bslib         0.3.1   2021-10-06 [1] CRAN (R 4.1.1)
 ##  cachem        1.0.6   2021-08-19 [1] CRAN (R 4.1.1)
 ##  callr         3.7.0   2021-04-20 [1] CRAN (R 4.1.0)
-##  cli           3.0.1   2021-07-17 [1] CRAN (R 4.1.0)
-##  crayon        1.4.1   2021-02-08 [1] CRAN (R 4.1.0)
-##  desc          1.3.0   2021-03-05 [1] CRAN (R 4.1.0)
+##  cli           3.1.0   2021-10-27 [1] CRAN (R 4.1.1)
+##  crayon        1.4.2   2021-10-29 [1] CRAN (R 4.1.1)
+##  desc          1.4.0   2021-09-28 [1] CRAN (R 4.1.1)
 ##  devtools      2.4.2   2021-06-07 [1] CRAN (R 4.1.0)
-##  digest        0.6.27  2020-10-24 [1] CRAN (R 4.1.0)
+##  digest        0.6.28  2021-09-23 [1] CRAN (R 4.1.1)
 ##  ellipsis      0.3.2   2021-04-29 [1] CRAN (R 4.1.0)
 ##  evaluate      0.14    2019-05-28 [1] CRAN (R 4.1.0)
 ##  fastmap       1.1.0   2021-01-25 [1] CRAN (R 4.1.0)
 ##  fs            1.5.0   2020-07-31 [1] CRAN (R 4.1.0)
-##  git2r         0.28.0  2021-01-10 [1] CRAN (R 4.1.0)
-##  glue          1.4.2   2020-08-27 [1] CRAN (R 4.1.0)
+##  git2r         0.29.0  2021-11-22 [1] CRAN (R 4.1.2)
+##  glue          1.5.0   2021-11-07 [1] CRAN (R 4.1.1)
 ##  here          1.0.1   2020-12-13 [1] CRAN (R 4.1.0)
-##  htmltools     0.5.1.1 2021-01-22 [1] CRAN (R 4.1.0)
+##  htmltools     0.5.2   2021-08-25 [1] CRAN (R 4.1.1)
 ##  jquerylib     0.1.4   2021-04-26 [1] CRAN (R 4.1.0)
 ##  jsonlite      1.7.2   2020-12-09 [1] CRAN (R 4.1.0)
-##  knitr         1.33    2021-04-24 [1] CRAN (R 4.1.0)
-##  lifecycle     1.0.0   2021-02-15 [1] CRAN (R 4.1.0)
+##  knitr         1.36    2021-09-29 [1] CRAN (R 4.1.1)
+##  lifecycle     1.0.1   2021-09-24 [1] CRAN (R 4.1.1)
 ##  magrittr      2.0.1   2020-11-17 [1] CRAN (R 4.1.0)
 ##  memoise       2.0.0   2021-01-26 [1] CRAN (R 4.1.0)
 ##  pkgbuild      1.2.0   2020-12-15 [1] CRAN (R 4.1.0)
-##  pkgload       1.2.1   2021-04-06 [1] CRAN (R 4.1.0)
+##  pkgload       1.2.3   2021-10-13 [1] CRAN (R 4.1.1)
 ##  prettyunits   1.1.1   2020-01-24 [1] CRAN (R 4.1.0)
 ##  processx      3.5.2   2021-04-30 [1] CRAN (R 4.1.0)
 ##  ps            1.6.0   2021-02-28 [1] CRAN (R 4.1.0)
 ##  purrr         0.3.4   2020-04-17 [1] CRAN (R 4.1.0)
 ##  R6            2.5.1   2021-08-19 [1] CRAN (R 4.1.1)
-##  remotes       2.4.0   2021-06-02 [1] CRAN (R 4.1.0)
-##  rlang         0.4.11  2021-04-30 [1] CRAN (R 4.1.0)
-##  rmarkdown     2.10    2021-08-06 [1] CRAN (R 4.1.0)
+##  remotes       2.4.1   2021-09-29 [1] CRAN (R 4.1.1)
+##  rlang         0.4.12  2021-10-18 [1] CRAN (R 4.1.1)
+##  rmarkdown     2.11    2021-09-14 [1] CRAN (R 4.1.1)
 ##  rprojroot     2.0.2   2020-11-15 [1] CRAN (R 4.1.0)
 ##  rstudioapi    0.13    2020-11-12 [1] CRAN (R 4.1.0)
 ##  sass          0.4.0   2021-05-12 [1] CRAN (R 4.1.0)
-##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 4.1.0)
-##  stringi       1.7.3   2021-07-16 [1] CRAN (R 4.1.0)
+##  sessioninfo   1.2.1   2021-11-02 [1] CRAN (R 4.1.1)
+##  stringi       1.7.5   2021-10-04 [1] CRAN (R 4.1.1)
 ##  stringr       1.4.0   2019-02-10 [1] CRAN (R 4.1.0)
-##  testthat      3.0.4   2021-07-01 [1] CRAN (R 4.1.0)
-##  usethis       2.0.1   2021-02-10 [1] CRAN (R 4.1.0)
+##  testthat      3.1.0   2021-10-04 [1] CRAN (R 4.1.1)
+##  usethis       2.1.3   2021-10-27 [1] CRAN (R 4.1.1)
 ##  withr         2.4.2   2021-04-18 [1] CRAN (R 4.1.0)
-##  xfun          0.25    2021-08-06 [1] CRAN (R 4.1.0)
+##  xfun          0.28    2021-11-04 [1] CRAN (R 4.1.1)
 ##  yaml          2.2.1   2020-02-01 [1] CRAN (R 4.1.0)
 ## 
-## [1] C:/Users/seldenjrz/Documents/R/win-library/4.1
-## [2] C:/Program Files/R/R-4.1.1/library</code></pre>
+##  [1] C:/Users/seldenjrz/Documents/R/win-library/4.1
+##  [2] C:/Program Files/R/R-4.1.2/library
+## 
+## --------------------------------------------------------------------------------------------------------------------</code></pre>
 <p>Current Git commit details are:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># where can I find this commit? </span></span>
 <span id="cb3-2"><a href="index.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">&quot;git2r&quot;</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>() <span class="sc">&amp;</span> git2r<span class="sc">::</span><span class="fu">in_repository</span>(<span class="at">path =</span> <span class="st">&quot;.&quot;</span>)) git2r<span class="sc">::</span><span class="fu">repository</span>(here<span class="sc">::</span><span class="fu">here</span>())  </span></code></pre></div>
-<pre><code>## Local:    master E:/github/incision
+<pre><code>## Local:    master D:/github/incision
 ## Remote:   master @ origin (https://github.com/aksel-blaise/incision)
-## Head:     [d977e66] 2021-07-08: &lt;edit index&gt;</code></pre>
+## Head:     [37848c1] 2021-08-26: &lt;edit index&gt;</code></pre>
 
 </div>
 </div>
@@ -525,7 +531,6 @@ Selden Jr., Robert Z., John E. Dockall, and Morgane Dubied. 2020. <span>“A Qua
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -566,7 +571,7 @@ gitbook.start({
 },
 "download": ["incision.pdf", "incision.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
