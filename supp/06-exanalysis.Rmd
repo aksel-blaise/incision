@@ -2,7 +2,7 @@
 
 The `inc` field in the qdataEX file relates to two primary differences in shape. One U-shaped, and the other V-shaped. The `inc2` field in the qdataEX file relates to the differences in shape that were noted when reviewing general incision morphology. Some were U-shaped and narrow, others U-shaped and wide (twice as wide as they are deep), and the remainder were V-shaped.
 
-The narrow and wide U-shaped incisions were made by different tools; however, it is not difficult to imagine a scenario where both of the U-shaped incisions could also have been produced with two different sides of the same tool. It is thus necessary to use abundant caution when interpreting potential tool shape, or the number of tools employed in the application of incisions. To avoid confounding the issue, the tip of each of the tools used to generate the incision is referred to as a bit in the remainder of this document. Tools may have multiple bits, but each bit is capable of generating different incision profiles.
+The narrow and wide U-shaped incisions were made by different tools; however, it is not at all difficult to imagine a scenario where both of the U-shaped incisions could also have been produced with two different sides of the same tool. It is thus necessary to use abundant caution when interpreting potential tool shape, or the number of tools employed in the application of incisions. To avoid confounding the issue, the tip of each of the tools used to generate the incision is referred to as a bit in the remainder of this document. Tools may have multiple bits, but each bit is capable of generating different incision profiles.
 
 ## Load packages + data
 
@@ -17,32 +17,42 @@ library(geomorph)
 library(tidyverse)
 library(wesanderson)
 
-# Read .csv files
+# Read shape data
+source('readmulti.csv.R')
 setwd("./dataEX")
 filelist <- list.files(pattern = ".csv")
 coords <- readmulti.csv(filelist)
 setwd("../")
 
 # read qualitative data
-qdata <- read.csv("qdataEX.csv",header=TRUE,row.names=1)
+qdata <- read.csv("qdataEX.csv",
+                  header = TRUE,
+                  row.names = 1)
 qdata <- qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 
 # print qdata
-knitr::kable(qdata, align = "cc", caption = "Attributes included in qdata.")
+knitr::kable(qdata, 
+             align = "cc", 
+             caption = "Attributes included in qdata.")
 ```
 
 ## Generalised Procrustes Analysis
 
 ```{r gpaEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Results of generalised Procrustes analysis."}
-Y.gpa <- gpagen(coords, PrinAxes = TRUE, ProcD = TRUE, 
-                Proj = TRUE, print.progress = FALSE)
+Y.gpa <- gpagen(coords, 
+                PrinAxes = TRUE, 
+                ProcD = TRUE, 
+                Proj = TRUE, 
+                print.progress = FALSE)
 
 # 3D GPA plot
 knitr::include_graphics('images/gpa3dEX.png')
 
 # geomorph data frame
-gdf <- geomorph.data.frame(shape = Y.gpa$coords, size = Y.gpa$Csize, 
-                           inc = qdata$incision, inc2 = qdata$inc2)
+gdf <- geomorph.data.frame(shape = Y.gpa$coords, 
+                           size = Y.gpa$Csize, 
+                           inc = qdata$incision, 
+                           inc2 = qdata$inc2)
 ```
 
 ```{r boxEX, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
@@ -55,7 +65,9 @@ inc <- qdata$incision
 inc2 <- qdata$inc2
 
 # print qdata + centroid size
-knitr::kable(qdata, align = "ccc", caption = "Attributes included in qdata.")
+knitr::kable(qdata, 
+             align = "ccc", 
+             caption = "Attributes included in qdata.")
 ```
 
 ```{r box1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Boxplot of experimental incision profile types (U-shaped and V-shaped)."}

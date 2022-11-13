@@ -4,7 +4,7 @@ The experimental sample consisted of seven test tiles that were incised and fire
 
 ## Experimental tiles
 
-The clay used for the experimental tiles was Red Stone from Highwater Clays. Each tile was moved to a dry box 15 minutes after the incision was made. The tiles were fired in five stages using an electric kiln at the Arrowmont School of Arts and Crafts:
+The clay used for the experimental tiles was Red Stone from Highwater Clays. Each tile was moved to a dry box 15 minutes after the incision was made. The tiles were fired in five stages using an electric kiln:
 
 |Stage | Rate/Hr   | Temp   | Hold
 |:----:|:---------:|:------:|:-----------------------
@@ -18,7 +18,7 @@ Royal Sovereign, Ltd, (UK) manufactured the chisels used to create the incisions
 
 Experimental tile 1 included an impression of the chisel tip on each instrument, and was not included in the experimental sample. Experimental tiles 2-8 included two incisions on each tile. In some cases two scans were generated for a tile, capturing the incision of interest nearest the middle of the scan. 
 
-A Keyence VR-5000 optical profilometer was used to capture each three-dimensional image, rendered in the VR Series (VR-3000 G2 Series) Analyzer Software, then exported to Geomagic Design X _Version 2020.0.2, Build 55_ where the landmarks were applied. 
+A Keyence VR-5000 optical profilometer was used to capture each three-dimensional image, rendered in the VR Series (VR-3000 G2 Series) Analyzer Software, which were exported to Geomagic Design X, where all landmarks and semilandmarks were applied. 
 
 ### Experimental tile 2
 

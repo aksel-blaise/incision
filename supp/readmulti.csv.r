@@ -5,7 +5,7 @@ readmulti.csv<-function(filelist){
   names<-gsub(".csv","",filelist, ignore.case=T)
   landdata<-nland<-NULL
   for (i in 1:n){
-    temp <-read.csv(filelist[i], header=TRUE,row.names = 1)
+    temp <-read.csv(filelist[i], header=TRUE, row.names = 1)
     p<-nrow(temp);k<-ncol(temp)
     nland<-rbind(nland,p)
     if (min(nland)!=max(nland)) {
