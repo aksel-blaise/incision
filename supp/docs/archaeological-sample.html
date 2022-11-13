@@ -167,7 +167,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Caddo incision morphology</a></li>
+<li><a href="./">incision</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
@@ -371,35 +371,35 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <div id="archaeological-sample" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Archaeological sample<a href="archaeological-sample.html#archaeological-sample" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The sample used in this study was generated through archaeological surveys, and there are no chronometric dates for any of the sites. Temporal assignments employ relative dates. Therefore, if a site spans the Woodland period through CE 1200 (41SA66), the date range is considered to range from 500 BCE to CE 1200. However, only those temporal assignments associated with Caddo components are plotted, so that the same plot for 41SA66 is altered to illustrate a span from CE 800-1200.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="archaeological-sample.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load ggplot2</span></span>
-<span id="cb77-2"><a href="archaeological-sample.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb77-3"><a href="archaeological-sample.html#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb77-4"><a href="archaeological-sample.html#cb77-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-5"><a href="archaeological-sample.html#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co"># temporal attributes</span></span>
-<span id="cb77-6"><a href="archaeological-sample.html#cb77-6" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">8</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
-<span id="cb77-7"><a href="archaeological-sample.html#cb77-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-8"><a href="archaeological-sample.html#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co"># gantt chart of (possible) relative dates for ceramic components</span></span>
-<span id="cb77-9"><a href="archaeological-sample.html#cb77-9" aria-hidden="true" tabindex="-1"></a>temp<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">Site =</span> <span class="fu">c</span>(<span class="st">&#39;41SA66&#39;</span>,<span class="st">&#39;41SB125&#39;</span>,<span class="st">&#39;41SB189&#39;</span>,<span class="st">&#39;41SB189&#39;</span>,<span class="st">&#39;41SB291&#39;</span>,<span class="st">&#39;41SY43&#39;</span>,<span class="st">&#39;41SY43&#39;</span>,<span class="st">&#39;41SY258&#39;</span>,<span class="st">&#39;41SY280&#39;</span>,<span class="st">&#39;41TN91&#39;</span>),</span>
-<span id="cb77-10"><a href="archaeological-sample.html#cb77-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Date_Range_CE =</span> <span class="fu">c</span>(<span class="dv">800</span>, <span class="dv">1200</span>, <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">1400</span>), <span class="dv">1200</span>, <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">1450</span>), <span class="dv">800</span>, <span class="dv">1400</span>, <span class="dv">900</span>), <span class="co"># in years CE</span></span>
-<span id="cb77-11"><a href="archaeological-sample.html#cb77-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end =</span> <span class="fu">c</span>(<span class="dv">1200</span>, <span class="dv">1680</span>, <span class="fu">c</span>(<span class="dv">1200</span>, <span class="dv">1680</span>), <span class="dv">1680</span>, <span class="fu">c</span>(<span class="dv">1300</span>, <span class="dv">1680</span>), <span class="dv">1680</span>, <span class="dv">1680</span>, <span class="dv">1200</span>) <span class="co"># in years CE</span></span>
-<span id="cb77-12"><a href="archaeological-sample.html#cb77-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb77-13"><a href="archaeological-sample.html#cb77-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-14"><a href="archaeological-sample.html#cb77-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-15"><a href="archaeological-sample.html#cb77-15" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange figure</span></span>
-<span id="cb77-16"><a href="archaeological-sample.html#cb77-16" aria-hidden="true" tabindex="-1"></a>temp.site <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(temp, </span>
-<span id="cb77-17"><a href="archaeological-sample.html#cb77-17" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">aes</span>(<span class="at">x =</span> Date_Range_CE, </span>
-<span id="cb77-18"><a href="archaeological-sample.html#cb77-18" aria-hidden="true" tabindex="-1"></a>                        <span class="at">xend =</span> end, </span>
-<span id="cb77-19"><a href="archaeological-sample.html#cb77-19" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> <span class="fu">factor</span>(Site,</span>
-<span id="cb77-20"><a href="archaeological-sample.html#cb77-20" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">levels</span>(<span class="fu">factor</span>(Site)))), </span>
-<span id="cb77-21"><a href="archaeological-sample.html#cb77-21" aria-hidden="true" tabindex="-1"></a>                        <span class="at">yend =</span> Site, </span>
-<span id="cb77-22"><a href="archaeological-sample.html#cb77-22" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color =</span> Site)) <span class="sc">+</span></span>
-<span id="cb77-23"><a href="archaeological-sample.html#cb77-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb77-24"><a href="archaeological-sample.html#cb77-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
-<span id="cb77-25"><a href="archaeological-sample.html#cb77-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb77-26"><a href="archaeological-sample.html#cb77-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Site&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Date Range CE&quot;</span>)</span>
-<span id="cb77-27"><a href="archaeological-sample.html#cb77-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-28"><a href="archaeological-sample.html#cb77-28" aria-hidden="true" tabindex="-1"></a><span class="co"># render figure</span></span>
-<span id="cb77-29"><a href="archaeological-sample.html#cb77-29" aria-hidden="true" tabindex="-1"></a>temp.site</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="archaeological-sample.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load ggplot2</span></span>
+<span id="cb86-2"><a href="archaeological-sample.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb86-3"><a href="archaeological-sample.html#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb86-4"><a href="archaeological-sample.html#cb86-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-5"><a href="archaeological-sample.html#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="co"># temporal attributes</span></span>
+<span id="cb86-6"><a href="archaeological-sample.html#cb86-6" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>, <span class="dv">8</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
+<span id="cb86-7"><a href="archaeological-sample.html#cb86-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-8"><a href="archaeological-sample.html#cb86-8" aria-hidden="true" tabindex="-1"></a><span class="co"># gantt chart of (possible) relative dates for ceramic components</span></span>
+<span id="cb86-9"><a href="archaeological-sample.html#cb86-9" aria-hidden="true" tabindex="-1"></a>temp<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">Site =</span> <span class="fu">c</span>(<span class="st">&#39;41SA66&#39;</span>,<span class="st">&#39;41SB125&#39;</span>,<span class="st">&#39;41SB189&#39;</span>,<span class="st">&#39;41SB189&#39;</span>,<span class="st">&#39;41SB291&#39;</span>,<span class="st">&#39;41SY43&#39;</span>,<span class="st">&#39;41SY43&#39;</span>,<span class="st">&#39;41SY258&#39;</span>,<span class="st">&#39;41SY280&#39;</span>,<span class="st">&#39;41TN91&#39;</span>),</span>
+<span id="cb86-10"><a href="archaeological-sample.html#cb86-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Date_Range_CE =</span> <span class="fu">c</span>(<span class="dv">800</span>, <span class="dv">1200</span>, <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">1400</span>), <span class="dv">1200</span>, <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">1450</span>), <span class="dv">800</span>, <span class="dv">1400</span>, <span class="dv">900</span>), <span class="co"># in years CE</span></span>
+<span id="cb86-11"><a href="archaeological-sample.html#cb86-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end =</span> <span class="fu">c</span>(<span class="dv">1200</span>, <span class="dv">1680</span>, <span class="fu">c</span>(<span class="dv">1200</span>, <span class="dv">1680</span>), <span class="dv">1680</span>, <span class="fu">c</span>(<span class="dv">1300</span>, <span class="dv">1680</span>), <span class="dv">1680</span>, <span class="dv">1680</span>, <span class="dv">1200</span>) <span class="co"># in years CE</span></span>
+<span id="cb86-12"><a href="archaeological-sample.html#cb86-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb86-13"><a href="archaeological-sample.html#cb86-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-14"><a href="archaeological-sample.html#cb86-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-15"><a href="archaeological-sample.html#cb86-15" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange figure</span></span>
+<span id="cb86-16"><a href="archaeological-sample.html#cb86-16" aria-hidden="true" tabindex="-1"></a>temp.site <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(temp, </span>
+<span id="cb86-17"><a href="archaeological-sample.html#cb86-17" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">aes</span>(<span class="at">x =</span> Date_Range_CE, </span>
+<span id="cb86-18"><a href="archaeological-sample.html#cb86-18" aria-hidden="true" tabindex="-1"></a>                        <span class="at">xend =</span> end, </span>
+<span id="cb86-19"><a href="archaeological-sample.html#cb86-19" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> <span class="fu">factor</span>(Site,</span>
+<span id="cb86-20"><a href="archaeological-sample.html#cb86-20" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">levels</span>(<span class="fu">factor</span>(Site)))), </span>
+<span id="cb86-21"><a href="archaeological-sample.html#cb86-21" aria-hidden="true" tabindex="-1"></a>                        <span class="at">yend =</span> Site, </span>
+<span id="cb86-22"><a href="archaeological-sample.html#cb86-22" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color =</span> Site)) <span class="sc">+</span></span>
+<span id="cb86-23"><a href="archaeological-sample.html#cb86-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb86-24"><a href="archaeological-sample.html#cb86-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb86-25"><a href="archaeological-sample.html#cb86-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb86-26"><a href="archaeological-sample.html#cb86-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Site&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Date Range CE&quot;</span>)</span>
+<span id="cb86-27"><a href="archaeological-sample.html#cb86-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-28"><a href="archaeological-sample.html#cb86-28" aria-hidden="true" tabindex="-1"></a><span class="co"># render figure</span></span>
+<span id="cb86-29"><a href="archaeological-sample.html#cb86-29" aria-hidden="true" tabindex="-1"></a>temp.site</span></code></pre></div>
 <p><img src="incision_files/figure-html/temporal-1.png" width="100%" /></p>
 <p>All samples were collected in east Texas within San Augustine (SA), Sabine (SB), Shelby (SY), and Trinity (TN) counties. Smithsonian trinomials for each site indicate the state designation for Texas (41), the county (SA, SB, SY, or TN), and the site number.</p>
 <div id="sa66" class="section level2 hasAnchor" number="5.1">
@@ -408,8 +408,8 @@ This volume is in <b><a href="open.html#open">Open Review</a></b>. I want your f
 <p>Woodland period and pre-CE 1200 Caddo components were found at 41SA66. The Woodland component includes eight <em>Goose Creek Plain</em> body sherds from surface contexts <span class="citation">(<a href="#ref-RN5066" role="doc-biblioref">Suhm, Krieger, and Jelks 1954, 57</a>, Pl. 29)</span>. The Caddo component is evidenced by 11 grog-tempered rim and body sherds. Three of the rims bear multiple (5-12 lines) horizontal incised lines, and three body sherds include 7-12 parallel incised lines. The other five sherds—four body sherds and a body/base sherd—are plain.</p>
 <div id="sa66-1" class="section level3 hasAnchor" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> 41sa66<a href="archaeological-sample.html#sa66-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="archaeological-sample.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb78-2"><a href="archaeological-sample.html#cb78-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/sa66-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="archaeological-sample.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb87-2"><a href="archaeological-sample.html#cb87-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/sa66-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:sa66"></span>
 <img src="images/sa66-inc.png" alt="Incisions on sherd 41sa66." width="100%" />
 <p class="caption">
@@ -419,8 +419,8 @@ Figure 5.1: Incisions on sherd 41sa66.
 </div>
 <div id="sa66-4" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> 41sa66-4<a href="archaeological-sample.html#sa66-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="archaeological-sample.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb79-2"><a href="archaeological-sample.html#cb79-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/sa66-4-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="archaeological-sample.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb88-2"><a href="archaeological-sample.html#cb88-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/sa66-4-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:sa66-4"></span>
 <img src="images/sa66-4-inc.png" alt="Incisions on sherd 41sa66-4." width="100%" />
 <p class="caption">
@@ -430,8 +430,8 @@ Figure 5.2: Incisions on sherd 41sa66-4.
 </div>
 <div id="sa66-5" class="section level3 hasAnchor" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> 41sa66-5<a href="archaeological-sample.html#sa66-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="archaeological-sample.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb80-2"><a href="archaeological-sample.html#cb80-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/sa66-5-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="archaeological-sample.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb89-2"><a href="archaeological-sample.html#cb89-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/sa66-5-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:sa66-5"></span>
 <img src="images/sa66-5-inc.png" alt="Incisions on sherd 41sa66-5." width="100%" />
 <p class="caption">
@@ -441,8 +441,8 @@ Figure 5.3: Incisions on sherd 41sa66-5.
 </div>
 <div id="sa66-6" class="section level3 hasAnchor" number="5.1.4">
 <h3><span class="header-section-number">5.1.4</span> 41sa66-6<a href="archaeological-sample.html#sa66-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="archaeological-sample.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb81-2"><a href="archaeological-sample.html#cb81-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/sa66-6-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="archaeological-sample.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb90-2"><a href="archaeological-sample.html#cb90-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/sa66-6-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:sa66-6"></span>
 <img src="images/sa66-6-inc.png" alt="Incisions on sherd 41sa66-6." width="100%" />
 <p class="caption">
@@ -457,8 +457,8 @@ Figure 5.4: Incisions on sherd 41sa66-6.
 <p>The Caddo component is delimited by seven grog-tempered body sherds from four shovel tests, ranging in depth from 20-75 cmbs. Three are plain grog-tempered body sherds. The decorated sherds include a body sherd with a single straight incised line (ST 20, 20-30 cmbs), a body sherd with parallel brushing marks (ST 11, 20-30 cmbs), a rim with a triangular incised zone filled with rows of cane punctates, and a body sherd with an incised zone filled with diagonal incised lines.</p>
 <div id="sb125-2-st27-25cm-lot100" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> 41sb125-2-st27-25cm-lot100<a href="archaeological-sample.html#sb125-2-st27-25cm-lot100" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="archaeological-sample.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb82-2"><a href="archaeological-sample.html#cb82-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb125-2-st27-25cm-lot100-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="archaeological-sample.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb91-2"><a href="archaeological-sample.html#cb91-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb125-2-st27-25cm-lot100-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sb125-2-st27-25cm-lot100"></span>
 <img src="images/41sb125-2-st27-25cm-lot100-inc.png" alt="Incisions on sherd 41sb125-2-st27-25cm-lot100." width="100%" />
 <p class="caption">
@@ -468,8 +468,8 @@ Figure 5.5: Incisions on sherd 41sb125-2-st27-25cm-lot100.
 </div>
 <div id="sb125-3-st27-lot99-inc" class="section level3 hasAnchor" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> 41sb125-3-st27-lot99-inc<a href="archaeological-sample.html#sb125-3-st27-lot99-inc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="archaeological-sample.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb83-2"><a href="archaeological-sample.html#cb83-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb125-3-st27-lot99-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="archaeological-sample.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb92-2"><a href="archaeological-sample.html#cb92-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb125-3-st27-lot99-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sb125-3-st27-lot99"></span>
 <img src="images/41sb125-3-st27-lot99-inc.png" alt="Incisions on sherd 41sb125-3-st27-lot99." width="100%" />
 <p class="caption">
@@ -479,8 +479,8 @@ Figure 5.6: Incisions on sherd 41sb125-3-st27-lot99.
 </div>
 <div id="sb125-11-st11-lot50-inc" class="section level3 hasAnchor" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> 41sb125-11-st11-lot50-inc<a href="archaeological-sample.html#sb125-11-st11-lot50-inc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="archaeological-sample.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb84-2"><a href="archaeological-sample.html#cb84-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb125-11-st11-lot50-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="archaeological-sample.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb93-2"><a href="archaeological-sample.html#cb93-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb125-11-st11-lot50-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sb125-11-st11-lot50-inc"></span>
 <img src="images/41sb125-11-st11-lot50-inc.png" alt="Incisions on sherd 41sb125-11-st11-lot50." width="100%" />
 <p class="caption">
@@ -496,8 +496,8 @@ Figure 5.7: Incisions on sherd 41sb125-11-st11-lot50.
 <p>Temporally diagnostic artifacts indicate that the Caddo occupation at the site occurred during the Early Caddo period (CE 1000-1200). That assertion is based upon the recovery of an Alba point made of chert in Mound A. The final Caddo occupation occurred after CE 1400, and includes a Bassett arrow point made from chert in Mound D, as well as grog-tempered body sherds from Mound A and D recovered from different shovel tests between 0-60 cmbs. Sherds recovered from that component include seven plain body sherds, and five decorated body sherds. One decorated sherd from Mound A includes parallel brushing marks, two others from Mound D exhibit parallel incised lines, and another bears a single engraved line. The last decorated body sherd comes from what may have been a carinated bowl found in looter backfill that was excavated from Mound D, which bears diagonal opposed engraved lines.</p>
 <div id="sb189-9-lot17" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> 41sb189-9-lot17<a href="archaeological-sample.html#sb189-9-lot17" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="archaeological-sample.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb85-2"><a href="archaeological-sample.html#cb85-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41SB189-9-lot17-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="archaeological-sample.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb94-2"><a href="archaeological-sample.html#cb94-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41SB189-9-lot17-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41SB189-9-lot17"></span>
 <img src="images/41sb189-9-lot17-inc.png" alt="Incisions on sherd 41sb189-9-lot17." width="100%" />
 <p class="caption">
@@ -507,8 +507,8 @@ Figure 5.8: Incisions on sherd 41sb189-9-lot17.
 </div>
 <div id="sb189-10-lot17" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> 41sb189-10-Lot17<a href="archaeological-sample.html#sb189-10-lot17" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="archaeological-sample.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb86-2"><a href="archaeological-sample.html#cb86-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb189-10-Lot17-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="archaeological-sample.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb95-2"><a href="archaeological-sample.html#cb95-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb189-10-Lot17-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sb189-10-Lot17-inc"></span>
 <img src="images/41sb189-10-Lot17-inc.png" alt="Incisions on sherd 41sb189-10-Lot17." width="100%" />
 <p class="caption">
@@ -524,8 +524,8 @@ Figure 5.9: Incisions on sherd 41sb189-10-Lot17.
 <p>The ancestral Caddo component is marked by four grog and/or bone-tempered rim and body sherds. One rim from ST 61 (50-55 cmbs) has vertical brushing marks (indicative of a post-CE 1200 Caddo vessel in this part of East Texas), and a body sherd from ST 64 (30-40 cm bs) has parallel incised lines. The other two sherds are plain, including a body sherd from ST 51 (20-30 cmbs) and a rim sherd from ST 26 (30-40 cmbs). The direct rim has a rounded lip.</p>
 <div id="sb291-4-st64-3040-lot245" class="section level3 hasAnchor" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> 41sb291-4-st64-3040-lot245<a href="archaeological-sample.html#sb291-4-st64-3040-lot245" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="archaeological-sample.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb87-2"><a href="archaeological-sample.html#cb87-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb291-4-st64-3040-lot245-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="archaeological-sample.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb96-2"><a href="archaeological-sample.html#cb96-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb291-4-st64-3040-lot245-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sb291-4-st64-3040-lot245"></span>
 <img src="images/41sb291-4-st64-3040-lot245-inc.png" alt="Incisions on sherd 41sb291-4-st64-3040-lot245." width="100%" />
 <p class="caption">
@@ -535,8 +535,8 @@ Figure 5.10: Incisions on sherd 41sb291-4-st64-3040-lot245.
 </div>
 <div id="sb291-9-st61-50-55-lot229" class="section level3 hasAnchor" number="5.4.2">
 <h3><span class="header-section-number">5.4.2</span> 41sb291-9-st61-50-55-lot229<a href="archaeological-sample.html#sb291-9-st61-50-55-lot229" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="archaeological-sample.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb88-2"><a href="archaeological-sample.html#cb88-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb291-9-st61-50-55-lot229-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="archaeological-sample.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb97-2"><a href="archaeological-sample.html#cb97-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sb291-9-st61-50-55-lot229-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sb291-9-st61-50-55-lot229"></span>
 <img src="images/41sb291-9-st61-50-55-lot229-inc.png" alt="Incisions on sherd 41sb291-9-st61-50-55-lot229." width="100%" />
 <p class="caption">
@@ -551,8 +551,8 @@ Figure 5.11: Incisions on sherd 41sb291-9-st61-50-55-lot229.
 <p>Not including lithic debris or fire-cracked rock from the shovel tests, more than 162 artifacts of analytical value were recovered in 22 of the shovel tests. The majority of these artifacts include plain and decorated ancestral Caddo ceramic sherds (n = 141), as well as Woodland period <em>Goose Creek Plain</em> sherds (n = 2) <span class="citation">(<a href="#ref-RN5066" role="doc-biblioref">Suhm, Krieger, and Jelks 1954, 57</a>, Pl. 29)</span>. Other artifacts recovered at the site include arrow points, dart points, and lithic tools, as well as burned clay and daub.</p>
 <div id="sy43-1" class="section level3 hasAnchor" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> 41sy43-1<a href="archaeological-sample.html#sy43-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="archaeological-sample.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb89-2"><a href="archaeological-sample.html#cb89-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-1-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="archaeological-sample.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb98-2"><a href="archaeological-sample.html#cb98-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-1-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy43-1-inc"></span>
 <img src="images/41sy43-1-inc.png" alt="Incisions on sherd 41sy43-1." width="100%" />
 <p class="caption">
@@ -562,8 +562,8 @@ Figure 5.12: Incisions on sherd 41sy43-1.
 </div>
 <div id="sy43-13-1191" class="section level3 hasAnchor" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> 41sy43-13-1191<a href="archaeological-sample.html#sy43-13-1191" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="archaeological-sample.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb90-2"><a href="archaeological-sample.html#cb90-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-13-1191-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="archaeological-sample.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb99-2"><a href="archaeological-sample.html#cb99-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-13-1191-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy43-13-1191-inc"></span>
 <img src="images/41sy43-13-1191-inc.png" alt="Incisions on sherd 41sy43-13-1191." width="100%" />
 <p class="caption">
@@ -573,8 +573,8 @@ Figure 5.13: Incisions on sherd 41sy43-13-1191.
 </div>
 <div id="sy43-19" class="section level3 hasAnchor" number="5.5.3">
 <h3><span class="header-section-number">5.5.3</span> 41sy43-19<a href="archaeological-sample.html#sy43-19" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="archaeological-sample.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb91-2"><a href="archaeological-sample.html#cb91-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-19-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="archaeological-sample.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb100-2"><a href="archaeological-sample.html#cb100-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-19-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy43-19-inc"></span>
 <img src="images/41sy43-19-inc.png" alt="Incisions on sherd 41sy43-19." width="100%" />
 <p class="caption">
@@ -584,8 +584,8 @@ Figure 5.14: Incisions on sherd 41sy43-19.
 </div>
 <div id="sy43-830" class="section level3 hasAnchor" number="5.5.4">
 <h3><span class="header-section-number">5.5.4</span> 41sy43-830<a href="archaeological-sample.html#sy43-830" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="archaeological-sample.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb92-2"><a href="archaeological-sample.html#cb92-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-830-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="archaeological-sample.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb101-2"><a href="archaeological-sample.html#cb101-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-830-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41SY43-830-inc"></span>
 <img src="images/41sy43-830-inc.png" alt="Incisions on sherd 41sy43-830." width="100%" />
 <p class="caption">
@@ -595,8 +595,8 @@ Figure 5.15: Incisions on sherd 41sy43-830.
 </div>
 <div id="sy43-k-2-27-37" class="section level3 hasAnchor" number="5.5.5">
 <h3><span class="header-section-number">5.5.5</span> 41sy43-k-2-27-37<a href="archaeological-sample.html#sy43-k-2-27-37" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="archaeological-sample.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb93-2"><a href="archaeological-sample.html#cb93-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-k-2-27-37-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="archaeological-sample.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb102-2"><a href="archaeological-sample.html#cb102-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-k-2-27-37-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy43-k-2-27-37"></span>
 <img src="images/41sy43-k-2-27-37-inc.png" alt="Incisions on sherd 41sy43-k-2-27-37." width="100%" />
 <p class="caption">
@@ -606,8 +606,8 @@ Figure 5.16: Incisions on sherd 41sy43-k-2-27-37.
 </div>
 <div id="sy43-k-6-1020" class="section level3 hasAnchor" number="5.5.6">
 <h3><span class="header-section-number">5.5.6</span> 41sy43-K-6-1020<a href="archaeological-sample.html#sy43-k-6-1020" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="archaeological-sample.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb94-2"><a href="archaeological-sample.html#cb94-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-K-6-1020-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="archaeological-sample.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb103-2"><a href="archaeological-sample.html#cb103-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-K-6-1020-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy43-K-6-1020-inc"></span>
 <img src="images/41sy43-K-6-1020-inc.png" alt="Incisions on sherd 41sy43-K-6-1020." width="100%" />
 <p class="caption">
@@ -617,8 +617,8 @@ Figure 5.17: Incisions on sherd 41sy43-K-6-1020.
 </div>
 <div id="sy43-k8-17" class="section level3 hasAnchor" number="5.5.7">
 <h3><span class="header-section-number">5.5.7</span> 41sy43-k8-17<a href="archaeological-sample.html#sy43-k8-17" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="archaeological-sample.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb95-2"><a href="archaeological-sample.html#cb95-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-k8-17-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="archaeological-sample.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb104-2"><a href="archaeological-sample.html#cb104-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-k8-17-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy43-k8-17-inc"></span>
 <img src="images/41sy43-k8-17-inc.png" alt="Incisions on sherd 41sy43-k8-17." width="100%" />
 <p class="caption">
@@ -628,8 +628,8 @@ Figure 5.18: Incisions on sherd 41sy43-k8-17.
 </div>
 <div id="sy43-lot1035-2030" class="section level3 hasAnchor" number="5.5.8">
 <h3><span class="header-section-number">5.5.8</span> 41sy43-lot1035-2030<a href="archaeological-sample.html#sy43-lot1035-2030" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="archaeological-sample.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb96-2"><a href="archaeological-sample.html#cb96-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-lot1035-2030-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="archaeological-sample.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb105-2"><a href="archaeological-sample.html#cb105-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy43-lot1035-2030-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy43-lot1035-2030-inc"></span>
 <img src="images/41sy43-lot1035-2030-inc.png" alt="Incisions on sherd 41sy43-lot1035-2030." width="100%" />
 <p class="caption">
@@ -643,8 +643,8 @@ Figure 5.19: Incisions on sherd 41sy43-lot1035-2030.
 <p>41SY258 consists of a large campsite situated on a terrace knoll near the northern bank of Patroon Bayou along the southern margin of SNF Compartment 53 in Shelby County, Texas. It consists of a subsurface scatter of lithic and ceramic artifacts–as well Perdiz, Kent-like, Yarbrough-like, and Palmer-like projectile points–suggesting an occupation that occurred at some point or recurrently between the Middle Archaic and Late Caddoan periods periods (4000 BCE to CE 1680).</p>
 <div id="sy258-st2-10-20" class="section level3 hasAnchor" number="5.6.1">
 <h3><span class="header-section-number">5.6.1</span> 41sy258-st2-10-20<a href="archaeological-sample.html#sy258-st2-10-20" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="archaeological-sample.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb97-2"><a href="archaeological-sample.html#cb97-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy258-st2-10-20-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="archaeological-sample.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb106-2"><a href="archaeological-sample.html#cb106-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy258-st2-10-20-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy258-st2-10-20-inc"></span>
 <img src="images/41sy258-st2-10-20-inc.png" alt="Incisions on sherd 41sy258-st2-10-20." width="100%" />
 <p class="caption">
@@ -654,8 +654,8 @@ Figure 5.20: Incisions on sherd 41sy258-st2-10-20.
 </div>
 <div id="sy258-st3-2030" class="section level3 hasAnchor" number="5.6.2">
 <h3><span class="header-section-number">5.6.2</span> 41sy258-st3-2030<a href="archaeological-sample.html#sy258-st3-2030" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="archaeological-sample.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb98-2"><a href="archaeological-sample.html#cb98-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy258-st3-2030-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="archaeological-sample.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb107-2"><a href="archaeological-sample.html#cb107-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy258-st3-2030-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy258-st3-2030-inc"></span>
 <img src="images/41sy258-st3-2030-inc.png" alt="Incisions on sherd 41sy258-st3-2030." width="100%" />
 <p class="caption">
@@ -671,8 +671,8 @@ Figure 5.21: Incisions on sherd 41sy258-st3-2030.
 <p>Taking into consideration the wide range in decorated sherd sample sizes in the different surface collection areas, there does appear to be a consistent range of the same decorative methods in the sherds distributed across the site. The most common decorative methods from the surface collection areas include brushed (95 percent); incised (81 percent); engraved (67 percent); brushed-incised (62 percent); ridged (52 percent); and punctated (48 percent). It is reasonable to conclude that there is one contemporaneous ancestral Caddo ceramic assemblage at the site that dates well after CE 1400 in the Late Caddo period.</p>
 <div id="sy280-1" class="section level3 hasAnchor" number="5.7.1">
 <h3><span class="header-section-number">5.7.1</span> 41sy280<a href="archaeological-sample.html#sy280-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="archaeological-sample.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb99-2"><a href="archaeological-sample.html#cb99-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="archaeological-sample.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb108-2"><a href="archaeological-sample.html#cb108-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-inc"></span>
 <img src="images/41sy280-inc.png" alt="Incisions on sherd 41sy280." width="100%" />
 <p class="caption">
@@ -682,8 +682,8 @@ Figure 5.22: Incisions on sherd 41sy280.
 </div>
 <div id="sy280-11" class="section level3 hasAnchor" number="5.7.2">
 <h3><span class="header-section-number">5.7.2</span> 41sy280-11<a href="archaeological-sample.html#sy280-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="archaeological-sample.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb100-2"><a href="archaeological-sample.html#cb100-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-11-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="archaeological-sample.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb109-2"><a href="archaeological-sample.html#cb109-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-11-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-11-inc"></span>
 <img src="images/41sy280-11-inc.png" alt="Incisions on sherd 41sy280-11." width="100%" />
 <p class="caption">
@@ -693,8 +693,8 @@ Figure 5.23: Incisions on sherd 41sy280-11.
 </div>
 <div id="sy280-18" class="section level3 hasAnchor" number="5.7.3">
 <h3><span class="header-section-number">5.7.3</span> 41sy280-18<a href="archaeological-sample.html#sy280-18" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="archaeological-sample.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb101-2"><a href="archaeological-sample.html#cb101-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-18-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="archaeological-sample.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb110-2"><a href="archaeological-sample.html#cb110-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-18-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-18-inc"></span>
 <img src="images/41sy280-18-inc.png" alt="Incisions on sherd 41sy280-18." width="100%" />
 <p class="caption">
@@ -704,8 +704,8 @@ Figure 5.24: Incisions on sherd 41sy280-18.
 </div>
 <div id="sy280-20" class="section level3 hasAnchor" number="5.7.4">
 <h3><span class="header-section-number">5.7.4</span> 41sy280-20<a href="archaeological-sample.html#sy280-20" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="archaeological-sample.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb102-2"><a href="archaeological-sample.html#cb102-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-20-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="archaeological-sample.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb111-2"><a href="archaeological-sample.html#cb111-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-20-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-20-inc"></span>
 <img src="images/41sy280-20-inc.png" alt="Incisions on sherd 41sy280-20." width="100%" />
 <p class="caption">
@@ -715,8 +715,8 @@ Figure 5.25: Incisions on sherd 41sy280-20.
 </div>
 <div id="sy280-84" class="section level3 hasAnchor" number="5.7.5">
 <h3><span class="header-section-number">5.7.5</span> 41sy280-84<a href="archaeological-sample.html#sy280-84" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="archaeological-sample.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb103-2"><a href="archaeological-sample.html#cb103-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-84-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="archaeological-sample.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb112-2"><a href="archaeological-sample.html#cb112-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-84-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-84-inc"></span>
 <img src="images/41sy280-84-inc.png" alt="Incisions on sherd 41sy280-84." width="100%" />
 <p class="caption">
@@ -726,8 +726,8 @@ Figure 5.26: Incisions on sherd 41sy280-84.
 </div>
 <div id="sy280-101" class="section level3 hasAnchor" number="5.7.6">
 <h3><span class="header-section-number">5.7.6</span> 41sy280-101<a href="archaeological-sample.html#sy280-101" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="archaeological-sample.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb104-2"><a href="archaeological-sample.html#cb104-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-101-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="archaeological-sample.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb113-2"><a href="archaeological-sample.html#cb113-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-101-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-101-inc"></span>
 <img src="images/41sy280-101-inc.png" alt="Incisions on sherd 41sy280-101." width="100%" />
 <p class="caption">
@@ -737,8 +737,8 @@ Figure 5.27: Incisions on sherd 41sy280-101.
 </div>
 <div id="sy280-127" class="section level3 hasAnchor" number="5.7.7">
 <h3><span class="header-section-number">5.7.7</span> 41sy280-127<a href="archaeological-sample.html#sy280-127" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="archaeological-sample.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb105-2"><a href="archaeological-sample.html#cb105-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-127-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="archaeological-sample.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb114-2"><a href="archaeological-sample.html#cb114-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-127-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-127-inc"></span>
 <img src="images/41sy280-127-inc.png" alt="Incisions on sherd 41sy280-127." width="100%" />
 <p class="caption">
@@ -748,8 +748,8 @@ Figure 5.28: Incisions on sherd 41sy280-127.
 </div>
 <div id="sy280-lot31" class="section level3 hasAnchor" number="5.7.8">
 <h3><span class="header-section-number">5.7.8</span> 41sy280-lot31<a href="archaeological-sample.html#sy280-lot31" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="archaeological-sample.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb106-2"><a href="archaeological-sample.html#cb106-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot31-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="archaeological-sample.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb115-2"><a href="archaeological-sample.html#cb115-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot31-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-lot31-inc"></span>
 <img src="images/41sy280-lot31-inc.png" alt="Incisions on sherd 41sy280-lot31." width="100%" />
 <p class="caption">
@@ -759,8 +759,8 @@ Figure 5.29: Incisions on sherd 41sy280-lot31.
 </div>
 <div id="sy280-lot48" class="section level3 hasAnchor" number="5.7.9">
 <h3><span class="header-section-number">5.7.9</span> 41sy280-lot48<a href="archaeological-sample.html#sy280-lot48" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="archaeological-sample.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb107-2"><a href="archaeological-sample.html#cb107-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot48-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="archaeological-sample.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb116-2"><a href="archaeological-sample.html#cb116-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot48-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-lot48-inc"></span>
 <img src="images/41sy280-lot48-inc.png" alt="Incisions on sherd 41sy280-lot48." width="100%" />
 <p class="caption">
@@ -770,8 +770,8 @@ Figure 5.30: Incisions on sherd 41sy280-lot48.
 </div>
 <div id="sy280-lot50" class="section level3 hasAnchor" number="5.7.10">
 <h3><span class="header-section-number">5.7.10</span> 41sy280-lot50<a href="archaeological-sample.html#sy280-lot50" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="archaeological-sample.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb108-2"><a href="archaeological-sample.html#cb108-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot50-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="archaeological-sample.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb117-2"><a href="archaeological-sample.html#cb117-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot50-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41SY280-lot50-inc"></span>
 <img src="images/41sy280-lot50-inc.png" alt="Incisions on sherd 41SY280-lot50." width="100%" />
 <p class="caption">
@@ -781,8 +781,8 @@ Figure 5.31: Incisions on sherd 41SY280-lot50.
 </div>
 <div id="sy280-lot52" class="section level3 hasAnchor" number="5.7.11">
 <h3><span class="header-section-number">5.7.11</span> 41sy280-lot52<a href="archaeological-sample.html#sy280-lot52" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="archaeological-sample.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb109-2"><a href="archaeological-sample.html#cb109-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot52-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="archaeological-sample.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb118-2"><a href="archaeological-sample.html#cb118-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot52-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-lot52-inc"></span>
 <img src="images/41sy280-lot52-inc.png" alt="Incisions on sherd 41sy280-lot52." width="100%" />
 <p class="caption">
@@ -792,8 +792,8 @@ Figure 5.32: Incisions on sherd 41sy280-lot52.
 </div>
 <div id="sy280-lot90" class="section level3 hasAnchor" number="5.7.12">
 <h3><span class="header-section-number">5.7.12</span> 41sy280-lot90<a href="archaeological-sample.html#sy280-lot90" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="archaeological-sample.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb110-2"><a href="archaeological-sample.html#cb110-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot90-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="archaeological-sample.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb119-2"><a href="archaeological-sample.html#cb119-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot90-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-lot90"></span>
 <img src="images/41sy280-lot90-inc.png" alt="Incisions on sherd 41sy280-lot90." width="100%" />
 <p class="caption">
@@ -803,8 +803,8 @@ Figure 5.33: Incisions on sherd 41sy280-lot90.
 </div>
 <div id="sy280-lot91" class="section level3 hasAnchor" number="5.7.13">
 <h3><span class="header-section-number">5.7.13</span> 41sy280-lot91<a href="archaeological-sample.html#sy280-lot91" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="archaeological-sample.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb111-2"><a href="archaeological-sample.html#cb111-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot91-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="archaeological-sample.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb120-2"><a href="archaeological-sample.html#cb120-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot91-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-lot91-inc"></span>
 <img src="images/41sy280-lot91-inc.png" alt="Incisions on sherd 41sy280-lot91." width="100%" />
 <p class="caption">
@@ -814,8 +814,8 @@ Figure 5.34: Incisions on sherd 41sy280-lot91.
 </div>
 <div id="sy280-lot94" class="section level3 hasAnchor" number="5.7.14">
 <h3><span class="header-section-number">5.7.14</span> 41sy280-lot94<a href="archaeological-sample.html#sy280-lot94" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="archaeological-sample.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb112-2"><a href="archaeological-sample.html#cb112-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot94-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="archaeological-sample.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb121-2"><a href="archaeological-sample.html#cb121-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot94-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-lot94-inc"></span>
 <img src="images/41sy280-lot94-inc.png" alt="Incisions on sherd 41sy280-lot94." width="100%" />
 <p class="caption">
@@ -825,8 +825,8 @@ Figure 5.35: Incisions on sherd 41sy280-lot94.
 </div>
 <div id="sy280-lot107" class="section level3 hasAnchor" number="5.7.15">
 <h3><span class="header-section-number">5.7.15</span> 41sy280-lot107<a href="archaeological-sample.html#sy280-lot107" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="archaeological-sample.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb113-2"><a href="archaeological-sample.html#cb113-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot107-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="archaeological-sample.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb122-2"><a href="archaeological-sample.html#cb122-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot107-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-lot107-inc"></span>
 <img src="images/41sy280-lot107-inc.png" alt="Incisions on sherd 41sy280-lot107." width="100%" />
 <p class="caption">
@@ -836,8 +836,8 @@ Figure 5.36: Incisions on sherd 41sy280-lot107.
 </div>
 <div id="sy280-lot112" class="section level3 hasAnchor" number="5.7.16">
 <h3><span class="header-section-number">5.7.16</span> 41sy280-lot112<a href="archaeological-sample.html#sy280-lot112" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="archaeological-sample.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb114-2"><a href="archaeological-sample.html#cb114-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot112-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="archaeological-sample.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb123-2"><a href="archaeological-sample.html#cb123-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot112-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-lot112-inc"></span>
 <img src="images/41sy280-lot112-inc.png" alt="Incisions on sherd 41sy280-lot112." width="100%" />
 <p class="caption">
@@ -847,8 +847,8 @@ Figure 5.37: Incisions on sherd 41sy280-lot112.
 </div>
 <div id="sy280-lot125" class="section level3 hasAnchor" number="5.7.17">
 <h3><span class="header-section-number">5.7.17</span> 41sy280-lot125<a href="archaeological-sample.html#sy280-lot125" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="archaeological-sample.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb115-2"><a href="archaeological-sample.html#cb115-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot125-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="archaeological-sample.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb124-2"><a href="archaeological-sample.html#cb124-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41sy280-lot125-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41sy280-lot125-inc"></span>
 <img src="images/41sy280-lot125-inc.png" alt="Incisions on sherd 41sy280-lot125." width="100%" />
 <p class="caption">
@@ -863,8 +863,8 @@ Figure 5.38: Incisions on sherd 41sy280-lot125.
 <p>The ceramic sherd assemblage from 41TN91 is unique among other sites in Trinity County on USFS lands that it has a high proportion of grog-tempered wares (89 percent), and few <em>Goose Creek Plain</em> sherds (9.3 percent). The entire ceramic assemblage postdates CE 800, where sandy paste ceramic vessels were not commonly made or used, and the decorated motifs and elements in the sherds strongly suggests occupation by the Caddo. It is possible that the ceramic vessel sherds are a product of one or more temporally distinct occupations, one dating sometime before CE 1200, and the other dating sometime after CE 1200.</p>
 <div id="tn91-u1-0-10" class="section level3 hasAnchor" number="5.8.1">
 <h3><span class="header-section-number">5.8.1</span> 41tn91-u1-0-10<a href="archaeological-sample.html#tn91-u1-0-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="archaeological-sample.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb116-2"><a href="archaeological-sample.html#cb116-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u1-0-10-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="archaeological-sample.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb125-2"><a href="archaeological-sample.html#cb125-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u1-0-10-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-u1-0-10-inc"></span>
 <img src="images/41tn91-u1-0-10-inc.png" alt="Incisions on sherd 41tn91-u1-0-10." width="100%" />
 <p class="caption">
@@ -874,8 +874,8 @@ Figure 5.39: Incisions on sherd 41tn91-u1-0-10.
 </div>
 <div id="tn91-u1-2030" class="section level3 hasAnchor" number="5.8.2">
 <h3><span class="header-section-number">5.8.2</span> 41tn91-u1-2030<a href="archaeological-sample.html#tn91-u1-2030" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="archaeological-sample.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb117-2"><a href="archaeological-sample.html#cb117-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u1-2030-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="archaeological-sample.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb126-2"><a href="archaeological-sample.html#cb126-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u1-2030-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-u1-2030-inc"></span>
 <img src="images/41tn91-u1-2030-inc.png" alt="Incisions on sherd 41tn91-u1-2030." width="100%" />
 <p class="caption">
@@ -885,8 +885,8 @@ Figure 5.40: Incisions on sherd 41tn91-u1-2030.
 </div>
 <div id="tn91-u2-1020" class="section level3 hasAnchor" number="5.8.3">
 <h3><span class="header-section-number">5.8.3</span> 41tn91-u2-1020<a href="archaeological-sample.html#tn91-u2-1020" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="archaeological-sample.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb118-2"><a href="archaeological-sample.html#cb118-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u2-1020-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="archaeological-sample.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb127-2"><a href="archaeological-sample.html#cb127-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u2-1020-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-u2-1020-inc"></span>
 <img src="images/41tn91-u2-1020-inc.png" alt="Incisions on sherd 41tn91-u2-1020." width="100%" />
 <p class="caption">
@@ -896,8 +896,8 @@ Figure 5.41: Incisions on sherd 41tn91-u2-1020.
 </div>
 <div id="tn91-u3-2030" class="section level3 hasAnchor" number="5.8.4">
 <h3><span class="header-section-number">5.8.4</span> 41tn91-u3-2030<a href="archaeological-sample.html#tn91-u3-2030" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="archaeological-sample.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb119-2"><a href="archaeological-sample.html#cb119-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u3-2030-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="archaeological-sample.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb128-2"><a href="archaeological-sample.html#cb128-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u3-2030-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-u3-2030-inc"></span>
 <img src="images/41tn91-u3-2030-inc.png" alt="Incisions on sherd 41tn91-u3-2030." width="100%" />
 <p class="caption">
@@ -907,8 +907,8 @@ Figure 5.42: Incisions on sherd 41tn91-u3-2030.
 </div>
 <div id="tn91-u4-0-20" class="section level3 hasAnchor" number="5.8.5">
 <h3><span class="header-section-number">5.8.5</span> 41tn91-u4-0-20<a href="archaeological-sample.html#tn91-u4-0-20" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="archaeological-sample.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb120-2"><a href="archaeological-sample.html#cb120-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u4-0-20-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="archaeological-sample.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb129-2"><a href="archaeological-sample.html#cb129-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u4-0-20-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-u4-0-20-inc"></span>
 <img src="images/41tn91-u4-0-20-inc.png" alt="Incisions on sherd 41tn91-u4-0-20." width="100%" />
 <p class="caption">
@@ -918,8 +918,8 @@ Figure 5.43: Incisions on sherd 41tn91-u4-0-20.
 </div>
 <div id="tn91-u4-4050" class="section level3 hasAnchor" number="5.8.6">
 <h3><span class="header-section-number">5.8.6</span> 41tn91-u4-4050<a href="archaeological-sample.html#tn91-u4-4050" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="archaeological-sample.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb121-2"><a href="archaeological-sample.html#cb121-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u4-4050-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="archaeological-sample.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb130-2"><a href="archaeological-sample.html#cb130-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u4-4050-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-u4-4050-inc"></span>
 <img src="images/41tn91-u4-4050-inc.png" alt="Incisions on sherd 41tn91-u4-4050." width="100%" />
 <p class="caption">
@@ -929,8 +929,8 @@ Figure 5.44: Incisions on sherd 41tn91-u4-4050.
 </div>
 <div id="tn91-u4-5060" class="section level3 hasAnchor" number="5.8.7">
 <h3><span class="header-section-number">5.8.7</span> 41tn91-u4-5060<a href="archaeological-sample.html#tn91-u4-5060" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="archaeological-sample.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb122-2"><a href="archaeological-sample.html#cb122-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u4-5060-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="archaeological-sample.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb131-2"><a href="archaeological-sample.html#cb131-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u4-5060-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-u4-5060-inc"></span>
 <img src="images/41tn91-u4-5060-inc.png" alt="Incisions on sherd 41tn91-u4-5060." width="100%" />
 <p class="caption">
@@ -940,8 +940,8 @@ Figure 5.45: Incisions on sherd 41tn91-u4-5060.
 </div>
 <div id="tn91-u6-3040" class="section level3 hasAnchor" number="5.8.8">
 <h3><span class="header-section-number">5.8.8</span> 41tn91-u6-3040<a href="archaeological-sample.html#tn91-u6-3040" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="archaeological-sample.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb123-2"><a href="archaeological-sample.html#cb123-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u6-3040-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="archaeological-sample.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb132-2"><a href="archaeological-sample.html#cb132-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u6-3040-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-u6-3040"></span>
 <img src="images/41tn91-u6-3040-inc.png" alt="Incisions on sherd 41tn91-u6-3040." width="100%" />
 <p class="caption">
@@ -951,8 +951,8 @@ Figure 5.46: Incisions on sherd 41tn91-u6-3040.
 </div>
 <div id="tn91-u7-30-40" class="section level3 hasAnchor" number="5.8.9">
 <h3><span class="header-section-number">5.8.9</span> 41tn91-u7-30-40<a href="archaeological-sample.html#tn91-u7-30-40" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="archaeological-sample.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb124-2"><a href="archaeological-sample.html#cb124-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u7-30-40-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="archaeological-sample.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb133-2"><a href="archaeological-sample.html#cb133-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u7-30-40-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-u7-30-40-inc"></span>
 <img src="images/41tn91-u7-30-40-inc.png" alt="Incisions on sherd 41tn91-u7-30-40." width="100%" />
 <p class="caption">
@@ -962,8 +962,8 @@ Figure 5.47: Incisions on sherd 41tn91-u7-30-40.
 </div>
 <div id="tn91-u8-1020" class="section level3 hasAnchor" number="5.8.10">
 <h3><span class="header-section-number">5.8.10</span> 41tn91-u8-1020<a href="archaeological-sample.html#tn91-u8-1020" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="archaeological-sample.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb125-2"><a href="archaeological-sample.html#cb125-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u8-1020-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="archaeological-sample.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb134-2"><a href="archaeological-sample.html#cb134-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-u8-1020-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-u8-1020"></span>
 <img src="images/41tn91-u8-1020-inc.png" alt="Incisions on sherd 41tn91-u8-1020." width="100%" />
 <p class="caption">
@@ -973,8 +973,8 @@ Figure 5.48: Incisions on sherd 41tn91-u8-1020.
 </div>
 <div id="tn91-unit2-lot17" class="section level3 hasAnchor" number="5.8.11">
 <h3><span class="header-section-number">5.8.11</span> 41tn91-unit2-lot17<a href="archaeological-sample.html#tn91-unit2-lot17" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="archaeological-sample.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
-<span id="cb126-2"><a href="archaeological-sample.html#cb126-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-unit2-lot17-inc.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="archaeological-sample.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="co"># incision image</span></span>
+<span id="cb135-2"><a href="archaeological-sample.html#cb135-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&#39;images/41tn91-unit2-lot17-inc.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:41tn91-unit2-lot17-inc"></span>
 <img src="images/41tn91-unit2-lot17-inc.png" alt="Incisions on sherd 41tn91-unit2-lot17." width="100%" />
 <p class="caption">
