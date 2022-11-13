@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Experimental sample - analysis | Toward a theory of the mark: A pilot study of ceramic incision morphology</title>
+  <title>Chapter 4 Experimental sample - analysis | Toward a theory of the mark, and the tools that make them: A pilot study of ceramic incision morphology</title>
   <meta name="description" content="Morphological analysis of ceramic incisions" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Experimental sample - analysis | Toward a theory of the mark: A pilot study of ceramic incision morphology" />
+  <meta property="og:title" content="Chapter 4 Experimental sample - analysis | Toward a theory of the mark, and the tools that make them: A pilot study of ceramic incision morphology" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Morphological analysis of ceramic incisions" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Experimental sample - analysis | Toward a theory of the mark: A pilot study of ceramic incision morphology" />
+  <meta name="twitter:title" content="Chapter 4 Experimental sample - analysis | Toward a theory of the mark, and the tools that make them: A pilot study of ceramic incision morphology" />
   
   <meta name="twitter:description" content="Morphological analysis of ceramic incisions" />
   
@@ -356,7 +356,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Toward a theory of the mark: A pilot study of ceramic incision morphology</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Toward a theory of the mark, and the tools that make them: A pilot study of ceramic incision morphology</a>
           </h1>
         </div>
 
@@ -651,14 +651,18 @@ Figure 4.3: Boxplot of experimental incision profile types (U-narrow, U-Wide, an
 ## Number of vectors 12 
 ## 
 ## Importance of Components:
-##                            Comp1       Comp2       Comp3        Comp4        Comp5        Comp6        Comp7
-## Eigenvalues            0.0441045 0.005014108 0.003398275 0.0003353507 0.0002822004 0.0001809061 0.0001525644
-## Proportion of Variance 0.8226607 0.093525803 0.063386441 0.0062551403 0.0052637514 0.0033743561 0.0028457127
-## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536 0.9910918051 0.9944661611 0.9973118738
-##                               Comp8        Comp9       Comp10       Comp11       Comp12
-## Eigenvalues            7.081347e-05 3.658645e-05 2.060166e-05 1.050025e-05 5.614060e-06
-## Proportion of Variance 1.320850e-03 6.824299e-04 3.842732e-04 1.958562e-04 1.047164e-04
-## Cumulative Proportion  9.986327e-01 9.993152e-01 9.996994e-01 9.998953e-01 1.000000e+00</code></pre>
+##                            Comp1       Comp2       Comp3        Comp4        Comp5
+## Eigenvalues            0.0441045 0.005014108 0.003398275 0.0003353507 0.0002822004
+## Proportion of Variance 0.8226607 0.093525803 0.063386441 0.0062551403 0.0052637514
+## Cumulative Proportion  0.8226607 0.916186472 0.979572913 0.9858280536 0.9910918051
+##                               Comp6        Comp7        Comp8        Comp9       Comp10
+## Eigenvalues            0.0001809061 0.0001525644 7.081347e-05 3.658645e-05 2.060166e-05
+## Proportion of Variance 0.0033743561 0.0028457127 1.320850e-03 6.824299e-04 3.842732e-04
+## Cumulative Proportion  0.9944661611 0.9973118738 9.986327e-01 9.993152e-01 9.996994e-01
+##                              Comp11       Comp12
+## Eigenvalues            1.050025e-05 5.614060e-06
+## Proportion of Variance 1.958562e-04 1.047164e-04
+## Cumulative Proportion  9.998953e-01 1.000000e+00</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="experimental-sample---analysis.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set plot parameters</span></span>
 <span id="cb33-2"><a href="experimental-sample---analysis.html#cb33-2" aria-hidden="true" tabindex="-1"></a>pch.gps<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">17</span>)[<span class="fu">as.factor</span>(inc)]</span>
 <span id="cb33-3"><a href="experimental-sample---analysis.html#cb33-3" aria-hidden="true" tabindex="-1"></a>col.gps<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise2&quot;</span>)[<span class="fu">as.factor</span>(inc)]</span>
@@ -1089,8 +1093,8 @@ Figure 4.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 <span id="cb70-6"><a href="experimental-sample---analysis.html#cb70-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = fit.shapeinc, groups = qdata$inc2, iter = 9999,      data = gdf, print.progress = FALSE) 
-## 
+## morphol.disparity(f1 = fit.shapeinc, groups = qdata$inc2, iter = 9999,  
+##     data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
@@ -1122,8 +1126,8 @@ Figure 4.5: Plot of PC1 and PC2; tan circles, V-shaped incisions; gray squares, 
 <span id="cb72-6"><a href="experimental-sample---analysis.html#cb72-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">iter =</span> <span class="dv">9999</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
-## morphol.disparity(f1 = fit.sizeinc, groups = qdata$inc2, iter = 9999,      data = gdf, print.progress = FALSE) 
-## 
+## morphol.disparity(f1 = fit.sizeinc, groups = qdata$inc2, iter = 9999,  
+##     data = gdf, print.progress = FALSE) 
 ## 
 ## 
 ## 
