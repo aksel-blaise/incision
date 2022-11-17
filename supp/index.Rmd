@@ -1,5 +1,5 @@
 --- 
-title: "Toward a theory of the mark, and the tools that make them: A pilot study of ceramic incision morphology"
+title: "Toward a theory of the mark, and the tools that made them: A pilot study of ceramic incision morphology"
 author: 
     - Robert Z. Selden, Jr.^[Heritage Research Center, Stephen F. Austin State University; Department of Biology, Stephen F. Austin State University; and Cultural Heritage Department, Jean Monnet University, zselden@sfasu.edu]
 date: "`r Sys.Date()`"
