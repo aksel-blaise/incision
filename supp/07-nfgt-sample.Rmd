@@ -11,21 +11,22 @@ library(wesanderson)
 pal <- wes_palette("Moonrise2", 8, type = "continuous")
 
 # gantt chart of (possible) relative dates for ceramic components
-temp<-data.frame(Site = c('41SA66','41SB125','41SB189','41SB189','41SB291','41SY43','41SY43','41SY258','41SY280','41TN91'),
-                 Date_Range_CE = c(800, 1200, c(1000, 1400), 1200, c(1000, 1450), 800, 1400, 900), # in years CE
-                 end = c(1200, 1680, c(1200, 1680), 1680, c(1300, 1680), 1680, 1680, 1200) # in years CE
+temp <- data.frame(Site = c('41SA66','41SY258','41TN91','41SY43','41SY43','41SB189','41SB189','41SB125','41SB291'),
+                 Date_Range_CE = c(800, 800, 900, c(1000, 1450), c(1000, 1400), 1200, 1200), # in years CE
+                 end = c(1200, 1680, 1200, c(1300, 1680), c(1200, 1680), 1680, 1680) # in years CE
 )
 
+temp$SORT <- sort(temp$Date_Range_CE)
 
 # arrange figure
 temp.site <- ggplot(temp, 
-                    aes(x = Date_Range_CE, 
-                        xend = end, 
+                    aes(x = SORT, 
+                        xend = end,
                         y = factor(Site,
                                    levels = rev(levels(factor(Site)))), 
                         yend = Site, 
                         color = Site)) +
-  geom_segment(size = 2) +
+  geom_segment(linewidth = 2) +
   scale_colour_manual(values = pal) +
   theme(legend.position = "none") +
   labs(y = "Site", x = "Date Range CE")
